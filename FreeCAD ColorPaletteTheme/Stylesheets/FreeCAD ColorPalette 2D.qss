@@ -60,7 +60,7 @@ Gui--PropertyEditor--PropertyEditor QAbstractSpinBox:read-only,
 Gui--PropertyEditor--PropertyEditor QAbstractSpinBox:disabled {
     color: transparent;
     border-color: transparent;
-    background-color: #444444;
+    background-color: @ThemeAccentColor1;
     selection-color: transparent;
     selection-background-color: transparent;
     border-radius: 6px;
