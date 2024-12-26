@@ -52,6 +52,7 @@ Theme color selection:
 
        Top    = Accent color 2   
        Middle = Accent color 3
+      
        Bottom = Accent color 3
 
 
@@ -61,6 +62,9 @@ Theme color selection:
 Not: - İf  "Accent color 3" not apply, it is change with "Accent color 2"
   - Color selection suggestion: 'Dark colors' and 'Dark and pale pastel colors'  
   - FreeCAD forum [thread](https://forum.freecad.org/viewtopic.php?t=93274)
+
+
+
 
 
 Screenshot
