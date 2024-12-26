@@ -1212,8 +1212,6 @@ QPushButton {
   padding-bottom: 10px;
   padding-left: 10px;
   padding-right: 10px;
-  min-width: 20px;
-  min-height: 16px;
 }
 
 #CreateNewRow > QPushButton {
