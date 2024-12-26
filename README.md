@@ -8,8 +8,6 @@ I have redesigned the existing FreeCAD dark theme. You can edit your theme with 
 ![FreeCAD-Theme- 3D-4 1](https://github.com/user-attachments/assets/5bc15622-6c68-46d0-9326-b87851bb46cf)
 ![FreeCAD-Theme- 3D-3 2](https://github.com/user-attachments/assets/aee66ce9-1c58-480d-93f7-07e0ae029a67)
 ![FreeCAD-Theme- 3D-3 1](https://github.com/user-attachments/assets/53a575ff-6942-47d1-8f21-c88a03bf1e4f)
-![FreeCAD-Theme- 2D-7 2](https://github.com/user-attachments/assets/1e73c8b6-f771-4819-b599-6f5e665c308a)
-![FreeCAD-Theme- 2D-7 1](https://github.com/user-attachments/assets/986d52d8-1f35-4f81-b47c-2035812db7de)
 ![FreeCAD-Theme- 2D-6 2](https://github.com/user-attachments/assets/b9fb20ef-5d78-460a-bb3c-f50f499b03b6)
 ![FreeCAD-Theme- 2D-6 1](https://github.com/user-attachments/assets/a2e5de95-897a-48fb-b7fb-267fa6fdbd9a)
 ![FreeCAD-Theme- 2D-5 2](https://github.com/user-attachments/assets/2dc03f75-7634-45f2-a697-239f40667a78)
