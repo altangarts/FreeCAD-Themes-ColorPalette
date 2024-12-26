@@ -59,22 +59,25 @@ Theme color selection:
 
   A. Selection and main window:
 
-   1. Edit - Preference - Display - IU - Accent color 1:(Selection and Hover background)  
-                                         Accent color 2:(Windows top background)     
-                                         Accent color 3:(Windows middle background)     
-                                         Accent color 3:(Windows bottom background)
+   1. Edit - Preference - Display - IU -
+       Accent color 1:(Selection and Hover background)  
+       Accent color 2:(Windows top background)     
+       Accent color 3:(Windows middle background)     
+       Accent color 3:(Windows bottom background)
 
       
   B. Viewport window:
 
-   1. Edit - Preference - Display - IU - Colors - Background color - Simple color  
-                                                                    Radial color     
-                                                                    Linear color
+   1. Edit - Preference - Display - IU - Colors - Background color -
+       Simple color  
+       Radial color     
+       Linear color
 
    
-   2. Linear color position: Top    = Accent color 2   
-                             Middle = Accent color 3
-                             Bottom = Accent color 3
+   3. Linear color position:
+       Top    = Accent color 2   
+       Middle = Accent color 3
+       Bottom = Accent color 3
 
                           
 Not: - İf  "Accent color 3" not apply, it is change with "Accent color 2"
