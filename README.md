@@ -69,12 +69,14 @@ Theme color selection:
   B. Viewport window:
 
    1. Edit - Preference - Display - IU - Colors - Background color -
+
        Simple color  
        Radial color     
        Linear color
 
    
    3. Linear color position:
+
        Top    = Accent color 2   
        Middle = Accent color 3
        Bottom = Accent color 3
