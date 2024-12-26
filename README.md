@@ -51,8 +51,7 @@ Theme color selection:
    3. Linear color position:
 
        Top    = Accent color 2   
-       Middle = Accent color 3
-      
+       Middle = Accent color 3      
        Bottom = Accent color 3
 
 
