@@ -14,8 +14,6 @@ I have redesigned the existing FreeCAD dark theme. You can edit your theme with 
 ![FreeCAD-Theme- 2D-6 1](https://github.com/user-attachments/assets/a2e5de95-897a-48fb-b7fb-267fa6fdbd9a)
 ![FreeCAD-Theme- 2D-5 2](https://github.com/user-attachments/assets/2dc03f75-7634-45f2-a697-239f40667a78)
 ![FreeCAD-Theme- 2D-5 1](https://github.com/user-attachments/assets/4e98800f-cb16-459d-b078-21cd75c09191)
-![FreeCAD-Theme- 2D-3 2](https://github.com/user-attachments/assets/3af24298-54ad-418a-9a69-413b56b44a7d)
-![FreeCAD-Theme- 2D-3 1](https://github.com/user-attachments/assets/c754b944-f1c7-4bc0-9db6-746e8d46aa29)
 ![FreeCAD-Theme- 2D-2 2](https://github.com/user-attachments/assets/7f905c3a-e057-4b7a-b62a-eac1d8f26b1d)
 ![FreeCAD-Theme- 2D-2 1](https://github.com/user-attachments/assets/304f20e3-55a3-4831-9514-ec5f36187281)
 ![FreeCAD-Theme- 2D-1 2](https://github.com/user-attachments/assets/119d0a24-6f3a-4df4-a69d-76e0b9fb1fdf)
