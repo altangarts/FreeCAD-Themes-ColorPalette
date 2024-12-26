@@ -38,44 +38,43 @@ You can edit your theme with the color choices in the options in the program wit
 İnstallation:
 
   1. Copy "FreeCADColorPalette3D-2D.qss" to
-  2. 
-     Linux:  -/.FreeCAD/Gui/Stylesheets/
+  
+        Linux:  -/.FreeCAD/Gui/Stylesheets/
+       
+        MacOS:   /Users/[YOUR_USER_NAME]/Library/Preferences/FreeCAD/Gui/Stylesheets/
      
-     MacOS:   /Users/[YOUR_USER_NAME]/Library/Preferences/FreeCAD/Gui/Stylesheets/
-     
-     Windows: C:/[INSTALLATION_PATH]/FreeCAD(FreeCAD 1.0)/data/Gui/Stylesheets/
+        Windows: C:/[INSTALLATION_PATH]/FreeCAD(FreeCAD 1.0)/data/Gui/Stylesheets/
 
 
-  4. Copy "FreeCADColorPaletteOverlay.qss" to
-  5. 
-     Linux:  -/.FreeCAD/Gui/Stylesheets/Overlay
+  2. Copy "FreeCADColorPaletteOverlay.qss" to
+   
+        Linux:  -/.FreeCAD/Gui/Stylesheets/Overlay
      
-     MacOS:   /Users/[YOUR_USER_NAME]/Library/Preferences/FreeCAD/Gui/Stylesheets/Overlay
+        MacOS:   /Users/[YOUR_USER_NAME]/Library/Preferences/FreeCAD/Gui/Stylesheets/Overlay
      
-     Windows: C:/[INSTALLATION_PATH]/FreeCAD(FreeCAD 1.0)/data/Gui/Stylesheets/Overlay
+        Windows: C:/[INSTALLATION_PATH]/FreeCAD(FreeCAD 1.0)/data/Gui/Stylesheets/Overlay
      
 
 Theme color selection: 
 
-A. Selection and main window:
+  A. Selection and main window:
 
-  1. Edit - Preference - Display - IU - Accent color 1:(Selection and Hover background)
-  2. 
-                                        Accent color 2:(Windows top background)     
-                                        Accent color 3:(Windows middle background)     
-                                        Accent color 3:(Windows bottom background)
+   1. Edit - Preference - Display - IU - Accent color 1:(Selection and Hover background)  
+                                         Accent color 2:(Windows top background)     
+                                         Accent color 3:(Windows middle background)     
+                                         Accent color 3:(Windows bottom background)
+
       
-B. Viewport window:
+  B. Viewport window:
 
-
-  4. Edit - Preference - Display - IU - Colors - Background color - Simple color
-  5. 
+   1. Edit - Preference - Display - IU - Colors - Background color - Simple color  
                                                                     Radial color     
                                                                     Linear color
+
    
-   Linear color position: Top    = Accent color 2   
-                          Middle = Accent color 3
-                          Bottom = Accent color 3
+   2. Linear color position: Top    = Accent color 2   
+                             Middle = Accent color 3
+                             Bottom = Accent color 3
 
                           
 Not: - İf  "Accent color 3" not apply, it is change with "Accent color 2"
