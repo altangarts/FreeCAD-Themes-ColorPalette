@@ -1,4 +1,4 @@
-# FreeCAD-ColorPalette-Theme
+# FreeCADColorPaletteTheme
 Versatile variations on the FreeCAD Dark theme with added ability to customize UI without altering the stylesheet file.
 
 İcon
