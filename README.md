@@ -6,6 +6,9 @@ Versatile variations on the FreeCAD Dark theme with added ability to customize U
 ![ColorPaletteTheme](https://github.com/user-attachments/assets/5bd432aa-846b-45e2-bb8d-34f87e8f496c)
 
 ### Screenshots
+
+Twitter - Bluesky Mode 
+![Ekran görüntüsü 2024-12-26 221939](https://github.com/user-attachments/assets/6ee44d6a-8dfb-4a87-b028-a19274f13b1d)
 3D Buttons Overlay
 ![FreeCAD-Theme- 3D-7 2](https://github.com/user-attachments/assets/d914ecb5-c686-4557-933f-7c46746dffb2)
 3D Buttons 
