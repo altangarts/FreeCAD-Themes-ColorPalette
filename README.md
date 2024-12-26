@@ -28,6 +28,9 @@ You can edit your theme with the color choices in the options in the program wit
         Windows: C:/[INSTALLATION_PATH]/FreeCAD(FreeCAD 1.0)/data/Gui/Stylesheets/Overlay
      
 
+
+
+
 Theme color selection: 
 
   A. Selection and main window:
