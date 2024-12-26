@@ -80,7 +80,9 @@ Theme color selection:
        Top    = Accent color 2   
        Middle = Accent color 3
        Bottom = Accent color 3
-      
+
+
+            
 
                           
 Not: - İf  "Accent color 3" not apply, it is change with "Accent color 2"
