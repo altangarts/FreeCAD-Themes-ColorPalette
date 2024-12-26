@@ -35,7 +35,7 @@ Theme color selection:
    1. Edit - Preference - Display - IU -
        Accent color 1:(Selection and Hover background)  
        Accent color 2:(Windows top background)     
-       Accent color 3:(Windows middle background)     
+       Accent color 3:(Windows middle background)       
        Accent color 3:(Windows bottom background)
 
       
