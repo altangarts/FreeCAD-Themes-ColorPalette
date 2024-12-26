@@ -8,7 +8,7 @@ You can edit your theme with the color choices in the options in the program wit
 
 İnstallation:
 
------   Requires: FreeCAD 1.0.0 or and Development versions   -----
+-----   Requires: FreeCAD 1.0.0 and Development versions   -----
 
   1. Copy "FreeCADColorPalette3D-2D.qss" to
   
