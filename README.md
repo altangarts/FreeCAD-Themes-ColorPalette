@@ -2,6 +2,7 @@
 You can edit your theme with the color choices in the options in the program without having to edit the stylesheet file.
 
 İcon
+
 ![ColorPaletteTheme](https://github.com/user-attachments/assets/5bd432aa-846b-45e2-bb8d-34f87e8f496c)
 
 
