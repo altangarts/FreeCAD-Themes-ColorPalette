@@ -3,6 +3,8 @@ You can edit your theme with the color choices in the options in the program wit
 
 İcon
 ![ColorPaletteTheme](https://github.com/user-attachments/assets/5bd432aa-846b-45e2-bb8d-34f87e8f496c)
+
+
 3D Buttons Overlay
 ![FreeCAD-Theme- 3D-7 2](https://github.com/user-attachments/assets/d914ecb5-c686-4557-933f-7c46746dffb2)
 3D Buttons 
