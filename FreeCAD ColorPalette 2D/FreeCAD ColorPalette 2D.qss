@@ -521,8 +521,7 @@ QMenu {
   margin: 0px;
   padding: 4px;
   border: 1px solid rgba(0,0,0,0.4);
-  border-top-left-radius: 6px;
-  border-top-right-radius: 6px;
+  border-radius: 0px;
   color: #eeeeee;  
   background-color: @ThemeAccentColor3;
 }
@@ -539,11 +538,11 @@ QMenu::separator {
 QMenu::item {
   background-color: transparent;
   padding-left: 10px;
-  padding-top: 5px;
-  padding-bottom: 5px;
+  padding-top: 3px;
+  padding-bottom: 3px;
   padding-right: 5px;
   border: 1px rgba(0,0,0,0.4);
-  border-radius: 6px;
+  border-radius: 4px;
 }
 
 QMenu::item:selected {
@@ -657,9 +656,9 @@ QMenu::indicator:exclusive:unchecked:disabled {
 }
 
 QMenu::indicator:exclusive:checked {
-  border: none;
+  border: 1px solid rgba(0,0,0,0.7);;
   outline: none;
-  image: url(qss:images_classic/check-mark-white.png);
+  image: url(qss:images_classic/check-mark-blue.png);
 }
 
 QMenu::indicator:exclusive:checked:hover,
