@@ -1,15 +1,6 @@
-QFrame {
-  border: none;
-}
  QTabWidget::pane{
    background-color: transparent;
    border: transparent;
- }
-
- QAbstractItemView {
-   alternate-background-color: rgba(0, 0, 0, 0.2);
-   color: #ffffff;
-   border: 1px solid #000000;
  }
 
  Gui--OverlayTitleBar,
@@ -81,21 +72,15 @@ Gui--PropertyEditor--PropertyEditor {
   border: transparent;
 }
 
-QListView {
-  background-color: rgba(0,0,0,0.2);
-}
-
-QListView::item,
-QTreeView::item {
+ QTreeView::item {
   margin: 1px 0px;
   padding-top: 1px;
   padding-bottom: 3px;
   border: 1px solid transparent;
 }
-  QListView::item:selected,
-  QListView::item:hover,
-  QTreeView::item:selected,
-  QTreeView::item:hover {
+  
+ QTreeView::item:selected,
+ QTreeView::item:hover {
     border: none;
 }
 
@@ -117,6 +102,7 @@ QTreeView::item {
 
 Gui--TaskView--TaskPanel { 
   background-color: transparent;
+  border: none;
 }
 
 Gui--OverlayToolButton {
