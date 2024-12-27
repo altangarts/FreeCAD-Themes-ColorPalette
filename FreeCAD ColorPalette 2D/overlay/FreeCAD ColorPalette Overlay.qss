@@ -8,7 +8,7 @@ QFrame {
 
  QAbstractItemView {
    alternate-background-color: rgba(0, 0, 0, 0.2);
-   color: #dddddd;
+   color: #ffffff;
    border: 1px solid #000000;
  }
 
