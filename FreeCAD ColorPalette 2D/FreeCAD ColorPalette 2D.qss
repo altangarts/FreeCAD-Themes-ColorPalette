@@ -707,10 +707,11 @@ https://doc.qt.io/qt-5/stylesheet-examples.html#customizing-qabstractscrollarea
 --------------------------------------------------------------------------- */
 QAbstractScrollArea {
   background-color: transparent;
-  border: 0px solid rgba(0,0,0,0.2);
+  border: 1px solid transparent;
   border-radius: 0px;
   /* fix #159 */
   padding: 0px;
+  margin: 0px;
   /* remove min-height to fix #244 */
   color: #eeeeee;
 }
@@ -736,29 +737,29 @@ https://doc.qt.io/qt-5/stylesheet-examples.html#customizing-qscrollbar
 --------------------------------------------------------------------------- */
 
 QScrollBar:horizontal {
-  background-color: rgba(0,0,0,0.1);
   height: 18px;
-  margin-left: 16px;
-  margin-right: 16px;
-  margin-top: 4px;
-  margin-bottom:4px;
-  border: 0px solid transparent;
-  border-radius: 0px;
+  border-right: 20px solid rgba(250,250,250,0.1);
+  border-left: 20px solid rgba(250,250,250,0.1);
+  border-top: 2px solid rgba(250,250,250,0.1);
+  border-bottom: 2px solid rgba(250,250,250,0.1);
+  background-color: transparent;
+  margin-bottom: 2px;
+  margin-top: 2px;
 }
 
 QScrollBar:vertical {
- background-color: rgba(0,0,0,0.1);
   width: 18px;
-  margin-left: 4px;
-  margin-right: 4px;
-  margin-top: 16px;
-  margin-bottom: 16px;
-  border: 0px solid transparent;
-  border-radius: 0px;
+  border-top: 20px solid rgba(250,250,250,0.1);
+  border-bottom: 20px solid rgba(250,250,250,0.1);
+  border-left: 2px solid rgba(250,250,250,0.1);
+  border-right: 2px solid rgba(250,250,250,0.1);
+  background-color: transparent;
+  margin-left: 2px;
+  margin-right: 2px;
 }
 
 QScrollBar::handle:horizontal {
-  background-color: qlineargradient(x1:0, y1:0, x2:1, y2:0, stop:0 transparent,stop:0.5 transparent, stop:1 transparent);
+  background-color: qlineargradient(x1:0, y1:0, x2:1, y2:0, stop:0 transparent,stop:0.5 rgba(0,0,0,0.2), stop:1 transparent);
 }
 
 QScrollBar::handle:horizontal:hover {
@@ -766,11 +767,11 @@ QScrollBar::handle:horizontal:hover {
 }
 
 QScrollBar::handle:horizontal:focus {
-  border: 1px solid @ThemeAccentColor2;
+  border: 1px solid transparent;
 }
 
 QScrollBar::handle:vertical {
-  background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 transparent,stop:0.5 transparent, stop:1 transparent);
+  background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 transparent,stop:0.5 rgba(0,0,0,0.2), stop:1 transparent);
 }
 
 QScrollBar::handle:vertical:hover {
@@ -778,73 +779,77 @@ QScrollBar::handle:vertical:hover {
 }
 
 QScrollBar::handle:vertical:focus {
-  border: 1px solid @ThemeAccentColor1;
+  border: 1px solid transparent;
 }
 
 QScrollBar::add-line:horizontal {
-  margin: 6px 6px;
+  margin: 2px 2px;
   image: url(qss:images_classic/Arrow-right-black.png);
-  height: 10px;
-  width: 10px;
+  height: 14px;
+  width: 14px;
   subcontrol-position: right;
   subcontrol-origin: margin;
 }
 
-QScrollBar::add-line:horizontal:hover, QScrollBar::add-line:horizontal:on {
+QScrollBar::add-line:horizontal:hover, 
+QScrollBar::add-line:horizontal:on {
   image: url(qss:images_classic/Arrow-right-white.png);
-  height: 10px;
-  width: 10px;
+  height: 14px;
+  width: 14px;
   subcontrol-position: right;
   subcontrol-origin: margin;
 }
 
 QScrollBar::add-line:vertical {
-  margin: 6px 6px;
+  margin: 2px 2px;
   image: url(qss:images_classic/Arrow-down-black.png);
-  height: 10px;
-  width: 10px;
+  height: 14px;
+  width: 14px;
   subcontrol-position: bottom;
   subcontrol-origin: margin;
 }
 
-QScrollBar::add-line:vertical:hover, QScrollBar::add-line:vertical:on {
+QScrollBar::add-line:vertical:hover,
+QScrollBar::add-line:vertical:on {
   image: url(qss:images_classic/Arrow-down-white.png);
-  height: 10px;
-  width: 10px;
+  height: 14px;
+  width: 14px;
   subcontrol-position: bottom;
   subcontrol-origin: margin;
 }
 
 QScrollBar::sub-line:horizontal {
-  margin: 6px 6px;
+  margin: 2px 2px;
   image: url(qss:images_classic/Arrow-left-black.png);
-  height: 10px;
-  width: 10px;
+  height: 14px;
+  width: 14px;
   subcontrol-position: left;
   subcontrol-origin: margin;
 }
 
-QScrollBar::sub-line:horizontal:hover, QScrollBar::sub-line:horizontal:on {
+QScrollBar::sub-line:horizontal:hover, 
+QScrollBar::sub-line:horizontal:on {
   image: url(qss:images_classic/Arrow-left-white.png);
-  height: 10px;
-  width: 10px;
+  height: 14px;
+  width: 14px;
   subcontrol-position: left;
   subcontrol-origin: margin;
 }
 
 QScrollBar::sub-line:vertical {
-  margin: 6px 6px;
+  margin: 2px 2px;
   image: url(qss:images_classic/Arrow-up-black.png);
-  height: 10px;
-  width: 10px;
+  height: 14px;
+  width: 14px;
   subcontrol-position: top;
   subcontrol-origin: margin;
 }
 
-QScrollBar::sub-line:vertical:hover, QScrollBar::sub-line:vertical:on {
+QScrollBar::sub-line:vertical:hover, 
+QScrollBar::sub-line:vertical:on {
   image: url(qss:images_classic/Arrow-up-white.png);
-  height: 10px;
-  width: 10px;
+  height: 14px;
+  width: 14px;
   subcontrol-position: top;
   subcontrol-origin: margin;
 }
@@ -1766,6 +1771,8 @@ QSint--ActionGroup QFrame[class="content"] QTreeView,
 QSint--ActionGroup QFrame[class="content"] QListView,
 QSint--ActionGroup QFrame[class="content"] QTableView {
 color: #eeeeee;
+margin: 0px;
+margin-top: 8px;
 padding-left: 4px;
 padding-right: 1px;
 padding-top: 1px;
@@ -1792,7 +1799,7 @@ QSint--ActionGroup QFrame[class="content"] QToolButton {
 }
 
 QSint--ActionGroup QFrame[class="content"] QToolButton:checked {
-  background-color: rgba(0,0,0,0.3);
+  background-color: @ThemeAccentColor1;
   border: 1px solid rgba(0,0,0,0.4);
 }
 
