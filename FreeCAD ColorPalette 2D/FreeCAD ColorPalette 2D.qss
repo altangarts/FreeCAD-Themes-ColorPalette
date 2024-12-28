@@ -42,7 +42,7 @@ Resetting everything helps to unify styles across different operating systems
   border-image: none;
   outline: 0;
   color: #eeeeee;
-  selection-background-color: @ThemeAccentColor1;
+  selection-background-color: rgba(0,0,0,0.6);
   selection-color: white;
 }
 
@@ -726,7 +726,7 @@ QAbstractScrollArea:disabled {
 text input field disabled!!!!*/
 QScrollArea QWidget:disabled {
   /* background-color: #444444; */
-    color: #aaaaaa;
+    color: #bbbbbb;
 }
 
 /* QScrollBar -------------------------------------------------------------
