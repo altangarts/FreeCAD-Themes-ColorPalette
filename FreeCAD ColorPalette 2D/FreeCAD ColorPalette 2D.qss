@@ -1772,7 +1772,6 @@ QSint--ActionGroup QFrame[class="content"] QListView,
 QSint--ActionGroup QFrame[class="content"] QTableView {
 color: #eeeeee;
 margin: 0px;
-margin-top: 8px;
 padding-left: 4px;
 padding-right: 1px;
 padding-top: 1px;
@@ -1794,7 +1793,8 @@ QSint--ActionGroup QFrame[class="content"] QToolButton {
   border: 1px solid rgba(0,0,0,0.4);
   padding: 1px 1px; /* different than regular QPushButton */
   margin: 0px; /* different than regular QPushButton */
-  min-height: 16px; /* same as QTabBar QPushButton min-width */
+  min-height: 18px; /* same as QTabBar QPushButton min-width */
+  min-width: 22px;
   border-radius: 6px;
 }
 
@@ -1809,7 +1809,7 @@ QSint--ActionGroup QToolButton::menu-button {
   border-top-right-radius: 6px;
   border-bottom-right-radius: 6px;
   padding: 0px;
-  width: 19px; /* 16px width + 4px for border = 20px allocated above */
+  width: 18px; /* 16px width + 4px for border = 20px allocated above */
   outline: none;
   background-color: transparent;
   /* margin: 10px; */
