@@ -74,8 +74,6 @@ Gui--PropertyEditor--PropertyEditor {
 
  QTreeView::item {
   margin: 1px 0px;
-  padding-top: 1px;
-  padding-bottom: 3px;
   border: 1px solid transparent;
 }
   
