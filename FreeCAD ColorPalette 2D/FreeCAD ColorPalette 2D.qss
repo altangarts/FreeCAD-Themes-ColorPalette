@@ -1530,8 +1530,7 @@ QComboBox QAbstractItemView {
   selection-background-color: @ThemeAccentColor1;
 }
 
-QComboBox QAbstractItemView:hover {
-  background-color: @ThemeAccentColor1;
+QComboBox QAbstractItemView:hover {  
   color: white;
 }
 
