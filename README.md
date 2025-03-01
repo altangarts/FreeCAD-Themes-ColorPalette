@@ -1,15 +1,8 @@
 # FreeCAD ColorPalette Theme
 Versatile variations on the FreeCAD Dark theme with added ability to customize UI without altering the stylesheet file.
-
-İcon
-
-![ColorPaletteTheme](https://github.com/user-attachments/assets/5bd432aa-846b-45e2-bb8d-34f87e8f496c)
-
 ### Screenshots
 FreeCAD 3 Light Example
 ![Ekran görüntüsü 2025-02-28 143229](https://github.com/user-attachments/assets/cb1dfaf5-af7c-4e1b-b927-8590f3caacda)
-Twitter - Bluesky Theme 
-![Ekran görüntüsü 2024-12-26 221939](https://github.com/user-attachments/assets/6ee44d6a-8dfb-4a87-b028-a19274f13b1d)
 3D Buttons Overlay
 ![FreeCAD-Theme- 3D-7 2](https://github.com/user-attachments/assets/d914ecb5-c686-4557-933f-7c46746dffb2)
 3D Buttons 
@@ -45,16 +38,27 @@ Twitter - Bluesky Theme
 ### İnstallation:
 
 #### Manual
-1. Copy `FreeCADColorPalette3D-2D.qss` to
+
+1. Primary;
+  
+  -Extract `FreeCADColorPaletteTheme-main.rar` to
    ```
-   Linux:  -/.FreeCAD/Gui/Stylesheets/
-   MacOS:   /Users/[YOUR_USER_NAME]/Library/Preferences/FreeCAD/Gui/Stylesheets/
+   Linux:     /home/username/.local/share/FreeCAD/Mod/
+   MacOS:     /Users/username/Library/Application Support/FreeCAD/Mod/
+   Windows: C:\Users\username\Appdata\Roaming\FreeCAD\Mod\
+   ```
+2. Alternate;
+  
+  -Copy `FreeCADColorPalette3D-2D.qss` to
+   ```
+   Linux:     /.FreeCAD/Gui/Stylesheets/
+   MacOS:     /Users/[YOUR_USER_NAME]/Library/Preferences/FreeCAD/Gui/Stylesheets/
    Windows: C:/[INSTALLATION_PATH]/FreeCAD(FreeCAD 1.0)/data/Gui/Stylesheets/
    ```
-2. Copy `FreeCADColorPaletteOverlay.qss` to
+  -Copy `FreeCADColorPaletteOverlay.qss` to
    ```
-   Linux:  -/.FreeCAD/Gui/Stylesheets/Overlay
-   MacOS:   /Users/[YOUR_USER_NAME]/Library/Preferences/FreeCAD/Gui/Stylesheets/Overlay
+   Linux:     /.FreeCAD/Gui/Stylesheets/Overlay
+   MacOS:     /Users/[YOUR_USER_NAME]/Library/Preferences/FreeCAD/Gui/Stylesheets/Overlay
    Windows: C:/[INSTALLATION_PATH]/FreeCAD(FreeCAD 1.0)/data/Gui/Stylesheets/Overlay
    ```
 ### Usage
