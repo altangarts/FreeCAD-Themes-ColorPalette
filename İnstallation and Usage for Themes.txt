@@ -1,0 +1,78 @@
+
+İnstallation:
+
+
+  1. Primary;
+
+    -Extract "FreeCADColorPaletteTheme-main.rar" to
+
+     Linux:     /home/username/.local/share/FreeCAD/Mod/
+     MacOS:     /Users/username/Library/Application Support/FreeCAD/Mod/
+     Windows: C:\Users\username\Appdata\Roaming\FreeCAD\Mod\
+
+
+  2. Alternate;
+
+    -Copy "FreeCADColorPalette3D-2D.qss" to 
+
+     Linux:     /.FreeCAD/Gui/Stylesheets/
+     MacOS:     /Users/[YOUR_USER_NAME]/Library/Preferences/FreeCAD/Gui/Stylesheets/
+     Windows: C:/[INSTALLATION_PATH]/FreeCAD(FreeCAD 1.0)/data/Gui/Stylesheets/
+
+
+    -Copy "FreeCADColorPaletteOverlay.qss" to
+
+     Linux:     /.FreeCAD/Gui/Stylesheets/Overlay
+     MacOS:     /Users/[YOUR_USER_NAME]/Library/Preferences/FreeCAD/Gui/Stylesheets/Overlay
+     Windows: C:/[INSTALLATION_PATH]/FreeCAD(FreeCAD 1.0)/data/Gui/Stylesheets/Overlay
+
+
+
+
+Usage:
+
+Theme color selection; 
+
+A. Selection and main window:
+
+  1. Edit - Preference - Display - IU - Accent color 1:(Selection and Hover background)
+                                        Accent color 2:(Windows top background)
+                                        Accent color 3:(Windows middle background)
+                                        Accent color 3:(Windows bottom background)
+
+
+B. Viewport window:
+
+  2. Edit - Preference - Display - IU - Colors - Background color - Simple color
+                                                                    Radial color
+                                                                    Linear color
+
+
+   Linear color position: Top    = Accent color 2
+                          Middle = Accent color 3
+                          Bottom = Accent color 3
+
+
+
+
+
+
+Note:  
+
+     - Prerequisites FreeCAD ≥ v1.0.0
+
+     - İf "Accent color 3" isn't applied, it is substituted with "Accent color 2"
+
+     - Color selection suggestion: 'Dark colors' and 'Dark and pale pastel colors'
+
+     - Have a nice working day :))
+
+
+
+
+
+
+
+
+
+.
