@@ -1428,7 +1428,7 @@ QToolBar > QToolButton#qt_toolbutton_menubutton::menu-button {
     width: 30px;
     height: 12px;
     outline: none;
-    margin-rigth: 0px;
+    margin-right: 0px;
     padding-bottom: 4px;
     border-radius: 0px;
     background-color: transparent;
