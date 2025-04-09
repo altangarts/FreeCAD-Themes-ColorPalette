@@ -4,29 +4,31 @@
  <version>2024.12.26</version>
  <date>2024.12.26</date>
  <description>Variation on FreeCAD's Dark theme</description>
- <maintainer email="">Altan-g</maintainer>
- <license file="LICENSE">GPL-3.0 license</license>
- <url type="repository" branch="main">https://github.com/Altan-g/FreeCAD-ColorPalette-Theme</url>
+ <maintainer email="">altangarts@gmail</maintainer>
+ <license file="LICENSE">LGPL-2.1-or-later</license>
+ <url type="repository" branch="main">https://github.com/altangarts/FreeCADColorPaletteTheme</url>
  <icon>resources/icons/ColorPaletteTheme.png</icon>
 
 <content>
   <preferencepack>
-    <name>FreeCAD ColorPalette 3D</name>
+    <name>FreeCAD ColorPalette 2D</name>
     <description>3D buttons and Color palette background</description>
     <tag>2024</tag>
     <type>Theme</type>
     <tag>3D</tag>
-    <subdirectory>./FreeCAD ColorPalette 3D/</subdirectory>
-    <file>FreeCAD ColorPalette 3D.qss</file>
+    <subdirectory>./FreeCAD ColorPalette 2D/</subdirectory>
+    <file>FreeCAD ColorPalette 2D.qss</file>
+    <file>FreeCAD ColorPalette Overlay.qss</file>
   </preferencepack>
   <preferencepack>
-    <name>FreeCAD ColorPalette 2D</name>
+    <name>FreeCAD ColorPalette 3D</name>
     <description>2D buttons and Color palette background</description>
     <tag>2024</tag>
     <type>Theme</type>
     <tag>2D</tag>
-    <subdirectory>./FreeCAD ColorPalette 2D/</subdirectory>
-    <file>FreeCAD ColorPalette 2D.qss</file>
+    <subdirectory>./FreeCAD ColorPalette 3D/</subdirectory>
+    <file>FreeCAD ColorPalette 3D.qss</file>
+    <file>FreeCAD ColorPalette Overlay.qss</file>
   </preferencepack>  
 </content>
 </package>
