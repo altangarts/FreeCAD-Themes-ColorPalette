@@ -2128,7 +2128,7 @@ QTabBar::tab:top, QDockWidget QTabBar::tab:top {
 }
 
 QTabBar::tab:top:selected, QDockWidget QTabBar::tab:top:selected {
-  background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 @ThemeAccentColor1, stop:0.65 @ThemeAccentColor1, stop:1 rgba(0,0,0,0.8));
+  background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 @ThemeAccentColor1, stop:0.75 @ThemeAccentColor1, stop:1 rgba(0,0,0,0.8));
   color: white;
   border-top: 1px solid rgba(0,0,0,1); /* selection color */
   border-bottom: 1px solid rgba(0,0,0,1);
@@ -2139,7 +2139,7 @@ QTabBar::tab:top:selected, QDockWidget QTabBar::tab:top:selected {
 }
 
 QTabBar::tab:top:!selected:hover, QDockWidget QTabBar::tab:top:!selected:hover {
-  background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 @ThemeAccentColor1, stop:0.65 @ThemeAccentColor1, stop:1 rgba(0,0,0,0.8));
+  background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 @ThemeAccentColor1, stop:0.75 @ThemeAccentColor1, stop:1 rgba(0,0,0,0.8));
   color: white;
   border-top: 1px solid rgba(0,0,0,1); /* selection color */
   border-bottom: 1px solid rgba(0,0,0,1);
@@ -2169,7 +2169,7 @@ QTabBar::tab:bottom, QDockWidget QTabBar::tab:bottom {
 }
 
 QTabBar::tab:bottom:selected, QDockWidget QTabBar::tab:bottom:selected {
-  background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 @ThemeAccentColor1, stop:0.65 @ThemeAccentColor1, stop:1 rgba(0,0,0,0.8));
+  background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 @ThemeAccentColor1, stop:0.75 @ThemeAccentColor1, stop:1 rgba(0,0,0,0.8));
   color: white;
   border-top: 1px solid rgba(0,0,0,1); /* selection color */
   border-bottom: 1px solid rgba(0,0,0,1);
@@ -2180,7 +2180,7 @@ QTabBar::tab:bottom:selected, QDockWidget QTabBar::tab:bottom:selected {
 }
 
 QTabBar::tab:bottom:!selected:hover, QDockWidget QTabBar::tab:bottom:!selected:hover {
-  background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 @ThemeAccentColor1, stop:0.65 @ThemeAccentColor1, stop:1 rgba(0,0,0,0.8));
+  background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 @ThemeAccentColor1, stop:0.75 @ThemeAccentColor1, stop:1 rgba(0,0,0,0.8));
   color: white;
   border-top: 1px solid rgba(0,0,0,1); /* selection color */
   border-bottom: 1px solid rgba(0,0,0,1);
@@ -2210,7 +2210,7 @@ QTabBar::tab:left, QDockWidget QTabBar::tab:left {
 }
 
 QTabBar::tab:left:selected, QDockWidget QTabBar::tab:left:selected {
-  background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 @ThemeAccentColor1, stop:0.65 @ThemeAccentColor1, stop:1 rgba(0,0,0,0.8));
+  background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 @ThemeAccentColor1, stop:0.75 @ThemeAccentColor1, stop:1 rgba(0,0,0,0.8));
   color: white;
   border-top: 1px solid rgba(0,0,0,1); /* selection color */
   border-bottom: 1px solid rgba(0,0,0,1);
@@ -2221,7 +2221,7 @@ QTabBar::tab:left:selected, QDockWidget QTabBar::tab:left:selected {
 }
 
 QTabBar::tab:left:!selected:hover, QDockWidget QTabBar::tab:left:!selected:hover {
-  background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 @ThemeAccentColor1, stop:0.65 @ThemeAccentColor1, stop:1 rgba(0,0,0,0.8));
+  background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 @ThemeAccentColor1, stop:0.75 @ThemeAccentColor1, stop:1 rgba(0,0,0,0.8));
   color: white;
   border-top: 1px solid rgba(0,0,0,1); /* selection color */
   border-bottom: 1px solid rgba(0,0,0,1);
@@ -2252,7 +2252,7 @@ QTabBar::tab:right, QDockWidget QTabBar::tab:right {
 }
 
 QTabBar::tab:right:selected, QDockWidget QTabBar::tab:right:selected {
-  background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 @ThemeAccentColor1, stop:0.65 @ThemeAccentColor1, stop:1 rgba(0,0,0,0.8));
+  background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 @ThemeAccentColor1, stop:0.75 @ThemeAccentColor1, stop:1 rgba(0,0,0,0.8));
   color: white;
   border-top: 1px solid rgba(0,0,0,1); /* selection color */
   border-bottom: 1px solid rgba(0,0,0,1);
@@ -2263,7 +2263,7 @@ QTabBar::tab:right:selected, QDockWidget QTabBar::tab:right:selected {
 }
 
 QTabBar::tab:right:!selected:hover, QDockWidget QTabBar::tab:right:!selected:hover {
-  background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 @ThemeAccentColor1, stop:0.65 @ThemeAccentColor1, stop:1 rgba(0,0,0,0.8));
+  background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 @ThemeAccentColor1, stop:0.75 @ThemeAccentColor1, stop:1 rgba(0,0,0,0.8));
   color: white;
   border-top: 1px solid rgba(0,0,0,1); /* selection color */
   border-bottom: 1px solid rgba(0,0,0,1);
@@ -2278,16 +2278,16 @@ QTabBar QToolButton, QDockWidget QTabBar QToolButton {
   /* background-color: #444444; */
   border: 1px solid rgba(0,0,0,0.3);
   margin: 1px;
-  background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 rgba(250,250,250,0.25), stop:0.65 rgba(250,250,250,0.6), stop:1 rgba(0,0,0,0.8));
+  background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 rgba(250,250,250,0.25), stop:0.75 rgba(250,250,250,0.6), stop:1 rgba(0,0,0,0.8));
 
 }
 
 QTabBar QToolButton:pressed, QDockWidget QTabBar QToolButton:pressed {
-  background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 @ThemeAccentColor1, stop:0.65 @ThemeAccentColor1, stop:1 rgba(0,0,0,0.8));
+  background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 @ThemeAccentColor1, stop:0.75 @ThemeAccentColor1, stop:1 rgba(0,0,0,0.8));
 }
 
 QTabBar QToolButton:pressed:hover, QDockWidget QTabBar QToolButton:pressed:hover {
-  background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 @ThemeAccentColor1, stop:0.65 @ThemeAccentColor1, stop:1 rgba(0,0,0,0.8));
+  background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 @ThemeAccentColor1, stop:0.75 @ThemeAccentColor1, stop:1 rgba(0,0,0,0.8));
 }
 
 QTabBar QToolButton::left-arrow:enabled, QDockWidget QTabBar QToolButton::left-arrow:enabled {
