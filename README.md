@@ -8,22 +8,21 @@ Versatile variations on the FreeCAD Dark theme with added ability to customize U
 
 #### Manual
 
-1. Primary;
-  
   -Extract `FreeCADColorPaletteTheme-main.rar` to
    ```
    Linux:     /home/username/.local/share/FreeCAD/Mod/
    MacOS:     /Users/username/Library/Application Support/FreeCAD/Mod/
    Windows: C:\Users\username\Appdata\Roaming\FreeCAD\Mod\
    ```
+
 ### Usage
 Theme color selection:  
 #### Selection and Main Window  
 1. Edit ➡ Preference ➡ Display ➡ UI ➡ Theme Customization     
-  Accent color 1:(Selection and Hover background)  
-  Accent color 2:(Windows top background)  
-  Accent color 3:(Windows middle background)  
-  Accent color 3:(Windows bottom background)  
+           Accent color 1:(Selection and Hover background)  
+           Accent color 2:(Windows top background)  
+           Accent color 3:(Windows middle background)  
+           Accent color 3:(Windows bottom background)  
 #### Viewport window
 1. Edit ➡ Preference ➡ Display ➡ IU ➡ Colors ➡ Background color   
   Simple color  
