@@ -33,7 +33,7 @@ Versatile variations on the FreeCAD Dark theme with added ability to customize U
 ### Usage
 Theme color selection:  
 #### Selection and Main Window  
-1. Edit ➡ Preference ➡ Display ➡ IU  
+1. Edit ➡ Preference ➡ Display ➡ UI ➡ Theme Customization
   Accent color 1:(Selection and Hover background)  
   Accent color 2:(Windows top background)  
   Accent color 3:(Windows middle background)  
