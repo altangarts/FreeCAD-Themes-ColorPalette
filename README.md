@@ -39,7 +39,7 @@ Theme color selection:
   Accent color 3:(Windows middle background)  
   Accent color 3:(Windows bottom background)  
 #### Viewport window
-1. Edit ➡ Preference ➡ Display ➡ IU ➡ Colors ➡ Background color ➡  
+1. Edit ➡ Preference ➡ Display ➡ IU ➡ Colors ➡ Background color   
   Simple color  
   Radial color  
   Linear color  
