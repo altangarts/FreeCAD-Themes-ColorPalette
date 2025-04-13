@@ -58,7 +58,7 @@ Theme color selection:
 LGPLv2.1 [LICENSE](LICENSE)
 
 ### Screenshots
-                    ------   Example   ------
+                                          ------   Example   ------
 
 
 
