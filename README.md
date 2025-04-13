@@ -86,7 +86,7 @@ Theme color selection:
 * FreeCAD forum [thread](https://forum.freecad.org/viewtopic.php?t=93274)
 
 ### License
-GPLv3 [LICENSE](LICENSE)
+LGPLv2.1 [LICENSE](LICENSE)
 
 
 
