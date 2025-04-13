@@ -19,19 +19,19 @@ Versatile variations on the FreeCAD Dark theme with added ability to customize U
 Theme color selection:  
 #### Selection and Main Window  
 1. Edit ➡ Preference ➡ Display ➡ UI ➡ Theme Customization     
-           Accent color 1:(Selection and Hover background)  
-           Accent color 2:(Windows top background)  
-           Accent color 3:(Windows middle background)  
-           Accent color 3:(Windows bottom background)  
+   Accent color 1:(Selection and Hover background)  
+   Accent color 2:(Windows top background)  
+   Accent color 3:(Windows middle background)  
+   Accent color 3:(Windows bottom background)  
 #### Viewport window
 1. Edit ➡ Preference ➡ Display ➡ IU ➡ Colors ➡ Background color   
-  Simple color  
-  Radial color  
-  Linear color  
+   Simple color  
+   Radial color  
+   Linear color  
 2. Linear color position:  
-  Top    = Accent color 2  
-  Middle = Accent color 3      
-  Bottom = Accent color 3  
+   Top    = Accent color 2  
+   Middle = Accent color 3      
+   Bottom = Accent color 3  
                           
 - Note: İf "Accent color 3" isn't applied, it is substituted with "Accent color 2"
 - Color selection suggestion: 'Dark colors' and 'Dark and pale pastel colors'  
