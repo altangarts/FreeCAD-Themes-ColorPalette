@@ -16,20 +16,6 @@ Versatile variations on the FreeCAD Dark theme with added ability to customize U
    MacOS:     /Users/username/Library/Application Support/FreeCAD/Mod/
    Windows: C:\Users\username\Appdata\Roaming\FreeCAD\Mod\
    ```
-2. Alternate;
-  
-  -Copy `FreeCADColorPalette3D-2D.qss` to
-   ```
-   Linux:     /.FreeCAD/Gui/Stylesheets/
-   MacOS:     /Users/[YOUR_USER_NAME]/Library/Preferences/FreeCAD/Gui/Stylesheets/
-   Windows: C:/[INSTALLATION_PATH]/FreeCAD(FreeCAD 1.0)/data/Gui/Stylesheets/
-   ```
-  -Copy `FreeCADColorPaletteOverlay.qss` to
-   ```
-   Linux:     /.FreeCAD/Gui/Stylesheets/Overlay
-   MacOS:     /Users/[YOUR_USER_NAME]/Library/Preferences/FreeCAD/Gui/Stylesheets/Overlay
-   Windows: C:/[INSTALLATION_PATH]/FreeCAD(FreeCAD 1.0)/data/Gui/Stylesheets/Overlay
-   ```
 ### Usage
 Theme color selection:  
 #### Selection and Main Window  
