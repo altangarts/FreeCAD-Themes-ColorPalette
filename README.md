@@ -58,41 +58,13 @@ Theme color selection:
 LGPLv2.1 [LICENSE](LICENSE)
 
 ### Screenshots
-FreeCAD 3 Light Example
-![Ekran görüntüsü 2025-02-28 143229](https://github.com/user-attachments/assets/cb1dfaf5-af7c-4e1b-b927-8590f3caacda)
-3D Buttons Overlay
-![FreeCAD-Theme- 3D-7 2](https://github.com/user-attachments/assets/d914ecb5-c686-4557-933f-7c46746dffb2)
-3D Buttons 
-![FreeCAD-Theme- 3D-7 1](https://github.com/user-attachments/assets/4bb111ad-6a27-4e96-ad6a-f1a551b5046a)
-3D Buttons Overlay
-![FreeCAD-Theme- 3D-6 2](https://github.com/user-attachments/assets/8368e6af-d347-4e41-bc04-23e961384c94)
-3D Buttons 
-![FreeCAD-Theme- 3D-6 1](https://github.com/user-attachments/assets/3117883e-b1f7-48b2-9b0c-4430406c1dfd)
-3D Buttons Overlay
-![FreeCAD-Theme- 3D-4 2](https://github.com/user-attachments/assets/40a13b6e-9ef2-4864-af64-507d539d1576)
-3D Buttons 
-![FreeCAD-Theme- 3D-4 1](https://github.com/user-attachments/assets/5bc15622-6c68-46d0-9326-b87851bb46cf)
-3D Buttons Overlay
-![FreeCAD-Theme- 3D-3 2](https://github.com/user-attachments/assets/aee66ce9-1c58-480d-93f7-07e0ae029a67)
-3D Buttons 
-![FreeCAD-Theme- 3D-3 1](https://github.com/user-attachments/assets/53a575ff-6942-47d1-8f21-c88a03bf1e4f)
-2D Buttons Overlay
-![FreeCAD-Theme- 2D-5 2](https://github.com/user-attachments/assets/2dc03f75-7634-45f2-a697-239f40667a78)
-2D Buttons 
-![FreeCAD-Theme- 2D-5 1](https://github.com/user-attachments/assets/4e98800f-cb16-459d-b078-21cd75c09191)
-2D Buttons Overlay
-![FreeCAD-Theme- 2D-2 2](https://github.com/user-attachments/assets/7f905c3a-e057-4b7a-b62a-eac1d8f26b1d)
-2D Buttons 
-![FreeCAD-Theme- 2D-2 1](https://github.com/user-attachments/assets/304f20e3-55a3-4831-9514-ec5f36187281)
-2D Buttons Overlay
-![FreeCAD-Theme- 2D-1 2](https://github.com/user-attachments/assets/119d0a24-6f3a-4df4-a69d-76e0b9fb1fdf)
-2D Buttons 
-![FreeCAD-Theme- 2D-1 1](https://github.com/user-attachments/assets/fd902ebe-1f86-4d7f-b036-6d657768f3eb)
+                    ------   Example   ------
 
 
 
-
-
-
-
-
+                    
+![Ekran görüntüsü 2025-04-13 103923](https://github.com/user-attachments/assets/a913c018-e1e7-426b-a06f-d82f9dfdcfee)
+![Ekran görüntüsü 2025-04-13 123946](https://github.com/user-attachments/assets/5895803f-8f69-4c3c-944b-a248cc0d8717)
+![Ekran görüntüsü 2025-04-13 104814](https://github.com/user-attachments/assets/9201d085-ba62-4405-a857-e3da725d45bf)
+![Ekran görüntüsü 2025-04-13 104651](https://github.com/user-attachments/assets/36e31559-914a-48db-9e56-4b213f9b4f00)
+![Ekran görüntüsü 2025-04-13 104546](https://github.com/user-attachments/assets/380b88d5-41c3-418c-aeb8-d1fc4278e1a3)
