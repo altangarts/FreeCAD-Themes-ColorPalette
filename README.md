@@ -46,14 +46,10 @@ LGPLv2.1 [LICENSE](LICENSE)
                                            ------   Examples   ------
 
 
-
-![Ekran görüntüsü 2025-04-13 104651](https://github.com/user-attachments/assets/36e31559-914a-48db-9e56-4b213f9b4f00)
-![Ekran görüntüsü 2025-04-13 104814](https://github.com/user-attachments/assets/9201d085-ba62-4405-a857-e3da725d45bf)
-![Ekran görüntüsü 2025-04-13 170757](https://github.com/user-attachments/assets/80cecaa1-ded0-4e66-a545-e5a99467e86e)
-![Ekran görüntüsü 2025-04-13 171049](https://github.com/user-attachments/assets/f3c4e286-2afe-4b55-9c6e-4ecb318a71a0)
-![Ekran görüntüsü 2025-04-13 123946](https://github.com/user-attachments/assets/5895803f-8f69-4c3c-944b-a248cc0d8717)
-![Ekran görüntüsü 2025-04-13 103923](https://github.com/user-attachments/assets/a913c018-e1e7-426b-a06f-d82f9dfdcfee)
-![Ekran görüntüsü 2025-04-13 165647](https://github.com/user-attachments/assets/2855e6f9-af8d-42a9-9da9-b25f64b92d46)
-![Ekran görüntüsü 2025-04-13 170010](https://github.com/user-attachments/assets/31cb2435-5065-49ee-ba47-298a22710219)
-![Ekran görüntüsü 2025-04-13 165602](https://github.com/user-attachments/assets/769acda4-cf43-46ff-951b-e7f9e49de244)
-![Ekran görüntüsü 2025-04-13 165419](https://github.com/user-attachments/assets/3da6192d-5d51-43b6-b94a-1102992018b8)
+![Ekran görüntüsü 2025-05-13 224047](https://github.com/user-attachments/assets/3b17da5c-b525-4ee2-9737-23bbc6a7920b)
+![Ekran görüntüsü 2025-05-13 224505](https://github.com/user-attachments/assets/86df3858-faa9-4ddb-a097-c1c3911b1c76)
+![Ekran görüntüsü 2025-05-13 224359](https://github.com/user-attachments/assets/6a8cb894-00d6-4b88-b66e-47a709b284f1)
+![Ekran görüntüsü 2025-05-13 223851](https://github.com/user-attachments/assets/2a77a4f2-b657-4f79-9aa2-1c62179cb1a4)
+![Ekran görüntüsü 2025-05-13 223749](https://github.com/user-attachments/assets/3518e863-92ab-4de6-82dd-db784fc111d4)
+![Ekran görüntüsü 2025-05-13 222319](https://github.com/user-attachments/assets/ac3c4795-aba9-4c40-8258-471205fafbd2)
+![Ekran görüntüsü 2025-05-13 222733](https://github.com/user-attachments/assets/5be5d76b-d276-4347-9a00-7844da856df4)
