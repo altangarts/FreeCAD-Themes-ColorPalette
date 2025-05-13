@@ -40,7 +40,7 @@ Gui--PropertyEditor--PropertyEditor {
 }
 
  Gui--OverlayTabWidget::pane {
-   background-color: rgba(0,0,0,0.03);
+   background-color: rgba(0,0,0,0.02);
    border: transparent;
  }
 
