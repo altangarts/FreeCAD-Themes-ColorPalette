@@ -45,11 +45,14 @@ LGPLv2.1 [LICENSE](LICENSE)
 ### Screenshots
                                            ------   Examples   ------
 
+![Ekran görüntüsü 2025-05-16 234705](https://github.com/user-attachments/assets/6cf4ccc4-ab99-4b5e-9c47-172a898a77aa)
+![Ekran görüntüsü 2025-05-16 232200](https://github.com/user-attachments/assets/d4cf12af-0bd0-4fd5-a5ce-ef2143f17d57)
+![Ekran görüntüsü 2025-05-16 234039](https://github.com/user-attachments/assets/8c317555-6d70-41c0-9817-f5d585ad42b5)
+![Ekran görüntüsü 2025-05-17 000101](https://github.com/user-attachments/assets/7c953431-e076-40b9-aa1a-b674d0b0c3dd)
+![Ekran görüntüsü 2025-05-17 000422](https://github.com/user-attachments/assets/d1247b38-03bd-4af9-ad5b-dad7ebe38282)
+![Ekran görüntüsü 2025-05-17 001013](https://github.com/user-attachments/assets/31ad1160-d46d-446d-ba82-473c817e42de)
 
-![Ekran görüntüsü 2025-05-13 224047](https://github.com/user-attachments/assets/3b17da5c-b525-4ee2-9737-23bbc6a7920b)
-![Ekran görüntüsü 2025-05-13 224505](https://github.com/user-attachments/assets/86df3858-faa9-4ddb-a097-c1c3911b1c76)
-![Ekran görüntüsü 2025-05-13 224359](https://github.com/user-attachments/assets/6a8cb894-00d6-4b88-b66e-47a709b284f1)
-![Ekran görüntüsü 2025-05-13 223851](https://github.com/user-attachments/assets/2a77a4f2-b657-4f79-9aa2-1c62179cb1a4)
-![Ekran görüntüsü 2025-05-13 223749](https://github.com/user-attachments/assets/3518e863-92ab-4de6-82dd-db784fc111d4)
-![Ekran görüntüsü 2025-05-13 222319](https://github.com/user-attachments/assets/ac3c4795-aba9-4c40-8258-471205fafbd2)
-![Ekran görüntüsü 2025-05-13 222733](https://github.com/user-attachments/assets/5be5d76b-d276-4347-9a00-7844da856df4)
+
+
+
+
