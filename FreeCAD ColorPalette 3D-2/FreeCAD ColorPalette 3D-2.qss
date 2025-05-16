@@ -2636,17 +2636,19 @@ QTreeView::branch#groupsTreeView:has-siblings:!adjoins-item  {
 Start page
 ==================================================================================================*/
 QWidget#thumbnailWidget {
-  background-color: @ThemeAccentColor1;
+  background-color: rgba(250,250,250,0.1);
   border-radius: 10px;
   border: 1px solid rgba(0,0,0,0.3);
 }
 
 QWidget#thumbnailWidget[state="hovered"] {
-  border: 1px solid @ThemeAccentColor1;
+  background-color: @ThemeAccentColor1;
+  border: 1px solid rgba(0,0,0,0.3);
 }
 
 QWidget#thumbnailWidget[state="pressed"] {
-  border: 1px solid @ThemeAccentColor1;
+  background-color: @ThemeAccentColor1;
+  border: 1px solid rgba(0,0,0,0.3);
 }
 
  #WbTabBar #WbTabBarMore {
