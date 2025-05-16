@@ -15,7 +15,7 @@
     <description>3D buttons and Color palette background</description>
     <tag>2024</tag>
     <type>Theme</type>
-    <tag>3D</tag>
+    <tag>2D</tag>
     <subdirectory>./FreeCAD ColorPalette 2D/</subdirectory>
     <file>FreeCAD ColorPalette 2D.qss</file>
     <file>FreeCAD ColorPalette Overlay.qss</file>
@@ -25,10 +25,20 @@
     <description>2D buttons and Color palette background</description>
     <tag>2024</tag>
     <type>Theme</type>
-    <tag>2D</tag>
+    <tag>3D</tag>
     <subdirectory>./FreeCAD ColorPalette 3D/</subdirectory>
     <file>FreeCAD ColorPalette 3D.qss</file>
     <file>FreeCAD ColorPalette Overlay.qss</file>
   </preferencepack>  
+  <preferencepack>
+    <name>FreeCAD ColorPalette 3D-2</name>
+    <description>2D buttons and Color palette background</description>
+    <tag>2024</tag>
+    <type>Theme</type>
+    <tag>3D</tag>
+    <subdirectory>./FreeCAD ColorPalette 3D-2/</subdirectory>
+    <file>FreeCAD ColorPalette 3D-2.qss</file>
+    <file>FreeCAD ColorPalette Overlay.qss</file>
+  </preferencepack>
 </content>
 </package>
