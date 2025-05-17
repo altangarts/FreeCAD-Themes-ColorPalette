@@ -1550,26 +1550,30 @@ padding: 0px;
 }
 
 QSint--ActionGroup QFrame[class="header"] QLabel[fold="false"] {
-  width: 30px;
-  height: 30px;
+  width: 9px;
+  height: 9px;
+  margin: -3px;
   image: url(qss:images_classic/Arrow-down-lightgray.png);
 }
 
 QSint--ActionGroup QFrame[class="header"] QLabel:hover[fold="false"] {
-  width: 30px;
-  height: 30px;
+  width: 9px;
+  height: 9px;
+  margin: -3px;
   image: url(qss:images_classic/Arrow-down-white.png);
 }
 
 QSint--ActionGroup QFrame[class="header"] QLabel[fold="true"] {
-  width: 30px;
-  height: 30px;
+  width: 9px;
+  height: 9px;
+  margin: -3px;
   image: url(qss:images_classic/Arrow-up-lightgray.png);
 }
 
 QSint--ActionGroup QFrame[class="header"] QLabel[fold="true"]:hover {
-  width: 30px;
-  height: 30px;
+  width: 9px;
+  height: 9px;
+  margin: -3px;
   image: url(qss:images_classic/Arrow-up-white.png);
 }
 
