@@ -60,8 +60,8 @@ Gui--PropertyEditor--PropertyEditor QAbstractSpinBox:disabled {
     color: transparent;
     border-color: transparent;
     background-color: @ThemeAccentColor1;
-    selection-color: transparent;
-    selection-background-color: transparent;
+    selection-background-color: rgba(0,0,0,0.7);
+    selection-color: #ffffff;
     border-radius: 6px;
 }
 
@@ -127,7 +127,7 @@ QWidget::item:selected {
 QColorDialog QWidget {
   background-color: rgba(0,0,0,0.2);
   color: #eeeeee;
-  selection-background-color: @ThemeAccentColor1;
+  selection-background-color: rgba(0,0,0,0.7);
   selection-color: #ffffff;
 }
 
@@ -217,7 +217,7 @@ https://doc.qt.io/qt-5/stylesheet-examples.html#customizing-qcheckbox
 
 --------------------------------------------------------------------------- */
 QCheckBox {
-  color: #eeeeee;
+  color: #dddddd;
   padding: 0px;
   outline: none;
   background-color: transparent;
@@ -228,7 +228,7 @@ QCheckBox {
 QCheckBox:hover {
   border: 1px solid transparent;
   border-radius: 2px;
-  color: @ThemeAccentColor1;
+  color: #ffffff;
 }
 
 QCheckBox QWidget:disabled {
@@ -625,6 +625,10 @@ QMenu::right-arrow {
   background-color: transparent;
 }
 
+QMenu::right-arrow:selected {
+  image:url(qss:images_classic/Arrow-right-white.png);
+}
+
 /* QAbstractItemView ------------------------------------------------------
 
 https://doc.qt.io/qt-5/stylesheet-examples.html#customizing-qcombobox
@@ -846,7 +850,7 @@ QSizeGrip {
   background-color: transparent;
   width: 12px;
   height: 12px;
-  image:url(qss:images_classic/sizegrip-lightgray.png);
+  image:url(qss:images_classic/sizegrip-black.png);
 }
 
 /* QStackedWidget ---------------------------------------------------------
@@ -1008,6 +1012,11 @@ QAbstractSpinBox:selected {
   color: #ffffff;
 }
 
+QAbstractSpinBox:focus {
+  background-color: @ThemeAccentColor1;
+  color: #ffffff;
+}
+
 /* ------------------------------------------------------------------------ */
 /* DISPLAYS --------------------------------------------------------------- */
 /* ------------------------------------------------------------------------ */
@@ -1017,24 +1026,17 @@ https://doc.qt.io/qt-5/stylesheet-examples.html#customizing-qframe
 
 --------------------------------------------------------------------------- */
 QLabel {
-  /* background-color: transparent; */
-  /* border: 0px solid #020202; */
-  /* padding: 2px; */
-  /* margin: 0px; */
-  /* color: #eeeeee; */
-  /* border-radius: 3px; */
+  padding: 0px 4px 2px 4px;
+  border-radius: 4px;
 }
 
 QLabel:disabled {
-  /* background-color: transparent; */
-  /* border: 0px solid #020202; */
   color: #aaaaaa;
 }
 
 QLabel[haslink="true"] {
   color: @ThemeAccentColor1;
 }
-
 
 /* QTextBrowser -----------------------------------------------------------
 
@@ -1066,7 +1068,7 @@ QGraphicsView {
   background-color: transparent;
   border: 0px solid @ThemeAccentColor1;
   color: #000000;
-  border-radius: 0px;
+  border-radius: 4px;
   margin-bottom: 5px;
   padding: 0px;
   selection-background-color: @ThemeAccentColor1;
@@ -1214,7 +1216,10 @@ QPushButton::menu-indicator {
   width: 10px;
   height: 10px;
   image: url(qss:images_classic/Arrow-up-black.png);
+}
 
+QPushButton::menu-indicator:hover {
+  image: url(qss:images_classic/Arrow-up-white.png);
 }
 
 QDialogButtonBox QPushButton {
@@ -1460,7 +1465,7 @@ QComboBox::down-arrow {
   width: 12px;
 }
 
-QComboBox::down-arrow:on, QComboBox::down-arrow:hover, QComboBox::down-arrow:focus {
+QComboBox::down-arrow:on, QComboBox::down-arrow:hover {
   image: url(qss:images_classic/Arrow-down-white.png);
 }
 
@@ -1766,14 +1771,10 @@ https://doc.qt.io/qt-5/stylesheet-examples.html#customizing-qlineedit
 --------------------------------------------------------------------------- */
 QLineEdit {
   background-color: rgba(0,0,0,0.2);
-  padding-top: 2px;
-  padding-bottom: 2px;
-  padding-left: 4px;
-  padding-right: 4px;
-  border-style: solid;
-  border: 1px solid rgba(0,0,0,0.2);
-  border-radius: 2px;
-  color: #eeeeee;
+  padding: 2px 4px 2px 4px;
+  border: 1px solid rgba(0,0,0,0.1);
+  border-radius: 4px;
+  color: #dddddd;
 }
 
 QLineEdit:disabled {
@@ -1782,11 +1783,16 @@ QLineEdit:disabled {
 }
 
 QLineEdit:hover {
-  border: 1px solid @ThemeAccentColor1; 
+  background-color: @ThemeAccentColor1; 
   color: #ffffff;
 }
 
 QLineEdit:selected {
+  background-color: @ThemeAccentColor1;
+  color: #ffffff;
+}
+
+QLineEdit:focus {
   background-color: @ThemeAccentColor1;
   color: #ffffff;
 }
@@ -2020,7 +2026,7 @@ QTabBar QToolButton::left-arrow:enabled, QDockWidget QTabBar QToolButton::left-a
 }
 
 QTabBar QToolButton::left-arrow:disabled, QDockWidget QTabBar QToolButton::left-arrow:disabled {
-  image: url(qss:images_classic/Arrow-left-white.png);
+  image: url(qss:images_classic/Arrow-left-lightgray.png);
 }
 
 QTabBar QToolButton::right-arrow:enabled, QDockWidget QTabBar QToolButton::right-arrow:enabled {
@@ -2028,7 +2034,7 @@ QTabBar QToolButton::right-arrow:enabled, QDockWidget QTabBar QToolButton::right
 }
 
 QTabBar QToolButton::right-arrow:disabled, QDockWidget QTabBar QToolButton::right-arrow:disabled {
-  image: url(qss:images_classic/Arrow-right-white.png);
+  image: url(qss:images_classic/Arrow-right-lightgray.png);
 }
 
 /* QDockWiget -------------------------------------------------------------
@@ -2457,12 +2463,12 @@ QDateEdit::drop-down, QDateTimeEdit::drop-down {
 }
 
 QDateEdit::down-arrow, QDateTimeEdit::down-arrow {
-  image: url(qss:images_classic/Arrow-down-white.png);
+  image: url(qss:images_classic/Arrow-down-black.png);
   height: 8px;
   width: 8px;
 }
 
-QDateEdit::down-arrow:on, QDateEdit::down-arrow:hover, QDateEdit::down-arrow:focus, QDateTimeEdit::down-arrow:on, QDateTimeEdit::down-arrow:hover, QDateTimeEdit::down-arrow:focus {
+QDateEdit::down-arrow:on, QDateEdit::down-arrow:hover, QDateEdit::down-arrow:focus, QDateTimeEdit::down-arrow:on, QDateTimeEdit::down-arrow:hover {
   image: url(qss:images_classic/Arrow-down-white.png);
 }
 
@@ -2573,13 +2579,13 @@ Gui--OverlayToolButton[objectName="OBTN Overlay"]:hover {
 Forming windows below are the border settings. See also https://forum.freecad.org/viewtopic.php?p=439797#p439797
 ==================================================================================================*/
 QQMdiSubWindow {
-  border: 1px solid #505050;
+  border: 1px solid #424242;
   border-radius: 2px;
   background-color: @ThemeAccentColor2;
 }
 
 QMdiSubWindow:hover {
-  border: 0px solid #505050;
+  border: 1px solid @ThemeAccentColor1;
 }
 
 QMdiSubWindow:active {
