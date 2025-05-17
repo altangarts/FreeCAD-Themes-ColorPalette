@@ -2115,24 +2115,44 @@ QTreeView::branch:has-siblings:adjoins-item  {
 QTreeView::branch:!has-children:!has-siblings:adjoins-item  {
 }
 
-QTreeView::branch:closed:has-children:has-siblings  {
+QTreeView::branch:closed:has-children:has-siblings {
   border-image: none;
   image: url(qss:images_classic/Arrow-right-black.png);
 }
 
-QTreeView::branch:has-children:!has-siblings:closed  {
+QTreeView::branch:closed:has-children:has-siblings:hover {
+  border-image: none;
+  image: url(qss:images_classic/Arrow-right-white.png);
+}
+
+QTreeView::branch:has-children:!has-siblings:closed {
   border-image: none;
   image: url(qss:images_classic/Arrow-right-black.png);
 }
 
-QTreeView::branch:open:has-children:has-siblings  {
+QTreeView::branch:has-children:!has-siblings:closed:hover {
+  border-image: none;
+  image: url(qss:images_classic/Arrow-right-white.png);
+}
+
+QTreeView::branch:open:has-children:has-siblings {
   border-image: none;
   image: url(qss:images_classic/Arrow-down-black.png);
 }
 
-QTreeView::branch:open:has-children:!has-siblings  {
+QTreeView::branch:open:has-children:has-siblings:hover {
+  border-image: none;
+  image: url(qss:images_classic/Arrow-down-white.png);
+}
+
+QTreeView::branch:open:has-children:!has-siblings {
   border-image: none;
   image: url(qss:images_classic/Arrow-down-black.png);
+}
+
+QTreeView::branch:open:has-children:!has-siblings:hover {
+  border-image: none;
+  image: url(qss:images_classic/Arrow-down-white.png);
 }
 
 QTreeView::indicator,
