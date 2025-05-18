@@ -11,6 +11,7 @@ Gui--OverlayTitleBar,
 Gui--OverlaySplitterHandle {
   text-align: center;
   background-color: rgba(0,0,0,0.2);
+  border: 1px solid rgba(0,0,0,0.2);
 }
 
  /* Gui--OverlayTabWidget#OverlayLeft {} */
@@ -93,6 +94,8 @@ Gui--TaskView--TaskPanel {
 
 Gui--OverlayToolButton{
   image: url(qss:images_classic/close-black.png);
+  padding: 1px 2px 2px 2px;
+  margin-bottom: 2px;
 }
 
 Gui--OverlayToolButton:hover {
