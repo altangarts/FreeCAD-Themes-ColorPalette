@@ -44,13 +44,37 @@ LGPLv2.1 [LICENSE](LICENSE)
 
 ### Screenshots
                                            ------   Examples   ------
+2D - SeaStone-DarkPurple ( #34393b - #55007f )
+![Ekran görüntüsü 2025-05-19 135901](https://github.com/user-attachments/assets/0e61cbff-30d2-4f40-80b1-d74628ac9d95)
 
-![Ekran görüntüsü 2025-05-16 234705](https://github.com/user-attachments/assets/6cf4ccc4-ab99-4b5e-9c47-172a898a77aa)
-![Ekran görüntüsü 2025-05-16 232200](https://github.com/user-attachments/assets/d4cf12af-0bd0-4fd5-a5ce-ef2143f17d57)
-![Ekran görüntüsü 2025-05-16 234039](https://github.com/user-attachments/assets/8c317555-6d70-41c0-9817-f5d585ad42b5)
-![Ekran görüntüsü 2025-05-17 000101](https://github.com/user-attachments/assets/7c953431-e076-40b9-aa1a-b674d0b0c3dd)
-![Ekran görüntüsü 2025-05-17 000422](https://github.com/user-attachments/assets/d1247b38-03bd-4af9-ad5b-dad7ebe38282)
-![Ekran görüntüsü 2025-05-17 001013](https://github.com/user-attachments/assets/31ad1160-d46d-446d-ba82-473c817e42de)
+3D-2 - Sand-DarkRed ( #908462 - #680000 )
+![Ekran görüntüsü 2025-05-19 140137](https://github.com/user-attachments/assets/368c107b-910b-4653-a45f-f2bd7573ec91)
+
+3D - MiddleGray-DarkOrange ( #565654 - #aa5500 )
+![Ekran görüntüsü 2025-05-19 140602](https://github.com/user-attachments/assets/4c259e58-63e1-4a46-90ac-8bb47ae1e585)
+
+2D - Dark-DarkPurple ( #363634 - #55007f )
+![Ekran görüntüsü 2025-05-19 140304](https://github.com/user-attachments/assets/ff831fc5-b659-4b61-b37c-cb29ea6dfa9c)
+
+3D - GradientPink-DarkPurple ( top: #aa557f, bottom: #a0a09e - #55007f )
+![Ekran görüntüsü 2025-05-19 142039](https://github.com/user-attachments/assets/ace9c304-2ff8-40d3-8f0e-8e0e02c48329)
+
+2D - GradientOrange-DarkBlue ( top: #aa5500, bottom: #a0a09e - #00557f )
+![Ekran görüntüsü 2025-05-19 141742](https://github.com/user-attachments/assets/6c921755-a774-4058-a441-73204127b3df)
+
+3D-2 - GradientPalePurple-DarkOrange ( top: #55557f, bottom: #a0a09e - #aa5500 )
+![Ekran görüntüsü 2025-05-19 141607](https://github.com/user-attachments/assets/a48873d1-2175-469a-99ba-46388a62dcb6)
+
+
+
+
+
+
+
+
+
+
+
 
 
 
