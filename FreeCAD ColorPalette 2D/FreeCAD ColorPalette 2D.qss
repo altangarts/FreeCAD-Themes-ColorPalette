@@ -88,12 +88,12 @@ Gui--PropertyEditor--PropertyEditor QComboBox {
 
 /* fix for column items background when a link is present */
 Gui--PropertyEditor--PropertyEditor > QWidget > QFrame:focus {
-  background-color: @ThemeAccentColor1; /* same as focused background color */
+    background-color: @ThemeAccentColor1; /* same as focused background color */
 }
 
 /* hack to hide weird redundant information inside cells with links and no editable data (but editable via "..." button) */
 Gui--PropertyEditor--PropertyEditor > QWidget > QWidget > QLabel {
-	background-color: #ACC8E5; /* same as focused background color */
+    background-color: #c15300; /* same as focused background color */
   border-radius: 6px;
 }
 
@@ -110,7 +110,7 @@ QMdiArea {
 }
 
 Gui--NavigationIndicatorGui--BlenderNavigationStyle {
- qproperty-icon: url(:/icons/icons/NavigationBlender_light.svg);
+ qproperty-icon: url(:/icons/icons/NavigationBlender_dark.svg);
 }
 
 /* QWidget ----------------------------------------------------------------
@@ -306,7 +306,7 @@ QGroupBox {
 QGroupBox::title {
   top: -8px;
   left: 15px;
-  color: @ThemeAccentColor1;
+  color: #000000;
 }
 
 QGroupBox::indicator {
@@ -1030,7 +1030,7 @@ QLabel:disabled {
 }
 
 QLabel[haslink="true"] {
-  color: @ThemeAccentColor1;
+  color: #ffff00;
 }
 
 /* QTextBrowser -----------------------------------------------------------
@@ -1864,11 +1864,11 @@ QTabBar::close-button, QDockWidget QTabBar::close-button {
   border: 0;
   margin: 0px;
   padding: 5px;
-  image: url(qss:images_classic/transparent.png);
+  image: url(qss:images_classic/close-lightgray.png);
 }
 
 QTabBar::close-button:selected, QDockWidget QTabBar::close-button:selected {
-  image: url(qss:images_classic/close-red.png);
+  image: url(qss:images_classic/close-lightgray.png);
 }
 
 QTabBar::close-button:hover, QDockWidget QTabBar::close-button:hover {
