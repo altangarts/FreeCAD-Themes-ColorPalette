@@ -209,7 +209,7 @@ https://doc.qt.io/qt-5/stylesheet-examples.html#customizing-qcheckbox
 
 --------------------------------------------------------------------------- */
 QCheckBox {
-  color: #dddddd;
+  color: #cccccc;
   padding: 0px;
   outline: none;
   background-color: transparent;
@@ -357,7 +357,7 @@ https://doc.qt.io/qt-5/stylesheet-examples.html#customizing-qradiobutton
 --------------------------------------------------------------------------- */
 QRadioButton {
   background-color: transparent;
-  color: #dddddd;
+  color: #cccccc;
   border: none;
   spacing: 8px;
   outline: none;
@@ -935,7 +935,7 @@ QAbstractSpinBox,
 QSpinBox {
   background-color: rgba(0,0,0,0.1);
   border: 1px solid rgba(0,0,0,0.15);
-  color: #eeeeee;
+  color: #cccccc;
   border-top-left-radius: 6px;
   border-top-right-radius: 0px;
   border-bottom-left-radius: 6px;
@@ -1023,7 +1023,7 @@ https://doc.qt.io/qt-5/stylesheet-examples.html#customizing-qframe
 QLabel {
   padding: 0px 4px 2px 4px;
   border-radius: 4px;
-  color: #dddddd;
+  color: #cccccc;
 }
 
 QLabel:disabled {
@@ -1391,7 +1391,7 @@ QComboBox {
   border-bottom-left-radius: 6px;
   border-bottom-right-radius: 0px;
   background-color: rgba(0,0,0,0.1);
-  color: #eeeeee;
+  color: #cccccc;
   padding-left: 8px;
   min-height: 20px;
 }
@@ -1434,7 +1434,7 @@ QComboBox:hover {
 
 QComboBox::indicator {
   margin-left: 8px;
-  color: #eeeeee;
+  color: #cccccc;
   background-color: rgba(0,0,0,0.6);
   width: 14px;
   height: 14px;
@@ -1455,7 +1455,7 @@ QComboBox::indicator:disabled {
 }
 
 QComboBox::item {
-  color: #eeeeee;
+  color: #cccccc;
 }
 
 QComboBox::item:selected {
@@ -1636,17 +1636,19 @@ border-bottom-right-radius: 4px;
 background-color: rgba(250,250,250,0.05);
 }
 
-/* found inside Part Design Workbench and "make a draft on a face" Task panel options */
 QSint--ActionGroup QFrame[class="content"] QToolButton {
-  color: #eeeeee;
+  color: #cccccc;
   text-align: center;
   background-color: rgba(0,0,0,0.1);
   border: 1px solid rgba(0,0,0,0.2);
-  padding: 1px 1px; /* different than regular QPushButton */
-  margin: 0px; /* different than regular QPushButton */
-  min-height: 18px; /* same as QTabBar QPushButton min-width */
+  padding: 1px 1px; 
+  margin: 0px;
+  min-height: 18px;
   min-width: 22px;
-  border-radius: 6px;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 0px;
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 0px;
 }
 
 QSint--ActionGroup QFrame[class="content"] QToolButton:checked {
@@ -1654,40 +1656,57 @@ QSint--ActionGroup QFrame[class="content"] QToolButton:checked {
   border: 1px solid rgba(0,0,0,0.5);
 }
 
-/* QToolButtons with a menu found in Sketcher task panel*/
 QSint--ActionGroup QToolButton::menu-button {
+  background-color: qlineargradient(x1:0, y1:0.3, x2:0, y2:1, stop:0 rgba(250,250,250,0.1), stop:1 rgba(0,0,0,0.2));
   border-left: 1px solid rgba(0,0,0,0.1);
-  border-top-right-radius: 6px;
-  border-bottom-right-radius: 6px;
-  padding: 0px;
-  width: 18px; /* 16px width + 4px for border = 20px allocated above */
-  outline: none;
-  background-color: rgba(0,0,0,0.1);
-  /* margin: 10px; */
+  border-radius: 0px;
+  margin: 1px;
+  width: 18px; 
 }
 
 QSint--ActionGroup QToolButton#settingsButton,
 QSint--ActionGroup QToolButton#filterButton,
 QSint--ActionGroup QToolButton#manualUpdate {
     padding-right: 20px; /* make way for the popup button */
-    color: #eeeeee;
+    color: #cccccc;
 }
 
 QSint--ActionGroup QToolButton#filterButton:hover {
-    color: #eeeeee;
+    color: #ffffff;
 }
 
-/* to give widget inside the menu same look as regular menu */
 QSint--ActionGroup QToolButton#filterButton QListWidget {
-    color: #eeeeee;
+    color: #cccccc;
     background-color: rgba(0,0,0,0.1);
     border: 1px solid rgba(0,0,0,0.2);
 }
 
+QSint--ActionGroup QToolButton#filterButton QListWidget::item {
+    color: #cccccc;
+    padding: 2px;
+}
 
 QSint--ActionGroup QFrame[class="content"] QToolButton:hover{
   background-color: @ThemeAccentColor1;
   border: 1px solid rgba(0,0,0,0.2);
+}
+
+QSint--ActionGroup QFrame[class="content"] QToolButton::menu-arrow {
+  image: url(qss:images_classic/Arrow-Down-black.png);
+  width: 9px;
+  height: 9px;
+}
+
+QSint--ActionGroup QFrame[class="content"] QToolButton::menu-arrow:hover {
+  image: url(qss:images_classic/Arrow-Down-white.png);
+  width: 9px;
+  height: 9px;
+}
+
+QSint--ActionGroup QFrame[class="content"] QToolButton::menu-arrow:open {
+  image: url(qss:images_classic/Arrow-up-white.png);
+  width: 9px;
+  height: 9px;
 }
 
 QSint--ActionGroup QFrame[class="content"] QToolButton:disabled,
