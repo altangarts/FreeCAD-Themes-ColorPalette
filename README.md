@@ -44,27 +44,23 @@ LGPLv2.1 [LICENSE](LICENSE)
 
 ### Screenshots
                                            ------   Examples   ------
-2D - SeaStone-DarkPurple ( #34393b - #55007f )
-![Ekran görüntüsü 2025-05-19 135901](https://github.com/user-attachments/assets/0e61cbff-30d2-4f40-80b1-d74628ac9d95)
-
-3D-2 - Sand-DarkRed ( #908462 - #680000 )
-![Ekran görüntüsü 2025-05-19 140137](https://github.com/user-attachments/assets/368c107b-910b-4653-a45f-f2bd7573ec91)
-
-3D - MiddleGray-DarkOrange ( #565654 - #aa5500 )
-![Ekran görüntüsü 2025-05-19 140602](https://github.com/user-attachments/assets/4c259e58-63e1-4a46-90ac-8bb47ae1e585)
+3D - SeaStone-DarkOrange ( #34393b - #aa5500 )
+![Ekran Görüntüsü (36)](https://github.com/user-attachments/assets/fa38a8e9-6010-469c-bc3b-a47c2a5447bc)
 
 2D - Dark-DarkPurple ( #363634 - #55007f )
-![Ekran görüntüsü 2025-05-19 140304](https://github.com/user-attachments/assets/ff831fc5-b659-4b61-b37c-cb29ea6dfa9c)
+![Ekran Görüntüsü (31)](https://github.com/user-attachments/assets/b79b8879-b6d6-4a42-97b9-1fd13c831a35)
 
-3D - GradientPink-DarkPurple ( top: #aa557f, bottom: #a0a09e - #55007f )
-![Ekran görüntüsü 2025-05-19 142039](https://github.com/user-attachments/assets/ace9c304-2ff8-40d3-8f0e-8e0e02c48329)
+3D-2 - MiddleGray-DarkOrange ( #565654 - #aa5500 )
+![Ekran Görüntüsü (27)](https://github.com/user-attachments/assets/af803619-cb56-42b3-a3fc-e86d334e6717)
 
-2D - GradientOrange-DarkBlue ( top: #aa5500, bottom: #a0a09e - #00557f )
-![Ekran görüntüsü 2025-05-19 141742](https://github.com/user-attachments/assets/6c921755-a774-4058-a441-73204127b3df)
+3D-2 - Sand-DarkRed ( #908462 - #680000 )
+![Ekran Görüntüsü (30)](https://github.com/user-attachments/assets/786832b5-44a2-4b9a-b153-e181627b233d)
 
-3D-2 - GradientPalePurple-DarkOrange ( top: #55557f, bottom: #a0a09e - #aa5500 )
-![Ekran görüntüsü 2025-05-19 141607](https://github.com/user-attachments/assets/a48873d1-2175-469a-99ba-46388a62dcb6)
+2D - GradientPink-DarkPurple ( top: #aa557f, bottom: #a0a09e - #55007f )
+![Ekran Görüntüsü (22)](https://github.com/user-attachments/assets/a4be9f4f-995b-46c9-937b-6d9cd290ed84)
 
+3D - GradientPalePurple-DarkBlue ( top: #55557f, bottom: #a0a09e - #00557f )
+![Ekran Görüntüsü (20)](https://github.com/user-attachments/assets/a093f1a2-030b-4f4d-bfac-2c93a538dddd)
 
 
 
