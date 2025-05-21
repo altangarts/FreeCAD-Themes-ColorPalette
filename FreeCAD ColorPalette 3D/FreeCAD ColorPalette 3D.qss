@@ -1961,7 +1961,7 @@ QTabBar::tab:top:!selected:hover, QDockWidget QTabBar::tab:top:!selected:hover {
 
 QTabBar::tab:bottom, QDockWidget QTabBar::tab:bottom {
   color: #dddddd;
-  margin: 0px 1px 0px 1px;
+  margin: 0px 1px 4px 1px;
   padding: 3px 0px 5px 4px;
   min-width: 50px;
   min-height: 21px;
@@ -2589,7 +2589,7 @@ Gui--NotificationLabel {
 /* overlay */
 Gui--OverlayToolButton {
   height: 11px;
-  width: 11;
+  width: 11px;
   padding-right: 3px;
   padding-left: 2px;
   padding-top: 2px;
