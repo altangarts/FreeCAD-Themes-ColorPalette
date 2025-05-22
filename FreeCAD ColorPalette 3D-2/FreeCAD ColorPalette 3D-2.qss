@@ -41,7 +41,7 @@ Resetting everything helps to unify styles across different operating systems
   border-style: none;
   border-image: none;
   outline: 0;
-  selection-background-color: transparent;
+  selection-background-color: rgba(0,0,0,0.7);
   selection-color: #ffffff;
 }
 
@@ -51,25 +51,24 @@ QToolBar * {
   padding: 0px;
 }
 
-/*hacks */
-
 Gui--PropertyEditor--PropertyEditor QLineEdit:read-only,
 Gui--PropertyEditor--PropertyEditor QLineEdit:disabled,
 Gui--PropertyEditor--PropertyEditor QAbstractSpinBox:read-only,
 Gui--PropertyEditor--PropertyEditor QAbstractSpinBox:disabled {
-    color: transparent;
-    border-color: transparent;
+    color: #aaaaaa;
+    border: 1px solid @ThemeAccentColor1;
     background-color: @ThemeAccentColor1;
     selection-background-color: rgba(0,0,0,0.7);
     selection-color: #ffffff;
-    border-radius: 6px;
+    border-radius: 0px;
 }
 
-Gui--PropertyEditor--PropertyEditor > QWidget > QWidget > QLabel,
-Gui--PropertyEditor--PropertyEditor > QWidget > QWidget > QLabel:disabled {
-    color: transparent;
-    background-color: transparent;
-    border: none;
+Gui--PropertyEditor--PropertyEditor > QWidget > QLabel,
+Gui--PropertyEditor--PropertyEditor > QWidget > QLabel:disabled,
+Gui--PropertyEditor--PropertyEditor > QWidget > QLineEdit {
+    color: #ffffff;
+    background-color: @ThemeAccentColor1;
+    border: 1px solid @ThemeAccentColor1;
     border-radius: 0px;
     margin: 0px;
     padding: 0px;
@@ -79,22 +78,49 @@ Gui--PropertyEditor--PropertyEditor QSpinBox,
 Gui--PropertyEditor--PropertyEditor QDoubleSpinBox,
 Gui--PropertyEditor--PropertyEditor QAbstractSpinBox,
 Gui--PropertyEditor--PropertyEditor QLineEdit,
-Gui--PropertyEditor--PropertyEditor QComboBox {
-    margin-left: 0px;
-    margin-right: 0px;
-    padding: 0px;
+Gui--PropertyEditor--PropertyEditor QComboBox,
+Gui--PropertyEditor--PropertyEditor QPushButton {
+    background-color: @ThemeAccentColor1;
+    border: 1px solid rgba(0,0,0,0.3);
+    color: #ffffff;
+    margin: 0px;
+    padding: 0px 0px 2px 6px;
     border-radius: 0px;
 }
 
-/* fix for column items background when a link is present */
-Gui--PropertyEditor--PropertyEditor > QWidget > QFrame:focus {
-    background-color: @ThemeAccentColor1; /* same as focused background color */
+Gui--PropertyEditor--PropertyEditor QComboBox::drop-down {
+  border: 1px solid rgba(0,0,0,0.3);
 }
 
-/* hack to hide weird redundant information inside cells with links and no editable data (but editable via "..." button) */
+Gui--PropertyEditor--PropertyEditor QComboBox::down-arrow {
+  image: url(qss:images_classic/Arrow-down-white.png);
+}
+
+Gui--PropertyEditor--PropertyEditor QAbstractSpinBox::up-button {
+  border: 1px solid rgba(0,0,0,0.3);
+}
+
+Gui--PropertyEditor--PropertyEditor QAbstractSpinBox::up-arrow {
+  image: url(qss:images_classic/Arrow-up-white.png);
+}
+
+Gui--PropertyEditor--PropertyEditor QAbstractSpinBox::down-button {
+  border: 1px solid rgba(0,0,0,0.3);
+}
+
+Gui--PropertyEditor--PropertyEditor QAbstractSpinBox::down-arrow {
+  image: url(qss:images_classic/Arrow-down-white.png);
+}
+
+Gui--PropertyEditor--PropertyEditor > QWidget > QFrame:focus {
+    background-color: @ThemeAccentColor1; /* same as focused background color */
+    color: #ffffff;
+}
+
 Gui--PropertyEditor--PropertyEditor > QWidget > QWidget > QLabel {
-    background-color: #c15300; /* same as focused background color */
-  border-radius: 6px;
+    background-color: #ab4700;
+    color: #ffffff;
+    border-radius: 0px;
 }
 
 /*==================================================================================================
@@ -1834,72 +1860,37 @@ https://doc.qt.io/qt-5/stylesheet-examples.html#customizing-qtabwidget-and-qtabb
 
 --------------------------------------------------------------------------- */
 QTabWidget {
-  border-radius: 0px;
-  selection-background-color: rgba(0,0,0,0.7);
-  selection-color: #ffffff;
+  padding: 0px;
+  selection-background-color: @ThemeAccentColor1;
 }
 
 QTabWidget QWidget {
-  background-color: transparent;
-  border: 0px solid transparent;
-  border-radius: 0px;
-  padding: 0px;
-  margin: 0px;
-}
-
-QTabWidget QWidget:hover {
-  border-radius: 0px;
-  selection-background-color: rgba(0,0,0,0.7);
-  selection-color: #ffffff;
-}
-
-QTabWidget QWidget:focus {
-  border-radius: 0px;
-  selection-background-color: rgba(0,0,0,0.7);
-  selection-color: #ffffff;
-}
-
-QTabWidget QWidget:selected {
-  border-radius: 0px;
-  selection-background-color: rgba(0,0,0,0.7);
-  selection-color: #ffffff;
-}
-
-QTabWidget QWidget:disabled {
-  border-radius: 0px;
-  selection-background-color: rgba(0,0,0,0.7);
-  selection-color: #ffffff;
 }
 
 QTabWidget::pane {
   margin: 0px 1px 3px 1px;
-  padding: 6px 6px 24px 6px;
-  background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 rgba(250,250,250,0.05), stop:0.955 rgba(250,250,250,0.2), stop:1 rgba(0,0,0,0.4));
-  border: 1px solid rgba(0,0,0,0.1);
-  border-top-left-radius: 0px;
-  border-top-right-radius: 0px;
-  border-bottom-left-radius: 24px;
-  border-bottom-right-radius: 24px;
+  padding: 0px;
+  background-color: transparent;
 }
 
 QTabWidget::pane:top {
   top: 0px;
-  border-top: 1px solid rgba(0,0,0,0.1);
+  border-top: 0px solid transparent;
 }
 
 QTabWidget::pane:bottom {
   bottom: 0px;
-  border-bottom: 1px solid rgba(0,0,0,0.1);
+  border-bottom: 0px solid transparent;
 }
 
 QTabWidget::pane:left {
   right: 0px;
-  border-right: 1px solid rgba(0,0,0,0.1);
+  border-right: 0px solid transparent;
 }
 
 QTabWidget::pane:right {
   left: 0px;
-  border-left: 1px solid rgba(0,0,0,0.1);
+  border-left: 0px solid transparent;
 } 
 
 /* QTabBar ----------------------------------------------------------------
@@ -1915,8 +1906,8 @@ QTabBar, QDockWidget QTabBar {
 
 QTabBar::close-button, QDockWidget QTabBar::close-button {
   border: 0;
-  margin: 0px;
-  padding: 5px;
+  margin: 0px 0px 8px 0px;
+  padding: 1px;
   image: url(qss:images_classic/close-darkgray.png);
 }
 
@@ -2242,7 +2233,7 @@ QColumnView {
   color: #eeeeee;
   margin: 0px 1px 0px 1px;
   border: 1px solid rgba(0,0,0,0.1);
-  padding: 10px 4px 24px 4px;
+  padding: 10px 6px 24px 6px;
   gridline-color: @ThemeAccentColor3;
   selection-background-color: @ThemeAccentColor1;
   selection-color: #ffffff;
@@ -2250,6 +2241,27 @@ QColumnView {
   border-top-right-radius: 0px;
   border-bottom-left-radius: 24px;
   border-bottom-right-radius: 24px;
+}
+
+#DocumentTreeItems::item {
+  background-color: rgba(0,0,0,0.1);
+  border: 1px solid rgba(0,0,0,0.1);
+  border-radius: 4px;
+  margin: 0px 0px 2px 0px;
+}
+
+#DocumentTreeItems::item:focus {
+  border: 1px solid @ThemeAccentColor1;
+}
+
+#DocumentTreeItems::item:selected {
+  background-color: @ThemeAccentColor1;
+  border: 1px solid @ThemeAccentColor1;
+  border-top-left-radius: 0px;
+  border-top-right-radius: 4px;
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 4px;
+  margin: 0px;
 }
 
 QTreeView:disabled,
