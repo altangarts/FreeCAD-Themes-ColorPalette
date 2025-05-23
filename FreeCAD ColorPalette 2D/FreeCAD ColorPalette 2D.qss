@@ -41,7 +41,7 @@ Resetting everything helps to unify styles across different operating systems
   border-style: none;
   border-image: none;
   outline: 0;
-  selection-background-color: rgba(0,0,0,0.7);
+  selection-background-color: transparent;
   selection-color: #ffffff;
 }
 
@@ -133,6 +133,9 @@ QDockWidget {
 }
 
 QMdiArea {
+  background-image: url(qss:images_dark-light/background_freecad_dark.svg);
+   background-position: center center;
+   background-repeat: no-repeat;
 }
 
 Gui--NavigationIndicatorGui--BlenderNavigationStyle {
@@ -680,6 +683,11 @@ QAbstractScrollArea:disabled {
   color: #aaaaaa;
 }
 
+QAbstractScrollArea::corner {
+  border: none;
+  background-color: transparent;
+}
+
 /* QScrollArea ------------------------------------------------------------
 
 ---------------------------------------------------------------------------
@@ -694,138 +702,115 @@ QScrollArea QWidget:disabled {
 https://doc.qt.io/qt-5/stylesheet-examples.html#customizing-qscrollbar
 
 --------------------------------------------------------------------------- */
-
 QScrollBar:horizontal {
-  height: 18px;
-  border-right: 20px solid rgba(250,250,250,0.1);
-  border-left: 20px solid rgba(250,250,250,0.1);
-  border-top: 2px solid rgba(250,250,250,0.1);
-  border-bottom: 2px solid rgba(250,250,250,0.1);
   background-color: transparent;
-  margin-bottom: 2px;
-  margin-top: 2px;
-}
-
-QScrollBar:vertical {
-  width: 18px;
-  border-top: 20px solid rgba(250,250,250,0.1);
-  border-bottom: 20px solid rgba(250,250,250,0.1);
-  border-left: 2px solid rgba(250,250,250,0.1);
-  border-right: 2px solid rgba(250,250,250,0.1);
-  background-color: transparent;
-  margin-left: 2px;
-  margin-right: 2px;
+  height: 16px;
+  margin: 0px;
+  padding: 0px 0px -2px 0px;
 }
 
 QScrollBar::handle:horizontal {
-  background-color: qlineargradient(x1:0, y1:0, x2:1, y2:0, stop:0 transparent,stop:0.5 rgba(0,0,0,0.2), stop:1 transparent);
+  background-color: rgba(0,0,0,0.2);
+  min-width: 10px;
+  border-radius: 3px;
+  margin: 8px 14px 3px 14px;
 }
 
 QScrollBar::handle:horizontal:hover {
-  background-color: qlineargradient(x1:0, y1:0, x2:1, y2:0, stop:0 transparent,stop:0.5 @ThemeAccentColor1, stop:1 transparent);
+  background-color: @ThemeAccentColor1;
 }
 
-QScrollBar::handle:horizontal:focus {
-  border: 1px solid transparent;
-}
-
-QScrollBar::handle:vertical {
-  background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 transparent,stop:0.5 rgba(0,0,0,0.2), stop:1 transparent);
-}
-
-QScrollBar::handle:vertical:hover {
-  background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 transparent,stop:0.5 @ThemeAccentColor1, stop:1 transparent);
-}
-
-QScrollBar::handle:vertical:focus {
-  border: 1px solid transparent;
+QScrollBar::sub-line:horizontal {
+  margin: 4px 3px -4px 3px; 
+  border-image: url(qss:images_classic/Arrow-left-black.png);
+  width: 10px;
+  height: 10px;
+  subcontrol-position: left;
+  subcontrol-origin: margin;
 }
 
 QScrollBar::add-line:horizontal {
-  margin: 2px 2px;
-  image: url(qss:images_classic/Arrow-right-black.png);
-  height: 14px;
-  width: 14px;
+  margin: 4px 3px -4px 3px; 
+  border-image: url(qss:images_classic/Arrow-right-black.png);
+  width: 10px;
+  height: 10px;
   subcontrol-position: right;
   subcontrol-origin: margin;
 }
 
-QScrollBar::add-line:horizontal:hover, 
+QScrollBar::sub-line:horizontal:hover,
+QScrollBar::sub-line:horizontal:on {
+  border-image: url(qss:images_classic/Arrow-left-white.png);
+}
+
+QScrollBar::add-line:horizontal:hover,
 QScrollBar::add-line:horizontal:on {
-  image: url(qss:images_classic/Arrow-right-white.png);
-  height: 14px;
-  width: 14px;
-  subcontrol-position: right;
+  border-image: url(qss:images_classic/Arrow-right-white.png);
+}
+
+QScrollBar::up-arrow:horizontal,
+QScrollBar::down-arrow:horizontal {
+  background-color: none;
+}
+
+QScrollBar::add-page:horizontal,
+QScrollBar::sub-page:horizontal {
+  background-color: transparent;
+}
+
+QScrollBar:vertical {
+  background-color: transparent;
+  width: 16px;
+  margin: 0px;
+  padding: 0px -2px 0px 0px;
+}
+
+QScrollBar::handle:vertical {
+  background-color: rgba(0,0,0,0.2);
+  min-height: 10px;
+  border-radius: 3px;
+  margin: 14px 3px 14px 8px;
+}
+
+QScrollBar::handle:vertical:hover {
+  background-color: @ThemeAccentColor1;
+}
+
+QScrollBar::sub-line:vertical {
+  margin: 3px -4px 3px 4px; 
+  border-image: url(qss:images_classic/Arrow-up-black.png);
+  height: 10px;
+  width: 10px;
+  subcontrol-position: top;
   subcontrol-origin: margin;
 }
 
 QScrollBar::add-line:vertical {
-  margin: 2px 2px;
-  image: url(qss:images_classic/Arrow-down-black.png);
-  height: 14px;
-  width: 14px;
+  margin: 3px -2px 3px 6px; 
+  border-image: url(qss:images_classic/Arrow-down-black.png);
+  height: 10px;
+  width: 10px;
   subcontrol-position: bottom;
   subcontrol-origin: margin;
+}
+
+QScrollBar::sub-line:vertical:hover,
+QScrollBar::sub-line:vertical:on {
+  border-image: url(qss:images_classic/Arrow-up-white.png);
 }
 
 QScrollBar::add-line:vertical:hover,
 QScrollBar::add-line:vertical:on {
-  image: url(qss:images_classic/Arrow-down-white.png);
-  height: 14px;
-  width: 14px;
-  subcontrol-position: bottom;
-  subcontrol-origin: margin;
+  border-image: url(qss:images_classic/Arrow-down-white.png);
 }
 
-QScrollBar::sub-line:horizontal {
-  margin: 2px 2px;
-  image: url(qss:images_classic/Arrow-left-black.png);
-  height: 14px;
-  width: 14px;
-  subcontrol-position: left;
-  subcontrol-origin: margin;
-}
-
-QScrollBar::sub-line:horizontal:hover, 
-QScrollBar::sub-line:horizontal:on {
-  image: url(qss:images_classic/Arrow-left-white.png);
-  height: 14px;
-  width: 14px;
-  subcontrol-position: left;
-  subcontrol-origin: margin;
-}
-
-QScrollBar::sub-line:vertical {
-  margin: 2px 2px;
-  image: url(qss:images_classic/Arrow-up-black.png);
-  height: 14px;
-  width: 14px;
-  subcontrol-position: top;
-  subcontrol-origin: margin;
-}
-
-QScrollBar::sub-line:vertical:hover, 
-QScrollBar::sub-line:vertical:on {
-  image: url(qss:images_classic/Arrow-up-white.png);
-  height: 14px;
-  width: 14px;
-  subcontrol-position: top;
-  subcontrol-origin: margin;
-}
-
-QScrollBar::up-arrow:horizontal, QScrollBar::down-arrow:horizontal {
+QScrollBar::up-arrow:vertical,
+QScrollBar::down-arrow:vertical {
   background-color: none;
 }
 
-QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {
-  background-color: none;
-}
-
-QScrollBar::add-page:horizontal, QScrollBar::sub-page:horizontal {
-  background-color: none;
-}
-
-QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
+QScrollBar::add-page:vertical,
+QScrollBar::sub-page:vertical {
   background-color: none;
 }
 
@@ -838,6 +823,7 @@ report view
 --------------------------------------------------------------------------- */
 QTextEdit {
   background-color: rgba(250,250,250,0.05);
+  color: #000000;
   border-radius: 6px;
   border: 1px solid rgba(0,0,0,0.2);
 }
@@ -852,7 +838,8 @@ Python
 --------------------------------------------------------------------------- */
 QPlainTextEdit {
   background-color: rgba(250,250,250,0.5);
-  border-radius: 6px;
+  color: #000000;
+  border-radius: 8px;
   border: 1px solid rgba(0,0,0,0.2);
 }
 
@@ -870,7 +857,7 @@ QSizeGrip {
   background-color: transparent;
   width: 12px;
   height: 12px;
-  image:url(qss:images_classic/sizegrip-white.png);
+  image:url(qss:images_classic/sizegrip-black.png);
 }
 
 /* QStackedWidget ---------------------------------------------------------
@@ -1086,10 +1073,10 @@ QTextBrowser:hover, QTextBrowser:!hover, QTextBrowser:selected, QTextBrowser:pre
 
 --------------------------------------------------------------------------- */
 QGraphicsView {
-  background-color: @ThemeAccentColor3;
+  background-color: transparent;
   border: 0px solid #333331;
   color: #dddddd;
-  padding-bottom: 3px;
+  padding: 0px;
   selection-background-color: @ThemeAccentColor1;
   selection-color: #ffffff;
 }
@@ -1863,7 +1850,7 @@ QTabWidget QWidget {
 }
 
 QTabWidget::pane {
-  margin: 0px 1px 3px 1px;
+  margin: 0px 1px 0px 1px;
   padding: 0px;
   background-color: transparent;
 }
@@ -1901,8 +1888,8 @@ QTabBar, QDockWidget QTabBar {
 
 QTabBar::close-button, QDockWidget QTabBar::close-button {
   border: 0;
-  margin: 0px 0px 6px 0px;
-  padding: 2px;
+  margin: 0px 0px 3px 0px;
+  padding: 4px;
   image: url(qss:images_classic/close-lightgray.png);
 }
 
@@ -1928,7 +1915,7 @@ QTabBar::tab, QDockWidget QTabBar::tab {
 QTabBar::tab:top, QDockWidget QTabBar::tab:top {
   color: #000000;
   margin: 0px 1px 0px 0px;
-  padding: 4px 0px 6px 4px;
+  padding: 4px 4px 6px 4px;
   min-width: 50px;
   min-height: 21px;
   background-color: rgba(250,250,250,0.15);  
@@ -1950,10 +1937,10 @@ QTabBar::tab:top:!selected:hover, QDockWidget QTabBar::tab:top:!selected:hover {
 
 QTabBar::tab:bottom, QDockWidget QTabBar::tab:bottom {
   color: #000000;
-  margin: 0px 1px 4px 1px;
+  margin: 3px 1px 4px 1px;
   padding: 3px 0px 5px 4px;
   min-width: 50px;
-  min-height: 21px;
+  min-height: 20px;
   background-color: rgba(250,250,250,0.15); 
   border: 1px solid rgba(0,0,0,0.2);
   border-radius: 6px;
@@ -2048,7 +2035,7 @@ QTabBar QToolButton::right-arrow:disabled, QDockWidget QTabBar QToolButton::righ
 --------------------------------------------------------------------------- */
 QDockWidget {
   background-color: @ThemeAccentColor3;
-  border: 1px solid #505050;
+  border: 1px solid rgba(0,0,0,0.2);
   border-radius: 0px;
   titlebar-close-icon: url(qss:images_classic/transparent.png);
   titlebar-normal-icon: url(qss:images_classic/transparent.png);
@@ -2216,10 +2203,7 @@ QColumnView::indicator:unchecked {
   border-radius: 2px;
 } 
 
-QTreeView,
-QListView,
-QTableView,
-QColumnView {
+QTreeView {
   background-color: rgba(250,250,250,0.05);  /* background of a lot of stuff including spreadsheets.*/
   color: #eeeeee;
   margin: 0px 1px 0px 1px;
@@ -2229,6 +2213,31 @@ QColumnView {
   gridline-color: @ThemeAccentColor3;
   selection-background-color: @ThemeAccentColor1;
   selection-color: #ffffff;
+}
+
+QListView,
+QTableView,
+QColumnView,
+QDialog QTreeView {
+  background-color: rgba(0,0,0,0.05);
+  color: #dddddd;
+  margin: 0px 1px 0px 1px;
+  border: 1px solid rgba(0,0,0,0.2);
+  padding: 6px 6px 6px 6px;
+  selection-background-color: @ThemeAccentColor1;
+  selection-color: #ffffff;
+  border-radius: 10px;
+}
+
+QMenu QTreeView {
+  background-color: rgba(0,0,0,0.05);
+  color: #dddddd;
+  margin: 0px;
+  border: 1px solid rgba(0,0,0,0.2);
+  padding: 6px 6px 6px 6px;
+  selection-background-color: @ThemeAccentColor1;
+  selection-color: #ffffff;
+  border-radius: 10px;
 }
 
 #DocumentTreeItems::item {
@@ -2298,12 +2307,13 @@ QHeaderView:disabled {
 QHeaderView::section {
   background-color: rgba(0,0,0,0.15);
   color: #eeeeee;
-  border: 1px solid rgba(0,0,0,0.1);
+  border: 1px solid rgba(0,0,0,0.2);
   border-radius: 4px;
 }
 
 QHeaderView::section::horizontal {
-  padding: 3px 0px 0px 8px;
+  padding: 3px 3px 3px 10px;
+  margin: 0px 1px 0px 1px;
 }
 
 QHeaderView::section::horizontal::first, QHeaderView::section::horizontal::only-one {
@@ -2628,18 +2638,21 @@ Gui--OverlayToolButton[objectName="OBTN Overlay"]:hover {
 /*==================================================================================================
 Forming windows below are the border settings. See also https://forum.freecad.org/viewtopic.php?p=439797#p439797
 ==================================================================================================*/
-QQMdiSubWindow {
-  border: 1px solid #424242;
-  border-radius: 2px;
-  background-color: @ThemeAccentColor2;
+QMdiSubWindow {
+  background-color: rgba(0,0,0,0.1);
+  border: 1px solid rgba(0,0,0,0.2);
+  padding: 0px;
+  margin: 3px;
+  selection-background-color: @ThemeAccentColor1;
+  selection-color: #ffffff;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
 }
 
 QMdiSubWindow:hover {
-  border: 1px solid @ThemeAccentColor1;
-}
-
-QMdiSubWindow:active {
-  border: 1px solid @ThemeAccentColor1;
+  border: 1px solid #ffff00;
 }
 
 /*==================================================================================================
