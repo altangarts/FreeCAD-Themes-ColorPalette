@@ -2296,6 +2296,11 @@ QTreeView::item:hover {
   border: 1px solid rgba(0,0,0,0.2);
 }
 
+#DocumentTreeItems::item:open:selected {
+  background-color: @ThemeAccentColor1;
+  border: 1px solid rgba(0,0,0,0.2);
+}
+
 QListView,
 QTableView,
 QColumnView,
