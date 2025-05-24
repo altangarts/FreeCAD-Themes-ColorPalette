@@ -41,7 +41,7 @@ Resetting everything helps to unify styles across different operating systems
   border-style: none;
   border-image: none;
   outline: 0;
-  selection-background-color: transparent;
+  selection-background-color: rgba(0,0,0,0.7);
   selection-color: #ffffff;
 }
 
@@ -115,6 +115,7 @@ Gui--PropertyEditor--PropertyEditor QAbstractSpinBox::down-arrow {
 Gui--PropertyEditor--PropertyEditor > QWidget > QFrame:focus {
     background-color: @ThemeAccentColor1; /* same as focused background color */
     color: #ffffff;
+    border-radius: 0px;
 }
 
 Gui--PropertyEditor--PropertyEditor > QWidget > QWidget > QLabel {
@@ -451,7 +452,7 @@ https://doc.qt.io/qt-5/stylesheet-examples.html#customizing-qmenubar
 QMenuBar {
   background-color: @ThemeAccentColor2;
   selection-background-color: @ThemeAccentColor1;
-  selection-background-color: #ffffff;
+  selection-color: #ffffff;
 }
 
 QMenuBar::item {
@@ -1052,17 +1053,17 @@ https://doc.qt.io/qt-5/stylesheet-examples.html#customizing-qabstractscrollarea
 
 --------------------------------------------------------------------------- */
 QTextBrowser {
-  background-color: rgba(0,0,0,0.1);
+  background-color: rgba(0,0,0,0.05);
   border: 1px solid rgba(0,0,0,0.2);
   color: #eeeeee;
-  border-radius: 4px;
+  border-radius: 10px;
 }
 
 QTextBrowser:disabled {
   background-color: #393937;
   border: 1px solid #333331;
   color: #aaaaaa;
-  border-radius: 4px;
+  border-radius: 10px;
 }
 
 QTextBrowser:hover, QTextBrowser:!hover, QTextBrowser:selected, QTextBrowser:pressed {
@@ -1816,7 +1817,7 @@ https://doc.qt.io/qt-5/stylesheet-examples.html#customizing-qlineedit
 QLineEdit {
   background-color: rgba(0,0,0,0.2);
   padding: 2px 4px 2px 4px;
-  border: 1px solid rgba(0,0,0,0.1);
+  border: 1px solid rgba(0,0,0,0.2);
   border-radius: 4px;
   color: #dddddd;
 }
@@ -1827,7 +1828,7 @@ QLineEdit:disabled {
 }
 
 QLineEdit:hover {
-  background-color: @ThemeAccentColor1; 
+  background-color: @ThemeAccentColor1;
   color: #ffffff;
 }
 
@@ -1839,6 +1840,7 @@ QLineEdit:selected {
 QLineEdit:focus {
   background-color: @ThemeAccentColor1;
   color: #ffffff;
+  border-radius: 0px;
 }
 
 /* QTabWiget --------------------------------------------------------------
@@ -1848,10 +1850,18 @@ https://doc.qt.io/qt-5/stylesheet-examples.html#customizing-qtabwidget-and-qtabb
 --------------------------------------------------------------------------- */
 QTabWidget {
   padding: 0px;
-  selection-background-color: @ThemeAccentColor1;
 }
 
 QTabWidget QWidget {
+  selection-background-color: @ThemeAccentColor1;
+  selection-color: #ffffff;
+}
+
+QTabWidget QWidget:hover,
+QTabWidget QWidget:focus,
+QTabWidget QWidget:selected {
+  selection-background-color: rgba(0,0,0,0.7);
+  selection-color: #ffffff;
 }
 
 QTabWidget::pane {
@@ -2230,22 +2240,23 @@ QTreeView {
 QListView,
 QTableView,
 QColumnView,
-QDialog QTreeView {
+QMenu QTreeView {
   background-color: rgba(0,0,0,0.05);
   color: #dddddd;
-  margin: 0px 1px 0px 1px;
+  margin: 0px 0px 0px 0px;
   border: 1px solid rgba(0,0,0,0.2);
   padding: 6px 6px 6px 6px;
+  gridline-color: rgba(0,0,0,0.2);
   selection-background-color: @ThemeAccentColor1;
   selection-color: #ffffff;
   border-radius: 10px;
 }
 
-QMenu QTreeView {
+QDialog QTreeView {
   background-color: rgba(0,0,0,0.05);
   color: #dddddd;
-  margin: 0px;
-  border: 1px solid rgba(0,0,0,0.2);
+  margin: 0px 4px 0px 4px;
+  border: none;
   padding: 6px 6px 6px 6px;
   selection-background-color: @ThemeAccentColor1;
   selection-color: #ffffff;
@@ -2317,7 +2328,19 @@ QHeaderView:disabled {
 }
 
 QHeaderView::section {
-  background-color: rgba(0,0,0,0.15);
+  background-color: rgba(0,0,0,0.2);
+  color: #eeeeee;
+  border: 1px solid rgba(0,0,0,0.2);
+  border-radius: 4px;
+}
+
+QHeaderView::section:hover {
+  background-color: @ThemeAccentColor1;
+  color: #ffffff;
+}
+
+QTableCornerButton::section {
+  background-color: @ThemeAccentColor1;
   color: #eeeeee;
   border: 1px solid rgba(0,0,0,0.2);
   border-radius: 4px;
@@ -2337,15 +2360,16 @@ QHeaderView::section::horizontal:disabled {
 }
 
 QHeaderView::section::vertical {
-  border-top: 1px solid #020202;
+  padding: 0px 0px 0px 0px;
+  margin: 1px 0px 1px 0px;
 }
 
 QHeaderView::section::vertical::first, QHeaderView::section::vertical::only-one {
-  border-top: 2px solid #020202;
+  /* border-top: 2px solid #020202; */
 }
 
 QHeaderView::section::vertical:disabled {
-  border-top: 2px solid #020202;
+  color: #aaaaaa;
 }
 
 QHeaderView::down-arrow {
@@ -2451,19 +2475,19 @@ https://stackoverflow.com/questions/14581498/qt-stylesheet-for-hline-vline-color
 
 .QFrame[frameShape="0"] {
   border-radius: 2px;
-  border: 1px solid rgba(0,0,0,0.2);
+  border: 0px solid rgba(0,0,0,0.2);
 }
 
 .QFrame[frameShape="4"] {
   max-height: 1px;
   border: none;
-  background-color: rgba(0,0,0,0.2);
+  background-color: rgba(0,0,0,0.1);
 }
 
 .QFrame[frameShape="5"] {
   max-width: 1px;
   border: none;
-  background-color: rgba(0,0,0,0.2);
+  background-color: rgba(0,0,0,0.1);
 }
 
 /* QSplitter --------------------------------------------------------------
