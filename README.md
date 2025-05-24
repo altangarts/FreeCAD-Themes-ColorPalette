@@ -1,5 +1,5 @@
 # FreeCAD ColorPalette Theme
-Versatile variations on the FreeCAD Dark theme with added ability to customize UI without altering the stylesheet file.
+You can edit the "FreeCAD Themes ColorPalette 2D/3D/3D-2" themes with the color options you want. To do this, simply select the colors from the FreeCAD settings.
 
 ### Prerequisites
 * FreeCAD ≥ v1.0.0
