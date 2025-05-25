@@ -8,7 +8,7 @@ QTabWidget::pane{
 
 Gui--OverlayTitleBar,
 Gui--OverlaySplitterHandle {
-  background-color: rgba(0,0,0,0.15);
+  background-color: transparent;
 }
 
  /* Gui--OverlayTabWidget#OverlayLeft {} */
@@ -30,11 +30,7 @@ Gui--PropertyEditor--PropertyEditor {
 Gui--OverlayTabWidget::pane {
   background-color: rgba(0,0,0,0.02);
   border: transparent;
-}
-
-QSint--ActionGroup QFrame[class="content"] {
-  border-bottom-left-radius: 5px;
-  border-bottom-right-radius: 5px;
+  border-radius: 20px;
 }
 
 Gui--OverlayTabWidget::tab-bar:top,
@@ -56,7 +52,6 @@ Gui--OverlayProxyWidget {
 QTreeView,
 QTableView {
   background-color: transparent;
-  border-radius: 8px;
   border: transparent;
   selection-background-color: transparent;
   selection-color: #ffffff;

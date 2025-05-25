@@ -2097,9 +2097,7 @@ QTabBar QToolButton::right-arrow:disabled, QDockWidget QTabBar QToolButton::righ
 
 --------------------------------------------------------------------------- */
 QDockWidget {
-  background-color: @ThemeAccentColor3;
-  border: 1px solid rgba(0,0,0,0.2);
-  border-radius: 0px;
+  background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop: 0 @ThemeAccentColor2, stop: 0.5 @ThemeAccentColor3, stop: 1 @ThemeAccentColor3);
   titlebar-close-icon: url(qss:images_classic/transparent.png);
   titlebar-normal-icon: url(qss:images_classic/transparent.png);
 }
@@ -2108,19 +2106,22 @@ QDockWidget::title {
   padding: 3px;
   spacing: 4px;
   border: none;
-  background-color: @ThemeAccentColor3;
+  background-color: @ThemeAccentColor2;
   text-align: center;
   font-weight: bold;
+}
+
+QDockWidget > Gui--OverlayTitleBar {
+  color: #bbbbbb;
 }
 
 QDockWidget::close-button {
   icon-size: 20px;
   border: none;
-  background-color: @ThemeAccentColor3;
+  background-color: @ThemeAccentColor2;
   background-image: none;
-  border: 0;
-  margin: 0;
-  padding: 0;
+  margin: 0px;
+  padding: 0px;
   image: url(qss:images_classic/close-white.png);
 }
 
@@ -2135,11 +2136,10 @@ QDockWidget::close-button:pressed {
 QDockWidget::float-button {
   icon-size: 20px;
   border: none;
-  background-color: rgba(0,0,0,0.2);
+  background-color: @ThemeAccentColor2;
   background-image: none;
-  border: 0;
-  margin: 0;
-  padding: 0;
+  margin: 0px;
+  padding: 0px;
   image: url(qss:images_classic/undock-white.png);
 }
 
