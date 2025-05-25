@@ -128,7 +128,7 @@ Main window
 QMainWindow,
 QDialog,
 QDockWidget {
-  background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop: 0 @ThemeAccentColor2, stop: 0.5 @ThemeAccentColor3,  stop: 1 @ThemeAccentColor3); /* main background color */
+  background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop: 0 @ThemeAccentColor2, stop: 0.06 @ThemeAccentColor2, stop: 0.5 @ThemeAccentColor3, stop: 1 @ThemeAccentColor3); /* main background color */
 }
 
 QMdiArea {
