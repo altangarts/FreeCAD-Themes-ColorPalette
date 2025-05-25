@@ -44,7 +44,7 @@ LGPLv2.1 [LICENSE](LICENSE)
 
 ### Screenshots
                                            ------   Examples   ------
-3D - SeaStone-DarkOrange  ---  background: #34393b selection: #aa5500
+3D - SeaStone-DarkOrange  ---  background: #34393b - selection: #aa5500
 ![Ekran Görüntüsü (45)](https://github.com/user-attachments/assets/1080badc-458d-4902-b4da-d252dc360eb9)
 
 2D - Dark-DarkPurple  ---  background: #363634 - selection: #55007f
