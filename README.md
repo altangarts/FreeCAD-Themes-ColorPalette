@@ -47,10 +47,10 @@ LGPLv2.1 [LICENSE](LICENSE)
 3D - SeaStone-DarkOrange  --//--  background: #34393b. - selection: #aa5500.
 ![Ekran Görüntüsü (45)](https://github.com/user-attachments/assets/1080badc-458d-4902-b4da-d252dc360eb9)
 
-2D - Dark-DarkPurple  --//--  background: #363634. - selection: #55007f.
+2D - Dark-DarkPurple  --//--  background: #363634.(lowblue) - selection: #55007f.
 ![Ekran Görüntüsü (44)](https://github.com/user-attachments/assets/8365f9da-b4b7-4db1-8e76-3bc3c5670936)
 
-3D-2 - MiddleGray-DarkOrange  --//--  background: #565654. - selection: #aa5500.
+3D-2 - MiddleGray-DarkOrange  --//--  background: #565654.(lowblue) - selection: #aa5500.
 ![Ekran Görüntüsü (43)](https://github.com/user-attachments/assets/903501be-25d4-490e-8b34-91418e775d36)
 
 3D-2 - Sand-DarkRed  --//--  background: #908462. - selection: #680000.
