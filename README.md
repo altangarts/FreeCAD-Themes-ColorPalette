@@ -44,22 +44,22 @@ LGPLv2.1 [LICENSE](LICENSE)
 
 ### Screenshots
                                            ------   Examples   ------
-3D - SeaStone-DarkOrange background: #34393b selection: #aa5500
+3D - SeaStone-DarkOrange  ---  background: #34393b selection: #aa5500
 ![Ekran Görüntüsü (45)](https://github.com/user-attachments/assets/1080badc-458d-4902-b4da-d252dc360eb9)
 
-2D - Dark-DarkPurple background: #363634 - selection: #55007f
+2D - Dark-DarkPurple  ---  background: #363634 - selection: #55007f
 ![Ekran Görüntüsü (44)](https://github.com/user-attachments/assets/8365f9da-b4b7-4db1-8e76-3bc3c5670936)
 
-3D-2 - MiddleGray-DarkOrange background: #565654 - selection: #aa5500
+3D-2 - MiddleGray-DarkOrange  ---  background: #565654 - selection: #aa5500
 ![Ekran Görüntüsü (43)](https://github.com/user-attachments/assets/903501be-25d4-490e-8b34-91418e775d36)
 
-3D-2 - Sand-DarkRed background: #908462 - selection: #680000
+3D-2 - Sand-DarkRed  ---  background: #908462 - selection: #680000
 ![Ekran Görüntüsü (42)](https://github.com/user-attachments/assets/55056bdc-f30a-46d4-99b7-c943c567cc03)
 
-2D - GradientPink-DarkPurple background-top: #aa557f, background-bottom: #a0a09e - selection: #55007f
+2D - GradientPink-DarkPurple  ---  background-top: #aa557f, background-bottom: #a0a09e - selection: #55007f
 ![Ekran Görüntüsü (46)](https://github.com/user-attachments/assets/933d860e-b13d-43f3-8f2e-cbfaac3f0070)
 
-3D - GradientPalePurple-DarkBlue background-top: #55557f, background-bottom: #a0a09e - selection: #00557f
+3D - GradientPalePurple-DarkBlue  ---  background-top: #55557f, background-bottom: #a0a09e - selection: #00557f
 ![Ekran Görüntüsü (47)](https://github.com/user-attachments/assets/7f3ca392-30fa-4d77-bd6c-03418605150a)
 
 
