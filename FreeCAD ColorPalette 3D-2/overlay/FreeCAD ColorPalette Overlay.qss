@@ -1,5 +1,4 @@
 QFrame {
-  border: none;
 }
 
 QTabWidget::pane{
