@@ -98,7 +98,7 @@ Gui--OverlayToolButton {
 }
 
 Gui--OverlayToolButton:hover {
-  image: url(qss:images_classic/close-red.png);
+  image: url(qss:images_classic/close-white.png);
 }
 
 Gui--OverlayToolButton[objectName="OBTN Transparent"] {
