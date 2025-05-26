@@ -74,11 +74,11 @@ QTreeView::item:hover {
 }
 
 #DocumentTreeItems::item:hover {
-    border: 1px solid @ThemeAccentColor1;
+  border: 1px solid @ThemeAccentColor1;
 }
 
 #DocumentTreeItems::item:selected {
-    border: 1px solid @ThemeAccentColor1;
+  border: 1px solid @ThemeAccentColor1;
 } */
 
 Gui--TaskView--TaskPanel { 
@@ -87,13 +87,13 @@ Gui--TaskView--TaskPanel {
 }
 
 Gui--OverlayToolButton {
-  background-color: qlineargradient(x1:0, y1:0.3, x2:0, y2:1, stop:0 rgba(250,250,250,0.2), stop:1 rgba(0,0,0,0.2));
+  /* background-color: qlineargradient(x1:0, y1:0.3, x2:0, y2:1, stop:0 rgba(250,250,250,0.2), stop:1 rgba(0,0,0,0.2));
   margin: 0px;
   padding: 2px 3px 3px 3px;
   border: 1px solid rgba(0,0,0,0.2);
   border-radius: 6px;
   height: 11px;
-  width: 11px;
+  width: 11px; */
   image: url(qss:images_classic/close-black.png);
 }
 

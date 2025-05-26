@@ -459,6 +459,7 @@ QMenuBar {
   background-color: @ThemeAccentColor2;
   selection-background-color: @ThemeAccentColor1;
   selection-color: #ffffff;
+  spacing: 0px;
 }
 
 QMenuBar::item {
@@ -960,7 +961,7 @@ QSpinBox {
 }
 
 QAbstractSpinBox:up-button {
-  background-color: rgba(250,250,250,0.05);
+  background-color: rgba(250,250,250,0.1);
   subcontrol-origin: border;
   subcontrol-position: top right;
   width: 18px;
@@ -986,7 +987,7 @@ QAbstractSpinBox::up-arrow:hover {
 }
 
 QAbstractSpinBox:down-button {
-  background-color: rgba(250,250,250,0.05);
+  background-color: rgba(250,250,250,0.1);
   subcontrol-origin: border;
   subcontrol-position: bottom right;
   width: 18px;
@@ -1264,7 +1265,7 @@ Gui--ColorButton:focus {
 https://doc.qt.io/qt-5/stylesheet-examples.html#customizing-qtoolbutton
 
 --------------------------------------------------------------------------- */
-QToolButton {
+QToolBar QToolButton {
   background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 rgba(250,250,250,0.2), stop:0.7 rgba(250,250,250,0.3), stop:1 rgba(0,0,0,0.4));
   min-height: 0px;
   min-width: 18;
@@ -1277,48 +1278,48 @@ QToolButton {
   border-bottom-right-radius: 7px;
 }
 
-QToolButton:disabled {
+QToolBar QToolButton:disabled {
   padding: 1px 1px 9px 2px;
 }
 
-QToolButton:checked {
+QToolBar QToolButton:checked {
   background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 @ThemeAccentColor1, stop:0.7 @ThemeAccentColor1, stop:1 rgba(0,0,0,0.8));
   border: 1px solid rgba(0,0,0,0.5);
 }
 
-QToolButton:checked:disabled {
+QToolBar QToolButton:checked:disabled {
   background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 @ThemeAccentColor1, stop:0.7 @ThemeAccentColor1, stop:1 rgba(0,0,0,0.8));
   border: 1px solid rgba(0,0,0,0.5);
 }
 
-QToolButton:checked:hover {
+QToolBar QToolButton:checked:hover {
   background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 @ThemeAccentColor1, stop:0.7 @ThemeAccentColor1, stop:1 rgba(0,0,0,0.8));
   border: 1px solid rgba(0,0,0,0.5);
 }
 
-QToolButton:checked:pressed {
+QToolBar QToolButton:checked:pressed {
   background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 @ThemeAccentColor1, stop:0.7 @ThemeAccentColor1, stop:1 rgba(0,0,0,0.8));
   border: 1px solid rgba(0,0,0,0.5);
 }
 
-QToolButton:checked:selected {
+QToolBar QToolButton:checked:selected {
   background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 @ThemeAccentColor1, stop:0.7 @ThemeAccentColor1, stop:1 rgba(0,0,0,0.8));
   border: 1px solid rgba(0,0,0,0.5);
 }
 
-QToolButton:hover {
-  background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 @ThemeAccentColor1, stop:0.7 @ThemeAccentColor1, stop:1 rgba(0,0,0,0.8));
-  border: 1px solid rgba(0,0,0,0.5);
-  color: #ffffff;
-}
-
-QToolButton:pressed {
+QToolBar QToolButton:hover {
   background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 @ThemeAccentColor1, stop:0.7 @ThemeAccentColor1, stop:1 rgba(0,0,0,0.8));
   border: 1px solid rgba(0,0,0,0.5);
   color: #ffffff;
 }
 
-QToolButton:selected {
+QToolBar QToolButton:pressed {
+  background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 @ThemeAccentColor1, stop:0.7 @ThemeAccentColor1, stop:1 rgba(0,0,0,0.8));
+  border: 1px solid rgba(0,0,0,0.5);
+  color: #ffffff;
+}
+
+QToolBar QToolButton:selected {
   background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 @ThemeAccentColor1, stop:0.7 @ThemeAccentColor1, stop:1 rgba(0,0,0,0.8));
   border: 1px solid rgba(0,0,0,0.5);
   color: #ffffff;
@@ -1507,7 +1508,7 @@ QComboBox::item:disabled {
 
 QComboBox::drop-down {
   subcontrol-origin: padding;
-  background-color: rgba(250,250,250,0.05);
+  background-color: rgba(250,250,250,0.1);
   subcontrol-position: top right;
   width: 18px;
   border-left: 1px solid rgba(0,0,0,0.15);
@@ -1714,7 +1715,7 @@ QSint--ActionGroup QFrame[class="content"] QToolButton:checked {
 }
 
 QSint--ActionGroup QToolButton::menu-button {
-  background-color: rgba(250,250,250,0.05);
+  background-color: rgba(250,250,250,0.1);
   width: 18px;
   border-left: 1px solid rgba(0,0,0,0.15);
   padding-left: 1px;
@@ -2109,25 +2110,9 @@ QDockWidget {
 }
 
 QDockWidget::title {
-  padding: 3px;
-  spacing: 4px;
-  border: none;
-  background-color: @ThemeAccentColor2;
-  text-align: center;
-  font-weight: bold;
-}
-
-QDockWidget > Gui--OverlayTitleBar {
-  color: #bbbbbb;
 }
 
 QDockWidget::close-button {
-  icon-size: 20px;
-  border: none;
-  background-color: @ThemeAccentColor2;
-  background-image: none;
-  margin: 0px;
-  padding: 0px;
   image: url(qss:images_classic/close-white.png);
 }
 
@@ -2156,6 +2141,44 @@ QDockWidget::float-button:hover {
 QDockWidget::float-button:pressed {
   image: url(qss:images_classic/undock-white.png);
 }
+
+Gui--OverlayTitleBar {
+  color: #bbbbbb;
+}
+
+Gui--OverlayToolButton {
+  background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 rgba(250,250,250,0.2), stop:0.7 rgba(250,250,250,0.3), stop:1 rgba(0,0,0,0.4));  
+  border: 1px solid rgba(0,0,0,0.2);
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
+  border-bottom-left-radius: 7px;
+  border-bottom-right-radius: 7px;
+  min-height: 10px;
+  min-width: 10px;
+  padding: 2px 6px 4px 6px;
+  margin: 0px 0px 3px 0px;
+  image: url(qss:images_classic/close-black.png);
+}
+
+Gui--OverlayToolButton:hover {
+  image: url(qss:images_classic/close-red.png);
+}
+
+Gui--OverlayToolButton[objectName="OBTN Float"] {
+  image: url(qss:images_classic/float-black.png);
+}
+
+Gui--OverlayToolButton[objectName="OBTN Float"]:hover {
+  image: url(qss:images_classic/float-white.png);
+}
+
+Gui--OverlayToolButton[objectName="OBTN Overlay"] {
+  image: url(qss:images_classic/overlay-black.png);
+}
+
+Gui--OverlayToolButton[objectName="OBTN Overlay"]:hover {
+  image: url(qss:images_classic/overlay-white.png);
+} 
 
 /* QTreeView QListView QTableView -----------------------------------------
 
@@ -2719,36 +2742,6 @@ Gui--NotificationLabel {
   border-radius: 0px;
 }
 /* overlay */
-Gui--OverlayToolButton {
-  height: 10px;
-  width: 10px;
-  padding-right: 2px;
-  padding-left: 2px;
-  padding-top: 2px;
-  padding-bottom: 5px;
-  margin-bottom: 6px;
-  image: url(qss:images_classic/close-black.png);
-}
-
-Gui--OverlayToolButton:hover {
-  image: url(qss:images_classic/close-white.png);
-}
-
-Gui--OverlayToolButton[objectName="OBTN Float"] {
-  image: url(qss:images_classic/float-black.png);
-}
-
-Gui--OverlayToolButton[objectName="OBTN Float"]:hover {
-  image: url(qss:images_classic/float-white.png);
-}
-
-Gui--OverlayToolButton[objectName="OBTN Overlay"] {
-  image: url(qss:images_classic/overlay-black.png);
-}
-
-Gui--OverlayToolButton[objectName="OBTN Overlay"]:hover {
-  image: url(qss:images_classic/overlay-white.png);
-} 
 
 /*==================================================================================================
 Forming windows below are the border settings. See also https://forum.freecad.org/viewtopic.php?p=439797#p439797
