@@ -1913,6 +1913,12 @@ QTabWidget QWidget:selected {
   selection-color: #ffffff;
 }
 
+QTabWidget QWidget::item:focus,
+QTabWidget QWidget::item:selected {
+  background-color: @ThemeAccentColor1;
+  color: #ffffff;
+}
+
 QTabWidget::pane {
   margin: 0px 1px 0px 1px;
   padding: 0px;
@@ -2236,7 +2242,6 @@ QDockWidget QTreeView {
 
 QDockWidget QTreeView::item:hover {
   background-color: @ThemeAccentColor1;
-  border: 1px solid rgba(0,0,0,0.2);
 }
 
 #DocumentTreeItems::item {

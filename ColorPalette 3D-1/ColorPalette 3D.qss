@@ -1537,7 +1537,7 @@ QFrame[class="panel"] {
 background-color: qlineargradient(x1:0, y1:0.975, x2:0, y2:1, stop:0 rgba(250,250,250,0.05), stop:1 rgba(0,0,0,0.3));
 border: 1px solid rgba(0,0,0,0.15);
 margin: 0px 1px 0px 1px;
-padding: 1px 3px 24px 3px;
+padding: 1px 1px 24px 3px;
 border-top-left-radius: 10px;
 border-top-right-radius: 10px;
 border-bottom-left-radius: 24px;
@@ -1915,12 +1915,6 @@ QTabWidget QWidget:selected {
   selection-color: #ffffff;
 }
 
-QTabWidget QWidget::item:focus,
-QTabWidget QWidget::item:selected {
-  background-color: @ThemeAccentColor1;
-  color: #ffffff;
-}
-
 QTabWidget::pane {
   margin: 0px 1px 0px 1px;
   padding: 0px;
@@ -2247,6 +2241,7 @@ QDockWidget QTreeView {
 
 QDockWidget QTreeView::item:hover {
   background-color: @ThemeAccentColor1;
+  border: 1px solid rgba(0,0,0,0.2);
 }
 
 #DocumentTreeItems::item {
