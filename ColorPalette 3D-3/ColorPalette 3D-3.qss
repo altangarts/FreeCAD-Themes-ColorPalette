@@ -1553,7 +1553,7 @@ QFrame[class="panel"] {
   border-right-color: rgba(0,0,0,0.3);
   border-bottom-color: rgba(0,0,0,0.6);
   border-left-color: rgba(0,0,0,0.3);
-  border-radius: 16px;
+  border-radius: 10px;
 }
 
 QSint--ActionGroup {
@@ -2266,7 +2266,7 @@ QDockWidget QTreeView {
   border-right-color: rgba(0,0,0,0.3);
   border-bottom-color: rgba(0,0,0,0.6);
   border-left-color: rgba(0,0,0,0.3);
-  border-radius: 10px;
+  border-radius: 8px;
 }
 
 QDockWidget QTreeView::item:hover {
