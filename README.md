@@ -8,7 +8,7 @@ You can edit the "FreeCAD Themes ColorPalette 2D/3D/3D-2" themes with the color 
 
 #### Manual
 
-  -Extract `FreeCADColorPaletteTheme-main.rar` to
+  -Extract `FreeCAD-Themes-ColorPalette-main.rar` to
    ```
    Linux:     /home/username/.local/share/FreeCAD/Mod/
    MacOS:     /Users/username/Library/Application Support/FreeCAD/Mod/
