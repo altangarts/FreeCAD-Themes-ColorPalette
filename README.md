@@ -45,8 +45,8 @@ LGPLv2.1 [LICENSE](LICENSE)
 ### Screenshots
                                            ------   Examples   ------
 
-3D-1 - GradientFreeCAD-DarkBlue  -//-  background-top: #2c2c57, background-bottom: #585863. - selection: #00557f.
-![Ekran Görüntüsü (48)](https://github.com/user-attachments/assets/a6b58cd1-6387-49dd-92b2-a55685ca059a)
+3D-1 - GradientFreeCAD-DarkBlue  -//-  background-top: #2c2c57, background-bottom: #9797aa. - selection: #00557f.
+![Ekran Görüntüsü (58)](https://github.com/user-attachments/assets/d5a67779-ddbd-4ea7-b6f1-12506bc7a039)
 
 3D-3 - SeaStone-DarkOrange  -//-  background: #34393b. - selection: #aa5500.
 ![Ekran Görüntüsü (55)](https://github.com/user-attachments/assets/c02508ad-4121-403f-97c7-873eb9ad3936)
