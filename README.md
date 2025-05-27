@@ -44,23 +44,27 @@ LGPLv2.1 [LICENSE](LICENSE)
 
 ### Screenshots
                                            ------   Examples   ------
-3D - SeaStone-DarkOrange  -//-  background: #34393b. - selection: #aa5500.
-![Ekran Görüntüsü (45)](https://github.com/user-attachments/assets/1080badc-458d-4902-b4da-d252dc360eb9)
+
+3D-1 - GradientFreeCAD-DarkBlue  -//-  background-top: #2c2c57, background-bottom: #585863. - selection: #00557f.
+![Ekran Görüntüsü (48)](https://github.com/user-attachments/assets/a6b58cd1-6387-49dd-92b2-a55685ca059a)
+
+3D-3 - SeaStone-DarkOrange  -//-  background: #34393b. - selection: #aa5500.
+![Ekran Görüntüsü (55)](https://github.com/user-attachments/assets/c02508ad-4121-403f-97c7-873eb9ad3936)
 
 2D - Dark-DarkPurple  -//-  background: #363634.(lowblue) - selection: #55007f.
-![Ekran Görüntüsü (44)](https://github.com/user-attachments/assets/8365f9da-b4b7-4db1-8e76-3bc3c5670936)
+![Ekran Görüntüsü (57)](https://github.com/user-attachments/assets/b56d51a2-9596-4eb0-9306-417120cf897a)
 
-3D-2 - MiddleGray-DarkOrange  -//-  background: #565654.(lowblue) - selection: #aa5500.
-![Ekran Görüntüsü (43)](https://github.com/user-attachments/assets/903501be-25d4-490e-8b34-91418e775d36)
+2D - MiddleGray-DarkOrange  -//-  background: #565654.(lowblue) - selection: #aa5500.
+![Ekran Görüntüsü (54)](https://github.com/user-attachments/assets/2f0b3297-5142-413d-aa0e-124e8ab83ed8)
 
-3D-2 - Sand-DarkRed  -//-  background: #908462. - selection: #680000.
-![Ekran Görüntüsü (42)](https://github.com/user-attachments/assets/55056bdc-f30a-46d4-99b7-c943c567cc03)
+3D-3 - Sand-DarkRed  -//-  background: #908462. - selection: #680000.
+![Ekran Görüntüsü (51)](https://github.com/user-attachments/assets/f9541ef3-24ca-49d5-a6b4-532fdf90b766)
 
-2D - GradientPink-DarkPurple  -//-  background-top: #aa557f, background-bottom: #a0a09e. - selection: #55007f.
-![Ekran Görüntüsü (46)](https://github.com/user-attachments/assets/933d860e-b13d-43f3-8f2e-cbfaac3f0070)
+3D-2 - GradientPink-DarkPurple  -//-  background-top: #aa557f, background-bottom: #a0a09e. - selection: #55007f.
+![Ekran Görüntüsü (53)](https://github.com/user-attachments/assets/28ef8737-5c1e-4308-ab99-2634d0d37e06)
 
-3D - GradientPalePurple-DarkBlue  -//-  background-top: #55557f, background-bottom: #a0a09e. - selection: #00557f.
-![Ekran Görüntüsü (47)](https://github.com/user-attachments/assets/7f3ca392-30fa-4d77-bd6c-03418605150a)
+3D-2 - GradientPalePurple-DarkBlue  -//-  background-top: #55557f, background-bottom: #a0a09e. - selection: #00557f.
+![Ekran Görüntüsü (56)](https://github.com/user-attachments/assets/7a33595e-fa19-466b-b428-10f70fbf5f65)
 
 
 
