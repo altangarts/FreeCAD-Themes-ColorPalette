@@ -18,7 +18,7 @@
     <tag>2D</tag>
     <subdirectory>./ColorPalette 2D/</subdirectory>
     <file>ColorPalette 2D.qss</file>
-    <file>ColorPalette Overlay.qss</file>
+    <file>ColorPalette Overlay 2D.qss</file>
   </preferencepack>
   <preferencepack>
     <name>ColorPalette 3D-1</name>
@@ -28,7 +28,7 @@
     <tag>3D</tag>
     <subdirectory>./ColorPalette 3D-1/</subdirectory>
     <file>ColorPalette 3D-1.qss</file>
-    <file>ColorPalette Overlay.qss</file>
+    <file>ColorPalette Overlay 3D-1.qss</file>
   </preferencepack>  
   <preferencepack>
     <name>ColorPalette 3D-2</name>
@@ -38,7 +38,7 @@
     <tag>3D</tag>
     <subdirectory>./ColorPalette 3D-2/</subdirectory>
     <file>ColorPalette 3D-2.qss</file>
-    <file>ColorPalette Overlay.qss</file>
+    <file>ColorPalette Overlay 3D-2.qss</file>
   </preferencepack>
   <preferencepack>
     <name>ColorPalette 3D-3</name>
@@ -48,7 +48,7 @@
     <tag>3D</tag>
     <subdirectory>./ColorPalette 3D-3/</subdirectory>
     <file>ColorPalette 3D-3.qss</file>
-    <file>ColorPalette Overlay.qss</file>
+    <file>ColorPalette Overlay 3D-3.qss</file>
   </preferencepack>
 </content>
 </package>
