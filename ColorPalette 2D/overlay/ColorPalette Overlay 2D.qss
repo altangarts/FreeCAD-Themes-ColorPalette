@@ -49,9 +49,7 @@ Gui--OverlayProxyWidget {
 
 QTreeView,
 QTableView {
-  selection-background-color: transparent;
-  selection-color: #ffffff;
-  padding: 6px 6px 2px 6px;
+  padding: 5px 2px 4px 2px;
 }
 
 Gui--TaskView--TaskPanel { 
