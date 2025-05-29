@@ -21,14 +21,14 @@ Gui--PropertyEditor--PropertyEditor {
 }
 
 Gui--OverlayTabWidget::pane {
-  background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 rgba(250,250,250,0.05), stop:0.975 rgba(250,250,250,0.2), stop:1 rgba(0,0,0,0.4));
+  background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 rgba(250,250,250,0.05), stop:0.960 rgba(250,250,250,0.2), stop:1 rgba(0,0,0,0.4));
   border: 1px solid rgba(0,0,0,0.15);
   margin: 0px 3px 0px 3px;
   padding: 0px 0px 0px 0px;
   border-top-left-radius: 24px;
   border-top-right-radius: 8px;
   border-bottom-left-radius: 8px;
-  border-bottom-right-radius: 24px;
+  border-bottom-right-radius: 40px;
 }
 
 Gui--OverlayTabWidget::tab-bar:top,
@@ -55,7 +55,7 @@ QTableView {
 }
 
 Gui--TaskView--TaskPanel { 
-  padding: 0px 4px 24px 4px;
+  padding: 0px 4px 40px 4px;
 }
 
 Gui--OverlayToolButton {
