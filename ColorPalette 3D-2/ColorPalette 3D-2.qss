@@ -2056,6 +2056,11 @@ QTabWidget QFrame {
   border-radius: 0px;
 }
 
+QTabWidget QFrame::item:focus {
+  background-color: @ThemeAccentColor1;
+  color: #ffffff;
+}
+
 QTabWidget::pane {
   margin: 0px;
   padding: 0px;
