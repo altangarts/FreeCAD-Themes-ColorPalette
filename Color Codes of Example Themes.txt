@@ -1,0 +1,39 @@
+GradientFreeCAD-DarkBlue :
+
+        background-top: #252549, background-bottom: #9797aa. - selection: #00557f.
+
+
+
+SeaStone-DarkOrange :
+
+        background: #34393b. - selection: #aa5500.
+
+
+
+Dark-DarkPurple :
+
+        background: #363634.(lowblue) - selection: #55007f.
+
+
+
+MiddleGray-DarkOrange :
+ 
+        background: #565654.(lowblue) - selection: #aa5500.
+
+
+
+Sand-DarkRed :
+
+        background: #908462. - selection: #680000.
+
+
+
+GradientPink-DarkPurple :
+
+        background-top: #aa557f, background-bottom: #a0a09e. - selection: #55007f.
+
+
+
+GradientPalePurple-DarkBlue :
+
+        background-top: #55557f, background-bottom: #a0a09e. - selection: #00557f.
