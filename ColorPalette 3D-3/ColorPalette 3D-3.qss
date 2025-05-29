@@ -521,6 +521,10 @@ QRadioButton {
   outline: none;
 }
 
+QRadioButton:hover {
+  color: #ffffff;
+}
+
 QRadioButton:disabled {
   background-color: transparent;
   color: #aaaaaa;
@@ -538,13 +542,14 @@ QRadioButton::indicator {
   border-image: none;
   width: 14px;
   height: 14px;
-  image:url(qss:images_classic/Radio-unchecked-black.png);
+  image:url(qss:images_classic/Radio-unchecked-lightgray.png);
 }
 
 QRadioButton::indicator:unchecked {
 }
 
-QRadioButton::indicator:unchecked:hover, QRadioButton::indicator:unchecked:pressed {
+QRadioButton::indicator:unchecked:hover {
+  image:url(qss:images_classic/Radio-unchecked-black.png);
 }
 
 QRadioButton::indicator:unchecked:disabled {
@@ -559,10 +564,6 @@ QRadioButton::indicator:checked {
   width: 14px;
   height: 14px;
   image:url(qss:images_classic/Radio-unchecked-white.png);
-}
-
-QRadioButton::indicator:checked:hover, QRadioButton::indicator:checked:pressed {
-  color: #ffffff;
 }
 
 QRadioButton::indicator:checked:disabled {
@@ -2326,7 +2327,7 @@ QDockWidget QTreeView {
   color: #eeeeee;
   margin: 0px;
   border: 0px solid transparent;
-  padding: 4px 4px 4px 4px;
+  padding: 5px 0px 4px 0px;
   gridline-color: @ThemeAccentColor3;
   selection-background-color: transparent;
   selection-color: #ffffff;
