@@ -2326,7 +2326,7 @@ QDockWidget QTreeView {
   color: #eeeeee;
   margin: 0px;
   border: 0px solid transparent;
-  padding: 6px 2px 2px 4px;
+  padding: 4px 4px 4px 4px;
   gridline-color: @ThemeAccentColor3;
   selection-background-color: transparent;
   selection-color: #ffffff;
@@ -2639,9 +2639,9 @@ QSplitter::handle:horizontal {
 }
 
 QSplitter::handle:vertical {
-  background-color: @ThemeAccentColor3;
-  border-top: 2px solid rgba(0,0,0,0.6);
-  border-bottom: 1px solid rgba(250,250,250,0.3);
+  background-color: transparent;
+  border-top: 1px solid transparent;
+  border-bottom: 1px solid transparent;
   background-position: center center;
   background-repeat: none;
   height: 1px;
