@@ -2095,7 +2095,7 @@ QToolBar QTabBar::tab {
 QTabBar::tab {
   background-color: qlineargradient(x1:0, y1:0.3, x2:0, y2:1, stop:0 rgba(250,250,250,0.15), stop:1 rgba(0,0,0,0.2));  
   border: 1px solid rgba(0,0,0,0.2);
-  border-radius: 8px;
+  border-radius: 6px;
   color: #dddddd;
   margin: 2px 0px 0px 3px;
   padding: 3px 6px 7px 6px;
@@ -2105,7 +2105,7 @@ QTabBar::tab {
 QTabWidget QTabBar::tab:bottom {
   background-color: qlineargradient(x1:0, y1:0.3, x2:0, y2:1, stop:0 rgba(250,250,250,0.15), stop:1 rgba(0,0,0,0.2));  
   border: 1px solid rgba(0,0,0,0.3);
-  border-radius: 8px;
+  border-radius: 6px;
   color: #dddddd;
   margin: 2px 0px 3px 3px;
   padding: 3px 6px 7px 6px;
