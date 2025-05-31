@@ -171,7 +171,7 @@ QDockWidget QFrame {
 
 QDockWidget QWidget::pane {
   background-color: transparent;
-  border: 0px solid transparent;
+  border: 1px solid transparent;
   margin: 0px;
   padding: 0px;
 }
@@ -215,8 +215,6 @@ QDockWidget::float-button:pressed {
 }
 
 Gui--OverlayTitleBar {
-  margin: 0 auto;
-  text-align: center;
   color: #cccccc;
 }
 
@@ -226,8 +224,8 @@ Gui--OverlayToolButton {
   border-radius: 4px;
   min-height: 11px;
   min-width: 11px;
-  padding: 2px 6px 2px 6px;
-  margin: 0px 1px 2px 0px;
+  padding: 2px 6px 3px 6px;
+  margin: 0px 2px 2px 0px;
   image: url(qss:images_classic/close-black.png);
 }
 
@@ -2032,9 +2030,7 @@ QTabWidget {
 
 QTabWidget QWidget {
   selection-background-color: rgba(0,0,0,0.7);
-  selection-color: #ffffff;
-  padding: 0px;
-  margin: 0px;  
+  selection-color: #ffffff;  
 }
 
 QTabWidget QFrame {
