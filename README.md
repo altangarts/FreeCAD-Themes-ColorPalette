@@ -46,25 +46,25 @@ LGPLv2.1 [LICENSE](LICENSE)
                                            ------   Examples   ------
 
 3D-1 - GradientFreeCAD-DarkBlue  -//-  background-top: #252549, background-bottom: #9797aa. - selection: #00557f.
-![Ekran Görüntüsü (58)](https://github.com/user-attachments/assets/d5a67779-ddbd-4ea7-b6f1-12506bc7a039)
+![Ekran Görüntüsü (66)](https://github.com/user-attachments/assets/1b591f9c-2b0a-4df5-bcce-3898df0e7232)
 
 3D-3 - SeaStone-DarkOrange  -//-  background: #34393b. - selection: #aa5500.
-![Ekran Görüntüsü (55)](https://github.com/user-attachments/assets/c02508ad-4121-403f-97c7-873eb9ad3936)
+![Ekran Görüntüsü (63)](https://github.com/user-attachments/assets/a377078a-d945-4312-9801-627e2b687168)
 
 2D - Dark-DarkPurple  -//-  background: #363634.(lowblue) - selection: #55007f.
-![Ekran Görüntüsü (57)](https://github.com/user-attachments/assets/b56d51a2-9596-4eb0-9306-417120cf897a)
+![Ekran Görüntüsü (64)](https://github.com/user-attachments/assets/a89d4c86-0baf-43a9-b254-e89c18c99587)
 
 2D - MiddleGray-DarkOrange  -//-  background: #565654.(lowblue) - selection: #aa5500.
-![Ekran Görüntüsü (54)](https://github.com/user-attachments/assets/2f0b3297-5142-413d-aa0e-124e8ab83ed8)
+![Ekran Görüntüsü (65)](https://github.com/user-attachments/assets/d76cf028-aee4-4c34-b901-5049f26754e6)
 
-3D-3 - Sand-DarkRed  -//-  background: #908462. - selection: #680000.
-![Ekran Görüntüsü (51)](https://github.com/user-attachments/assets/f9541ef3-24ca-49d5-a6b4-532fdf90b766)
+3D-3 - Sand-DarkRed  -//-  background: #827558. - selection: #680000.
+![Ekran Görüntüsü (62)](https://github.com/user-attachments/assets/71086e49-ecf8-4559-9313-e720ccaba54a)
 
 3D-2 - GradientPink-DarkPurple  -//-  background-top: #aa557f, background-bottom: #a0a09e. - selection: #55007f.
-![Ekran Görüntüsü (53)](https://github.com/user-attachments/assets/28ef8737-5c1e-4308-ab99-2634d0d37e06)
+![Ekran Görüntüsü (67)](https://github.com/user-attachments/assets/7e28f295-d21d-42ad-9c9d-38fef67e8f8d)
 
 3D-2 - GradientPalePurple-DarkBlue  -//-  background-top: #55557f, background-bottom: #a0a09e. - selection: #00557f.
-![Ekran Görüntüsü (56)](https://github.com/user-attachments/assets/7a33595e-fa19-466b-b428-10f70fbf5f65)
+![Ekran Görüntüsü (68)](https://github.com/user-attachments/assets/0e461c22-7def-444b-a87b-fd9e4ad21370)
 
 
 
