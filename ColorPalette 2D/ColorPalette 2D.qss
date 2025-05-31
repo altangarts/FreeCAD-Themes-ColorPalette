@@ -2362,7 +2362,7 @@ QDockWidget QTreeView {
 }
 
 QDockWidget QTreeView::item {
-  padding: 0px 0px 2px 3px;
+  padding: 2px 0px 2px 3px;
   margin: 0px 0px 1px 0px;
 }
 
@@ -2373,7 +2373,7 @@ QDockWidget QTreeView::item:hover {
 }
 
 #DocumentTreeItems::item {
-  background-color: rgba(250,250,250,0.1);
+  background-color: rgba(250,250,250,0.15);
   border: 1px solid rgba(0,0,0,0.15);
   border-radius: 6px;
   margin: 1px 0px 1px 0px;
@@ -2399,7 +2399,7 @@ QDockWidget QTreeView::item:hover {
 }
 
 #DocumentTreeItems::item:open {
-  background-color: rgba(0,0,0,0.2);
+  background-color: rgba(0,0,0,0.15);
   border: 1px solid rgba(0,0,0,0.2);
   color: #eeeeee;
 }
