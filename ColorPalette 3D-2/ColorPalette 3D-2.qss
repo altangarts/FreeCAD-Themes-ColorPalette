@@ -2392,7 +2392,7 @@ QDockWidget QTreeView::item:hover {
   border-bottom-left-radius: 8px;
   border-bottom-right-radius: 8px;
   margin: 0px 0px 1px 0px;
-  color: #eeeeee;
+  color: #000000;
 }
 
 #DocumentTreeItems::item:focus {
@@ -2414,8 +2414,9 @@ QDockWidget QTreeView::item:hover {
 }
 
 #DocumentTreeItems::item:open {
-  background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 rgba(0,0,0,0.15), stop:0.7 rgba(250,250,250,0.05), stop:1 rgba(0,0,0,0.7));  
+  background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 rgba(0,0,0,0.1), stop:0.7 rgba(250,250,250,0.05), stop:1 rgba(0,0,0,0.7));  
   border: 1px solid rgba(0,0,0,0.2);
+  color: #eeeeee;
 }
 
 #DocumentTreeItems::item:open:focus {

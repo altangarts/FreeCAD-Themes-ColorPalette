@@ -2373,11 +2373,11 @@ QDockWidget QTreeView::item:hover {
 }
 
 #DocumentTreeItems::item {
-  background-color: rgba(0,0,0,0.1);
+  background-color: rgba(250,250,250,0.1);
   border: 1px solid rgba(0,0,0,0.15);
   border-radius: 6px;
   margin: 1px 0px 1px 0px;
-  color: #dddddd;
+  color: #000000;
 }
 
 #DocumentTreeItems::item:focus {
@@ -2399,8 +2399,9 @@ QDockWidget QTreeView::item:hover {
 }
 
 #DocumentTreeItems::item:open {
-  background-color: rgba(0,0,0,0.25);
-  border: 1px solid rgba(0,0,0,0.25);
+  background-color: rgba(0,0,0,0.2);
+  border: 1px solid rgba(0,0,0,0.2);
+  color: #eeeeee;
 }
 
 #DocumentTreeItems::item:open:focus {
