@@ -24,7 +24,7 @@ MiddleGray-DarkOrange :
 
 Sand-DarkRed :
 
-        background: #908462. - selection: #680000.
+        background: #827558. - selection: #680000.
 
 
 
