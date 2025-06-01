@@ -144,7 +144,7 @@ QDialog {
 }
 
 QMdiArea {
-  background-image: url(qss:images_dark-light/background_freecad_dark.svg);
+  background-image: url(qss:images_dark-light/background_freecad.svg);
    background-position: center center;
    background-repeat: no-repeat;
 }
@@ -1037,25 +1037,21 @@ QToolBar:disabled {
 
 QToolBar::handle:horizontal {
   width: 10px;
-  padding-left: 2px;
+  padding: 0px;
   image: url(qss:images_classic/Hmovetoolbar-black.png);
 }
 
-QToolBar::handle:vertical {
+QToolBar::handle:vertical {  
   height: 10px;
-  padding-top: 2px;
+  padding: 0px;
   image: url(qss:images_classic/Vmovetoolbar-black.png);
 }
 
 QToolBar::handle:horizontal:hover {
-  width: 10px;
-  padding-left: 2px;
   image: url(qss:images_classic/Hmovetoolbar-white.png);
 }
 
 QToolBar::handle:vertical:hover {
-  height: 10px;
-  padding-top: 2px;
   image: url(qss:images_classic/Vmovetoolbar-white.png);
 }
 
@@ -1497,7 +1493,7 @@ QToolBar > QToolButton:checked:hover {
 
 #WbTabBar #WbTabBarMore {      /* workbench tabbar menu buttton */
   padding: 4px 3px 5px 4px;
-  margin: 2px 0px 2px 0px;
+  margin: 2px 0px 2px 4px;
 }
 
 QToolButton::menu-indicator {
@@ -2695,7 +2691,6 @@ QSplitter::handle {
 }
 
 QSplitter::handle:horizontal {
-  background-image: none;
   background-position: center center;
   background-repeat: none;  
   width: 1px;
