@@ -57,7 +57,7 @@ LGPLv2.1 [LICENSE](LICENSE)
 2D - MiddleGray-DarkOrange  -//-  background: #565654.(lowblue) - selection: #aa5500.
 ![Ekran Görüntüsü (65)](https://github.com/user-attachments/assets/d76cf028-aee4-4c34-b901-5049f26754e6)
 
-3D-3 - Sand-DarkRed  -//-  background: #827558. - selection: #680000.
+3D-3 - Sand-DarkRed  -//-  background: #877855. - selection: #680000.
 ![Ekran Görüntüsü (62)](https://github.com/user-attachments/assets/71086e49-ecf8-4559-9313-e720ccaba54a)
 
 3D-2 - GradientPink-DarkPurple  -//-  background-top: #aa557f, background-bottom: #a0a09e. - selection: #55007f.
