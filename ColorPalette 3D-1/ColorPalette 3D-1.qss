@@ -1572,6 +1572,10 @@ QComboBox QAbstractItemView:disabled {
   color: #aaaaaa;
 }
 
+QComboBox QAbstractItemView:alternate {
+  background-color: @ThemeAccentColor2;
+}
+
 QComboBox:checked {
   color: #eeeeee;
 }

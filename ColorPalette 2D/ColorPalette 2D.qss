@@ -1406,6 +1406,10 @@ QToolBar QToolButton {
   padding: 1px 1px 8px 2px;
 }
 
+QToolBar QToolButton:disabled {
+  padding: 1px 1px 8px 2px;
+}
+
 QToolBar QToolButton:hover {  
   background-color: @ThemeAccentColor1;
   border: 1px solid rgba(0,0,0,0.5);
@@ -1479,10 +1483,6 @@ QToolBar > QToolButton:checked {
 }
 
 QToolBar > QToolButton:checked:hover {
-}
-
-QToolBar QToolButton:disabled {
-  padding: 1px 1px 8px 2px;
 }
 
 #WbTabBar #WbTabBarMore {      /* workbench tabbar menu buttton */
@@ -1573,6 +1573,10 @@ QComboBox QAbstractItemView:selected {
 QComboBox QAbstractItemView:disabled {
   background-color: rgba(0,0,0,0.07);
   color: #aaaaaa;
+}
+
+QComboBox QAbstractItemView:alternate {
+  background-color: @ThemeAccentColor2;
 }
 
 QComboBox:checked {

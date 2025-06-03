@@ -2,6 +2,7 @@
 Gui--OverlayTitleBar {
   background-color: transparent;
   color: transparent;
+  min-height: 22px;
 }
 
  /* Gui--OverlayTabWidget#OverlayLeft {} */
