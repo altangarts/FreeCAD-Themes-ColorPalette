@@ -1090,9 +1090,9 @@ QAbstractSpinBox:up-button {
   width: 18px;
   border-top: 0px solid transparent;
   border-right: 0px solid transparent;
-  border-bottom: 1px solid rgba(0,0,0,0.6);  
+  border-bottom: 0px solid transparent;  
   border-left: 1px solid rgba(0,0,0,0.4);
-  margin: 1px 1px -1px 0px;
+  margin: 1px 1px 0px 0px;
 }
 
 QAbstractSpinBox::up-arrow, QAbstractSpinBox::up-arrow:disabled, QAbstractSpinBox::up-arrow:off {
@@ -1100,7 +1100,7 @@ QAbstractSpinBox::up-arrow, QAbstractSpinBox::up-arrow:disabled, QAbstractSpinBo
   height: 8px;
   width: 8px;
   padding-right: 0px;
-  padding-top: 0px;
+  padding-bottom: 2px;
 }
 
 QAbstractSpinBox::up-arrow:hover {
@@ -1116,7 +1116,7 @@ QAbstractSpinBox:down-button {
   width: 18px;
   border-bottom: 0px solid transparent;
   border-right: 0px solid transparent;
-  border-top: 0px solid transparent;
+  border-top: 1px solid rgba(0,0,0,0.4);
   border-left: 1px solid rgba(0,0,0,0.4);
   margin: -1px 1px 1px 0px;
 }
@@ -1126,7 +1126,7 @@ QAbstractSpinBox::down-arrow, QAbstractSpinBox::down-arrow:disabled, QAbstractSp
   height: 8px;
   width: 8px;
   padding-right: 0px;
-  padding-bottom: 1px;
+  padding-top: 1px;
 }
 
 QAbstractSpinBox::down-arrow:hover {
