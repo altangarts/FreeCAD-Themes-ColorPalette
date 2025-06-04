@@ -1560,6 +1560,7 @@ QComboBox QAbstractItemView {
   padding: 1px 0px 0px 1px;
   min-width: 130px;
   background-color: @ThemeAccentColor2;
+  selection-background-color: @ThemeAccentColor1;
 }
 
 QComboBox QAbstractItemView:selected {
@@ -1572,9 +1573,9 @@ QComboBox QAbstractItemView:disabled {
   color: #aaaaaa;
 }
 
-QComboBox QAbstractItemView:alternate {
-  background-color: @ThemeAccentColor2;
-}
+/* QComboBox::item:alternate {
+  background-color: @ThemeAccentColor3;
+} */
 
 QComboBox:checked {
   color: #eeeeee;
@@ -1613,6 +1614,10 @@ QComboBox::indicator:disabled {
 
 QComboBox::item {
   color: #cccccc;
+}
+
+QComboBox::item:alternate {
+  background-color: @ThemeAccentColor3;
 }
 
 QComboBox::item:hover,
@@ -2036,7 +2041,7 @@ QTabWidget QWidget {
 
 QTabWidget QFrame {
   background-color: transparent;
-  border: none;
+  border: 1px solid transparent;
   margin: 0px;
   padding: 0px;
   border-radius: 0px;
@@ -2045,6 +2050,12 @@ QTabWidget QFrame {
 QTabWidget QFrame::item:focus {
   background-color: @ThemeAccentColor1;
   color: #ffffff;
+}
+
+QTabWidget QAbstractItemView {
+  background-color: @ThemeAccentColor2;
+  border: 2px solid @ThemeAccentColor1;
+  padding: 2px;
 }
 
 QTabWidget::pane {
@@ -2109,7 +2120,7 @@ QTabBar::tab {
 
 QTabWidget QTabBar::tab:bottom {
   background-color: qlineargradient(x1:0, y1:0.3, x2:0, y2:1, stop:0 rgba(250,250,250,0.15), stop:1 rgba(0,0,0,0.2));  
-  border: 1px solid rgba(0,0,0,0.3);
+  border: 1px solid rgba(0,0,0,0.2);
   border-radius: 6px;
   color: #dddddd;
   margin: 2px 0px 3px 3px;
@@ -2353,7 +2364,7 @@ QDockWidget QTreeView {
   color: #dddddd;
   margin: 0px;
   border: 0px solid transparent;
-  padding: 6px 6px 5px 1px;
+  padding: 6px 2px 5px 1px;
   gridline-color: @ThemeAccentColor3;
   selection-background-color: transparent;
   selection-color: #ffffff;
@@ -2893,18 +2904,18 @@ QTreeView::branch#groupsTreeView:has-siblings:!adjoins-item  {
 /*==================================================================================================
 Start page
 ==================================================================================================*/
-QWidget#thumbnailWidget {
+#thumbnailWidget {
   background-color: rgba(250,250,250,0.1);
   border-radius: 10px;
   border: 1px solid rgba(0,0,0,0.3);
 }
 
-QWidget#thumbnailWidget[state="hovered"] {
+#thumbnailWidget:hover {
   background-color: @ThemeAccentColor1;
   border: 1px solid rgba(0,0,0,0.3);
 }
 
-QWidget#thumbnailWidget[state="pressed"] {
+#thumbnailWidget:pressed {
   background-color: @ThemeAccentColor1;
   border: 1px solid rgba(0,0,0,0.3);
 }
