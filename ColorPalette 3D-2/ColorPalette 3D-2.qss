@@ -1492,7 +1492,7 @@ QToolBar > QToolButton:checked:hover {
 }
 
 #WbTabBar #WbTabBarMore {      /* workbench tabbar menu buttton */
-  padding: 4px 3px 5px 4px;
+  padding: 2px 1px 7px 2px;
   margin: 2px 0px 2px 4px;
 }
 
@@ -2104,7 +2104,7 @@ QToolBar QTabBar::tab {
   border-bottom-right-radius: 8px;
   color: #000000;  
   margin: 2px 2px 2px 0px;
-  padding: 4px 2px 8px 6px;
+  padding: 4px 1px 8px 6px;
 }
 
 QTabBar::tab {
@@ -2114,7 +2114,7 @@ QTabBar::tab {
   border-bottom-right-radius: 8px;
   color: #000000;
   margin: 2px 0px 0px 3px;
-  padding: 3px 6px 7px 6px;
+  padding: 3px 4px 7px 6px;
   min-width: 50px;
 }
 
@@ -2125,7 +2125,7 @@ QTabWidget QTabBar::tab:bottom {
   border-bottom-right-radius: 8px;
   color: #000000;
   margin: 2px 0px 3px 3px;
-  padding: 3px 6px 7px 6px;
+  padding: 3px 3px 7px 6px;
   min-width: 50px;
 }
 
@@ -2136,8 +2136,7 @@ QFrame QTabBar::tab {
   border-bottom-right-radius: 8px;
   color: #000000;
   margin: 2px 0px 0px 3px;
-  padding: 2px 4px 6px 4px;
-  min-width: 50px;
+  padding: 2px 0px 6px 4px;
 }
 
 QTabBar::tab:selected, QToolBar QTabBar::tab:selected, QFrame QTabBar::tab:selected {
