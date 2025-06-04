@@ -2063,7 +2063,7 @@ QTabWidget QFrame::item:focus {
 
 QTabWidget QAbstractItemView {
   background-color: @ThemeAccentColor2;
-  border: 2px solid @ThemeAccentColor1;
+  border: 2px solid rgba(0,0,0,0.7);
   padding: 2px;
 }
 
