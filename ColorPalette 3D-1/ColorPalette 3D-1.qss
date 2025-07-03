@@ -1097,7 +1097,7 @@ QAbstractSpinBox::up-arrow, QAbstractSpinBox::up-arrow:disabled, QAbstractSpinBo
   height: 8px;
   width: 8px;
   padding-right: 0px;
-  padding-bottom: 2px;
+  padding-bottom: 0px;
 }
 
 QAbstractSpinBox::up-arrow:hover {
@@ -1545,7 +1545,8 @@ QComboBox, QDialog QComboBox {
   border-bottom-right-radius: 0px;
   background-color: rgba(0,0,0,0.07);
   color: #cccccc;
-  padding-left: 8px;
+  padding-left: 8px; 
+  padding-right: 5px;
   min-height: 22px;
 }
 
@@ -1573,9 +1574,9 @@ QComboBox QAbstractItemView:disabled {
   color: #aaaaaa;
 }
 
-/* QComboBox::item:alternate {
+QComboBox QAbstractItemView:alternate {
   background-color: @ThemeAccentColor3;
-} */
+}
 
 QComboBox:checked {
   color: #eeeeee;
@@ -1613,12 +1614,12 @@ QComboBox::indicator:disabled {
 }
 
 QComboBox::item {
-  color: #cccccc;
+  color: #cccccc; 
 }
 
-QComboBox::item:alternate {
+/* QComboBox::item:alternate {
   background-color: @ThemeAccentColor3;
-}
+} */
 
 QComboBox::item:hover,
 QComboBox::item:selected {
@@ -2055,6 +2056,12 @@ QTabWidget QFrame::item:focus {
 QTabWidget QAbstractItemView {
   background-color: @ThemeAccentColor2;
   border: 2px solid rgba(0,0,0,0.7);
+  padding: 2px;
+}
+
+QDialog QAbstractItemView {
+  background-color: transparent;
+  border: 0px solid transparent;
   padding: 2px;
 }
 
