@@ -1296,11 +1296,15 @@ QPushButton, QDialog QPushButton {
   border-bottom-right-radius: 10px;
   padding: 2px 8px 8px 6px;  
   margin: 0px 0px 0px 0px;
+  min-width: 60px;
 }
 
 #CreateNewRow > QPushButton {
   /* Reset min width to default */
   min-width: -1;
+}
+
+QPushButton::item {
 }
 
 QPushButton:disabled {
@@ -1341,7 +1345,7 @@ QPushButton::menu-indicator {
   image: url(qss:images_classic/radio-checked-darkgray.png);
   width: 9px;
   height: 9px;
-  margin: 0px 0px 0px 12px;
+  margin: 0px 0px 0px 0px;
 }
 
 QPushButton::menu-indicator:hover {
