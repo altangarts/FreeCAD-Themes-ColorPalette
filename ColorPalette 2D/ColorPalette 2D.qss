@@ -694,7 +694,6 @@ QMenu::indicator:non-exclusive:unchecked:pressed {
 }
 
 QMenu::indicator:non-exclusive:unchecked:disabled {
-  image: url(qss:images_classic/checkbox-Empty-lightgray.png);
 }
 
 QMenu::indicator:non-exclusive:checked {
@@ -710,21 +709,7 @@ QMenu::indicator:non-exclusive:checked:pressed {
 }
 
 QMenu::indicator:non-exclusive:checked:disabled {
-image:url(qss:images_classic/checkbox-checked-lightgray.png);
-}
-
-QMenu::indicator:non-exclusive:indeterminate {
-  image: url(qss:images_classic/checkbox-indeterminate-white.png);
-}
-
-QMenu::indicator:non-exclusive:indeterminate:disabled {
-  image: url(qss:images_classic/checkbox-indeterminate-white.png);
-}
-
-QMenu::indicator:non-exclusive:indeterminate:focus,
-QMenu::indicator:non-exclusive:indeterminate:hover,
-QMenu::indicator:non-exclusive:indeterminate:pressed {
-  image: url(qss:images_classic/checkbox-indeterminate-white.png);
+image:url(qss:images_classic/check-mark-lightgray.png);
 }
 
 QMenu::indicator:exclusive:unchecked {
@@ -737,11 +722,9 @@ QMenu::indicator:exclusive:unchecked:pressed {
   border: none;
   outline: none;
   background-color: @ThemeAccentColor1;
-  image: url(qss:images_classic/checkbox-Empty-white.png);
 }
 
 QMenu::indicator:exclusive:unchecked:disabled {
-  image: url(qss:images_classic/checkbox-Empty-white.png);
 }
 
 QMenu::indicator:exclusive:checked {
@@ -756,12 +739,12 @@ QMenu::indicator:exclusive:checked:pressed {
   border: none;
   outline: none;
   background-color: @ThemeAccentColor1;
-  image: url(qss:images_classic/checkbox-Empty-white.png);
+  image: url(qss:images_classic/check-mark-white.png);
 }
 
 QMenu::indicator:exclusive:checked:disabled {
   outline: none;
-  image: url(qss:images_classic/Radio-checked-white.png);
+  image: url(qss:images_classic/check-mark-lightgray.png);
 }
 
 QMenu::right-arrow {
