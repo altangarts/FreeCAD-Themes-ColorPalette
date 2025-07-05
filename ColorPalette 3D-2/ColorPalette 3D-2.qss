@@ -618,8 +618,8 @@ https://doc.qt.io/qt-5/stylesheet-examples.html#customizing-qmenu
 --------------------------------------------------------------------------- */
 QMenu {
   margin: 0px;
-  padding: 4px 0px 2px 2px;
-  border: 1px solid rgba(0,0,0,0.2);
+  padding: 1px 2px 1px 2px;
+  border: 1px solid rgba(0,0,0,0.7);
   color: #dddddd;  
   background-color: @ThemeAccentColor2;
 }
@@ -1079,8 +1079,8 @@ QSpinBox, QDialog QAbstractSpinBox {
   border-top-right-radius: 0px;
   border-bottom-left-radius: 6px;
   border-bottom-right-radius: 0px;
-  min-height: 20px;
-  padding-left: 8px;
+  min-height: 21px;
+  padding-left: 5px;
 }
 
 QAbstractSpinBox:up-button {
@@ -1555,7 +1555,6 @@ QComboBox, QDialog QComboBox {
   background-color: rgba(0,0,0,0.07);
   color: #cccccc;
   padding-left: 8px;
-  padding-right: 5px;
   min-height: 22px;
 }
 
@@ -1564,13 +1563,12 @@ QComboBox:editable {
 }
 
 QComboBox QAbstractItemView {
-  border: 1px solid rgba(0,0,0,0.2);
+  border: 1px solid rgba(0,0,0,0.7);
   border-radius: 0px;
   margin: 0px;
-  padding: 1px 0px 0px 1px;
+  padding: 2px;
   min-width: 130px;
   background-color: @ThemeAccentColor2;
-  selection-background-color: @ThemeAccentColor1;
 }
 
 QComboBox QAbstractItemView:selected {
@@ -1601,7 +1599,8 @@ QComboBox:hover {
 }
 
 QComboBox::indicator {
-  margin-left: 8px;
+  margin-left: 2px;
+  margin-top: 1px;
   color: #cccccc;
   background-color: rgba(0,0,0,0.6);
   width: 14px;
@@ -1632,7 +1631,7 @@ QComboBox::item {
 
 QComboBox::item:hover,
 QComboBox::item:selected {
-  border: 1px solid @ThemeAccentColor1;
+  border: 0px solid @ThemeAccentColor1;
   background-color: @ThemeAccentColor1;
   color: #ffffff;
 }
@@ -2062,15 +2061,9 @@ QTabWidget QFrame::item:focus {
   color: #ffffff;
 }
 
-QTabWidget QAbstractItemView {
+QDockWidget QAbstractItemView {
   background-color: @ThemeAccentColor2;
-  border: 2px solid rgba(0,0,0,0.7);
-  padding: 2px;
-}
-
-QDialog QAbstractItemView {
-  background-color: transparent;
-  border: 0px solid transparent;
+  border: 1px solid rgba(0,0,0,0.7);
   padding: 2px;
 }
 
