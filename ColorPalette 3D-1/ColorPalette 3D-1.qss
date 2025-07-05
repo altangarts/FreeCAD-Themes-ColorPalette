@@ -1338,7 +1338,7 @@ QPushButton::menu-indicator {
   image: url(qss:images_classic/radio-checked-darkgray.png);
   width: 9px;
   height: 9px;
-  margin: 0px 0px 0px 4px;
+  margin: 0px 0px 0px 12px;
 }
 
 QPushButton::menu-indicator:hover {
