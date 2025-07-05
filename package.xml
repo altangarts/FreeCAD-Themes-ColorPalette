@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 <package format="1" xmlns="https://wiki.freecad.org/Package_Metadata">
  <name>ColorPaletteTheme</name>
- <version>2024.12.26</version>
- <date>2024.12.26</date>
+ <version>1.0</version>
+ <date>2025.05.07</date>
  <description>2D-3D ColorPalette theme</description>
  <maintainer email="">altangarts@gmail</maintainer>
  <license file="LICENSE">LGPL-2.1-or-later</license>
  <url type="repository" branch="main">https://github.com/altangarts/FreeCAD-Themes-ColorPalette</url>
- <icon>resources/icons/ColorPaletteTheme.png</icon>
+ <icon>resources/icons/ColorPaletteTheme.svg</icon>
 
 <content>
   <preferencepack>
