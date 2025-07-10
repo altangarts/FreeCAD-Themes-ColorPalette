@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 <package format="1" xmlns="https://wiki.freecad.org/Package_Metadata">
  <name>ColorPaletteTheme</name>
- <version>1.0.0</version>
+ <version>1.0.1</version>
  <date>2025.05.07</date>
  <description>2D-3D ColorPalette theme</description>
  <maintainer email="">altangarts@gmail</maintainer>
