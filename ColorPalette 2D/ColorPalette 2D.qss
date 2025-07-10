@@ -2420,8 +2420,8 @@ QDockWidget QTreeView::item:hover {
 }
 
 #DocumentTreeItems::item:has-children:open {
-  background-color: rgba(0,0,0,0.2);
-  border: 1px solid rgba(0,0,0,0.3);
+  background-color: rgba(0,0,0,0.1);
+  border: 1px solid rgba(0,0,0,0.2);
   color: #beffff;
 }
 
@@ -2444,8 +2444,8 @@ QDockWidget QTreeView::item:hover {
 }
 
 #DocumentTreeItems::item:has-children {
-  background-color: rgba(0,0,0,0.35);
-  border: 1px solid rgba(0,0,0,0.4);
+  background-color: rgba(0,0,0,0.2);
+  border: 1px solid rgba(0,0,0,0.3);
   color: #ffff9b;
 }
 

@@ -2439,7 +2439,7 @@ QDockWidget QTreeView::item:hover {
 }
 
 #DocumentTreeItems::item:has-children:open {
-  background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 rgba(0,0,0,0.2), stop:0.7 rgba(0,0,0,0.02), stop:1 rgba(0,0,0,0.6));  
+  background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 rgba(0,0,0,0.1), stop:0.7 rgba(0,0,0,0.02), stop:1 rgba(0,0,0,0.5));  
   border: 1px solid rgba(0,0,0,0.3);
   color: #beffff;
 }
@@ -2463,7 +2463,7 @@ QDockWidget QTreeView::item:hover {
 }
 
 #DocumentTreeItems::item:has-children {
-  background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 rgba(0,0,0,0.4), stop:0.7 rgba(0,0,0,0.2), stop:1 rgba(0,0,0,0.85));
+  background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 rgba(0,0,0,0.2), stop:0.7 rgba(0,0,0,0.2), stop:1 rgba(0,0,0,0.6));
   border: 1px solid rgba(0,0,0,0.4);
   color: #ffff9b;
 }
