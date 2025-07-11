@@ -2428,8 +2428,8 @@ QDockWidget QTreeView {
 }
 
 QDockWidget QTreeView::item {
-  padding: 1px 0px 5px 3px;
-  margin: 0px 0px 1px 0px;
+  padding: 1px 0px 4px 3px;
+  margin: 0px 0px 0px 0px;
 }
 
 QDockWidget QTreeView::item:focus,

@@ -2410,8 +2410,8 @@ QDockWidget QTreeView {
 }
 
 QDockWidget QTreeView::item {
-  padding: 2px 0px 2px 3px;
-  margin: 0px 0px 1px 0px;
+  padding: 1px 0px 1px 3px;
+  margin: 0px 0px 0px 0px;
 }
 
 QDockWidget QTreeView::item:focus,
@@ -2424,7 +2424,7 @@ QDockWidget QTreeView::item:hover {
   background-color: rgba(250,250,250,0.05);
   border: 1px solid rgba(0,0,0,0.3);
   border-radius: 6px;
-  margin: 1px 0px 1px 0px;
+  margin: 1px 0px 0px 0px;
   color: #ffff69;
 }
 
