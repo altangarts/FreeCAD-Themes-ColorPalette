@@ -362,7 +362,7 @@ https://doc.qt.io/qt-5/stylesheet-examples.html#customizing-qcheckbox
 
 --------------------------------------------------------------------------- */
 QCheckBox {
-  color: #cccccc;
+  color: #aef088;
   padding: 0px;
   outline: none;
   background-color: transparent;
@@ -510,7 +510,7 @@ https://doc.qt.io/qt-5/stylesheet-examples.html#customizing-qradiobutton
 --------------------------------------------------------------------------- */
 QRadioButton {
   background-color: transparent;
-  color: #cccccc;
+  color: #ffbf00;
   border: none;
   spacing: 8px;
   outline: none;
@@ -769,7 +769,7 @@ QAbstractItemView {
 }
 
 QAbstractItemView QLineEdit {
-  padding: 2px;
+  padding: 0px;
 }
 
 /* QAbstractScrollArea ----------------------------------------------------
@@ -1110,7 +1110,7 @@ QAbstractSpinBox,
 QSpinBox, QDialog QAbstractSpinBox {
   background-color: rgba(0,0,0,0.07);
   border: 1px solid rgba(0,0,0,0.15);
-  color: #cccccc;
+  color: #ffff69;
   border-top-left-radius: 6px;
   border-top-right-radius: 0px;
   border-bottom-left-radius: 6px;
@@ -1584,7 +1584,7 @@ QComboBox, QDialog QComboBox {
   border-bottom-left-radius: 6px;
   border-bottom-right-radius: 0px;
   background-color: rgba(0,0,0,0.07);
-  color: #cccccc;
+  color: #beffff;
   padding-left: 8px;
   min-height: 22px;
 }
@@ -1653,7 +1653,7 @@ QComboBox::indicator:disabled {
 }
 
 QComboBox::item {
-  color: #cccccc;
+  color: #dddddd;
 }
 
 /* QComboBox::item:alternate {
@@ -1783,7 +1783,7 @@ QSint--ActionGroup QFrame[class="header"] QLabel[fold="true"]:hover {
 QSint--ActionGroup QFrame[class="content"] {
 background-color: qlineargradient(x1:0, y1:0.94, x2:0, y2:1, stop:0 rgba(250,250,250,0.1), stop:1 rgba(0,0,0,0.2)); 
 margin: -1px 0px 0px 0px;
-padding: -5px -5px 5px -5px;
+padding: 0px;
 border: 1px solid rgba(0,0,0,0.15);
 border-top-left-radius: 0px;
 border-top-right-radius: 0px;
@@ -1813,9 +1813,12 @@ QSint--ActionGroup QFrame[class="content"] QTabBar::tab:left:selected {
 border-left-color: rgba(0,0,0,0.2); /* same as Task Panel background color */
 }
 
-/* Fix for buttons with icons that showed cropped */
+QSint--ActionGroup QFrame[class="content"] > QWidget {
+background-color: transparent;
+}
+
 QSint--ActionGroup QFrame[class="content"] > QWidget > QPushButton {
-padding: 2px; /* bigger padding crops text and icons... */
+padding: 2px; 
 margin: 0px;
 border-radius: 4px;
 }
@@ -1824,7 +1827,7 @@ border-radius: 4px;
 QSint--ActionGroup QFrame[class="content"] QTreeView,
 QSint--ActionGroup QFrame[class="content"] QListView,
 QSint--ActionGroup QFrame[class="content"] QTableView {
-color: #eeeeee;
+color: #ffff69;
 margin: 0px;
 padding: 3px;
 border: 1px solid rgba(0,0,0,0.15);
@@ -1835,8 +1838,11 @@ background-color: rgba(250,250,250,0.05);
 QSint--ActionGroup QFrame[class="content"] QTreeView::item,
 QSint--ActionGroup QFrame[class="content"] QListView::item,
 QSint--ActionGroup QFrame[class="content"] QTableView::item {
-margin: 1px 1px;
+margin: 1px 1px 0px 0px;
 padding: 0px;
+background-color: rgba(0,0,0,0.05);
+border: 1px solid rgba(0,0,0,0.1);
+border-radius: 4px;
 }
 
 QSint--ActionGroup QFrame[class="content"] QTreeView::item:hover,
@@ -1864,6 +1870,18 @@ border: 1px solid @ThemeAccentColor1;
 border-radius: 4px;
 }
 
+QSint--ActionGroup QFrame[class="content"] QHeaderView {
+  background-color: transparent;
+  border: 1px solid transparent;
+  margin: 0px;
+  padding: 0px;
+}
+
+QSint--ActionGroup QFrame[class="content"] QStackedWidget {
+  background-color: transparent;
+  border: 1px solid transparent;
+}
+
 QSint--ActionGroup QFrame[class="content"] QToolButton {
   color: #dddddd;
   text-align: center;
@@ -1874,9 +1892,9 @@ QSint--ActionGroup QFrame[class="content"] QToolButton {
   min-height: 18px;
   min-width: 22px;
   border-top-left-radius: 6px;
-  border-top-right-radius: 0px;
+  border-top-right-radius: 6px;
   border-bottom-left-radius: 6px;
-  border-bottom-right-radius: 0px;
+  border-bottom-right-radius: 6px;
 }
 
 QSint--ActionGroup QFrame[class="content"] QToolButton:checked {
@@ -1910,8 +1928,16 @@ QSint--ActionGroup QToolButton#filterButton QListWidget {
 }
 
 QSint--ActionGroup QToolButton#filterButton QListWidget::item {
-    color: #dddddd;
+    color: #cccccc;
     padding: 2px;
+    background-color: transparent;
+    border: 1px solid transparent;
+}
+
+QSint--ActionGroup QToolButton#filterButton QListWidget::item:hover {
+    color: #ffffff;
+    background-color: @ThemeAccentColor1;
+    border: 1px solid @ThemeAccentColor1;
 }
 
 QSint--ActionGroup QFrame[class="content"] QToolButton:hover{
@@ -2085,6 +2111,7 @@ QTabWidget QFrame {
   margin: 0px;
   padding: 0px;
   border-radius: 0px;
+  color: #eeeeee;
 }
 
 QTabWidget QFrame::item:focus {
@@ -2327,11 +2354,12 @@ QTreeView::indicator,
 QListView::indicator,
 QTableView::indicator,
 QColumnView::indicator {
-  width: 14px;
-  height: 14px;
+  width: 13px;
+  height: 13px;
   background-color: rgba(0,0,0,0.6);
   border: 1px solid rgba(0,0,0,0.8);
   border-radius: 2px;
+  margin: 2px;
 }
 
 QTreeView::indicator:unchecked:disabled,
@@ -2373,7 +2401,6 @@ QColumnView::indicator:unchecked {
 
 QDockWidget QTreeView {
   background-color: transparent;
-  color: #dddddd;
   margin: 0px;
   border: 0px solid transparent;
   padding: 6px 2px 5px 1px;
