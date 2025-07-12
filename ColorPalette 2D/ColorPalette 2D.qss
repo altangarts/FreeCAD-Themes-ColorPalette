@@ -1341,6 +1341,9 @@ QPushButton, QDialog QPushButton {
   border-radius: 6px;
   padding: 3px 8px 6px 8px;  
   margin: 0px 0px 0px 0px;
+}
+
+QStatusBar QPushButton {
   min-width: 60px;
 }
 
