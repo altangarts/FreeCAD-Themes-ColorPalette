@@ -200,7 +200,7 @@ QDockWidget::title {
 }
 
 QDockWidget::close-button {
-  image: url(qss:images_classic/close-white.png);
+  image: url(qss:images_classic/close-black.png);
 }
 
 QDockWidget::close-button:hover {
@@ -218,7 +218,7 @@ QDockWidget::float-button {
   background-image: none;
   margin: 0px;
   padding: 0px;
-  image: url(qss:images_classic/undock-white.png);
+  image: url(qss:images_classic/undock-black.png);
 }
 
 QDockWidget::float-button:hover {
