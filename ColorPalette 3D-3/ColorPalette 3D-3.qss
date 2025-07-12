@@ -782,7 +782,8 @@ QMenu::right-arrow:selected {
 https://doc.qt.io/qt-5/stylesheet-examples.html#customizing-qcombobox
 
 --------------------------------------------------------------------------- */
-QAbstractItemView {
+QDialog QAbstractItemView {
+  alternate-background-color: rgba(0,0,0,0.1);
 }
 
 QAbstractItemView QLineEdit {
