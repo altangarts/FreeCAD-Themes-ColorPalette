@@ -53,13 +53,13 @@ QToolBar * {
 
 Gui--PropertyEditor--PropertyEditor {
     color: #ffff69;
-    alternate-background-color: rgba(0,0,0,0.15);
+    alternate-background-color: rgba(0,0,0,0.1);
     gridline-color: @ThemeAccentColor3;
 }
 
 Gui--PropertyEditor--PropertyEditor {
   qproperty-groupTextColor: #ffaa7f;
-  qproperty-groupBackground: rgba(0,0,0,0.5);
+  qproperty-groupBackground: rgba(0,0,0,0.3);
 }
 
 Gui--PropertyEditor--PropertyEditor QLineEdit:read-only,
@@ -1756,7 +1756,7 @@ border-color: rgba(0,0,0,0.5);
 
 /* Panel header */
 QSint--ActionGroup QFrame[class="header"] {
-background-color: rgba(0,0,0,0.5); /* Task Panel Header background color */
+background-color: rgba(0,0,0,0.3); /* Task Panel Header background color */
 border-top-left-radius: 8px;
 border-top-right-radius: 8px;
 border-bottom-left-radius: 0px;
@@ -1945,6 +1945,10 @@ QSint--ActionGroup QToolButton::menu-button {
   border-left: 1px solid rgba(0,0,0,0.25);
   padding-left: 1px;
   margin: 1px;
+  border-top-left-radius: 0px;
+  border-top-right-radius: 6px;
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 6px;
 }
 
 QSint--ActionGroup QToolButton#settingsButton,
