@@ -380,7 +380,7 @@ https://doc.qt.io/qt-5/stylesheet-examples.html#customizing-qcheckbox
 
 --------------------------------------------------------------------------- */
 QCheckBox {
-  color: #aef088;
+  color: #c6f0ae;
   padding: 0px;
   outline: none;
   background-color: transparent;
@@ -477,7 +477,7 @@ QGroupBox {
 QGroupBox::title {
   top: -8px;
   left: 15px;
-  color: #c1d200;
+  color: #dddddd;
 }
 
 QGroupBox::indicator {
