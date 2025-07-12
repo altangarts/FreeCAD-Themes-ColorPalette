@@ -51,6 +51,17 @@ QToolBar * {
   padding: 0px;
 }
 
+Gui--PropertyEditor--PropertyEditor {
+    color: #ffff69;
+    alternate-background-color: rgba(0,0,0,0.15);
+    gridline-color: @ThemeAccentColor3;
+}
+
+Gui--PropertyEditor--PropertyEditor {
+  qproperty-groupTextColor: #ffaa7f;
+  qproperty-groupBackground: rgba(0,0,0,0.5);
+}
+
 Gui--PropertyEditor--PropertyEditor QLineEdit:read-only,
 Gui--PropertyEditor--PropertyEditor QLineEdit:disabled,
 Gui--PropertyEditor--PropertyEditor QAbstractSpinBox:read-only,
@@ -766,7 +777,6 @@ https://doc.qt.io/qt-5/stylesheet-examples.html#customizing-qcombobox
 
 --------------------------------------------------------------------------- */
 QAbstractItemView {
-  alternate-background-color: rgba(0,0,0,0.15); /* TreeView Row */
 }
 
 QAbstractItemView QLineEdit {
@@ -1695,11 +1705,6 @@ QComboBox::down-arrow:on, QComboBox::down-arrow:hover {
 /*==================================================================================================
 Tasks panel (custom FreeCAD class)
 ==================================================================================================*/
-Gui--PropertyEditor--PropertyEditor {
-  qproperty-groupTextColor: rgba(250,250,250,0.6);
-  qproperty-groupBackground: rgba(0,0,0,0.5);
-}
-
 /* Action group */
 QFrame[class="panel"] {
 background-color: transparent;
@@ -1743,7 +1748,7 @@ QSint--ActionGroup QFrame[class="header"]:hover {
 
 QSint--ActionGroup QToolButton[class="header"] {
 background-color: transparent;
-color: rgba(250,250,250,0.6); /* Task Panel Header text color */
+color: #ffaa7f; /* Task Panel Header text color */
 text-align: left;
 font-weight: bold;
 border: none;
@@ -2109,7 +2114,6 @@ QTabWidget QFrame {
   margin: 0px;
   padding: 0px;
   border-radius: 0px;
-  color: #eeeeee;
 }
 
 QTabWidget QFrame::item:focus {
@@ -2401,8 +2405,7 @@ QDockWidget QTreeView {
   background-color: transparent;
   margin: 0px;
   border: 0px solid transparent;
-  padding: 6px 2px 5px 1px;
-  gridline-color: @ThemeAccentColor3;
+  padding: 6px 2px 5px 1px;  
   selection-background-color: transparent;
   selection-color: #ffffff;
   border-bottom-left-radius: 0px;
@@ -2418,6 +2421,15 @@ QDockWidget QTreeView::item:focus,
 QDockWidget QTreeView::item:hover {
   background-color: @ThemeAccentColor1;
   color: #ffffff;
+}
+
+#DocumentTreeItems::indicator {
+  width: 10px;
+  height: 10px;
+  background-color: rgba(0,0,0,0.6);
+  border: 1px solid rgba(0,0,0,0.8);
+  border-radius: 2px;
+  margin-top: 4px;
 }
 
 #DocumentTreeItems::item {
@@ -2447,8 +2459,8 @@ QDockWidget QTreeView::item:hover {
 }
 
 #DocumentTreeItems::item:has-children:open {
-  background-color: rgba(0,0,0,0.2);
-  border: 1px solid rgba(0,0,0,0.3);
+  background-color: rgba(0,0,0,0.1);
+  border: 1px solid rgba(0,0,0,0.2);
   color: #abff7d;
 }
 
@@ -2471,8 +2483,8 @@ QDockWidget QTreeView::item:hover {
 }
 
 #DocumentTreeItems::item:has-children {
-  background-color: rgba(0,0,0,0.4);
-  border: 1px solid rgba(0,0,0,0.5);
+  background-color: rgba(0,0,0,0.2);
+  border: 1px solid rgba(0,0,0,0.3);
   color: #beffff;
 }
 
@@ -2875,7 +2887,7 @@ Gui--StatefulLabel[state="fully_constrained"] {
   font-weight: bold;
 }
 Gui--UrlLabel {
-  color : #0095ff; /* Deep sky blue */
+  color : #aaff00; /* Deep sky blue */
   text-decoration : underline;
 }
 
