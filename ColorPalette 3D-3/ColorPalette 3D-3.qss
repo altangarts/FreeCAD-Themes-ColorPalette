@@ -477,7 +477,7 @@ QGroupBox {
 QGroupBox::title {
   top: -8px;
   left: 15px;
-  color: #dddddd;
+  color: #c3c3ff;
 }
 
 QGroupBox::indicator {
@@ -2801,8 +2801,7 @@ https://stackoverflow.com/questions/14581498/qt-stylesheet-for-hline-vline-color
 
 --------------------------------------------------------------------------- */
 /* (dot) .QFrame  fix #141, #126, #123 */
-.QFrame {
-}
+.QFrame {}
 
 .QFrame[frameShape="0"] {
   background-color: rgba(250,250,250,0.05);
