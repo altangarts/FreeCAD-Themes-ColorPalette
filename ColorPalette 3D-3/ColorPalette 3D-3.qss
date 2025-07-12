@@ -477,7 +477,7 @@ QGroupBox {
 QGroupBox::title {
   top: -8px;
   left: 15px;
-  color: #ffc3c3;
+  color: #c1d200;
 }
 
 QGroupBox::indicator {
