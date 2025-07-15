@@ -46,6 +46,9 @@ Theme color selection:
    PrimaryColorLighten6
    
    PrimaryColorDarken6
+
+
+
   
                           
    - Note: İf "Accent color 3" isn't applied, it is substituted with "Accent color 2"
