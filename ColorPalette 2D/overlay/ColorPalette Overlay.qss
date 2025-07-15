@@ -55,33 +55,33 @@ Gui--TaskView--TaskPanel {
 }
 
 Gui--OverlayToolButton {
-  image: url(qss:images_classic/transparent.png);
+  image: url(qss:images_classic/transparent.svg);
 }
 
 Gui--OverlayToolButton:hover {
-  image: url(qss:images_classic/transparent.png);
+  image: url(qss:images_classic/transparent.svg);
 }
 
 Gui--OverlayToolButton[objectName="OBTN Transparent"] {
-  image: url(qss:images_classic/transparent-blue.png);
+  image: url(qss:images_classic/transparent-black.svg);
 }
 
 Gui--OverlayToolButton[objectName="OBTN Transparent"]:hover {
-  image: url(qss:images_classic/transparent-white.png);
+  image: url(qss:images_classic/transparent-white.svg);
 }
 
 Gui--OverlayToolButton[objectName="OBTN Overlay"] {
-  image: url(qss:images_classic/overlay-blue.png);
+  image: url(qss:images_classic/overlay-black.svg);
 }
 
 Gui--OverlayToolButton[objectName="OBTN Overlay"]:hover {
-  image: url(qss:images_classic/overlay-white.png);
+  image: url(qss:images_classic/overlay-white.svg);
 }
 
 Gui--OverlayToolButton[objectName="OBTN AutoMode"] {
-  image: url(qss:images_classic/mode-blue.png);
+  image: url(qss:images_classic/mode-black.svg);
 }
 
 Gui--OverlayToolButton[objectName="OBTN AutoMode"]:hover {
-  image: url(qss:images_classic/mode-white.png);
+  image: url(qss:images_classic/mode-white.svg);
 }
