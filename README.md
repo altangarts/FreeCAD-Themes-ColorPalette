@@ -28,7 +28,8 @@ Theme color selection:
 1. Edit ➡ Preference ➡ Display ➡ IU ➡ Colors ➡ Background color
    Simple color  
    Radial color  
-   Linear color  1.3. Linear color position:  
+   Linear color
+   1.3. Linear color position:  
       Top    = Accent color 2  
       Middle = Accent color 3      
       Bottom = Accent color 3
