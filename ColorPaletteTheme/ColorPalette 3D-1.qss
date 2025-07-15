@@ -544,7 +544,8 @@ QMenuBar::item {
   background-color: transparent;
   border: 1px solid transparent;
   border-radius: 4px;
-  color: #ffaa7f;  
+  color: #eeeeee;
+  color: @PrimaryColorLighten6;
   padding: 2px 6px 4px 6px;
   margin: 2px 0px 2px 0px;
 }

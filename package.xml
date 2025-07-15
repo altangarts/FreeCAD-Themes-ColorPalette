@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 <package format="1" xmlns="https://wiki.freecad.org/Package_Metadata">
  <name>ColorPaletteTheme</name>
- <version>1.0.2</version>
+ <version>1.0.3</version>
  <date>2025.07.15</date>
  <description>2D-3D ColorPalette theme</description>
  <maintainer email="">altangarts@gmail</maintainer>
@@ -11,42 +11,42 @@
 
 <content>
   <preferencepack>
-    <name>ColorPalette 2D</name>
+    <name>ColorPaletteTheme</name>
     <description>2D buttons and Color palette background</description>
     <tag>2024</tag>
     <type>Theme</type>
     <tag>2D</tag>
-    <subdirectory>./ColorPalette 2D/</subdirectory>
+    <subdirectory>./ColorPaletteTheme/</subdirectory>
     <file>ColorPalette 2D.qss</file>
     <file>ColorPalette Overlay.qss</file>
   </preferencepack>
   <preferencepack>
-    <name>ColorPalette 3D-1</name>
+    <name>ColorPaletteTheme</name>
     <description>3D buttons and Color palette background</description>
     <tag>2024</tag>
     <type>Theme</type>
     <tag>3D</tag>
-    <subdirectory>./ColorPalette 3D-1/</subdirectory>
+    <subdirectory>./ColorPaletteTheme/</subdirectory>
     <file>ColorPalette 3D-1.qss</file>
     <file>ColorPalette Overlay.qss</file>
   </preferencepack>  
   <preferencepack>
-    <name>ColorPalette 3D-2</name>
+    <name>ColorPaletteTheme</name>
     <description>3D buttons and Color palette background</description>
     <tag>2024</tag>
     <type>Theme</type>
     <tag>3D</tag>
-    <subdirectory>./ColorPalette 3D-2/</subdirectory>
+    <subdirectory>./ColorPaletteTheme/</subdirectory>
     <file>ColorPalette 3D-2.qss</file>
     <file>ColorPalette Overlay.qss</file>
   </preferencepack>
   <preferencepack>
-    <name>ColorPalette 3D-3</name>
+    <name>ColorPaletteTheme</name>
     <description>3D buttons and Color palette background</description>
     <tag>2024</tag>
     <type>Theme</type>
     <tag>3D</tag>
-    <subdirectory>./ColorPalette 3D-3/</subdirectory>
+    <subdirectory>./ColorPaletteTheme/</subdirectory>
     <file>ColorPalette 3D-3.qss</file>
     <file>ColorPalette Overlay.qss</file>
   </preferencepack>
