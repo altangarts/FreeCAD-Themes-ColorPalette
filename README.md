@@ -44,7 +44,6 @@ Theme color selection:
    1. Edit ➡ Preference ➡ Display ➡ UI ➡ Open Theme Editor
 
   PrimaryColorLighten6
-  
   PrimaryColorDarken6
   
                           
