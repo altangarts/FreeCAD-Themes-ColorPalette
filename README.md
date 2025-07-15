@@ -21,31 +21,30 @@ Theme color selection:
 1. Edit ➡ Preference ➡ Display ➡ UI ➡ Theme Customization
 
 
-   Accent color 1:(Selection and Hover background)  
-   Accent color 2:(Windows top background)  
-   Accent color 3:(Windows middle background)  
-   Accent color 3:(Windows bottom background)
+   - Accent color 1:(Selection and Hover background)  
+   - Accent color 2:(Windows top background)  
+   - Accent color 3:(Windows middle background)  
+   - Accent color 3:(Windows bottom background)
    
 #### Viewport Color
 1. Edit ➡ Preference ➡ Display ➡ IU ➡ Colors ➡ Background color
 
-   Simple color  
-   Radial color  
-   Linear color
+   - Simple color  
+   - Radial color  
+   - Linear color
    
 2. Linear color position:
 
 
-   Top    = Accent color 2  
-   Middle = Accent color 3  
-   Bottom = Accent color 3
+   - Top    = Accent color 2  
+   - Middle = Accent color 3  
+   - Bottom = Accent color 3
    
 #### Font Color  
    1. Edit ➡ Preference ➡ Display ➡ UI ➡ Open Theme Editor
 
-   PrimaryColorLighten6
-   
-   PrimaryColorDarken6
+   - PrimaryColorLighten6   
+   - PrimaryColorDarken6
 
 
 
