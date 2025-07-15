@@ -43,8 +43,8 @@ Theme color selection:
 #### Font Color  
    1. Edit ➡ Preference ➡ Display ➡ UI ➡ Open Theme Editor
 
-   - PrimaryColorLighten6   
-   - PrimaryColorDarken6
+       - PrimaryColorLighten6   
+       - PrimaryColorDarken6
 
 
 
