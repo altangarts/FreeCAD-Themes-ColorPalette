@@ -544,7 +544,7 @@ QMenuBar::item {
   background-color: transparent;
   border: 1px solid transparent;
   border-radius: 4px;
-  color: #eeeeee;  
+  color: #ffaa7f;  
   padding: 2px 6px 4px 6px;
   margin: 2px 0px 2px 0px;
 }
@@ -576,7 +576,8 @@ QMenu {
   margin: 0px;
   padding: 1px 2px 1px 2px;
   border: 1px solid rgba(0,0,0,0.7);
-  color: #eeeeee;  
+  color: #eeeeee;
+  color: @PrimaryColorLighten6;
   background-color: @ThemeAccentColor2;
 }
 
@@ -1157,6 +1158,7 @@ QLabel {
   padding: 0px 4px 2px 4px;
   border-radius: 4px;
   color: #eeeeee;
+  color: @PrimaryColorLighten6;
 }
 
 QLabel:disabled {
@@ -1176,6 +1178,7 @@ QTextBrowser {
   background-color: rgba(250,250,250,0.05);
   border: 1px solid rgba(0,0,0,0.2);
   color: #eeeeee;
+  color: @PrimaryColorDarken6;
   border-radius: 10px;
 }
 
@@ -1197,6 +1200,7 @@ QGraphicsView {
   background-color: transparent;
   border: 0px solid #333331;
   color: #eeeeee;
+  color: @PrimaryColorDarken6;
   padding: 0px;
   selection-background-color: @ThemeAccentColor1;
   selection-color: #ffffff;
@@ -1248,6 +1252,7 @@ QProgressBar {
   background-color: rgba(0,0,0,0.2);
   border: 1px solid rgba(0,0,0,0.3);
   color: #eeeeee;
+  color: @PrimaryColorLighten6;
   border-radius: 4px;
   text-align: center;
 }
@@ -1280,9 +1285,10 @@ QProgressBar::chunk:disabled {
 https://doc.qt.io/qt-5/stylesheet-examples.html#customizing-qpushbutton
 
 --------------------------------------------------------------------------- */
-QPushButton, QDialog QPushButton {
+QPushButton {
   background-color: qlineargradient(x1:0, y1:0.3, x2:0, y2:1, stop:0 rgba(250,250,250,0.15), stop:1 rgba(0,0,0,0.3));
   color: #eeeeee;
+  color: @PrimaryColorLighten6;
   text-align: center;
   border: 1px solid rgba(0,0,0,0.2);
   border-radius: 6px;
@@ -1291,6 +1297,7 @@ QPushButton, QDialog QPushButton {
 }
 
 QStatusBar QPushButton {
+  color: @PrimaryColorDarken6;
   min-width: 60px;
 }
 
@@ -1356,9 +1363,10 @@ QDialogButtonBox QPushButton {
   min-width: 80px;
 }
 
-QColorDialog QPushButton {
+QColorDialog QPushButton, QDialog QPushButton {
   background-color: qlineargradient(x1:0, y1:0.3, x2:0, y2:1, stop:0 rgba(250,250,250,0.15), stop:1 rgba(0,0,0,0.3));
-  color: #eeeeee;
+  color: #000000;
+  color: @PrimaryColorDarken6;
   text-align: center;
   border: 1px solid rgba(0,0,0,0.2);
   border-radius: 6px;
@@ -1582,6 +1590,7 @@ QComboBox::item {
   selection-background-color: @ThemeAccentColor1;
   selection-color: #ffffff;
   color: #eeeeee;
+  color: @PrimaryColorLighten6;
 }
 
 QComboBox::item:checked {
@@ -1795,6 +1804,7 @@ QSint--ActionGroup QFrame[class="content"] QStackedWidget {
 
 QSint--ActionGroup QFrame[class="content"] QToolButton {
   color: #eeeeee;
+  color: @PrimaryColorLighten6;
   text-align: center;
   background-color: rgba(0,0,0,0.15);
   border: 1px solid rgba(0,0,0,0.2);
@@ -1830,6 +1840,7 @@ QSint--ActionGroup QToolButton#filterButton,
 QSint--ActionGroup QToolButton#manualUpdate {
     padding-right: 20px; /* make way for the popup button */
     color: #eeeeee;
+    color: @PrimaryColorLighten6;
 }
 
 QSint--ActionGroup QToolButton#filterButton:hover {
@@ -1838,12 +1849,14 @@ QSint--ActionGroup QToolButton#filterButton:hover {
 
 QSint--ActionGroup QToolButton#filterButton QListWidget {
     color: #eeeeee;
+    color: @PrimaryColorLighten6;
     background-color: transparent;
     border: none;
 }
 
 QSint--ActionGroup QToolButton#filterButton QListWidget::item {
-    color: #cccccc;
+    color: #eeeeee;
+    color: @PrimaryColorLighten6;
     padding: 2px;
     background-color: transparent;
     border: 1px solid transparent;
@@ -1976,6 +1989,7 @@ QLineEdit {
   border: 1px solid rgba(0,0,0,0.15);
   border-radius: 4px;
   color: #eeeeee;
+  color: @PrimaryColorLighten6;
 }
 
 QLineEdit:disabled {
@@ -2084,7 +2098,8 @@ QToolBar QTabBar::tab {
   background-color: qlineargradient(x1:0, y1:0.3, x2:0, y2:1, stop:0 rgba(250,250,250,0.15), stop:1 rgba(0,0,0,0.2));  
   border: 1px solid rgba(0,0,0,0.2);
   border-radius: 6px;
-  color: #eeeeee;  
+  color: #eeeeee;
+  color: @PrimaryColorLighten6;
   margin: 2px 2px 2px 0px;
   padding: 4px 1px 6px 6px;
 }
@@ -2094,6 +2109,7 @@ QTabBar::tab {
   border: 1px solid rgba(0,0,0,0.2);
   border-radius: 6px;
   color: #eeeeee;
+  color: @PrimaryColorDarken6;
   margin: 2px 0px 0px 3px;
   padding: 3px 4px 6px 6px;
   min-width: 50px;
@@ -2104,6 +2120,7 @@ QTabWidget QTabBar::tab:bottom {
   border: 1px solid rgba(0,0,0,0.2);
   border-radius: 6px;
   color: #eeeeee;
+  color: @PrimaryColorDarken6;
   margin: 2px 0px 3px 3px;
   padding: 3px 3px 6px 6px;
   min-width: 50px;
@@ -2114,6 +2131,7 @@ QFrame QTabBar::tab {
   border: 1px solid rgba(0,0,0,0.2);
   border-radius: 6px;
   color: #eeeeee;
+  color: @PrimaryColorDarken6;
   margin: 2px 0px 0px 3px;
   padding: 4px 0px 5px 4px;
 }
@@ -2417,6 +2435,7 @@ QColumnView,
 QMenu QTreeView {
   background-color: rgba(250,250,250,0.05);
   color: #eeeeee;
+  color: @PrimaryColorLighten6;
   margin: 0px 0px 0px 0px;
   border: 1px solid rgba(0,0,0,0.2);
   padding: 6px 6px 6px 6px;
@@ -2428,6 +2447,7 @@ QMenu QTreeView {
 QTableView {
   background-color: rgba(0,0,0,0.05); /* background of a lot of stuff including spreadsheets.QTableView */
   color: #eeeeee;
+  color: @PrimaryColorLighten6;
   margin: 0px 0px 0px 0px;
   border: 1px solid rgba(0,0,0,0.15);
   padding: 6px 6px 6px 6px;
@@ -2440,6 +2460,7 @@ QTableView {
 QDialog QTableView {
   background-color: rgba(0,0,0,0.05); 
   color: #eeeeee;
+  color: @PrimaryColorLighten6;
   margin: 0px 0px 0px 0px;
   border: 1px solid rgba(0,0,0,0.15);
   padding: 6px 6px 6px 6px;
@@ -2457,6 +2478,7 @@ QDialog QTableView {
 QDialog QTreeView {
   background-color: rgba(250,250,250,0.05);
   color: #eeeeee;
+  color: @PrimaryColorDarken6;
   margin: 0px 8px 0px 8px;
   border: 1px solid rgba(0,0,0,0.15);
   padding: 5px 2px 2px 2px;
@@ -2499,6 +2521,7 @@ QHeaderView:disabled {
 QHeaderView::section {
   background-color: rgba(0,0,0,0.2);
   color: #eeeeee;
+  color: @PrimaryColorLighten6;
   border: 1px solid rgba(0,0,0,0.2);
   border-radius: 4px;
 }
@@ -2511,6 +2534,7 @@ QHeaderView::section:hover {
 QTableCornerButton::section {
   background-color: @ThemeAccentColor1;
   color: #eeeeee;
+  color: @PrimaryColorLighten6;
   border: 1px solid rgba(0,0,0,0.2);
   border-radius: 4px;
 }
@@ -2573,6 +2597,7 @@ QToolBox {
   border-radius: 4px;
   background-color: @ThemeAccentColor3;
   color: #eeeeee;
+  color: @PrimaryColorDarken6;
 }
 
 QToolBox:selected {
@@ -2584,6 +2609,7 @@ QToolBox:selected {
 QToolBox::tab {
   background-color: @ThemeAccentColor2;
   color: #eeeeee;
+  color: @PrimaryColorLighten6;
   border-radius: 4px;
   border: 1px solid #505050;
   image: none;
