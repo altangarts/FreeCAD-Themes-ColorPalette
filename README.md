@@ -30,10 +30,10 @@ Theme color selection:
    Radial color  
    Linear color
    
-1.3. Linear color position:  
-   Top    = Accent color 2  
-   Middle = Accent color 3      
-   Bottom = Accent color 3
+  1.3. Linear color position:  
+      Top    = Accent color 2  
+      Middle = Accent color 3      
+      Bottom = Accent color 3
    
 #### Font Color  
 1. Edit ➡ Preference ➡ Display ➡ UI ➡ Open Theme Editor
