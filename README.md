@@ -17,21 +17,24 @@ You can edit the "ColorPalette 2D/3D-1/3D-2/3D-3" themes with the color options 
 
 ### Usage
 Theme color selection:  
-#### Selection and Main Window  
+#### Selection and Main Window Color
 1. Edit ➡ Preference ➡ Display ➡ UI ➡ Theme Customization     
    Accent color 1:(Selection and Hover background)  
    Accent color 2:(Windows top background)  
    Accent color 3:(Windows middle background)  
    Accent color 3:(Windows bottom background)  
-#### Viewport window
+#### Viewport window Color
 1. Edit ➡ Preference ➡ Display ➡ IU ➡ Colors ➡ Background color   
    Simple color  
    Radial color  
    Linear color  
-2. Linear color position:  
+1.3. Linear color position:  
    Top    = Accent color 2  
    Middle = Accent color 3      
-   Bottom = Accent color 3  
+   Bottom = Accent color 3
+#### Font Color  
+1. Edit ➡ Preference ➡ Display ➡ UI ➡ Open Theme Editor
+   TextForegroundColor
                           
 - Note: İf "Accent color 3" isn't applied, it is substituted with "Accent color 2"
 - Color selection suggestion: 'Dark colors' and 'Dark and pale pastel colors'  
