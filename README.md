@@ -28,7 +28,6 @@ Theme color selection:
    Simple color  
    Radial color  
    Linear color
-
 1.3. Linear color position:  
    Top    = Accent color 2  
    Middle = Accent color 3      
