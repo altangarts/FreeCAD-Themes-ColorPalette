@@ -43,7 +43,7 @@ Theme color selection:
 #### Font Color  
    1. Edit ➡ Preference ➡ Display ➡ UI ➡ Open Theme Editor
 
-   TextForegroundColor
+  TextForegroundColor
                           
    - Note: İf "Accent color 3" isn't applied, it is substituted with "Accent color 2"
    - Color selection suggestion: 'Dark colors' and 'Dark and pale pastel colors'  
