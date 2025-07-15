@@ -17,7 +17,7 @@ You can edit the "ColorPalette 2D/3D-1/3D-2/3D-3" themes with the color options 
 
 ### Usage
 Theme color selection:  
-#### Selection and Main Color
+#### Main and Selection Color
 1. Edit ➡ Preference ➡ Display ➡ UI ➡ Theme Customization     
    Accent color 1:(Selection and Hover background)  
    Accent color 2:(Windows top background)  
