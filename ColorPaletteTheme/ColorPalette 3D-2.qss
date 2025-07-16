@@ -2150,6 +2150,7 @@ QTabBar::tab:selected, QToolBar QTabBar::tab:selected, QFrame QTabBar::tab:selec
   background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 @ThemeAccentColor1, stop:0.65 @ThemeAccentColor1, stop:1 rgba(0,0,0,0.8));
   color: #ffffff;
   border: 1px solid rgba(0,0,0,0.5);
+  font-weight: bold;
 }
 
 QTabBar::tab:hover, QToolBar QTabBar::tab:hover, QFrame QTabBar::tab:hover {

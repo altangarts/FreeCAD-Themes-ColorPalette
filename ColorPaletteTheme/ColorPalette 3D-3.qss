@@ -2187,6 +2187,7 @@ QTabBar::tab:selected, QToolBar QTabBar::tab:selected, QFrame QTabBar::tab:selec
   background-color: @ThemeAccentColor1;
   color: #ffffff;
   border: 1px solid rgba(0,0,0,0.5);
+  font-weight: bold;
 }
 
 QTabBar::tab:hover, QToolBar QTabBar::tab:hover, QFrame QTabBar::tab:hover {
