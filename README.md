@@ -22,9 +22,9 @@ Theme color selection:
 
 
    - Accent color 1:(Selection and Hover background)  
-   - Accent color 2:(Windows top background)  
-   - Accent color 3:(Windows middle background)  
-   - Accent color 3:(Windows bottom background)
+   - Accent color 2:(top background)  
+   - Accent color 3:(middle background)  
+   - Accent color 3:(bottom background)
    
 #### Viewport Color
 1. Edit ➡ Preference ➡ Display ➡ IU ➡ Colors ➡ Background color
