@@ -5,7 +5,7 @@ You can edit the "ColorPalette 2D/3D-1/3D-2/3D-3" themes with the color options 
 
 ### İnstallation(Manual):
 
-➡️Extract `FreeCAD-Themes-ColorPalette-main.rar` to
+↘️Extract `FreeCAD-Themes-ColorPalette-main.rar` to
   
  Linux:
    ```
