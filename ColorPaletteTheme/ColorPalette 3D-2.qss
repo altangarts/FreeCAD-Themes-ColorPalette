@@ -403,8 +403,8 @@ https://doc.qt.io/qt-5/stylesheet-examples.html#customizing-qgroupbox
 
 --------------------------------------------------------------------------- */
 QGroupBox {
-  background-color: rgba(0,0,0,0.07);
-  border: 1px solid rgba(0,0,0,0.2);
+  background-color: rgba(250,250,250,0.03);
+  border: 1px solid rgba(0,0,0,0.15);
   border-radius: 10px;
   margin-top: 10px;
   padding-top: 5px;
@@ -632,18 +632,8 @@ QMenu::indicator {
   border: 1px solid rgba(0,0,0,0.8);
   border-radius: 2px;
   margin-left: 4px;
-  margin-right: 4px;
   width: 14px;
   height: 14px;  
-}
-
-QMenu::icon:checked {
-  background-color: @ThemeAccentColor1;
-  border: 2px solid @ThemeAccentColor1;
-  position: absolute;
-  border-radius: 4px;
-  margin-left: 4px;
-  margin-right: 4px;
 }
 
 QMenu::indicator:non-exclusive:unchecked {
@@ -1357,7 +1347,7 @@ QPushButton::menu-indicator {
   subcontrol-origin: padding;
   subcontrol-position: center right;
   right: 5px;
-  image: url(qss:images_classic/indeterminate-mark-lightgray.svg);
+  image: url(qss:images_classic/indeterminate-mark-black.svg);
   width: 9px;
   height: 9px;
   margin: 0px 0px 0px 0px;
@@ -1524,7 +1514,7 @@ QToolButton::menu-indicator {
 }
 
 QToolButton::menu-arrow {
-  image: url(qss:images_classic/indeterminate-mark-lightgray.svg);
+  image: url(qss:images_classic/indeterminate-mark-white.svg);
   width: 8px;
   height: 8px;
 }
@@ -1702,7 +1692,7 @@ QSint--ActionGroup QFrame[class="header"] QLabel {
 
 QSint--ActionGroup QFrame[class="header"] QLabel[fold="false"] {
   padding: 0px;
-  image: url(qss:images_classic/indeterminate-mark-lightgray.svg);
+  image: url(qss:images_classic/indeterminate-mark-black.svg);
 }
 
 QSint--ActionGroup QFrame[class="header"] QLabel:hover[fold="false"] {
@@ -2206,7 +2196,7 @@ QTabBar::close-button {
   border: 0;
   margin: 0px 0px 0px 0px;
   padding: 5px;
-  image: url(qss:images_classic/close-darkgray.svg);
+  image: url(qss:images_classic/close-black.svg);
 }
 
 QTabBar::close-button:selected {
@@ -2474,7 +2464,7 @@ QListView {
   color: @PrimaryColorLighten6;
   margin: 0px;
   border: 1px solid rgba(0,0,0,0.2);
-  padding: 6px 6px 6px 10px;
+  padding: 10px 0px 10px 10px;
   border-radius: 10px;
 }
 
@@ -2486,10 +2476,10 @@ QListView QFrame {
 }
 
 QListView::item {
-  background-color: rgba(0,0,0,0.05);
+  background-color: rgba(0,0,0,0.03);
   border: 1px solid rgba(0,0,0,0.1);
-  margin: 1px 0px 1px 0px;
-  padding: -4px;
+  margin: 0px 0px 1px 0px;
+  padding: 0px;
   border-radius: 4px;
 }
 
@@ -2587,8 +2577,7 @@ QHeaderView:disabled {
 
 QHeaderView::section {
   background-color: rgba(0,0,0,0.2);
-  color: #eeeeee;
-  color: @PrimaryColorLighten6;
+  color: #cccccc;
   border: 1px solid rgba(0,0,0,0.2);
   border-radius: 4px;
 }
@@ -2729,11 +2718,11 @@ https://stackoverflow.com/questions/14581498/qt-stylesheet-for-hline-vline-color
 
 --------------------------------------------------------------------------- */
 /* (dot) .QFrame  fix #141, #126, #123 */
-.QFrame {}
+.QFrame {
+  background-color: transparent;
+}
 
 .QFrame[frameShape="0"] {
-  background-color: rgba(250,250,250,0.05);
-  border-left: 1px solid rgba(0,0,0,0.25);
   border-radius: 0px;
   margin: -10px 0px 0px 0px;
 }
@@ -2926,7 +2915,7 @@ QMdiSubWindow:hover {
 Settings menu #groupsTreeView:
 ==================================================================================================*/
 QTreeView::item#groupsTreeView {
-  background-color: rgba(0,0,0,0.05);
+  background-color: rgba(250,250,250,0.02);
 }
 
 QTreeView::item#groupsTreeView:hover,
@@ -2935,7 +2924,7 @@ QTreeView::item#groupsTreeView:selected {
 }
 
 QTreeView::branch#groupsTreeView {
-  background-color: rgba(0,0,0,0.05);
+  background-color: rgba(250,250,250,0.02);
   margin: 1px 0px 1px 0px;
 }
 
@@ -2945,7 +2934,7 @@ QTreeView::branch#groupsTreeView:hover {
 
 QTreeView::branch#groupsTreeView:closed:has-children:has-siblings  {
   border-image: none;
-  image: url(qss:images_classic/indeterminate-mark-lightgray.svg);
+  image: url(qss:images_classic/indeterminate-mark-black.svg);
   padding: 5px;
 }
 
@@ -2981,7 +2970,7 @@ QTreeView::branch#groupsTreeView:open:has-children:!has-siblings:hover  {
 
 QTreeView::branch#groupsTreeView:has-children:!has-siblings:closed  {
   border-image: none;
-  image: url(qss:images_classic/indeterminate-mark-lightgray.svg);
+  image: url(qss:images_classic/indeterminate-mark-black.svg);
   padding: 5px;
 }
 
