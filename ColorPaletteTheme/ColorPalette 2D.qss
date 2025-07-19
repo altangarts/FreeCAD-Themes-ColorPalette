@@ -74,6 +74,53 @@ Gui--PropertyEditor--PropertyEditor > QWidget > QWidget > QLabel {
     border-radius: 0px;
 }
 
+Gui--PropertyEditor--PropertyEditor QLineEdit:read-only,
+Gui--PropertyEditor--PropertyEditor QLineEdit:disabled,
+Gui--PropertyEditor--PropertyEditor QAbstractSpinBox:read-only,
+Gui--PropertyEditor--PropertyEditor QAbstractSpinBox:disabled {
+    color: #aaaaaa;
+    border: 1px solid @ThemeAccentColor1;
+    background-color: @ThemeAccentColor1;
+    selection-background-color: rgba(0,0,0,0.7);
+    selection-color: #ffffff;
+    border-radius: 0px;
+}
+
+Gui--PropertyEditor--PropertyEditor > QWidget > QLabel,
+Gui--PropertyEditor--PropertyEditor > QWidget > QLabel:disabled,
+Gui--PropertyEditor--PropertyEditor > QWidget > QLineEdit {
+    background-color: @ThemeAccentColor1;
+    border: 1px solid @ThemeAccentColor1;
+    border-radius: 0px;
+    margin: 0px;
+    padding: 0px;
+}
+
+Gui--PropertyEditor--PropertyEditor QSpinBox,
+Gui--PropertyEditor--PropertyEditor QDoubleSpinBox,
+Gui--PropertyEditor--PropertyEditor QAbstractSpinBox,
+Gui--PropertyEditor--PropertyEditor QLineEdit,
+Gui--PropertyEditor--PropertyEditor QComboBox,
+Gui--PropertyEditor--PropertyEditor QPushButton {
+    background-color: @ThemeAccentColor1;
+    border: 0px solid rgba(0,0,0,0.2);
+    margin: 0px;
+    padding: 0px 0px 2px 6px;
+    border-radius: 0px;
+}
+
+Gui--PropertyEditor--PropertyEditor QSpinBox:selected,
+Gui--PropertyEditor--PropertyEditor QDoubleSpinBox:selected,
+Gui--PropertyEditor--PropertyEditor QAbstractSpinBox:selected,
+Gui--PropertyEditor--PropertyEditor QLineEdit:selected,
+Gui--PropertyEditor--PropertyEditor QComboBox:selected,
+Gui--PropertyEditor--PropertyEditor QPushButton:selected {
+    background-color: @ThemeAccentColor1;
+    border: 0px solid @ThemeAccentColor1;
+    margin: 0px;
+    border-radius: 0px;
+}
+
 /*==================================================================================================
 Main window
 ==================================================================================================*/
