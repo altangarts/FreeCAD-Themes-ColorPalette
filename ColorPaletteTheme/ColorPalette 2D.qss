@@ -2878,7 +2878,7 @@ QMdiSubWindow:hover {
 Settings menu #groupsTreeView:
 ==================================================================================================*/
 QTreeView::item#groupsTreeView {
-  background-color: transparent;
+  background-color: rgba(0,0,0,0.05);
 }
 
 QTreeView::item#groupsTreeView:hover,
@@ -2887,7 +2887,12 @@ QTreeView::item#groupsTreeView:selected {
 }
 
 QTreeView::branch#groupsTreeView {
-  background-color: transparent;
+  background-color: rgba(0,0,0,0.05);
+  margin: 1px 0px 1px 0px;
+}
+
+QTreeView::branch#groupsTreeView:hover {
+  background-color: @ThemeAccentColor1;
 }
 
 QTreeView::branch#groupsTreeView:closed:has-children:has-siblings  {
