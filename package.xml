@@ -2,7 +2,7 @@
 <package format="1" xmlns="https://wiki.freecad.org/Package_Metadata">
  <name>ColorPaletteTheme</name>
  <version>1.0.4</version>
- <date>2025.07.15</date>
+ <date>2025.07.19</date>
  <description>2D-3D ColorPalette theme</description>
  <maintainer email="">altangarts@gmail</maintainer>
  <license file="LICENSE">LGPL-2.1-or-later</license>
@@ -13,8 +13,9 @@
   <preferencepack>
     <name>ColorPaletteTheme</name>
     <description>2D buttons and Color palette background</description>
-    <tag>Your Color</tag>
+    <tag>Your-Color</tag>
     <type>Theme</type>
+    <tag>Colorful</tag>
     <subdirectory>./ColorPaletteTheme/</subdirectory>
     <file>ColorPalette 2D.qss</file>
     <file>ColorPalette Overlay.qss</file>
@@ -22,8 +23,9 @@
   <preferencepack>
     <name>ColorPaletteTheme</name>
     <description>3D buttons and Color palette background</description>
-    <tag>Your Color</tag>
+    <tag>Your-Color</tag>
     <type>Theme</type>
+    <tag>Colorful</tag>
     <subdirectory>./ColorPaletteTheme/</subdirectory>
     <file>ColorPalette 3D-1.qss</file>
     <file>ColorPalette Overlay.qss</file>
@@ -31,8 +33,9 @@
   <preferencepack>
     <name>ColorPaletteTheme</name>
     <description>3D buttons and Color palette background</description>
-    <tag>Your Color</tag>
+    <tag>Your-Color</tag>
     <type>Theme</type>
+    <tag>Colorful</tag>
     <subdirectory>./ColorPaletteTheme/</subdirectory>
     <file>ColorPalette 3D-2.qss</file>
     <file>ColorPalette Overlay.qss</file>
@@ -40,8 +43,9 @@
   <preferencepack>
     <name>ColorPaletteTheme</name>
     <description>3D buttons and Color palette background</description>
-    <tag>Your Color</tag>
+    <tag>Your-Color</tag>
     <type>Theme</type>
+    <tag>Colorful</tag>
     <subdirectory>./ColorPaletteTheme/</subdirectory>
     <file>ColorPalette 3D-3.qss</file>
     <file>ColorPalette Overlay.qss</file>
