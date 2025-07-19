@@ -68,7 +68,7 @@ Theme color selection:
 * LGPLv2.1 [LICENSE](LICENSE) 
 
 ### Screenshots
-                                                ------   Examples   ------
+                                        ------   Examples   ------
 
 ### ⤵️ GradientFreeCAD-DarkBlue =  background-top: #252549, background-bottom: #9797aa. - selection: #00557f.
 
