@@ -11,15 +11,11 @@ You can edit the "ColorPalette 2D/3D-1/3D-2/3D-3" themes with the color options 
   -Extract `FreeCAD-Themes-ColorPalette-main.rar` to
    ```
    Linux:     /home/username/.local/share/FreeCAD/Mod/
-
-
-
-
+   ```
+  ```
    MacOS:     /Users/username/Library/Application Support/FreeCAD/Mod/
-
-
-
-
+   ```
+  ```
    Windows: C:\Users\username\Appdata\Roaming\FreeCAD\Mod\
    ```
 
