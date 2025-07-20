@@ -2347,12 +2347,12 @@ QTreeView::indicator,
 QListView::indicator,
 QTableView::indicator,
 QColumnView::indicator {
-  width: 13px;
-  height: 13px;
+  width: 11px;
+  height: 11px;
   background-color: rgba(0,0,0,0.6);
   border: 1px solid rgba(0,0,0,0.8);
   border-radius: 2px;
-  margin: 2px;
+  margin: 4px;
 }
 
 QTreeView::indicator:unchecked:disabled,
