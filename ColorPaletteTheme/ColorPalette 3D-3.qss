@@ -2353,31 +2353,31 @@ QTreeView::branch {
 }
 
 QTreeView::branch:has-siblings:!adjoins-item {
-    border-image: url(qss:images_dark-light/branch_vline_light.svg) 0;
+    border-image: url(qss:images_classic/branch_vline_black.svg) 0;
 }
 
 QTreeView::branch:has-siblings:adjoins-item {
-    border-image: url(qss:images_dark-light/branch_more_light.svg) 0;
+    border-image: url(qss:images_classic/branch_more_black.svg) 0;
 }
 
 QTreeView::branch:!has-children:!has-siblings:adjoins-item {
-    border-image: url(qss:images_dark-light/branch_end_light.svg) 0;
+    border-image: url(qss:images_classic/branch_end_black.svg) 0;
 }
 
 QTreeView::branch:closed:has-children:has-siblings {
-    border-image: url(qss:images_dark-light/branch_more_closed_light.svg) 0;
+    border-image: url(qss:images_classic/branch_more_closed_black.svg) 0;
 }
 
 QTreeView::branch:has-children:!has-siblings:closed {
-    border-image: url(qss:images_dark-light/branch_end_closed_light.svg) 0;
+    border-image: url(qss:images_classic/branch_end_closed_black.svg) 0;
 }
 
 QTreeView::branch:open:has-children:has-siblings {
-    border-image: url(qss:images_dark-light/branch_more_open_light.svg) 0;
+    border-image: url(qss:images_classic/branch_more_open_black.svg) 0;
 }
 
 QTreeView::branch:open:has-children:!has-siblings {
-    border-image: url(qss:images_dark-light/branch_end_open_light.svg) 0;
+    border-image: url(qss:images_classic/branch_end_open_black.svg) 0;
 }
 
 QTreeView::indicator,
@@ -2476,7 +2476,7 @@ QDockWidget QTreeView::item:hover {
 
 #DocumentTreeItems::item:selected {
   background-color: @ThemeAccentColor1;
-  border: 1px solid rgba(0,0,0,0.2);
+  border: 1px solid @ThemeAccentColor1;
   color: #ffffff;
 }
 
@@ -2488,7 +2488,7 @@ QDockWidget QTreeView::item:hover {
 
 #DocumentTreeItems::item:has-children:open {
   background-color: rgba(0,0,0,0.1);
-  border: 1px solid rgba(0,0,0,0.2);
+  border: 1px solid rgba(0,0,0,0.3);
   color: #abff7d;
 }
 
@@ -2500,7 +2500,7 @@ QDockWidget QTreeView::item:hover {
 
 #DocumentTreeItems::item:has-children:open:selected {
   background-color: @ThemeAccentColor1;
-  border: 1px solid rgba(0,0,0,0.2);
+  border: 1px solid @ThemeAccentColor1;
   color: #ffffff;
 }
 
@@ -2512,7 +2512,7 @@ QDockWidget QTreeView::item:hover {
 
 #DocumentTreeItems::item:has-children {
   background-color: rgba(0,0,0,0.2);
-  border: 1px solid rgba(0,0,0,0.3);
+  border: 1px solid rgba(0,0,0,0.4);
   color: #beffff;
 }
 
@@ -2524,7 +2524,7 @@ QDockWidget QTreeView::item:hover {
 
 #DocumentTreeItems::item:has-children:selected {
   background-color: @ThemeAccentColor1;
-  border: 1px solid rgba(0,0,0,0.2);
+  border: 1px solid @ThemeAccentColor1;
   color: #ffffff;
 }
 
