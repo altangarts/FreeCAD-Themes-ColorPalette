@@ -57,6 +57,7 @@ Theme color selection:
                           
    - Note: İf "Accent color 3" isn't applied, it is substituted with "Accent color 2"
    - Color selection suggestion: 'Dark colors' and 'Dark and pale pastel colors'
+   - Max-Light: #999999, Min-Dark: #191919 
 
 ### Prerequisites
 * FreeCAD ≥ v1.0.0
