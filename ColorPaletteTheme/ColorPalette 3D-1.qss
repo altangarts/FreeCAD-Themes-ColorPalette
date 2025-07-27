@@ -94,6 +94,7 @@ Gui--PropertyEditor--PropertyEditor > QWidget > QLineEdit {
     border-radius: 0px;
     margin: 0px;
     padding: 0px;
+    color: #ffffff;
 }
 
 Gui--PropertyEditor--PropertyEditor QSpinBox,
@@ -107,6 +108,7 @@ Gui--PropertyEditor--PropertyEditor QPushButton {
     margin: 0px;
     padding: 0px 0px 2px 6px;
     border-radius: 0px;
+    color: #ffffff;
 }
 
 Gui--PropertyEditor--PropertyEditor QSpinBox:selected,
@@ -116,9 +118,23 @@ Gui--PropertyEditor--PropertyEditor QLineEdit:selected,
 Gui--PropertyEditor--PropertyEditor QComboBox:selected,
 Gui--PropertyEditor--PropertyEditor QPushButton:selected {
     background-color: @ThemeAccentColor1;
-    border: 0px solid @ThemeAccentColor1;
+    border: 0px solid @ThemeAccentColor1;    
     margin: 0px;
     border-radius: 0px;
+    color: #ffffff;
+}
+
+Gui--PropertyEditor--PropertyEditor QSpinBox:focus,
+Gui--PropertyEditor--PropertyEditor QDoubleSpinBox:focus,
+Gui--PropertyEditor--PropertyEditor QAbstractSpinBox:focus,
+Gui--PropertyEditor--PropertyEditor QLineEdit:focus,
+Gui--PropertyEditor--PropertyEditor QComboBox:focus,
+Gui--PropertyEditor--PropertyEditor QPushButton:focus {
+    background-color: @ThemeAccentColor1;
+    border: 0px solid @ThemeAccentColor1;    
+    margin: 0px;
+    border-radius: 0px;
+    color: #ffffff;
 }
 
 /*==================================================================================================
@@ -768,7 +784,11 @@ QDialog QAbstractItemView {
 }
 
 QAbstractItemView QLineEdit {
-  padding: 0px;
+  background-color: transparent;
+  padding: 2px 4px 2px 4px;
+  border: 0px solid rgba(0,0,0,0.15);
+  border-radius: 0px;
+  color: transparent;
 }
 
 /* QAbstractScrollArea ----------------------------------------------------
@@ -2908,6 +2928,11 @@ QAbstractView:hover {
 }
 
 QAbstractView:selected {
+  background-color: @ThemeAccentColor1;
+  color: #ffffff;
+}
+
+QAbstractView:focus {
   background-color: @ThemeAccentColor1;
   color: #ffffff;
 }
