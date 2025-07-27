@@ -2348,7 +2348,8 @@ https://doc.qt.io/qt-5/stylesheet-examples.html#customizing-qlistview
 https://doc.qt.io/qt-5/stylesheet-examples.html#customizing-qtableview
 
 --------------------------------------------------------------------------- */
-QTreeView::branch {
+QTreeView::branch,
+QDockWidget QTreeView::branch {
     background: transparent;
 }
 
@@ -2378,6 +2379,41 @@ QTreeView::branch:open:has-children:has-siblings {
 
 QTreeView::branch:open:has-children:!has-siblings {
     border-image: url(qss:images_classic/branch_end_open_black.svg) 0;
+}
+
+QDockWidget QTreeView::branch:has-siblings:!adjoins-item {
+    border-image: none;
+    image: url(qss:images_classic/branch_vline_black.svg) 0;
+}
+
+QDockWidget QTreeView::branch:has-siblings:adjoins-item {
+    border-image: none;
+    image: url(qss:images_classic/branch_more_black.svg) 0;
+}
+
+QDockWidget QTreeView::branch:!has-children:!has-siblings:adjoins-item {
+    border-image: none;
+    image: url(qss:images_classic/branch_end_black.svg) 0;
+}
+
+QDockWidget QTreeView::branch:closed:has-children:has-siblings {
+    border-image: none;
+    image: url(qss:images_classic/branch_more_closed_black.svg) 0;
+}
+
+QDockWidget QTreeView::branch:has-children:!has-siblings:closed {
+    border-image: none;
+    image: url(qss:images_classic/branch_end_closed_black.svg) 0;
+}
+
+QDockWidget QTreeView::branch:open:has-children:has-siblings {
+    border-image: none;
+    image: url(qss:images_classic/branch_more_open_black.svg) 0;
+}
+
+QDockWidget QTreeView::branch:open:has-children:!has-siblings {
+    border-image: none;
+    image: url(qss:images_classic/branch_end_open_black.svg) 0;
 }
 
 QTreeView::indicator,
