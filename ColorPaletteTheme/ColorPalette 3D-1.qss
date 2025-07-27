@@ -3011,6 +3011,18 @@ QTreeView::branch#groupsTreeView:has-children:!has-siblings:closed:hover  {
   padding: 5px;
 }
 
+QTreeView::branch#groupsTreeView:has-siblings:adjoins-item  {
+  border-image: none;
+  image: url(qss:images_classic/branch_more_light.svg);
+  padding: -5px;
+}
+
+QTreeView::branch#groupsTreeView:!has-children:!has-siblings:adjoins-item  {
+  border-image: none;
+  image: url(qss:images_classic/branch_end_light.svg);
+  padding: -5px;
+}
+
 QTreeView::branch#groupsTreeView:has-siblings:!adjoins-item  {
   border-image: none;
 }
