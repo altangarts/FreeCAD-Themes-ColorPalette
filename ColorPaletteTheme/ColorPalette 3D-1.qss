@@ -1213,7 +1213,7 @@ https://doc.qt.io/qt-5/stylesheet-examples.html#customizing-qframe
 
 --------------------------------------------------------------------------- */
 QLabel {
-  padding: 0px 4px 2px 4px;
+  padding: 0px 0px 2px 0px;
   border-radius: 4px;
   color: #eeeeee;
   color: @PrimaryColorLighten6;
@@ -3148,6 +3148,5 @@ QGroupBox[objectName="matOpsGrpBox"] QPushButton {
 }
 
 QToolBar > Gui--WorkbenchComboBox QAbstractItemView {
-  min-width: 180px;
-  margin-left: 30px;
+  min-width: 110px;
 }
