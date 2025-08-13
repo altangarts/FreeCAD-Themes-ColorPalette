@@ -1497,11 +1497,11 @@ QToolBar QToolButton {
   border-radius: 4px;
   min-width: 18px;
   margin: 2px 0px 1px 0px;
-  padding: 1px 1px 8px 2px;  
+  padding: 2px 2px 8px 3px;
 }
 
 QToolBar QToolButton:disabled {
-  padding: 1px 1px 8px 2px;
+  padding: 2px 2px 8px 3px;
 }
 
 QToolBar QToolButton:hover {  
@@ -2270,6 +2270,13 @@ QTabBar::tab:hover, QToolBar QTabBar::tab:hover, QFrame QTabBar::tab:hover {
   background-color: @ThemeAccentColor1;
   color: #ffffff;
   border: 1px solid rgba(0,0,0,0.5);
+}
+
+QTabBar::tab:selected:hover, QToolBar QTabBar::tab:selected:hover, QFrame QTabBar::tab:selected:hover {
+  background-color: @ThemeAccentColor1;
+  color: #ffff00;
+  border: 1px solid rgba(0,0,0,0.5);
+  font-weight: bold;
 }
 
 QTabBar QToolButton {
