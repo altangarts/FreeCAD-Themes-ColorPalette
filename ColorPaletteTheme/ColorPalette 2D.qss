@@ -2103,7 +2103,7 @@ QLineEdit {
 }
 
 QLineEdit:disabled {
-  background-color: #393937;
+  background-color: rgba(0,0,0,0.3);
   color: #bbbbbb;
 }
 
@@ -3171,6 +3171,14 @@ QFrame QListView {
 #CreateNewRow > QPushButton:hover {
   background-color: rgba(250,250,250,0.2);
   border: 2px solid @ThemeAccentColor1;  
+}
+
+QMainWindow QListView {
+  background-color: @ThemeAccentColor2;
+  border: 1px solid rgba(0,0,0,0.7);
+  border-radius: 0px;
+  selection-background-color: @ThemeAccentColor1;
+  selection-color: #ffffff;
 }
 
 QPushButton[objectName="buttonIFCPropertiesDelete"] {
