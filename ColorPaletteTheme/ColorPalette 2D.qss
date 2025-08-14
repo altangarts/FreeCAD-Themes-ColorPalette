@@ -1849,9 +1849,6 @@ background-color: transparent;
 }
 
 QSint--ActionGroup QFrame[class="content"] > QWidget > QPushButton {
-padding: 2px; 
-margin: 0px;
-border-radius: 4px;
 }
 
 /* Fix for lists inside task panels */ /* sketcher constraints list */
@@ -2222,7 +2219,7 @@ QToolBar QTabBar::tab {
   color: #eeeeee;
   color: @PrimaryColorLighten6;
   margin: 2px 2px 1px 0px;
-  padding: 4px 5px 5px 5px;
+  padding: 4px 0px 5px 5px;
 }
 
 QTabBar::tab {
@@ -2275,6 +2272,10 @@ QTabBar::tab:selected:hover, QToolBar QTabBar::tab:selected:hover, QFrame QTabBa
   color: #ffff00;
   border: 1px solid rgba(0,0,0,0.5);
   font-weight: bold;
+}
+
+QToolBar QTabBar::tab:selected {
+  padding: 4px 5px 5px 5px;
 }
 
 QTabBar QToolButton {
@@ -2666,6 +2667,17 @@ QDialog QTableView {
   selection-background-color: @ThemeAccentColor1;
   selection-color: #ffffff;
   border-radius: 10px;
+}
+
+QDialog QListWidget {
+  background-color: @ThemeAccentColor3;
+  color: #eeeeee;
+  color: @PrimaryColorLighten6;
+  border: 1px solid rgba(0,0,0,0.1);
+  padding: 10px 0px 10px 10px;
+  border-radius: 10px;
+  selection-background-color: @ThemeAccentColor1;
+  selection-color: #ffffff;
 }
 
 .QFrame QTreeView {
@@ -3184,17 +3196,6 @@ QFrame QListView {
 #CreateNewRow > QPushButton:hover {
   background-color: rgba(250,250,250,0.2);
   border: 2px solid @ThemeAccentColor1;
-}
-
-QMainWindow QListWidget {
-  background-color: @ThemeAccentColor2;
-  color: #eeeeee;
-  color: @PrimaryColorLighten6;
-  border: 1px solid rgba(0,0,0,0.5);
-  padding: 5px;
-  border-radius: 8px;
-  selection-background-color: @ThemeAccentColor1;
-  selection-color: #ffffff;
 }
 
 QPushButton[objectName="buttonIFCPropertiesDelete"] {
