@@ -1928,9 +1928,20 @@ QSint--ActionGroup QFrame[class="content"] QToolButton {
   border-bottom-right-radius: 6px;
 }
 
+QSint--ActionGroup QFrame[class="content"] QToolButton:hover {
+  background-color: @ThemeAccentColor1;
+  border: 1px solid rgba(0,0,0,0.2);
+  color: #ffffff;
+}
+
 QSint--ActionGroup QFrame[class="content"] QToolButton:checked {
   background-color: @ThemeAccentColor1;
-  border: 1px solid rgba(0,0,0,0.5);
+  border: 1px solid rgba(0,0,0,0.2);
+  color: #ffffff;
+}
+
+QSint--ActionGroup QFrame[class="content"] QToolButton:checked:hover {
+  color: #ffff00;
 }
 
 QSint--ActionGroup QToolButton::menu-button {
@@ -2604,6 +2615,8 @@ QListView {
   border: 1px solid rgba(0,0,0,0.2);
   padding: 10px 0px 10px 10px;
   border-radius: 10px;
+  selection-background-color: @ThemeAccentColor1;
+  selection-color: #ffffff;
 }
 
 QListView QFrame {
@@ -3177,10 +3190,13 @@ QFrame QListView {
   border: 2px solid @ThemeAccentColor1;  
 }
 
-QMainWindow QListView {
+QMainWindow QListWidget {
   background-color: @ThemeAccentColor2;
-  border: 1px solid rgba(0,0,0,0.7);
-  border-radius: 0px;
+  color: #eeeeee;
+  color: @PrimaryColorLighten6;
+  border: 1px solid rgba(0,0,0,0.5);
+  padding: 5px;
+  border-radius: 8px;
   selection-background-color: @ThemeAccentColor1;
   selection-color: #ffffff;
 }
