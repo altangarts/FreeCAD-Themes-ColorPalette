@@ -1698,6 +1698,42 @@ QComboBox::down-arrow:on, QComboBox::down-arrow:hover {
   image: url(qss:images_classic/Arrow-down-white.svg);
 }
 
+QToolBar > Gui--WorkbenchComboBox {
+  background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 rgba(250,250,250,0.2), stop:0.7 rgba(250,250,250,0.3), stop:1 rgba(0,0,0,0.4));  
+  border: 1px solid rgba(0,0,0,0.2);
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
+  border-bottom-left-radius: 7px;
+  border-bottom-right-radius: 7px;
+  color: #eeeeee;
+  color: @PrimaryColorLighten6;
+  padding: 4px 0px 8px 10px;
+  margin: 0px;
+  font-weight: bold;
+}
+
+QToolBar > Gui--WorkbenchComboBox QAbstractItemView {
+  background-color: transparent;
+  border: 1px solid transparent;
+  min-width: 110px;
+  padding: 1px;
+  margin: 0px;
+}
+
+QToolBar:only-one > Gui--WorkbenchComboBox {
+  background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 rgba(250,250,250,0.2), stop:0.7 rgba(250,250,250,0.3), stop:1 rgba(0,0,0,0.4));  
+  border: 1px solid rgba(0,0,0,0.2);
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
+  border-bottom-left-radius: 7px;
+  border-bottom-right-radius: 7px;
+  color: #eeeeee;
+  color: @PrimaryColorLighten6;
+  padding: 1px 0px 5px 10px;
+  margin: 2px 3px 0px 0px;
+  font-weight: bold;
+}
+
 /*==================================================================================================
 Tasks panel (custom FreeCAD class)
 ==================================================================================================*/
@@ -3155,8 +3191,4 @@ QPushButton[objectName="buttonIFCPropertiesDelete"] {
 
 QGroupBox[objectName="matOpsGrpBox"] QPushButton {
   min-width: 235px;
-}
-
-QToolBar > Gui--WorkbenchComboBox QAbstractItemView {
-  min-width: 110px;
 }
