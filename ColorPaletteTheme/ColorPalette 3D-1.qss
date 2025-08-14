@@ -2202,7 +2202,7 @@ QToolBar QTabBar::tab {
   color: #eeeeee;
   color: @PrimaryColorLighten6;
   margin: 2px 2px 2px 0px;
-  padding: 4px 1px 6px 6px;
+  padding: 4px 5px 6px 5px;
 }
 
 QTabBar::tab {
