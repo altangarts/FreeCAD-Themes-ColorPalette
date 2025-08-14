@@ -2228,7 +2228,7 @@ QTabBar::tab {
   border-radius: 6px;
   color: #eeeeee;
   color: @PrimaryColorDarken6;
-  margin: 2px 0px 0px 3px;
+  margin: 2px 5px 0px 3px;
   padding: 3px 4px 5px 6px;
   min-width: 50px;
 }
@@ -2272,10 +2272,6 @@ QTabBar::tab:selected:hover, QToolBar QTabBar::tab:selected:hover, QFrame QTabBa
   color: #ffff00;
   border: 1px solid rgba(0,0,0,0.5);
   font-weight: bold;
-}
-
-QToolBar QTabBar::tab:selected {
-  padding: 4px 5px 5px 5px;
 }
 
 QTabBar QToolButton {
