@@ -1860,6 +1860,14 @@ QSint--ActionGroup QFrame[class="content"] QLabel {
   border: 0px solid transparent;
 }
 
+QSint--ActionGroup QFrame[class="content"] QComboBox QAbstractItemView {
+  border: 1px solid rgba(0,0,0,0.7);
+  border-radius: 0px;
+  margin: 0px;
+  padding: 1px;
+  background-color: @ThemeAccentColor2;
+}
+
 /* Fixs for tabs inside Task Panel */
 QSint--ActionGroup QFrame[class="content"] QTabBar::tab:top:selected {
 border-bottom-color: rgba(0,0,0,0.2); /* same as Task Panel background color */
