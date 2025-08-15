@@ -1,6 +1,6 @@
 GradientFreeCAD-DarkBlue :
 
-        background-top: #252549, background-bottom: #9797aa. - selection: #00557f.
+        background-top: #252549, background-bottom: #838393. - selection: #00557f.
 
 
 
@@ -37,3 +37,4 @@ GradientPink-DarkPurple :
 GradientPalePurple-DarkBlue :
 
         background-top: #55557f, background-bottom: #a0a09e. - selection: #00557f.
+
