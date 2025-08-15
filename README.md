@@ -71,7 +71,7 @@ Theme color selection:
 ### Screenshots
                                         ------   Examples   ------
 
-### ⤵️ GradientFreeCAD-DarkBlue =  background-top: #252549, background-bottom: #9797aa. - selection: #00557f.
+### ⤵️ GradientFreeCAD-DarkBlue =  background-top: #252549, background-bottom: #838393. - selection: #00557f.
 
 ![Ekran Görüntüsü (66)](https://github.com/user-attachments/assets/1b591f9c-2b0a-4df5-bcce-3898df0e7232)
 
