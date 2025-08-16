@@ -55,7 +55,7 @@ Theme color selection:
 
   
                           
-   - Note: If "Accent color 3" is not applied, it is substituted with other variables (theme, Accent color 1-2, restart)
+   - Note: If "Accent color 3" is not applied, it is substituted with other variables (theme, Accent color 1-2 or restart)
    - Color selection suggestion: 'Dark colors' and 'Dark and pale pastel colors'
    - Max-Light: #999999, Max-Dark: #191919 
 
