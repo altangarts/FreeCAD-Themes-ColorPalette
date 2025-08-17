@@ -1091,6 +1091,18 @@ QToolBar:left {
 QToolBar:disabled {
 }
 
+QMenuBar QToolBar::handle:horizontal {
+  width: 10px;
+  padding: 4px;
+  image: url(qss:images_classic/Hmovetoolbar-black.svg);
+}
+
+QStatusBar QToolBar::handle:horizontal {
+  width: 10px;
+  padding: 2px;
+  image: url(qss:images_classic/Hmovetoolbar-black.svg);
+}
+
 QToolBar::handle:horizontal {
   width: 10px;
   padding: 0px;
@@ -1103,6 +1115,10 @@ QToolBar::handle:vertical {
   image: url(qss:images_classic/Vmovetoolbar-black.svg);
 }
 
+QMenuBar QToolBar::handle:horizontal:hover {
+  image: url(qss:images_classic/Hmovetoolbar-white.svg);
+}
+
 QToolBar::handle:horizontal:hover {
   image: url(qss:images_classic/Hmovetoolbar-white.svg);
 }
@@ -1111,16 +1127,28 @@ QToolBar::handle:vertical:hover {
   image: url(qss:images_classic/Vmovetoolbar-white.svg);
 }
 
+QToolBar::separator:vertical {
+  height: 2px;
+  padding: 2px 0px;
+  image: url(qss:images_classic/Vsepartoolbar-black.svg);
+}
+
 QToolBar::separator:horizontal {
   width: 2px;
   padding: 0px 2px;
   image: url(qss:images_classic/Hsepartoolbar-black.svg);
 }
 
-QToolBar::separator:vertical {
-  height: 2px;
-  padding: 2px 0px;
-  image: url(qss:images_classic/Vsepartoolbar-black.svg);
+QStatusBar QToolBar::separator:horizontal {
+  width: 2px;
+  padding: 6px 2px;
+  image: url(qss:images_classic/Hsepartoolbar-black.svg);
+}
+
+QMenuBar QToolBar::separator:horizontal {
+  width: 2px;
+  padding: 6px 2px;
+  image: url(qss:images_classic/Hsepartoolbar-black.svg);
 }
 
 /* QAbstractSpinBox -------------------------------------------------------
@@ -1355,13 +1383,37 @@ QPushButton {
   border-top-right-radius: 0px;
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
-  padding: 2px 8px 8px 6px;  
+  padding: 10px 8px 11px 8px;
+  margin: 0px 0px 0px 0px;
+}
+
+QToolBar QPushButton {
+  background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 rgba(250,250,250,0.2), stop:0.7 rgba(250,250,250,0.3), stop:1 rgba(0,0,0,0.4));
+  border: 1px solid rgba(0,0,0,0.2);
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  color: #eeeeee;
+  color: @PrimaryColorDarken6;
+  text-align: center;
+  padding: 10px 8px 11px 8px;
   margin: 0px 0px 0px 0px;
 }
 
 QStatusBar QPushButton {
+  background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 rgba(250,250,250,0.2), stop:0.7 rgba(250,250,250,0.3), stop:1 rgba(0,0,0,0.4));
+  border: 1px solid rgba(0,0,0,0.2);
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  color: #eeeeee;
   color: @PrimaryColorDarken6;
-  min-width: 60px;
+  text-align: center;
+  padding: 0px 0px 11px 15px;
+  margin: 0px 0px 0px 0px;
+  min-width: 50px;
 }
 
 QPushButton::item {
@@ -1412,12 +1464,13 @@ QStatusBar QPushButton:pressed {
 
 QPushButton::menu-indicator {
   subcontrol-origin: padding;
-  subcontrol-position: center right;
-  right: 5px;
+  subcontrol-position: right center;
   image: url(qss:images_classic/indeterminate-mark-black.svg);
-  width: 9px;
-  height: 9px;
-  margin: 0px 0px 0px 0px;
+  right: 5px;
+  top: 2px;
+  width: 10px;
+  height: 10px;
+  margin-left: 5px;
 }
 
 QPushButton::menu-indicator:hover {
@@ -1570,7 +1623,7 @@ QToolBar > QToolButton:checked:hover {
 
 #WbTabBar #WbTabBarMore {      /* workbench tabbar menu buttton */
   padding: 2px 1px 7px 2px;
-  margin: 2px 0px 2px 4px;
+  margin: 2px 0px 1px 0px;
 }
 
 QToolButton::menu-indicator {
