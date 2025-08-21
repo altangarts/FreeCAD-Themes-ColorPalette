@@ -1459,9 +1459,9 @@ QStatusBar QPushButton:pressed {
 QPushButton::menu-indicator {
   subcontrol-origin: padding;
   subcontrol-position: right center;
-  image: url(qss:images_classic/indeterminate-mark-black.svg);
+  image: url(qss:images_classic/indeterminate-mark-black2.svg);
   right: 5px;
-  top: 2px;
+  top: 1px;
   width: 10px;
   height: 10px;
   margin-left: 5px;

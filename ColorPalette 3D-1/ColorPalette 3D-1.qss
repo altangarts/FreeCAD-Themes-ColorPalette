@@ -1465,9 +1465,9 @@ QStatusBar QPushButton:pressed {
 QPushButton::menu-indicator {
   subcontrol-origin: padding;
   subcontrol-position: right center;
-  image: url(qss:images_classic/indeterminate-mark-white.svg);
+  image: url(qss:images_classic/indeterminate-mark-white2.svg);
   right: 5px;
-  top: 2px;
+  top: 1px;
   width: 10px;
   height: 10px;
   margin-left: 5px;
@@ -2272,7 +2272,7 @@ QToolBar QTabBar::tab {
   color: #eeeeee;
   color: @PrimaryColorLighten6;
   margin: 2px 2px 2px 0px;
-  padding: 4px 5px 6px 5px;
+  padding: 4px 5px 7px 5px;
 }
 
 QTabBar::tab {
