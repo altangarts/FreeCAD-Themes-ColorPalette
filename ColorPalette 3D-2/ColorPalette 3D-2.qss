@@ -1588,6 +1588,14 @@ QToolBar QToolButton:checked {
   border: 1px solid rgba(0,0,0,0.5);
 }
 
+QToolBar:right QToolButton {
+  margin: 0px 0px 0px 0px;
+}
+
+QToolBar:left QToolButton {
+  margin: 0px 0px 0px 0px;
+}
+
 QToolBar QToolButton:checked:disabled {
 }
 
