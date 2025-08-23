@@ -979,7 +979,7 @@ QTreeView QScrollBar::add-line:vertical {
   subcontrol-origin: margin;
 }
 
-QTabWidget QScrollBar:vertical {
+/*QTabWidget QScrollBar:vertical {
   background-color: transparent;
   width: 12px;
   margin: 0px;
@@ -1013,7 +1013,7 @@ QTabWidget QScrollBar::add-line:vertical {
   width: 9px;
   subcontrol-position: bottom;
   subcontrol-origin: margin;
-}
+}*/
 
 /* QTextEdit --------------------------------------------------------------
 
@@ -2581,7 +2581,7 @@ QDockWidget QTreeView {
   background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 rgba(250,250,250,0.1), stop:0.93 rgba(250,250,250,0.2), stop:1 rgba(0,0,0,0.4));  
   border: 1px solid rgba(0,0,0,0.15);
   margin: 0px 0px 0px 0px;
-  padding: 8px 0px 20px 8px;  
+  padding: 8px 0px 20px 5px;  
   selection-background-color: transparent;
   selection-color: #ffffff;
   border-top-left-radius: 0px;
@@ -2627,7 +2627,7 @@ QDockWidget QTreeView::item:has-children:open:hover {
 }
 
 QTabWidget QTreeView {
-  padding: 8px 3px 20px 8px;
+  padding: 8px 0px 20px 5px;
 }
 
 QTabWidget QTreeView::item:has-children:open {

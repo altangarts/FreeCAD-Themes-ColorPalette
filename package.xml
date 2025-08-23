@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 <package format="1" xmlns="https://wiki.freecad.org/Package_Metadata">
  <name>ColorPaletteTheme</name>
- <version>1.1.6</version>
+ <version>1.1.7</version>
  <date>2025.08.16</date>
  <description>2D-3D ColorPalette theme</description>
  <maintainer email="">altangarts@gmail</maintainer>
@@ -18,7 +18,7 @@
     <tag>Colorful</tag>
     <subdirectory>./ColorPalette 2D/</subdirectory>
     <file>ColorPalette 2D.qss</file>
-    <file>ColorPalette Overlay.qss</file>
+    <file>ColorPalette 2D Overlay.qss</file>
   </preferencepack>
   <preferencepack>
     <name>ColorPalette 3D-1</name>
@@ -28,7 +28,7 @@
     <tag>Colorful</tag>
     <subdirectory>./ColorPalette 3D-1/</subdirectory>
     <file>ColorPalette 3D-1.qss</file>
-    <file>ColorPalette Overlay.qss</file>
+    <file>ColorPalette 3D-1 Overlay.qss</file>
   </preferencepack>  
   <preferencepack>
     <name>ColorPalette 3D-2</name>
@@ -38,7 +38,7 @@
     <tag>Colorful</tag>
     <subdirectory>./ColorPalette 3D-2/</subdirectory>
     <file>ColorPalette 3D-2.qss</file>
-    <file>ColorPalette Overlay.qss</file>
+    <file>ColorPalette 3D-2 Overlay.qss</file>
   </preferencepack>
   <preferencepack>
     <name>ColorPalette 3D-3</name>
@@ -48,7 +48,7 @@
     <tag>Colorful</tag>
     <subdirectory>./ColorPalette 3D-3/</subdirectory>
     <file>ColorPalette 3D-3.qss</file>
-    <file>ColorPalette Overlay.qss</file>
+    <file>ColorPalette 3D-3 Overlay.qss</file>
   </preferencepack>
 </content>
 </package>
