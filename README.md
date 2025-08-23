@@ -1,11 +1,15 @@
 # FreeCAD Themes - ColorPalette
 ColorPalette Themes, makes the interface and workspaces more user-focused. It simplifies theme color selection and allows you to apply single-color, dual-color, triple-color, and gradient-color combinations to the entire window.
 It offers five different appearance options for buttons and panels. (2D - 3D)
+
 ### ----- This themes are priority for FreeCAD version 1.1.0 -----
-### İnstallation(Primary):
+
+### ☑️ İnstallation
+
+#### ✅ İnstallation (Primary) :
    ➡️Launch FreeCAD - Tools - Addon Manager - Search "Color Palette Theme" and İnstall
 
-### İnstallation(Manual):
+#### ✅ İnstallation (Manual) :
 
    ↘️Extract `FreeCAD-Themes-ColorPalette-main.rar` to
   
