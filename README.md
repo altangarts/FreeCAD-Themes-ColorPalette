@@ -26,7 +26,7 @@ It offers five different appearance options for buttons and panels. (2D - 3D)
   ```
  C:\Users\username\Appdata\Roaming\FreeCAD\Mod\
    ```
- ## ------------------------------- Usage ------------------------------------
+ ## ------------------------------------ Usage ------------------------------------
 
 ### ☑️ Theme Selection
 
