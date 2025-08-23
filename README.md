@@ -25,12 +25,12 @@ It offers five different appearance options for buttons and panels. (2D - 3D)
 ### Usage
 
 ### Theme selection(1):
-(with ColorPalette configuration, automatic "Overlay" selection and "Gradient FreeCAD" theme settings for first installation)
+----- (with ColorPalette configuration, automatic "Overlay" selection and "Gradient FreeCAD" theme settings for first installation) -----
 1. Edit ➡ Preference ➡ General ➡ Application ➡ Theme
 
 
 ### Theme selection(2):
-(Choosing a theme without changing your configuration)
+----- (Choosing a theme without changing your configuration) -----
 1. Edit ➡ Preference ➡ Display ➡ UI ➡ Theme Customization ➡ Style Sheet(Advanced) = Theme
 2. Edit ➡ Preference ➡ Display ➡ UI ➡ Theme Customization ➡ Overlay Style Sheet = Overlay
 
