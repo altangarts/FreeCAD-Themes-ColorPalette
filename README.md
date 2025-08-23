@@ -23,8 +23,17 @@ It offers five different appearance options for buttons and panels. (2D - 3D)
    ```
 
 ### Usage
-Theme color selection:  
+### Theme selection:
+(with ColorPalette configuration, automatic "Overlay" selection and "Gradient FreeCAD" theme settings for first installation)
+1. Edit ➡ Preference ➡ General ➡ Application ➡ Theme
+### Theme selection:
+(Choosing a theme without changing your configuration)
+1. Edit ➡ Preference ➡ Display ➡ UI ➡ Theme Customization ➡ Style Sheet(Advanced) = Theme
+2. Edit ➡ Preference ➡ Display ➡ UI ➡ Theme Customization ➡ Overlay Style Sheet = Overlay
+
 #### Main Color and Selection Color
+Theme color selection:  
+#### Main Color and Selection Color,
 1. Edit ➡ Preference ➡ Display ➡ UI ➡ Theme Customization
 
 
@@ -33,7 +42,7 @@ Theme color selection:
    - Accent color 3:(middle background)  
    - Accent color 3:(bottom background)
    
-#### Viewport Color
+#### Viewport Color,
 1. Edit ➡ Preference ➡ Display ➡ IU ➡ Colors ➡ Background color
 
    - Simple color  
@@ -47,7 +56,7 @@ Theme color selection:
    - Middle = Accent color 3  
    - Bottom = Accent color 3
    
-#### Font Color  
+#### Font Color,
    1. Edit ➡ Preference ➡ Display ➡ UI ➡ Open Theme Editor
 
        - PrimaryColorLighten6   
@@ -58,9 +67,10 @@ Theme color selection:
   
 Note:            
    - To apply the main configuration with the "Gradient FreeCAD" color theme: Edit ➡ Preference ➡ General ➡ Application ➡ Theme
+   - Select the "Overlay" that has the same name as the theme
    - Max-Light: #999999, Max-Dark: #191919
    - If "Accent color 3" is not applied, it is substituted with other variables (Style Sheet(Advanced), Accent color 1-2 or restart)
-   - Color selection suggestion: 'Dark colors' and 'Dark and pale pastel colors'   
+   - Color selection suggestion: 'Dark colors' and 'Dark and pale pastel colors'
 ### Prerequisites
 * FreeCAD ≥ v1.0.0
 
