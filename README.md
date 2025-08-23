@@ -8,11 +8,11 @@ It offers five different appearance options for buttons and panels. (2D - 3D)
 
 
 #### ✅ İnstallation (Primary) :
-   ➡️Launch FreeCAD - Tools - Addon Manager - Search "Color Palette Theme" and İnstall
+         ➡️Launch FreeCAD - Tools - Addon Manager - Search "Color Palette Theme" and İnstall
 
 #### ✅ İnstallation (Manual) :
 
-   ↘️Extract `FreeCAD-Themes-ColorPalette-main.rar` to
+       ↘️Extract `FreeCAD-Themes-ColorPalette-main.rar` to
   
  Linux:
    ```
