@@ -32,7 +32,7 @@ It offers five different appearance options for buttons and panels. (2D - 3D)
 ### Theme Selection(2):
 ----- (Choosing a theme without changing your configuration) -----
 1. Edit ➡ Preference ➡ Display ➡ UI ➡ Theme Customization ➡ Style Sheet(Advanced) = Theme
-2. Edit ➡ Preference ➡ Display ➡ UI ➡ Theme Customization ➡ Overlay Style Sheet = Overlay
+2. Edit ➡ Preference ➡ Display ➡ UI ➡ Theme Customization ➡ Overlay Style Sheet = Overlay(Select same name as the theme)
 
 
 #### Theme Color Selection:  
@@ -68,8 +68,7 @@ It offers five different appearance options for buttons and panels. (2D - 3D)
 
 
   
-Note:            
-   - Select the "Overlay" that has the same name as the theme
+Note: 
    - Max-Light: #999999, Max-Dark: #191919
    - If "Accent color 3" is not applied, it is substituted with other variables (Style Sheet(Advanced), Accent color 1-2 or restart)
    - Color selection suggestion: 'Dark colors' and 'Dark and pale pastel colors'
