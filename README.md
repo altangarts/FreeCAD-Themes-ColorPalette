@@ -25,8 +25,9 @@ It offers five different appearance options for buttons and panels. (2D - 3D)
   ```
  C:\Users\username\Appdata\Roaming\FreeCAD\Mod\
    ```
+------------------------- ## Usage -------------------------
 
-### ☑️ Usage
+### ☑️ Theme Selection
 
 #### ✅ Theme Selection 1 :
 ----- (with ColorPalette configuration, automatic "Overlay" selection and "Gradient FreeCAD" theme settings for first installation) -----
