@@ -24,19 +24,19 @@ It offers five different appearance options for buttons and panels. (2D - 3D)
 
 ### Usage
 
-### Theme Selection(1):
+### ✅ Theme Selection(1):
 ----- (with ColorPalette configuration, automatic "Overlay" selection and "Gradient FreeCAD" theme settings for first installation) -----
 1. Edit ➡ Preference ➡ General ➡ Application ➡ Theme
 
 
-### Theme Selection(2):
+### ✅ Theme Selection(2):
 ----- (Choosing a theme without changing your configuration) -----
 1. Edit ➡ Preference ➡ Display ➡ UI ➡ Theme Customization ➡ Style Sheet(Advanced) = Theme
 2. Edit ➡ Preference ➡ Display ➡ UI ➡ Theme Customization ➡ Overlay Style Sheet = Overlay (Select same name as the theme)
 
 
 #### Theme Color Selection:  
-#### Main Color and Selection Color,
+#### ✅ Main Color and Selection Color,
 1. Edit ➡ Preference ➡ Display ➡ UI ➡ Theme Customization
 
 
@@ -45,7 +45,7 @@ It offers five different appearance options for buttons and panels. (2D - 3D)
    - Accent color 3:(middle background)  
    - Accent color 3:(bottom background)
    
-#### Viewport Color,
+#### ✅ Viewport Color,
 1. Edit ➡ Preference ➡ Display ➡ IU ➡ Colors ➡ Background color
 
    - Simple color  
@@ -59,7 +59,7 @@ It offers five different appearance options for buttons and panels. (2D - 3D)
    - Middle = Accent color 3  
    - Bottom = Accent color 3
    
-#### Font Color,
+#### ✅ Font Color,
    1. Edit ➡ Preference ➡ Display ➡ UI ➡ Open Theme Editor
 
        - PrimaryColorLighten6   
