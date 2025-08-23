@@ -69,7 +69,6 @@ It offers five different appearance options for buttons and panels. (2D - 3D)
 
   
 Note:            
-   - To apply the main configuration with the "Gradient FreeCAD" color theme: Edit ➡ Preference ➡ General ➡ Application ➡ Theme
    - Select the "Overlay" that has the same name as the theme
    - Max-Light: #999999, Max-Dark: #191919
    - If "Accent color 3" is not applied, it is substituted with other variables (Style Sheet(Advanced), Accent color 1-2 or restart)
