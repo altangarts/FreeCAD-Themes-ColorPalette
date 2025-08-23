@@ -4,7 +4,7 @@ It offers five different appearance options for buttons and panels. (2D - 3D)
 
 ### ----- This themes are priority for FreeCAD version 1.1.0 -----
 
-## ------------------------------------ İnstallation ------------------------------------
+## -------------------------------- İnstallation --------------------------------
 
 
 #### ✅ İnstallation (Primary) :
