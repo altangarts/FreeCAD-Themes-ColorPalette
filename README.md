@@ -42,9 +42,9 @@ Theme color selection:
 2. Linear color position:
 
 
-   - Top    = Accent color 2  
-   - Middle = Accent color 3  
-   - Bottom = Accent color 3
+   - Accent color 2:(top background)  
+   - Accent color 3:(middle background)  
+   - Accent color 3:(bottom background)
    
 #### Font Color  
    1. Edit ➡ Preference ➡ Display ➡ UI ➡ Open Theme Editor
