@@ -32,7 +32,7 @@ It offers five different appearance options for buttons and panels. (2D - 3D)
 ### Theme Selection(2):
 ----- (Choosing a theme without changing your configuration) -----
 1. Edit ➡ Preference ➡ Display ➡ UI ➡ Theme Customization ➡ Style Sheet(Advanced) = Theme
-2. Edit ➡ Preference ➡ Display ➡ UI ➡ Theme Customization ➡ Overlay Style Sheet = Overlay(Select same name as the theme)
+2. Edit ➡ Preference ➡ Display ➡ UI ➡ Theme Customization ➡ Overlay Style Sheet = Overlay (Select same name as the theme)
 
 
 #### Theme Color Selection:  
