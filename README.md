@@ -4,7 +4,8 @@ It offers five different appearance options for buttons and panels. (2D - 3D)
 
 ### ----- This themes are priority for FreeCAD version 1.1.0 -----
 
-### ☑️ İnstallation
+## ------------------------------------------- İnstallation --------------------------------------------------
+
 
 #### ✅ İnstallation (Primary) :
    ➡️Launch FreeCAD - Tools - Addon Manager - Search "Color Palette Theme" and İnstall
@@ -86,8 +87,9 @@ Note:
 ### License
 * LGPLv2.1 [LICENSE](LICENSE) 
 
-### Screenshots
-                                        ------   Examples   ------
+ ## ---------------------------------------------- Examples --------------------------------------------------
+
+ ### ☑️ Screenshots
 
 ### ⤵️ GradientFreeCAD-DarkBlue =  background-top: #2c2c57, background-bottom: #777788. - selection: #00557f.
 
