@@ -81,7 +81,7 @@ QTabWidget QTreeView {
   border: 0px solid rgba(0,0,0,0.2);
   border-radius: 4px;
   margin: 1px 0px 1px 0px;
-  padding: 1px 0px 4px 0px;
+  padding: 0px 0px 0px 0px;
   color: #ffff69;
 }
 
