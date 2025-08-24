@@ -147,17 +147,6 @@ QDialog {
   background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop: 0 @ThemeAccentColor2, stop: 0.06 @ThemeAccentColor2, stop: 0.5 @ThemeAccentColor3, stop: 1 @ThemeAccentColor3); /* main background color */
 }
 
-QMainWindow QListWidget {
-  background-color: @ThemeAccentColor2;
-  color: #eeeeee;
-  color: @PrimaryColorLighten6;
-  border: 1px solid rgba(0,0,0,0.5);
-  padding: 5px;
-  border-radius: 8px;
-  selection-background-color: @ThemeAccentColor1;
-  selection-color: #ffffff;
-}
-
 QMdiArea {
   background-image: url(qss:images_dark-light/background_freecad.svg);
   background-position: center center;
@@ -2492,6 +2481,41 @@ QTreeView::branch:open:has-children:has-siblings {
 
 QTreeView::branch:open:has-children:!has-siblings {
     border-image: url(qss:images_classic/branch_end_open_black.svg) 0;
+}
+
+QDockWidget QTreeView::branch:has-siblings:!adjoins-item {
+    border-image: none;
+    image: none;
+}
+
+QDockWidget QTreeView::branch:has-siblings:adjoins-item {
+    border-image: none;
+    image: none;
+}
+
+QDockWidget QTreeView::branch:!has-children:!has-siblings:adjoins-item {
+    border-image: none;
+    image: none;
+}
+
+QDockWidget QTreeView::branch:closed:has-children:has-siblings {
+    border-image: none;
+    image: url(qss:images_classic/branch_more_closed_black.svg) 0;
+}
+
+QDockWidget QTreeView::branch:has-children:!has-siblings:closed {
+    border-image: none;
+    image: url(qss:images_classic/branch_end_closed_black.svg) 0;
+}
+
+QDockWidget QTreeView::branch:open:has-children:has-siblings {
+    border-image: none;
+    image: url(qss:images_classic/branch_more_open_black.svg) 0;
+}
+
+QDockWidget QTreeView::branch:open:has-children:!has-siblings {
+    border-image: none;
+    image: url(qss:images_classic/branch_end_open_black.svg) 0;
 }
 
 QTreeView::indicator,
