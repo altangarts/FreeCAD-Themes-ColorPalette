@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 <package format="1" xmlns="https://wiki.freecad.org/Package_Metadata">
  <name>ColorPaletteTheme</name>
- <version>1.1.7</version>
+ <version>1.1.8</version>
  <date>2025.08.16</date>
  <description>2D-3D ColorPalette theme</description>
  <maintainer email="">altangarts@gmail</maintainer>
@@ -11,15 +11,25 @@
 
 <content>
   <preferencepack>
-    <name>ColorPalette 2D</name>
+    <name>ColorPalette 2D-1</name>
     <description>2D buttons and Color palette background</description>
     <tag>Your Color</tag>
     <type>Theme</type>
     <tag>Colorful</tag>
-    <subdirectory>./ColorPalette 2D/</subdirectory>
-    <file>ColorPalette 2D.qss</file>
-    <file>ColorPalette 2D Overlay.qss</file>
+    <subdirectory>./ColorPalette 2D-1/</subdirectory>
+    <file>ColorPalette 2D-1.qss</file>
+    <file>ColorPalette 2D-1 Overlay.qss</file>
   </preferencepack>
+  <preferencepack>
+    <name>ColorPalette 2D-2</name>
+    <description>3D buttons and Color palette background</description>
+    <tag>Your Color</tag>
+    <type>Theme</type>
+    <tag>Colorful</tag>
+    <subdirectory>./ColorPalette 2D-2/</subdirectory>
+    <file>ColorPalette 2D-2.qss</file>
+    <file>ColorPalette 2D-2 Overlay.qss</file>
+  </preferencepack>  
   <preferencepack>
     <name>ColorPalette 3D-1</name>
     <description>3D buttons and Color palette background</description>
@@ -29,7 +39,7 @@
     <subdirectory>./ColorPalette 3D-1/</subdirectory>
     <file>ColorPalette 3D-1.qss</file>
     <file>ColorPalette 3D-1 Overlay.qss</file>
-  </preferencepack>  
+  </preferencepack>
   <preferencepack>
     <name>ColorPalette 3D-2</name>
     <description>3D buttons and Color palette background</description>
@@ -39,16 +49,6 @@
     <subdirectory>./ColorPalette 3D-2/</subdirectory>
     <file>ColorPalette 3D-2.qss</file>
     <file>ColorPalette 3D-2 Overlay.qss</file>
-  </preferencepack>
-  <preferencepack>
-    <name>ColorPalette 3D-3</name>
-    <description>3D buttons and Color palette background</description>
-    <tag>Your Color</tag>
-    <type>Theme</type>
-    <tag>Colorful</tag>
-    <subdirectory>./ColorPalette 3D-3/</subdirectory>
-    <file>ColorPalette 3D-3.qss</file>
-    <file>ColorPalette 3D-3 Overlay.qss</file>
   </preferencepack>
 </content>
 </package>
