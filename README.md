@@ -68,8 +68,7 @@ It offers five different appearance options for buttons and panels. (2D - 3D)
 #### ✅ Font Color,
    1. Edit ➡ Preference ➡ Display ➡ UI ➡ Open Theme Editor
 
-       - PrimaryColorLighten6   
-       - PrimaryColorDarken6
+       - PrimaryColorLighten6 
 
 
 
