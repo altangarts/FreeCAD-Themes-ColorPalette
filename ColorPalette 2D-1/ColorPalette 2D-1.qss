@@ -1164,7 +1164,7 @@ QToolBar::separator:vertical {
 
 QToolBar::separator:horizontal {
   width: 2px;
-  padding: 0px 2px;
+  padding: 4px 2px;
   image: url(qss:images_classic/Hsepartoolbar-black.svg);
 }
 
