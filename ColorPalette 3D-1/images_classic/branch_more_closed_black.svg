@@ -28,7 +28,7 @@
      showguides="true"
      inkscape:zoom="89.249991"
      inkscape:cx="10.000001"
-     inkscape:cy="9.977592"
+     inkscape:cy="9.9663876"
      inkscape:window-width="3840"
      inkscape:window-height="2054"
      inkscape:window-x="-11"
@@ -104,14 +104,6 @@
   <g
      id="layer1"
      transform="translate(-1074.0663,-336.59799)">
-    <path
-       style="opacity:1;vector-effect:none;fill:none;fill-opacity:0.600939;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-       d="m 1094.0663,347.09799 h -10"
-       id="path1730" />
-    <path
-       style="opacity:1;vector-effect:none;fill:none;fill-opacity:0.600939;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-       d="m 1083.5663,336.59799 v 20"
-       id="path1728" />
     <path
        style="opacity:1;fill:#beffff;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        d="m 1081.0663,352.10358 6.8123,-5.50559 -6.8123,-5.49441 1.5154,5.60084 z"
