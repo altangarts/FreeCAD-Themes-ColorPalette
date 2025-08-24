@@ -810,7 +810,7 @@ https://doc.qt.io/qt-5/stylesheet-examples.html#customizing-qabstractscrollarea
 QAbstractScrollArea {
   background-color: transparent;
   border: 1px solid transparent;
-  padding: 0px;  
+  padding: 1px;  
   margin: -2px;
 }
 
