@@ -43,6 +43,7 @@ Resetting everything helps to unify styles across different operating systems
   outline: 0;
   selection-background-color: rgba(0,0,0,0.7);
   selection-color: #ffffff;
+  font-size: 11px;
 }
 
 /* specific reset for elements inside QToolBar */
