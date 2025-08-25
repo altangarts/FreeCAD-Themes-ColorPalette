@@ -224,15 +224,13 @@ Gui--OverlayTitleBar {
 }
 
 Gui--OverlayToolButton {
-  background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 rgba(250,250,250,0.15), stop:0.7 rgba(250,250,250,0.2), stop:1 rgba(0,0,0,0.4));  
+  background-color: qlineargradient(x1:0, y1:0.3, x2:0, y2:1, stop:0 rgba(250,250,250,0.2), stop:1 rgba(0,0,0,0.2));  
+  border: 1px solid rgba(0,0,0,0.2);  
   border: 1px solid rgba(0,0,0,0.2);
-  border-top-left-radius: 2px;
-  border-top-right-radius: 2px;
-  border-bottom-left-radius: 4px;
-  border-bottom-right-radius: 4px;
+  border-radius: 4px;
   min-height: 11px;
   min-width: 11px;
-  padding: 2px 6px 4px 6px;
+  padding: 2px 6px 3px 6px;
   margin: 0px 0px 3px 0px;
   image: url(qss:images_classic/close-black.svg);
 }
@@ -1391,25 +1389,20 @@ https://doc.qt.io/qt-5/stylesheet-examples.html#customizing-qpushbutton
 
 --------------------------------------------------------------------------- */
 QPushButton {
-  background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 rgba(250,250,250,0.15), stop:0.7 rgba(250,250,250,0.2), stop:1 rgba(0,0,0,0.4));
+  background-color: qlineargradient(x1:0, y1:0.3, x2:0, y2:1, stop:0 rgba(250,250,250,0.2), stop:1 rgba(0,0,0,0.2));
   color: #eeeeee;
   color: @PrimaryColorLighten6;
   text-align: center;
   border: 1px solid rgba(0,0,0,0.2);
-  border-top-left-radius: 4px;
-  border-top-right-radius: 4px;
-  border-bottom-left-radius: 8px;
-  border-bottom-right-radius: 8px;
+  border-radius: 6px;
   padding: 3px 8px 6px 8px;  
   margin: 0px 0px 0px 0px;
 }
 
 QToolBar QPushButton {
-  background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 rgba(250,250,250,0.15), stop:0.7 rgba(250,250,250,0.2), stop:1 rgba(0,0,0,0.4));
-  border-top-left-radius: 4px;
-  border-top-right-radius: 4px;
-  border-bottom-left-radius: 8px;
-  border-bottom-right-radius: 8px;
+  background-color: qlineargradient(x1:0, y1:0.3, x2:0, y2:1, stop:0 rgba(250,250,250,0.2), stop:1 rgba(0,0,0,0.2));
+  border: 1px solid rgba(0,0,0,0.2);
+  border-radius: 6px;
   color: #eeeeee;
   color: @PrimaryColorLighten6;
   text-align: center;
@@ -1418,12 +1411,9 @@ QToolBar QPushButton {
 }
 
 QStatusBar QPushButton {
-  background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 rgba(250,250,250,0.15), stop:0.7 rgba(250,250,250,0.2), stop:1 rgba(0,0,0,0.4));
+  background-color: qlineargradient(x1:0, y1:0.3, x2:0, y2:1, stop:0 rgba(250,250,250,0.2), stop:1 rgba(0,0,0,0.2));
   border: 1px solid rgba(0,0,0,0.2);
-  border-top-left-radius: 4px;
-  border-top-right-radius: 4px;
-  border-bottom-left-radius: 8px;
-  border-bottom-right-radius: 8px;
+  border-radius: 6px;
   color: #eeeeee;
   color: @PrimaryColorLighten6;
   text-align: center;
@@ -1442,7 +1432,7 @@ QPushButton:disabled {
 }
 
 QPushButton:checked {
-  border: 1px solid  qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 @ThemeAccentColor1, stop:0.7 @ThemeAccentColor1, stop:1 rgba(0,0,0,0.8));
+  border: 1px solid  @ThemeAccentColor1;
 }
 
 QPushButton:checked:disabled {
@@ -1453,7 +1443,7 @@ QPushButton:checked:disabled {
 
 QPushButton:checked:hover,
 QPushButton:checked:selected {
-  border: 2px solid  qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 @ThemeAccentColor1, stop:0.7 @ThemeAccentColor1, stop:1 rgba(0,0,0,0.8));
+  border: 2px solid  @ThemeAccentColor1;
 }
 
 QPushButton:hover,
@@ -1473,7 +1463,7 @@ QDockWidget QPushButton:selected,
 QDockWidget QPushButton:checked,
 QStatusBar QPushButton:hover, 
 QStatusBar QPushButton:pressed {
-  background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 @ThemeAccentColor1, stop:0.7 @ThemeAccentColor1, stop:1 rgba(0,0,0,0.8));
+  background-color: @ThemeAccentColor1;
   border: 1px solid rgba(0,0,0,0.5);
   color: #ffffff;
 }
@@ -1504,15 +1494,12 @@ QDialogButtonBox QPushButton {
 }
 
 QColorDialog QPushButton, QDialog QPushButton {
-  background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 rgba(250,250,250,0.15), stop:0.7 rgba(250,250,250,0.2), stop:1 rgba(0,0,0,0.4));
+  background-color: qlineargradient(x1:0, y1:0.3, x2:0, y2:1, stop:0 rgba(250,250,250,0.2), stop:1 rgba(0,0,0,0.2));
   color: #eeeeee;
   color: @PrimaryColorLighten6;
   text-align: center;
   border: 1px solid rgba(0,0,0,0.2);
-  border-top-left-radius: 4px;
-  border-top-right-radius: 4px;
-  border-bottom-left-radius: 8px;
-  border-bottom-right-radius: 8px;
+  border-radius: 6px;
   padding: 3px 8px 6px 8px;  
   margin: 0px 0px 0px 0px;
 }
@@ -1533,7 +1520,7 @@ Gui--ColorButton:disabled {
 
 Gui--ColorButton:hover,
 Gui--ColorButton:pressed {
-  background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 @ThemeAccentColor1, stop:0.7 @ThemeAccentColor1, stop:1 rgba(0,0,0,0.8));
+  background-color: @ThemeAccentColor1;
   border: 1px solid  rgba(0,0,0,0.4);
 }
 
@@ -1547,12 +1534,9 @@ https://doc.qt.io/qt-5/stylesheet-examples.html#customizing-qtoolbutton
 
 --------------------------------------------------------------------------- */
 QToolBar QToolButton {
-  background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 rgba(250,250,250,0.15), stop:0.7 rgba(250,250,250,0.2), stop:1 rgba(0,0,0,0.4));  
+  background-color: qlineargradient(x1:0, y1:0.3, x2:0, y2:1, stop:0 rgba(250,250,250,0.2), stop:1 rgba(0,0,0,0.2));
   border: 1px solid rgba(0,0,0,0.2);
-  border-top-left-radius: 4px;
-  border-top-right-radius: 4px;
-  border-bottom-left-radius: 8px;
-  border-bottom-right-radius: 8px;
+  border-radius: 6px;
   min-width: 18px;
   margin: 2px 0px 1px 0px;
   padding: 2px 2px 8px 3px;
@@ -1575,25 +1559,25 @@ QStatusBar QToolButton {
 }
 
 QToolBar QToolButton:hover {  
-  background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 @ThemeAccentColor1, stop:0.7 @ThemeAccentColor1, stop:1 rgba(0,0,0,0.8));
+  background-color: @ThemeAccentColor1;
   border: 1px solid rgba(0,0,0,0.5);
   color: #ffffff;
 }
 
 QToolBar QToolButton:pressed {
-  background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 @ThemeAccentColor1, stop:0.7 @ThemeAccentColor1, stop:1 rgba(0,0,0,0.8));
+  background-color: @ThemeAccentColor1;
   border: 1px solid rgba(0,0,0,0.5);
   color: #ffffff;
 }
 
 QToolBar QToolButton:selected {
-  background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 @ThemeAccentColor1, stop:0.7 @ThemeAccentColor1, stop:1 rgba(0,0,0,0.8));
+  background-color: @ThemeAccentColor1;
   border: 1px solid rgba(0,0,0,0.5);
   color: #ffffff;
 }
 
 QToolBar QToolButton:checked {
-  background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 @ThemeAccentColor1, stop:0.7 @ThemeAccentColor1, stop:1 rgba(0,0,0,0.8));
+  background-color: @ThemeAccentColor1;
   border: 1px solid rgba(0,0,0,0.5);
 }
 
@@ -2307,12 +2291,9 @@ QFrame QTabBar {
 }
 
 QToolBar QTabBar::tab {
-  background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 rgba(250,250,250,0.15), stop:0.7 rgba(250,250,250,0.2), stop:1 rgba(0,0,0,0.4));  
-  border: 1px solid rgba(0,0,0,0.15);
-  border-top-left-radius: 4px;
-  border-top-right-radius: 4px;
-  border-bottom-left-radius: 8px;
-  border-bottom-right-radius: 8px;
+  background-color: qlineargradient(x1:0, y1:0.3, x2:0, y2:1, stop:0 rgba(250,250,250,0.2), stop:1 rgba(0,0,0,0.2));
+  border: 1px solid rgba(0,0,0,0.2);
+  border-radius: 6px;
   color: #eeeeee;
   color: @PrimaryColorLighten6;
   margin: 2px 2px 2px 0px;
@@ -2320,12 +2301,9 @@ QToolBar QTabBar::tab {
 }
 
 QTabBar::tab {
-  background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 rgba(250,250,250,0.15), stop:0.7 rgba(250,250,250,0.2), stop:1 rgba(0,0,0,0.4));  
-  border: 1px solid rgba(0,0,0,0.15);
-  border-top-left-radius: 4px;
-  border-top-right-radius: 4px;
-  border-bottom-left-radius: 8px;
-  border-bottom-right-radius: 8px;
+  background-color: qlineargradient(x1:0, y1:0.3, x2:0, y2:1, stop:0 rgba(250,250,250,0.2), stop:1 rgba(0,0,0,0.2));
+  border: 1px solid rgba(0,0,0,0.2);
+  border-radius: 6px;
   color: #eeeeee;
   color: @PrimaryColorLighten6;
   margin: 2px 0px 0px 3px;
@@ -2334,12 +2312,9 @@ QTabBar::tab {
 }
 
 QTabWidget QTabBar::tab:bottom {
-  background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 rgba(250,250,250,0.15), stop:0.7 rgba(250,250,250,0.2), stop:1 rgba(0,0,0,0.4));  
-  border: 1px solid rgba(0,0,0,0.15);
-  border-top-left-radius: 4px;
-  border-top-right-radius: 4px;
-  border-bottom-left-radius: 8px;
-  border-bottom-right-radius: 8px;
+  background-color: qlineargradient(x1:0, y1:0.3, x2:0, y2:1, stop:0 rgba(250,250,250,0.2), stop:1 rgba(0,0,0,0.2));
+  border: 1px solid rgba(0,0,0,0.2);
+  border-radius: 6px;
   color: #eeeeee;
   color: @PrimaryColorLighten6;
   margin: 2px 2px 3px 1px;
@@ -2348,12 +2323,9 @@ QTabWidget QTabBar::tab:bottom {
 }
 
 QFrame QTabBar::tab {
-  background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 rgba(250,250,250,0.15), stop:0.7 rgba(250,250,250,0.2), stop:1 rgba(0,0,0,0.4));  
-  border: 1px solid rgba(0,0,0,0.15);
-  border-top-left-radius: 4px;
-  border-top-right-radius: 4px;
-  border-bottom-left-radius: 8px;
-  border-bottom-right-radius: 8px;
+  background-color: qlineargradient(x1:0, y1:0.3, x2:0, y2:1, stop:0 rgba(250,250,250,0.2), stop:1 rgba(0,0,0,0.2));
+  border: 1px solid rgba(0,0,0,0.2);
+  border-radius: 6px;
   color: #eeeeee;
   color: @PrimaryColorLighten6;
   margin: 2px 0px 0px 3px;
@@ -2361,20 +2333,20 @@ QFrame QTabBar::tab {
 }
 
 QTabBar::tab:selected, QToolBar QTabBar::tab:selected, QFrame QTabBar::tab:selected {
-  background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 @ThemeAccentColor1, stop:0.7 @ThemeAccentColor1, stop:1 rgba(0,0,0,0.8));
+  background-color: @ThemeAccentColor1;
   color: #ffffff;
   border: 1px solid rgba(0,0,0,0.5);
   font-weight: bold;
 }
 
 QTabBar::tab:hover, QToolBar QTabBar::tab:hover, QFrame QTabBar::tab:hover {
-  background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 @ThemeAccentColor1, stop:0.7 @ThemeAccentColor1, stop:1 rgba(0,0,0,0.8));
+  background-color: @ThemeAccentColor1;
   color: #ffffff;
   border: 1px solid rgba(0,0,0,0.5);
 }
 
 QTabBar::tab:selected:hover, QToolBar QTabBar::tab:selected:hover, QFrame QTabBar::tab:selected:hover {
-  background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 @ThemeAccentColor1, stop:0.7 @ThemeAccentColor1, stop:1 rgba(0,0,0,0.8));
+  background-color: @ThemeAccentColor1;
   color: #ffff00;
   border: 1px solid rgba(0,0,0,0.5);
   font-weight: bold;
