@@ -1536,7 +1536,7 @@ https://doc.qt.io/qt-5/stylesheet-examples.html#customizing-qtoolbutton
 QToolBar QToolButton {
   background-color: qlineargradient(x1:0, y1:0.3, x2:0, y2:1, stop:0 rgba(250,250,250,0.2), stop:1 rgba(0,0,0,0.2));
   border: 1px solid rgba(0,0,0,0.2);
-  border-radius: 6px;
+  border-radius: 4px;
   min-width: 18px;
   margin: 2px 0px 1px 0px;
   padding: 2px 2px 8px 3px;
@@ -1549,10 +1549,7 @@ QToolBar QToolButton:disabled {
 QStatusBar QToolButton {
   background-color: rgba(250,250,250,0.15);     
   border: 1px solid rgba(0,0,0,0.2);
-  border-top-left-radius: 4px;
-  border-top-right-radius: 4px;
-  border-bottom-left-radius: 8px;
-  border-bottom-right-radius: 8px;
+  border-radius: 4px;
   min-width: 18px; 
   margin: 1px 0px 1px 0px;
   padding: 3px 1px 3px 2px;
