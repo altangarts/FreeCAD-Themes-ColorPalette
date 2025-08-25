@@ -102,10 +102,16 @@ QTabWidget QTreeView {
   color: #ffffff;
 }
 
-#DocumentTreeItems::item:has-children:open {
+#DocumentTreeItems::item:has-children:!has-siblings:open {
   background-color: rgba(0,0,0,0.25);  
   border: 1px solid rgba(0,0,0,0.2);
   color: #ffaa7f;
+}
+
+#DocumentTreeItems::item:has-children:open {
+  background-color: rgba(250,250,250,0.05);
+  border: 1px solid rgba(0,0,0,0.2); 
+  color: #abff7d;
 }
 
 #DocumentTreeItems::item:has-children:open:focus {
