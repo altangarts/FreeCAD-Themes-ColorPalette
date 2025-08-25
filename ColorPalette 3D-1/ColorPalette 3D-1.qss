@@ -2486,36 +2486,43 @@ QTreeView::branch:open:has-children:!has-siblings {
 
 QDockWidget QTreeView::branch:has-siblings:!adjoins-item {
     border-image: url(qss:images_classic/branch_vline_black.svg) 0;
+    padding: 0px;
 }
 
 QDockWidget QTreeView::branch:has-siblings:adjoins-item {
     border-image: none;
-    image: none;
+    image: url(qss:images_classic/branch_more_black1.svg) 0;
+    padding: 4px;
 }
 
 QDockWidget QTreeView::branch:!has-children:!has-siblings:adjoins-item {
     border-image: none;
-    image: none;
+    image: url(qss:images_classic/branch_end_black1.svg) 0;
+    padding: 4px;
 }
 
 QDockWidget QTreeView::branch:closed:has-children:has-siblings {
     border-image: none;
     image: url(qss:images_classic/branch_more_closed_black.svg) 0;
+    padding: 0px;
 }
 
 QDockWidget QTreeView::branch:has-children:!has-siblings:closed {
     border-image: none;
     image: url(qss:images_classic/branch_end_closed_black.svg) 0;
+    padding: 0px;
 }
 
 QDockWidget QTreeView::branch:open:has-children:has-siblings {
     border-image: none;
     image: url(qss:images_classic/branch_more_open_black.svg) 0;
+    padding: 0px;
 }
 
 QDockWidget QTreeView::branch:open:has-children:!has-siblings {
     border-image: none;
     image: url(qss:images_classic/branch_end_open_black.svg) 0;
+    padding: 0px;
 }
 
 QTreeView::indicator,
