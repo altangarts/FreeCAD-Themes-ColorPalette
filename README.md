@@ -90,57 +90,43 @@ Note:
 
  ### ☑️ Screenshots
 
-#### ⤵️ GradientFreeCAD-DarkBlue --->  background-top: #2c2c57, background-bottom: #777788. - selection: #00557f.
+#### ⤵️ 2D-1 --->  background-top: #2c2c57, background-bottom: #777788. - selection: #00557f.
 
-![Ekran Görüntüsü (66)](https://github.com/user-attachments/assets/1b591f9c-2b0a-4df5-bcce-3898df0e7232)
-
-
-
-#### ⤵️ SeaStone-DarkOrange --->  background: #34393b. - selection: #aa5500.
-
-![Ekran Görüntüsü (63)](https://github.com/user-attachments/assets/a377078a-d945-4312-9801-627e2b687168)
+<img width="3840" height="2160" alt="Ekran Görüntüsü (72)" src="https://github.com/user-attachments/assets/30db1c3a-e18b-46e9-909f-539eeeb93ce1" />
 
 
 
-#### ⤵️ Dark-DarkPurple --->  background: #363634.(lowblue) - selection: #55007f.
+#### ⤵️ 3D-2 + Overlay --->  background: #282826.(lowblue) - selection: #55007f.
 
-![Ekran Görüntüsü (64)](https://github.com/user-attachments/assets/a89d4c86-0baf-43a9-b254-e89c18c99587)
-
-
-
-#### ⤵️ MiddleGray-DarkOrange --->  background: #565654.(lowblue) - selection: #aa5500.
-
-![Ekran Görüntüsü (65)](https://github.com/user-attachments/assets/d76cf028-aee4-4c34-b901-5049f26754e6)
-
-
-
-#### ⤵️ Sand-DarkRed --->  background: #877855. - selection: #680000.
-
-![Ekran Görüntüsü (62)](https://github.com/user-attachments/assets/71086e49-ecf8-4559-9313-e720ccaba54a)
-
-
-
-#### ⤵️ GradientPink-DarkPurple --->  background-top: #aa557f, background-bottom: #a0a09e. - selection: #55007f.
-
-![Ekran Görüntüsü (67)](https://github.com/user-attachments/assets/7e28f295-d21d-42ad-9c9d-38fef67e8f8d)
-
-
-
-#### ⤵️ GradientPalePurple-DarkBlue --->  background-top: #55557f, background-bottom: #a0a09e. - selection: #00557f.
-
-![Ekran Görüntüsü (68)](https://github.com/user-attachments/assets/0e461c22-7def-444b-a87b-fd9e4ad21370)
+<img width="3840" height="2160" alt="Ekran Görüntüsü (79)" src="https://github.com/user-attachments/assets/85af3446-7425-4d84-9bca-7341c3b07f76" />
 
 
 
 
+#### ⤵️ 3D-1 --->  background: #7d6f4f. - selection: #680000.
+
+<img width="3840" height="2160" alt="Ekran Görüntüsü (87)" src="https://github.com/user-attachments/assets/711a9764-ecbe-4c04-97a1-9952c3538f8c" />
 
 
 
 
+#### ⤵️ 3D-2 + Overlay --->  background-top: #646c6e, background-bottom: #a0a09e. - selection: #43696e.
+
+<img width="3840" height="2160" alt="Ekran Görüntüsü (76)" src="https://github.com/user-attachments/assets/786f4785-601f-4c76-a7ba-408a6e69c5cb" />
 
 
 
 
+#### ⤵️ 2D-2 --->  background-top: #786f5f, background-bottom: #a0a09e. - selection: #553900.
+
+<img width="3840" height="2160" alt="Ekran Görüntüsü (74)" src="https://github.com/user-attachments/assets/3cb8c3fe-70b6-48d7-a533-12587ffee7f3" />
+
+
+
+
+#### ⤵️ 2D-2 --->  background-top: #a0748b, background-bottom: #a0a09e. - selection: #8a38dc.
+
+<img width="3840" height="2160" alt="Ekran Görüntüsü (77)" src="https://github.com/user-attachments/assets/532cc143-9fbe-4c75-90c0-bcda95118d4b" />
 
 
 
