@@ -82,8 +82,13 @@ QTabWidget QTreeView {
 }
 
 #DocumentTreeItems::item {
-  background-color: rgba(0,0,0,0.07);  
-  border: 1px solid rgba(0,0,0,0.2);
+  background-color: rgba(250,250,250,0.05);  
+  border-width: 1px 1px 2px 1px;
+  border-style: solid;
+  border-top-color: rgba(250,250,250,0.3);
+  border-right-color: rgba(0,0,0,0.3);
+  border-bottom-color: rgba(0,0,0,0.6);
+  border-left-color: rgba(0,0,0,0.3);
   border-radius: 4px;
   margin: 1px 0px 1px 0px;
   padding: 0px 0px 0px 0px;
@@ -138,8 +143,13 @@ QTabWidget QTreeView {
 }
 
 #DocumentTreeItems::item:has-children {
-  background-color: rgba(0,0,0,0.07);  
-  border: 1px solid rgba(0,0,0,0.2);
+  background-color: rgba(250,250,250,0.05);  
+  border-width: 1px 1px 2px 1px;
+  border-style: solid;
+  border-top-color: rgba(250,250,250,0.3);
+  border-right-color: rgba(0,0,0,0.3);
+  border-bottom-color: rgba(0,0,0,0.6);
+  border-left-color: rgba(0,0,0,0.3);
   color: #beffff;
 }
 
