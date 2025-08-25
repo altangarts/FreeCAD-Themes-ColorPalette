@@ -139,7 +139,7 @@ QTabWidget QTreeView {
 
 #DocumentTreeItems::item:has-children {
   background-color: rgba(250,250,250,0.1);  
-  border: 0px solid rgba(0,0,0,0.2);
+  border: 1px solid rgba(0,0,0,0.2);
   color: #beffff;
 }
 
