@@ -169,7 +169,7 @@ QDockWidget {
 QDockWidget QFrame {
   background-color: transparent;
   border: 1px solid transparent;
-  margin: 0px 0px 0px 0px;
+  margin: 1px 0px 0px 0px;
   padding: 0px 0px 0px 0px;
   border-radius: 10px;
 }
@@ -2229,7 +2229,7 @@ QTabWidget QWidget {
 
 QTabWidget QFrame {
   background-color: transparent;
-  border: 1px solid transparent;
+  border: 0px solid transparent;
   margin: 0px;
   padding: 0px;
   border-radius: 0px;
@@ -3322,7 +3322,7 @@ Start page
 }
 
 QFrame QListView {
-  color: #ffffff;
+  color: #eeeeee;
   color: @PrimaryColorLighten6;
 }
 
@@ -3332,12 +3332,7 @@ QFrame QListView {
 
 #CreateNewRow > QPushButton:hover {
   background-color: rgba(250,250,250,0.2);
-  border: 2px solid @ThemeAccentColor1;  
-}
-
-#CreateNewRow > QPushButton:hover {
-  background-color: rgba(250,250,250,0.2);
-  border: 2px solid @ThemeAccentColor1;  
+  border: 2px solid @ThemeAccentColor1;
 }
 
 QPushButton[objectName="buttonIFCPropertiesDelete"] {
@@ -3346,4 +3341,5 @@ QPushButton[objectName="buttonIFCPropertiesDelete"] {
 
 QGroupBox[objectName="matOpsGrpBox"] QPushButton {
   min-width: 235px;
+  color: #ffffff;
 }

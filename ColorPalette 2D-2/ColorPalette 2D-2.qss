@@ -280,7 +280,6 @@ QColorDialog QLabel {
   padding-right: 0px;
 }
 
-
 /* QMainWindow ------------------------------------------------------------
 
 This adjusts the splitter in the dock widget, not qsplitter
@@ -1682,7 +1681,7 @@ QCommandLinkButton {
   border: 1px solid @ThemeAccentColor1;
   color: #eeeeee;
   border-radius: 4px;
-  padding: 0px;
+  padding: 2px;
   margin: 0px;
 }
 

@@ -168,7 +168,7 @@ QDockWidget {
 
 QDockWidget QFrame {
   background-color: rgba(250,250,250,0.1);
-border: 1px solid rgba(0,0,0,0.2);
+  border: 1px solid rgba(0,0,0,0.2);
   margin: 2px 3px 0px 3px;
   padding: 0px 0px 0px 0px;
   border-radius: 10px;
@@ -1698,7 +1698,7 @@ QCommandLinkButton {
   border: 1px solid @ThemeAccentColor1;
   color: #eeeeee;
   border-radius: 4px;
-  padding: 0px;
+  padding: 2px;
   margin: 0px;
 }
 
@@ -2237,7 +2237,7 @@ QTabWidget QWidget {
 
 QTabWidget QFrame {
   background-color: transparent;
-  border: 0px solid transparent;
+  border: -1px solid transparent;
   margin: 0px;
   padding: 0px;
   border-radius: 0px;
