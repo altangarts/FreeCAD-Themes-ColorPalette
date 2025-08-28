@@ -1281,7 +1281,7 @@ QLabel:disabled {
 }
 
 QLabel[haslink="true"] {
-  color: #ffff00;
+  color: #900000;
 }
 
 /* QTextBrowser -----------------------------------------------------------
@@ -2706,7 +2706,7 @@ QTabWidget QTreeView {
 #DocumentTreeItems::item:has-children {
   background-color: transparent;
   border: 0px solid transparent;
-  color: #ffff69;
+  color: #beffff;
 }
 
 #DocumentTreeItems::item:has-children:focus {

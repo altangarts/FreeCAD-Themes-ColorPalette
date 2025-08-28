@@ -1286,7 +1286,7 @@ QLabel:disabled {
 }
 
 QLabel[haslink="true"] {
-  color: #ffff00;
+  color: #900000;
 }
 
 /* QTextBrowser -----------------------------------------------------------
