@@ -1565,6 +1565,8 @@ QToolBar QToolButton {
   background-color: transparent;     
   border: 1px solid transparent;
   border-radius: 4px;
+  color: #eeeeee;
+  color: @PrimaryColorLighten6;
   min-width: 18px;
   min-height: 24px;
   margin: 1px 0px 0px 0px;
@@ -1579,6 +1581,8 @@ QStatusBar QToolButton {
   background-color: transparent;     
   border: 1px solid transparent;
   border-radius: 4px;
+  color: #eeeeee;
+  color: @PrimaryColorLighten6;
   min-width: 18px;
   max-height: 21px;
   margin: 1px 0px 1px 0px;
