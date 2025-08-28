@@ -1170,6 +1170,23 @@ QMenuBar QToolBar::separator:horizontal {
   image: url(qss:images_classic/Hsepartoolbar-black.svg);
 }
 
+QToolButton#qt_toolbar_ext_button {
+  background-repeat: none;
+  background-position: center center;
+  right: -2px;
+  padding: 0px;
+}
+
+QToolButton#qt_toolbar_ext_button:hover {
+  background-color: rgba(250,250,250,0.4);
+  border: 2px solid @ThemeAccentColor1;
+}
+
+QToolButton#qt_toolbar_ext_button:on {
+  background-color: rgba(250,250,250,0.4);
+  border: 2px solid @ThemeAccentColor1;
+}
+
 /* QAbstractSpinBox -------------------------------------------------------
 
 --------------------------------------------------------------------------- */
@@ -1567,7 +1584,7 @@ QToolBar QToolButton {
   border-left-color: rgba(0,0,0,0.3);
   border-radius: 4px;
   min-width: 18px;
-  min-height: 23px;
+  min-height: 24px;
   margin: 2px 0px 1px 0px;
   padding: 2px 2px 8px 3px;
 }
@@ -1670,7 +1687,7 @@ QToolBar > QToolButton:checked:hover {
 }
 
 #WbTabBar #WbTabBarMore {      /* workbench tabbar menu buttton */
-  padding: 0px 1px 2px 2px;
+  padding: 0px 1px 1px 2px;
   margin: 2px 0px 2px 0px;
   max-height: 10px;
 }
@@ -2345,7 +2362,7 @@ QTabBar::tab {
   background-color: rgba(250,250,250,0.15);
   color: #eeeeee;
   color: @PrimaryColorLighten6;
-  margin: 2px 0px 0px 3px;
+  margin: 2px 0px 0px 2px;
   padding: 3px 4px 5px 6px;
   min-width: 50px;
   border-width: 1px 1px 2px 1px;
