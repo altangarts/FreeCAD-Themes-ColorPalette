@@ -1487,8 +1487,8 @@ QPushButton::menu-indicator {
   image: url(qss:images_classic/radio-mark-white1.svg);
   right: 5px;
   top: 1px;
-  width: 10px;
-  height: 10px;
+  width: 11px;
+  height: 11px;
   margin-left: 5px;
 }
 
@@ -1674,8 +1674,8 @@ QToolButton::menu-indicator {
 
 QToolButton::menu-arrow {
   image: url(qss:images_classic/radio-mark-white1.svg);
-  width: 9px;
-  height: 9px;
+  width: 10px;
+  height: 10px;
 }
 
 QToolButton::menu-arrow:open {
@@ -2203,12 +2203,11 @@ QLineEdit {
   padding: 2px 4px 2px 4px;
   border: 1px solid rgba(0,0,0,0.15);
   border-radius: 4px;
-  color: #eeeeee;
-  color: @TextForegroundColor;
+  color: #ffff69;
 }
 
 QLineEdit:disabled {
-  background-color: rgba(0,0,0,0.3);
+  background-color: rgba(0,0,0,0.05);
   color: #bbbbbb;
 }
 
@@ -2252,7 +2251,7 @@ QTabWidget QWidget {
 QTabWidget QFrame {
   background-color: transparent;
   border: -1px solid transparent;
-  margin: 0px;
+  margin: 1px;
   padding: 0px;
   border-radius: 0px;
 }
@@ -2774,10 +2773,12 @@ QListView::item {
 
 QListView::item:hover {
   background-color: @ThemeAccentColor1;
+  color: #ffffff;
 }
 
 QListView::item:selected {
   border: 1px solid @ThemeAccentColor1;
+  color: #ffffff;
 }
 
 QTableView {
@@ -2974,42 +2975,40 @@ QToolBox:selected {
 
 QToolBox::tab {
   background-color: @ThemeAccentColor2;
-  border: 1px solid rgba(0,0,0,0.2);
-  color: #eeeeee;
-  color: @TextForegroundColor;
-  font-weight: bold;
+  border: 1px solid rgba(0,0,0,0.15);
   border-radius: 4px;
   margin-bottom: 0px;
   padding-left: 10px;
 }
 
 QToolBox::tab:disabled {
-  background-color: rgba(0,0,0,0.3);
+  background-color: rgba(0,0,0,0.05);
   color: #bbbbbb;
 }
 
 QToolBox::tab:selected {
-  background-color: @ThemeAccentColor1;
-  color: #ffffff;
-  border-top-left-radius: 8px;
-  border-top-right-radius: 8px;
+  background-color: rgba(0,0,0,0.4);
+  color: #ffaa7f;
+  font-weight: bold;
+  border-top-left-radius: 14px;
+  border-top-right-radius: 14px;
   border-bottom-left-radius: 0px;
   border-bottom-right-radius: 0px;
 }
 
 QToolBox::tab:selected:disabled {
-  background-color: rgba(0,0,0,0.3);
-  border: 1px solid rgba(0,0,0,0.3);
+  background-color: rgba(0,0,0,0.1);
+  border: 1px solid rgba(0,0,0,0.1);
   color: #bbbbbb;
 }
 
 QToolBox::tab:!selected {
   background-color: rgba(0,0,0,0.15);
-  color: #ffffff;
+  color: #cccccc;
 }
 
 QToolBox::tab:!selected:disabled {
-  background-color: rgba(0,0,0,0.3);
+  background-color: rgba(0,0,0,0.05);
 }
 
 QToolBox::tab:hover {
@@ -3018,7 +3017,7 @@ QToolBox::tab:hover {
 }
 
 QToolBox::tab:selected:hover {
-  color: #ffff00;
+  color: #ffffff;
 }
 
 QToolBox > QScrollArea > QWidget > QWidget {
@@ -3026,8 +3025,8 @@ QToolBox > QScrollArea > QWidget > QWidget {
   border: 1px solid rgba(0,0,0,0.2);  
   border-top-left-radius: 0px;
   border-top-right-radius: 0px;
-  border-bottom-left-radius: 10px;
-  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
   padding: 0px 10px 0px 10px;
   margin: 0px 0px 0px 0px;
 }
@@ -3263,7 +3262,7 @@ QTreeView::branch#groupsTreeView:hover {
 QTreeView::branch#groupsTreeView:closed:has-children:has-siblings  {
   border-image: none;
   image: url(qss:images_classic/radio-mark-white1.svg);
-  padding: 4px;
+  padding: 3px;
 }
 
 QTreeView::branch#groupsTreeView:closed:has-children:has-siblings:hover  {
@@ -3299,7 +3298,7 @@ QTreeView::branch#groupsTreeView:open:has-children:!has-siblings:hover  {
 QTreeView::branch#groupsTreeView:has-children:!has-siblings:closed  {
   border-image: none;
   image: url(qss:images_classic/radio-mark-white1.svg);
-  padding: 4px;
+  padding: 3px;
 }
 
 QTreeView::branch#groupsTreeView:has-children:!has-siblings:closed:hover  {
