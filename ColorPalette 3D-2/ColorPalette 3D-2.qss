@@ -2290,7 +2290,7 @@ QTabWidget QWidget {
 
 QTabWidget QFrame {
   background-color: transparent;
-  border: 0px solid transparent;
+  border: -1px solid transparent;
   margin: 0px;
   padding: 0px;
   border-radius: 0px;
