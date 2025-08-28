@@ -1610,6 +1610,7 @@ QToolBar QToolButton:selected {
 QToolBar QToolButton:checked {
   background-color: @ThemeAccentColor1;
   border: 1px solid @ThemeAccentColor1;
+  color: #ffffff;
 }
 
 QToolBar:right QToolButton {
