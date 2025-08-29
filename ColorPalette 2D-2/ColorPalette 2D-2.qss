@@ -787,11 +787,11 @@ QDialog QAbstractItemView {
 }
 
 QAbstractItemView QLineEdit {
-  background-color: transparent;
+  background-color: rgba(0,0,0,0.1);
   padding: 2px 4px 2px 4px;
-  border: 0px solid rgba(0,0,0,0.15);
-  border-radius: 0px;
-  color: transparent;
+  border: 1px solid rgba(0,0,0,0.15);
+  border-radius: 4px;
+  color: #eeeeee;
 }
 
 /* QAbstractScrollArea ----------------------------------------------------
@@ -1281,7 +1281,7 @@ QLabel:disabled {
 }
 
 QLabel[haslink="true"] {
-  color: #900000;
+  color: #ffff00;
 }
 
 /* QTextBrowser -----------------------------------------------------------
@@ -1823,7 +1823,15 @@ background-color: rgba(250,250,250,0.07);
 border: 1px solid rgba(0,0,0,0.15);
 margin: 0px 0px 0px 0px;
 padding: 0px 3px 0px 3px;
-border-radius: 10px;
+border-top-left-radius: 10px;
+border-top-right-radius: 10px;
+border-bottom-left-radius: 10px;
+border-bottom-right-radius: 10px;
+}
+
+QSint--ActionGroup {
+padding: 0px;
+margin: 0px; 
 }
 
 QSint--ActionGroup QGroupBox {
@@ -1894,11 +1902,14 @@ QSint--ActionGroup QFrame[class="header"] QLabel[fold="true"]:hover {
 }
 
 QSint--ActionGroup QFrame[class="content"] {
-background-color: rgba(250,250,250,0.1);
+background-color: rgba(250,250,250,0.05);
 border: 1px solid rgba(0,0,0,0.15);
-border-radius: 6px;
 margin: 0px 0px 0px 0px;
 padding: -5px;
+border-top-left-radius: 6px;
+border-top-right-radius: 6px;
+border-bottom-left-radius: 14px;
+border-bottom-right-radius: 14px;
 }
 
 QSint--ActionGroup QFrame[class="content"] QLabel {
@@ -1943,21 +1954,28 @@ QSint--ActionGroup QFrame[class="content"] QTreeView,
 QSint--ActionGroup QFrame[class="content"] QListView,
 QSint--ActionGroup QFrame[class="content"] QTableView {
 color: #ffff69;
-margin: 0px;
+margin: 0px 2px 0px 2px;
 padding: 5px;
 border: 1px solid rgba(0,0,0,0.15);
 border-radius: 8px;
 background-color: rgba(250,250,250,0.02);
 }
 
-QSint--ActionGroup QFrame[class="content"] QTreeView::item,
 QSint--ActionGroup QFrame[class="content"] QListView::item,
 QSint--ActionGroup QFrame[class="content"] QTableView::item {
 margin: 1px 1px 0px 0px;
-padding: 0px;
+padding: 2px;
 background-color: rgba(0,0,0,0.08);
 border: 0px solid rgba(0,0,0,0.1);
-border-radius: 4px;
+border-radius: 3px;
+}
+
+QSint--ActionGroup QFrame[class="content"] QTreeView::item {
+margin: 1px 1px 0px 0px;
+padding: 2px;
+background-color: rgba(0,0,0,0.04);
+border: 0px solid rgba(0,0,0,0.1);
+border-radius: 3px;
 }
 
 QSint--ActionGroup QFrame[class="content"] QTreeView::item:hover,
@@ -1965,24 +1983,24 @@ QSint--ActionGroup QFrame[class="content"] QListView::item:hover,
 QSint--ActionGroup QFrame[class="content"] QTableView::item:hover {
 color: #ffffff;
 border: 1px solid @ThemeAccentColor1;
-border-radius: 4px;
+border-radius: 3px;
 background-color: @ThemeAccentColor1;
 }
 
-QSint--ActionGroup QFrame[class="content"] QTreeView::item:selected,
 QSint--ActionGroup QFrame[class="content"] QListView::item:selected,
 QSint--ActionGroup QFrame[class="content"] QTableView::item:selected {
 color: #ffffff;
 border: 1px solid @ThemeAccentColor1;
-border-radius: 4px;
+border-radius: 3px;
 background-color: @ThemeAccentColor1;
 }
 
+QSint--ActionGroup QFrame[class="content"] QTreeView::item:selected,
 QSint--ActionGroup QFrame[class="content"] QTreeView::item:focus,
 QSint--ActionGroup QFrame[class="content"] QListView::item:focus,
 QSint--ActionGroup QFrame[class="content"] QTableView::item:focus {
 border: 1px solid @ThemeAccentColor1;
-border-radius: 4px;
+border-radius: 3px;
 }
 
 QSint--ActionGroup QFrame[class="content"] QHeaderView {
@@ -2323,7 +2341,7 @@ QTabWidget QTabBar::tab:bottom {
   background-color: rgba(250,250,250,0.15);
   color: #eeeeee;
   color: @TextForegroundColor;
-  margin: 2px 2px 3px 1px;
+  margin: 5px 2px 3px 1px;
   padding: 3px 3px 5px 6px;
   min-width: 50px;
   border: 1px solid rgba(0,0,0,0.2);
@@ -2364,30 +2382,43 @@ QTabBar QToolButton {
   background-color: transparent;
   border: 0px solid transparent;
   margin: 0px;
+  padding: 0px;
+}
+
+QTabBar QToolButton:hover {
+  background-color: @ThemeAccentColor1;
+  color: #ffffff;
 }
 
 QTabBar QToolButton:pressed {
-  background-color: transparent;
-}
-
-QTabBar QToolButton:pressed:hover {
-  background-color: transparent;
+  background-color: @ThemeAccentColor1;
+  color: #ffffff;
 }
 
 QTabBar QToolButton::left-arrow:enabled {
-  image: url(qss:images_classic/arrow-left-black1.svg);
+  image: url(qss:images_classic/arrow-left-white1.svg);
+  height: 14px;
+  width: 14px;
 }
 
 QTabBar QToolButton::left-arrow:disabled {
-  image: url(qss:images_classic/arrow-left-white1.svg);
+  image: url(qss:images_classic/arrow-left-black1.svg);
+  top: 3px;
+  height: 14px;
+  width: 14px;
 }
 
 QTabBar QToolButton::right-arrow:enabled {
-  image: url(qss:images_classic/arrow-right-black1.svg);
+  image: url(qss:images_classic/arrow-right-white1.svg);
+  height: 14px;
+  width: 14px;
 }
 
 QTabBar QToolButton::right-arrow:disabled {
-  image: url(qss:images_classic/arrow-right-white1.svg);
+  image: url(qss:images_classic/arrow-right-black1.svg);
+  top: 3px;
+  height: 14px;
+  width: 14px;
 }
 
 QTabBar::close-button {
@@ -2548,6 +2579,16 @@ QColumnView::indicator {
   margin: 4px;
 }
 
+QSint--ActionGroup QFrame[class="content"] QTreeView::indicator,
+QSint--ActionGroup QFrame[class="content"] QListView::indicator {
+  width: 13px;
+  height: 13px;
+  background-color: rgba(0,0,0,0.6);
+  border: 1px solid rgba(0,0,0,0.8);
+  border-radius: 2px;
+  margin: 4px;
+}
+
 QTreeView::indicator:unchecked:disabled,
 QListView::indicator:unchecked:disabled,
 QTableView::indicator:unchecked:disabled,
@@ -2563,6 +2604,15 @@ QColumnView::indicator:checked {
   image: url(qss:images_classic/check-mark-blue.svg);
   background-color: rgba(0,0,0,0.6);
   border: 1px solid rgba(0,0,0,0.8);
+  border-radius: 2px;
+}
+
+QTreeView::indicator:checked:hover,
+QTableView::indicator:checked:hover,
+QColumnView::indicator:checked {
+  image: url(qss:images_classic/check-mark-white.svg);
+  background-color: @ThemeAccentColor1;
+  border: 1px solid @ThemeAccentColor1;
   border-radius: 2px;
 }
 
@@ -2837,26 +2887,24 @@ QDialog QTreeView {
   margin: 0px 8px 0px 8px;
   border: 1px solid rgba(0,0,0,0.15);
   padding: 5px 2px 2px 2px;
-  selection-background-color: @ThemeAccentColor1;
-  selection-color: #ffffff; 
-  border-radius: 8px;  
+  border-radius: 6px;
+  selection-background-color: transparent;
+  selection-color: #ffffff;
 }
 
 QDialog QTreeView:item {
-  margin: 1px 0px 1px 0px;
-  padding: 5px 2px 2px 2px;
+  background-color: rgba(0,0,0,0.04);
+  margin: 1px 1px 1px 0px;
 }
 
 QDialog QTreeView:item:hover {
   background-color: @ThemeAccentColor1;
-  border-radius: 0px;
   border: 1px solid @ThemeAccentColor1;
   color: #ffffff;
 }
 
 QDialog QTreeView:item:selected {
   background-color: @ThemeAccentColor1;
-  border-radius: 0px;
   border: 1px solid @ThemeAccentColor1;
   color: #ffffff;
   margin: 0px;
