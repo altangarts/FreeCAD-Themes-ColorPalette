@@ -1743,6 +1743,14 @@ QComboBox QAbstractItemView, QGroupBox > QComboBox QListView {
   background-color: @ThemeAccentColor2;
 }
 
+QComboBox QAbstractItemView::item {
+  border: 1px solid rgba(0,0,0,0.7);
+  border-radius: 0px;
+  margin: 0px;
+  padding: 1px;
+  background-color: @ThemeAccentColor1;
+}
+
 QComboBox:checked {
   color: #beffff;
 }
@@ -2731,13 +2739,13 @@ QTabWidget QTreeView {
 #DocumentTreeItems::item:has-children:!has-siblings:open {
   background-color: transparent;
   border: 0px solid transparent;
-  color: #ffff69;
+  color: #ffaa7f;
 }
 
 #DocumentTreeItems::item:has-children:open {
   background-color: transparent;
   border: 0px solid transparent; 
-  color: #ffff69;
+  color: #abff7d;
 }
 
 #DocumentTreeItems::item:has-children:open:focus {
