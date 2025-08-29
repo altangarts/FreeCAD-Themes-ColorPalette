@@ -1950,9 +1950,17 @@ QSint--ActionGroup QFrame[class="content"] > QWidget > QPushButton {
 }
 
 /* Fix for lists inside task panels */ /* sketcher constraints list */
-QSint--ActionGroup QFrame[class="content"] QTreeView,
 QSint--ActionGroup QFrame[class="content"] QListView,
 QSint--ActionGroup QFrame[class="content"] QTableView {
+color: #ffff69;
+margin: 0px 2px 0px 2px;
+padding: 5px 0px 5px 5px;
+border: 1px solid rgba(0,0,0,0.15);
+border-radius: 8px;
+background-color: rgba(250,250,250,0.02);
+}
+
+QSint--ActionGroup QFrame[class="content"] QTreeView {
 color: #ffff69;
 margin: 0px 2px 0px 2px;
 padding: 5px;
@@ -1963,7 +1971,7 @@ background-color: rgba(250,250,250,0.02);
 
 QSint--ActionGroup QFrame[class="content"] QListView::item,
 QSint--ActionGroup QFrame[class="content"] QTableView::item {
-margin: 1px 1px 0px 0px;
+margin: 1px 5px 0px 0px;
 padding: 2px;
 background-color: rgba(0,0,0,0.08);
 border: 0px solid rgba(0,0,0,0.1);
