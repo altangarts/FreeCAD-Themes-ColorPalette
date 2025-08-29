@@ -1967,7 +1967,7 @@ margin: 1px 1px 0px 0px;
 padding: 2px;
 background-color: rgba(0,0,0,0.08);
 border: 0px solid rgba(0,0,0,0.1);
-border-radius: 3px;
+border-radius: 6px;
 }
 
 QSint--ActionGroup QFrame[class="content"] QTreeView::item {
@@ -1983,7 +1983,6 @@ QSint--ActionGroup QFrame[class="content"] QListView::item:hover,
 QSint--ActionGroup QFrame[class="content"] QTableView::item:hover {
 color: #ffffff;
 border: 1px solid @ThemeAccentColor1;
-border-radius: 3px;
 background-color: @ThemeAccentColor1;
 }
 
@@ -1991,7 +1990,6 @@ QSint--ActionGroup QFrame[class="content"] QListView::item:selected,
 QSint--ActionGroup QFrame[class="content"] QTableView::item:selected {
 color: #ffffff;
 border: 1px solid @ThemeAccentColor1;
-border-radius: 3px;
 background-color: @ThemeAccentColor1;
 }
 
@@ -2000,7 +1998,6 @@ QSint--ActionGroup QFrame[class="content"] QTreeView::item:focus,
 QSint--ActionGroup QFrame[class="content"] QListView::item:focus,
 QSint--ActionGroup QFrame[class="content"] QTableView::item:focus {
 border: 1px solid @ThemeAccentColor1;
-border-radius: 3px;
 }
 
 QSint--ActionGroup QFrame[class="content"] QHeaderView {
