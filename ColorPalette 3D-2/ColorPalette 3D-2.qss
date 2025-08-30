@@ -1178,6 +1178,7 @@ QTextBrowser {
   color: @TextForegroundColor;
   border-radius: 4px;
   margin: 2px;
+  padding: 5px;
 }
 
 QTextBrowser:disabled {
