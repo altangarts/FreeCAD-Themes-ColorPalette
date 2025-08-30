@@ -2445,8 +2445,7 @@ QTabWidget QTreeView {
   color: #beffff;
 }
 
-QColumnView,
-QMenu QTreeView {
+QColumnView {
   background-color: rgba(250,250,250,0.05);
   color: #eeeeee;
   color: @TextForegroundColor;
@@ -2456,6 +2455,34 @@ QMenu QTreeView {
   selection-background-color: @ThemeAccentColor1;
   selection-color: #ffffff;
   border-radius: 10px;
+}
+
+QStatusBar > QMenu QTreeView {
+  background-color: transparent;
+  color: #eeeeee;
+  color: @TextForegroundColor;
+  margin: 0px 0px 0px 0px;
+  border: 0px solid transparent;
+  padding: 0px 0px 0px 0px;
+  selection-background-color: @ThemeAccentColor1;
+  selection-color: #ffffff;
+  border-radius: 0px;
+}
+
+QStatusBar > QMenu QTreeView::item:hover,
+QStatusBar > QMenu QTreeView::item:selected {
+  background-color: @ThemeAccentColor1;
+  color: #ffffff;
+}
+
+QStatusBar > QMenu QTreeView::branch:has-siblings:adjoins-item {
+  image: none;
+  border-image: none;
+}
+
+QStatusBar > QMenu QTreeView::branch:!has-children:!has-siblings:adjoins-item {
+  image: none;
+  border-image: none;
 }
 
 QListView {
@@ -2995,7 +3022,7 @@ QTreeView::branch#groupsTreeView:closed:has-children:has-siblings:hover  {
 }
 
 QTreeView::branch#groupsTreeView:open:has-children:has-siblings  {
-  image: url(qss:images_classic/arrow-up-white1.svg);
+  image: url(qss:images_classic/arrow-up-white2.svg);
   padding: 5px;
 }
 
