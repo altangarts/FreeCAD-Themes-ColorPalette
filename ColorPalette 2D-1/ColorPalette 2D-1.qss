@@ -1183,6 +1183,7 @@ QTextBrowser {
   color: #eeeeee;
   color: @TextForegroundColor;
   border-radius: 10px;
+  margin: 2px;
 }
 
 QTextBrowser:disabled {
