@@ -641,6 +641,37 @@ QMenu::item:disabled {
   color: #bbbbbb;
 }
 
+QWidget QMenu::item:checked {
+  color: #4bffff;
+}
+
+QWidget QMenu::item:checked:hover,
+QWidget QMenu::item:checked:selected,
+QWidget QMenu::item:checked:pressed {
+  color: #ffffff;
+}
+
+QWidget > QWidget QMenu::item:checked {
+  color: #eeeeee;
+  color: @TextForegroundColor;
+}
+
+QWidget > QWidget QMenu::item:checked:hover,
+QWidget > QWidget QMenu::item:checked:selected,
+QWidget > QWidget QMenu::item:checked:pressed {
+  color: #ffffff;
+}
+
+QMenu::item:exclusive:checked {
+  color: #4bffff;
+}
+
+QMenu::item:exclusive:checked:hover,
+QMenu::item:exclusive:checked:selected,
+QMenu::item:exclusive:checked:pressed {
+  color: #ffffff;
+}
+
 QMenu::icon {
   margin-left: 10px;
   width: 14px;
@@ -657,14 +688,11 @@ QMenu::indicator {
 }
 
 QMenu::indicator:non-exclusive:unchecked {
-  background-color: rgba(0,0,0,0.6);
 }
 
 QMenu::indicator:non-exclusive:unchecked:hover, 
 QMenu::indicator:non-exclusive:unchecked:focus, 
 QMenu::indicator:non-exclusive:unchecked:pressed {
-  background-color: @ThemeAccentColor1;
-  border: 1px solid rgba(0,0,0,0.8);
 }
 
 QMenu::indicator:non-exclusive:checked {
@@ -673,8 +701,9 @@ QMenu::indicator:non-exclusive:checked {
 
 QMenu::indicator:non-exclusive:checked:hover,
 QMenu::indicator:non-exclusive:checked:focus,
-QMenu::indicator:non-exclusive:checked:pressed {
-  border: 1px solid rgba(0,0,0,0.8);
+QMenu::indicator:non-exclusive:checked:pressed,
+QMenu::indicator:non-exclusive:checked:selected {
+  border: 1px solid #aaaaaa;
   background-color: @ThemeAccentColor1;
   image:url(qss:images_classic/check-mark-white.svg);
 }
@@ -684,15 +713,11 @@ image:url(qss:images_classic/check-mark-lightgray.svg);
 }
 
 QMenu::indicator:exclusive:unchecked {
-  image: url(qss:images_classic/transparent.svg);
 }
 
 QMenu::indicator:exclusive:unchecked:hover,
 QMenu::indicator:exclusive:unchecked:focus,
 QMenu::indicator:exclusive:unchecked:pressed {
-  border: none;
-  outline: none;
-  background-color: @ThemeAccentColor1;
 }
 
 QMenu::indicator:exclusive:checked {
@@ -703,9 +728,9 @@ QMenu::indicator:exclusive:checked {
 
 QMenu::indicator:exclusive:checked:hover,
 QMenu::indicator:exclusive:checked:focus,
-QMenu::indicator:exclusive:checked:pressed {
-  border: none;
-  outline: none;
+QMenu::indicator:exclusive:checked:pressed,
+QMenu::indicator:exclusive:checked:selected {
+  border: 1px solid #aaaaaa;
   background-color: @ThemeAccentColor1;
   image: url(qss:images_classic/check-mark-white.svg);
 }
@@ -1597,6 +1622,12 @@ QComboBox::item:checked {
   color: #4bffff;
 }
 
+/* QComboBox::item:checked:hover,
+QComboBox::item:checked:selected,
+QComboBox::item:checked:pressed {
+  color: #ffffff;
+} */
+
 QComboBox::drop-down {
   subcontrol-origin: padding;
   background-color: rgba(250,250,250,0.1);
@@ -1807,6 +1838,23 @@ QSint--ActionGroup QFrame[class="content"] QTreeView::item:focus,
 QSint--ActionGroup QFrame[class="content"] QListView::item:focus,
 QSint--ActionGroup QFrame[class="content"] QTableView::item:focus {
 border: 1px solid @ThemeAccentColor1;
+}
+
+QSint--ActionGroup QFrame[class="content"] QTreeView::indicator,
+QSint--ActionGroup QFrame[class="content"] QListView::indicator {
+  width: 13px;
+  height: 13px;
+  background-color: rgba(0,0,0,0.6);
+  border: 1px solid rgba(0,0,0,0.8);
+  border-radius: 2px;
+  margin: 4px;
+}
+
+QSint--ActionGroup QFrame[class="content"] QTreeView::indicator:checked:hover,
+QSint--ActionGroup QFrame[class="content"] QTreeView::indicator:checked:pressed {
+  image: url(qss:images_classic/check-mark-white.svg);
+  background-color: @ThemeAccentColor1;
+  border: 1px solid #aaaaaa;
 }
 
 QSint--ActionGroup QFrame[class="content"] QHeaderView {
@@ -2323,16 +2371,6 @@ QColumnView::indicator {
   margin: 4px;
 }
 
-QSint--ActionGroup QFrame[class="content"] QTreeView::indicator,
-QSint--ActionGroup QFrame[class="content"] QListView::indicator {
-  width: 13px;
-  height: 13px;
-  background-color: rgba(0,0,0,0.6);
-  border: 1px solid rgba(0,0,0,0.8);
-  border-radius: 2px;
-  margin: 4px;
-}
-
 QTreeView::indicator:unchecked:disabled,
 QListView::indicator:unchecked:disabled,
 QTableView::indicator:unchecked:disabled,
@@ -2354,7 +2392,7 @@ QColumnView::indicator:checked {
 
 QTreeView::indicator:checked:hover,
 QTableView::indicator:checked:hover,
-QColumnView::indicator:checked {
+QColumnView::indicator:checked:hover {
   image: url(qss:images_classic/check-mark-white.svg);
   background-color: @ThemeAccentColor1;
   border: 1px solid @ThemeAccentColor1;
@@ -2485,6 +2523,16 @@ QColumnView {
   selection-background-color: @ThemeAccentColor1;
   selection-color: #ffffff;
   border-radius: 10px;
+}
+
+QStatusBar QMenu::item:default {
+  color: #4bffff;
+}
+
+QStatusBar QMenu::item:default:hover,
+QStatusBar QMenu::item:default:selected,
+QStatusBar QMenu::item:default:pressed {
+  color: #ffffff;
 }
 
 QStatusBar > QMenu QTreeView {
