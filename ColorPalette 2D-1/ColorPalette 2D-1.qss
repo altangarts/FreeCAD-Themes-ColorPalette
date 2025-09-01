@@ -2074,6 +2074,10 @@ QLineEdit:selected {
   color: #ffffff;
 }
 
+QLineEdit:focus {
+  border: 1px solid @ThemeAccentColor1;
+}
+
 QTableView QLineEdit:focus,
 QTableView QLineEdit:selected,
 QTreeView QLineEdit:focus {
