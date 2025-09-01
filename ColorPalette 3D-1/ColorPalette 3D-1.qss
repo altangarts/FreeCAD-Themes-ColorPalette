@@ -946,7 +946,8 @@ QTextEdit {
   border: 1px solid rgba(0,0,0,0.2);
 }
 
-QTextEdit:selected {
+QTextEdit:selected,
+QTextEdit:focus {
   background-color: @ThemeAccentColor1;
   color: #ffffff;
 }
@@ -961,7 +962,8 @@ QPlainTextEdit {
   border: 1px solid rgba(0,0,0,0.2);
 }
 
-QPlainTextEdit:selected {
+QPlainTextEdit:selected,
+QPlainTextEdit:focus {
   background-color: @ThemeAccentColor1;
   color: #ffffff;
 }
@@ -2033,6 +2035,14 @@ QSlider::handle:vertical:hover {
 
 --------------------------------------------------------------------------- */
 QLineEdit {
+  background-color: @ThemeAccentColor1;
+  padding: 2px 4px 2px 4px;
+  border: 1px solid rgba(0,0,0,0.15);
+  border-radius: 4px;
+  color: #ffffff;
+}
+
+QWidget QLineEdit {
   background-color: rgba(0,0,0,0.07);
   padding: 2px 4px 2px 4px;
   border: 1px solid rgba(0,0,0,0.15);
@@ -2045,13 +2055,9 @@ QLineEdit:disabled {
   color: #bbbbbb;
 }
 
-QLineEdit:hover {
-  background-color: @ThemeAccentColor1;
-  color: #ffffff;
-}
-
+QLineEdit:hover,
 QLineEdit:selected {
-  border: 1px solid @ThemeAccentColor1;
+  background-color: @ThemeAccentColor1;
   color: #ffffff;
 }
 
@@ -2059,15 +2065,7 @@ QLineEdit:focus {
   border: 1px solid @ThemeAccentColor1;
 }
 
-QTableView QLineEdit:focus,
-QTableView QLineEdit:selected,
 QTreeView QLineEdit:focus {
-  background-color: @ThemeAccentColor1;
-  color: #ffffff;
-  border-radius: 0px;
-}
-
-QColorDialog QLineEdit:focus {
   background-color: @ThemeAccentColor1;
   color: #ffffff;
   border-radius: 4px;
@@ -2585,6 +2583,16 @@ QTableView {
   selection-background-color: @ThemeAccentColor1;
   selection-color: #ffffff;
   border-radius: 0px;
+}
+
+QTableView::item {
+  border: 1px solid transparent;
+  color: #ffff69;
+}
+
+QTableView::item:hover {
+  border: 1px solid @ThemeAccentColor1;
+  color: #ffffff;
 }
 
 QDialog QTableView {
