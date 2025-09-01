@@ -2625,6 +2625,10 @@ QTableView::item:hover {
   color: #ffffff;
 }
 
+QTableView::item:selected {
+  color: #ffffff;
+}
+
 QDialog QTableView {
   background-color: rgba(0,0,0,0.05); 
   color: #eeeeee;
