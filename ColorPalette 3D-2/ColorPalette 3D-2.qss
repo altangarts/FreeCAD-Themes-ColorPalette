@@ -2098,6 +2098,13 @@ QTreeView QLineEdit:focus {
   border-radius: 4px;
 }
 
+QTabWidget QLineEdit:focus,
+QTabWidget QLineEdit:selected {
+  background-color: @ThemeAccentColor1;
+  color: #ffffff;
+  border-radius: 0px;
+}
+
 /* QTabWiget --------------------------------------------------------------
 
 --------------------------------------------------------------------------- */
