@@ -2104,6 +2104,13 @@ QDialog QLineEdit:selected {
   border-radius: 4px;
 }
 
+QTableView QLineEdit:focus,
+QTableView QLineEdit:selected {
+  background-color: @ThemeAccentColor1;
+  color: #ffffff;
+  border-radius: 4px;
+}
+
 /* QTabWiget --------------------------------------------------------------
 
 --------------------------------------------------------------------------- */
