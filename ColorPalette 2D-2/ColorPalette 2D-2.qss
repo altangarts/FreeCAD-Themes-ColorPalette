@@ -2077,6 +2077,13 @@ QTabWidget QLineEdit:selected {
   border-radius: 0px;
 }
 
+QDialog QLineEdit:focus,
+QDialog QLineEdit:selected {
+  background-color: @ThemeAccentColor1;
+  color: #ffffff;
+  border-radius: 4px;
+}
+
 /* QTabWiget --------------------------------------------------------------
 
 --------------------------------------------------------------------------- */
