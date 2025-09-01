@@ -636,7 +636,7 @@ QMenu::item:disabled {
 }
 
 QWidget QMenu::item:checked {
-  color: #4bffff;
+  color: #ffff00;
 }
 
 QWidget QMenu::item:checked:hover,
@@ -657,7 +657,7 @@ QWidget > QWidget QMenu::item:checked:pressed {
 }
 
 QMenu::item:exclusive:checked {
-  color: #4bffff;
+  color: #ffff00;
 }
 
 QMenu::item:exclusive:checked:hover,
@@ -1597,7 +1597,7 @@ QComboBox::item {
 }
 
 QComboBox::item:checked {
-  color: #4bffff;
+  color: #ffff00;
 }
 
 /* QComboBox::item:checked:hover,
@@ -2496,7 +2496,7 @@ QColumnView {
 }
 
 QStatusBar QMenu::item:default {
-  color: #4bffff;
+  color: #ffff00;
 }
 
 QStatusBar QMenu::item:default:hover,
@@ -2707,7 +2707,7 @@ QTableCornerButton::section {
 
 QHeaderView::section::horizontal {
   padding: 3px 3px 3px 10px;
-  margin: 0px 1px 0px 1px;
+  margin: 0px 1px 5px 1px;
 }
 
 QHeaderView::section::horizontal::first,
