@@ -66,10 +66,9 @@ It offers four different appearance options for buttons and panels. (2D - 3D)
    - Bottom = Accent color 3
    
 #### ✅ Font Color,
-   1. Edit ➡ Preference ➡ Display ➡ UI ➡ Open Theme Editor
+   1. Edit ➡ Preference ➡ Display ➡ UI ➡ Open Theme Editor ➡ User Parameters
 
-       - TextForegroundColor 
-
+       - ColorPaletteText...
 
 
   
