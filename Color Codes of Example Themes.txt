@@ -2,7 +2,7 @@
 
 1. SeaStone-DarkOrange :
 
-        background: #2d3234. - selection: #aa5500.
+        background: #2d3234. - selection: #783c00.
                     
 
 
@@ -14,7 +14,7 @@
 
 3. MiddleGray-DarkOrange :
  
-        background: #565654.(lowblue) - selection: #aa5500.
+        background: #565654.(lowblue) - selection: #783c00.
 
 
 
