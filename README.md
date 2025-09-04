@@ -68,7 +68,7 @@ It offers four different appearance options for buttons and panels. (2D - 3D)
 #### ✅ Font Color,
    1. Edit ➡ Preference ➡ Display ➡ UI ➡ Open Theme Editor ➡ User Parameters
 
-       - ColorPaletteText...   ---(If these variables are not visible, install "Theme Selection 1")---
+       - ColorPaletteText...   ---(If these variables are not visible, install using the "Theme Selection 1" directive)---
 
 
   
