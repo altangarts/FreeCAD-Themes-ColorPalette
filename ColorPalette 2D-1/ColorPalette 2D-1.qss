@@ -1299,6 +1299,7 @@ QTextBrowser:hover,
 QTextBrowser:!hover,
 QTextBrowser:selected,
 QTextBrowser:pressed {
+  background-color: transparent;
   color: #ffffff;
 }
 
