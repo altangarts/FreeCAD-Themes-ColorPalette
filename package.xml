@@ -3,7 +3,7 @@
  <name>ColorPaletteTheme</name>
  <version>1.3.6</version>
  <date>2025.10.06</date>
- <description>2D-3D ColorPalette theme</description>
+ <description>2D-3D ColorPalette Theme</description>
  <maintainer email="">altangarts@gmail</maintainer>
  <license file="LICENSE">LGPL-2.1-or-later</license>
  <url type="repository" branch="main">https://github.com/altangarts/FreeCAD-Themes-ColorPalette</url>
