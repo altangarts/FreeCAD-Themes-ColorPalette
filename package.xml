@@ -12,7 +12,7 @@
 <content>
   <preferencepack>
     <name>ColorPalette 2D-1</name>
-    <description>2D buttons and Color palette background</description>
+    <description>2D buttons and Color-Palette background</description>
     <tag>Your Color</tag>
     <type>Theme</type>
     <tag>Colorful</tag>
@@ -22,7 +22,7 @@
   </preferencepack>
   <preferencepack>
     <name>ColorPalette 2D-2</name>
-    <description>3D buttons and Color palette background</description>
+    <description>2D buttons and Color-Palette background</description>
     <tag>Your Color</tag>
     <type>Theme</type>
     <tag>Colorful</tag>
@@ -32,7 +32,7 @@
   </preferencepack>  
   <preferencepack>
     <name>ColorPalette 3D-1</name>
-    <description>3D buttons and Color palette background</description>
+    <description>3D buttons and Color-Palette background</description>
     <tag>Your Color</tag>
     <type>Theme</type>
     <tag>Colorful</tag>
@@ -42,7 +42,7 @@
   </preferencepack>
   <preferencepack>
     <name>ColorPalette 3D-2</name>
-    <description>3D buttons and Color palette background</description>
+    <description>3D buttons and Color-Palette background</description>
     <tag>Your Color</tag>
     <type>Theme</type>
     <tag>Colorful</tag>
