@@ -3324,6 +3324,7 @@ Settings menu #groupsTreeView:
 ==================================================================================================*/
 QTreeView::item#groupsTreeView {
   background-color: rgba(250,250,250,0.02);
+  color: #eeeeee;
 }
 
 QTreeView::item#groupsTreeView:hover {
