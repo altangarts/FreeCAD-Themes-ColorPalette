@@ -2732,7 +2732,27 @@ QStatusBar > QMenu QTreeView::branch:!has-children:!has-siblings:adjoins-item {
 }
 
 QListView {
-  background-color: rgba(250,250,250,0.05);
+  background-color: @ThemeAccentColor2;
+  color: #eeeeee;
+  color: @ColorPaletteTextGeneral;
+  margin: 0px;
+  border: 0px solid rgba(0,0,0,0.2);
+  padding: 5px 2px 5px 2px;
+  border-radius: 0px;
+  selection-background-color: @ThemeAccentColor1;
+  selection-color: #ffffff;
+}
+
+QDialog QListView {
+  background-color: transparent;
+  color: #eeeeee;
+  color: @ColorPaletteTextGeneral;
+  border: 0px solid rgba(0,0,0,0.2);
+  border-radius: 0px;
+}
+
+QDialog QListWidget {
+  background-color: rgba(250,250,250,0.02);
   color: #eeeeee;
   color: @ColorPaletteTextGeneral;
   margin: 0px;
@@ -2873,13 +2893,13 @@ QDialog#Gui__Dialog__DlgPreferences > QListView::item:selected {
 }
 
 QDialog QTreeView {
-  background-color: rgba(250,250,250,0.05);
+  background-color: rgba(250,250,250,0.03);
   color: #eeeeee;
   color: @ColorPaletteTextAlternateList;
   margin: 0px 0px 0px 0px;
   border: 1px solid rgba(0,0,0,0.15);
   padding: 5px 5px 5px 5px;
-  border-radius: 6px;
+  border-radius: 10px;
   selection-background-color: transparent;
   selection-color: #ffffff;
 }
