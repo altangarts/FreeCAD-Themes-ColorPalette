@@ -1262,8 +1262,8 @@ QLabel[haslink="true"] {
 
 --------------------------------------------------------------------------- */
 QTextBrowser {
-  background-color: rgba(250,250,250,0.05);
-  border: 1px solid rgba(0,0,0,0.2);
+  background-color: transparent;
+  border: 0px solid rgba(0,0,0,0.2);
   color: #eeeeee;
   color: @ColorPaletteTextGeneral;
   border-radius: 10px;
@@ -2716,7 +2716,7 @@ QListView {
   selection-color: #ffffff;
 }
 
-QDialog QListView {
+QWidget QListView {
   background-color: transparent;
   color: #eeeeee;
   color: @ColorPaletteTextGeneral;
@@ -3384,11 +3384,6 @@ Start page
 #thumbnailWidget:pressed {
   background-color: @ThemeAccentColor1;
   border: 1px solid rgba(0,0,0,0.3);
-}
-
-QFrame QListView {
-  color: #eeeeee;
-  color: @ColorPaletteTextGeneral;
 }
 
 #CreateNewRow > QPushButton {
