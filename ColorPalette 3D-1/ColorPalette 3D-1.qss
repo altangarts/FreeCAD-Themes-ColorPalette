@@ -2849,16 +2849,14 @@ QDialog#Gui__Dialog__DlgPreferences > QListView::item:selected {
 }
 
 .QFrame QTreeView {
-  color: #eeeeee;
-  color: @ColorPaletteTextGeneral;
-  padding: 10px 2px 2px 2px;
+  padding: 0px -1px 0px 2px;
   margin: 0px;
   border: none;
 }
 
 .QFrame QTreeView::item {
-  border: 1px solid transparent;
-  color: #ffffff;
+  margin-left: -1px;
+  border-left: 2px solid transparent;
 }
 
 .QFrame QTreeView::item:hover {
@@ -3367,13 +3365,13 @@ QTreeView::branch#groupsTreeView:has-children:!has-siblings:closed:hover  {
 QTreeView::branch#groupsTreeView:has-siblings:adjoins-item  {
   border-image: none;
   image: url(qss:images_classic/branch_more_light.svg);
-  padding: -5px;
+  padding: -9px 2px -9px -9px;
 }
 
 QTreeView::branch#groupsTreeView:!has-children:!has-siblings:adjoins-item  {
   border-image: none;
   image: url(qss:images_classic/branch_end_light.svg);
-  padding: -5px;
+  padding: -9px 2px -9px -9px;
 }
 
 QTreeView::branch#groupsTreeView:has-siblings:!adjoins-item  {
