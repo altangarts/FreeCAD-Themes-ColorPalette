@@ -831,8 +831,8 @@ QAbstractItemView QLineEdit {
 QAbstractScrollArea {
   background-color: transparent;
   border: 1px solid transparent;
-  padding: 1px;  
-  margin: -2px;
+  padding: 0px;  
+  margin: 0px;
 }
 
 QAbstractScrollArea:disabled {
