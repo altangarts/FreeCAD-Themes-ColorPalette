@@ -61,7 +61,7 @@ USAGE
 
        ---Edit ➡ Preference ➡ Display ➡ UI ➡ Open Theme Editor
 
-          TextForegroundColor
+          ColorPaletteTexts
 
 ============================================================================================================ */
 
@@ -215,6 +215,11 @@ QDockWidget QFrame {
   border-radius: 10px;
 }
 
+QDockWidget QFrame QFrame {
+  background-color: transparent;
+  border: 1px solid transparent;
+}
+
 QDockWidget QWidget::pane {
   background-color: transparent;
   border: 1px solid transparent;
@@ -262,6 +267,7 @@ QDockWidget::float-button:pressed {
 
 Gui--OverlayTitleBar {
   color: transparent;
+  font-size: 13px;
 }
 
 Gui--OverlayToolButton {
@@ -2267,11 +2273,11 @@ QTabWidget QFrame::item:focus {
   color: #ffffff;
 }
 
-QDockWidget QAbstractItemView {
+/* QDockWidget QAbstractItemView {
   background-color: @ThemeAccentColor2;
   border: 1px solid rgba(0,0,0,0.7);
   padding: 2px;
-}
+} */
 
 QTabWidget::pane {
   margin: 0px;
