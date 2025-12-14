@@ -145,7 +145,8 @@ Gui--PropertyEditor--PropertyEditor QDoubleSpinBox,
 Gui--PropertyEditor--PropertyEditor QAbstractSpinBox,
 Gui--PropertyEditor--PropertyEditor QLineEdit,
 Gui--PropertyEditor--PropertyEditor QComboBox,
-Gui--PropertyEditor--PropertyEditor QPushButton {
+Gui--PropertyEditor--PropertyEditor QPushButton,
+Gui--PropertyEditor--PropertyEditor QCheckBox {
   background-color: @ThemeAccentColor1;
   border: 0px solid rgba(0,0,0,0.2);
   margin: 0px;
@@ -159,7 +160,8 @@ Gui--PropertyEditor--PropertyEditor QDoubleSpinBox:selected,
 Gui--PropertyEditor--PropertyEditor QAbstractSpinBox:selected,
 Gui--PropertyEditor--PropertyEditor QLineEdit:selected,
 Gui--PropertyEditor--PropertyEditor QComboBox:selected,
-Gui--PropertyEditor--PropertyEditor QPushButton:selected {
+Gui--PropertyEditor--PropertyEditor QPushButton:selected,
+Gui--PropertyEditor--PropertyEditor QCheckBox:selected {
   background-color: @ThemeAccentColor1;
   border: 0px solid @ThemeAccentColor1;    
   margin: 0px;
@@ -172,9 +174,24 @@ Gui--PropertyEditor--PropertyEditor QDoubleSpinBox:focus,
 Gui--PropertyEditor--PropertyEditor QAbstractSpinBox:focus,
 Gui--PropertyEditor--PropertyEditor QLineEdit:focus,
 Gui--PropertyEditor--PropertyEditor QComboBox:focus,
-Gui--PropertyEditor--PropertyEditor QPushButton:focus {
+Gui--PropertyEditor--PropertyEditor QPushButton:focus
+Gui--PropertyEditor--PropertyEditor QCheckBox:focus {
   background-color: @ThemeAccentColor1;
   border: 0px solid @ThemeAccentColor1;    
+  margin: 0px;
+  border-radius: 0px;
+  color: #ffffff;
+}
+
+Gui--PropertyEditor--PropertyEditor QSpinBox:disabled,
+Gui--PropertyEditor--PropertyEditor QDoubleSpinBox:disabled,
+Gui--PropertyEditor--PropertyEditor QAbstractSpinBox:disabled,
+Gui--PropertyEditor--PropertyEditor QLineEdit:disabled,
+Gui--PropertyEditor--PropertyEditor QComboBox:disabled,
+Gui--PropertyEditor--PropertyEditor QPushButton:disabled
+Gui--PropertyEditor--PropertyEditor QCheckBox:disabled {
+  background-color: @ThemeAccentColor2;
+  border: 0px solid @ThemeAccentColor2;    
   margin: 0px;
   border-radius: 0px;
   color: #ffffff;
@@ -2569,7 +2586,6 @@ QDockWidget QTreeView {
 }
 
 QDockWidget QTreeView::item {
-  background-color: rgba(0,0,0,0.08); 
   padding: 0px 0px 0px 3px;
   margin: 1px 2px 2px 0px;
   border-radius: 3px;
@@ -2592,7 +2608,7 @@ QDockWidget QTreeView::item:has-children:!has-siblings:open:focus {
   color: #ffffff;
 }
 
-QDockWidget QTreeView::item:has-children {
+QDockWidget QTreeView::item:end {
   background-color: rgba(0,0,0,0.08);
 }
 
