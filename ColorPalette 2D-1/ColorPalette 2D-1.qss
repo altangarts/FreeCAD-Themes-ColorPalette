@@ -183,15 +183,9 @@ Gui--PropertyEditor--PropertyEditor QCheckBox:focus {
   color: #ffffff;
 }
 
-Gui--PropertyEditor--PropertyEditor QSpinBox:disabled,
-Gui--PropertyEditor--PropertyEditor QDoubleSpinBox:disabled,
-Gui--PropertyEditor--PropertyEditor QAbstractSpinBox:disabled,
-Gui--PropertyEditor--PropertyEditor QLineEdit:disabled,
-Gui--PropertyEditor--PropertyEditor QComboBox:disabled,
-Gui--PropertyEditor--PropertyEditor QPushButton:disabled
-Gui--PropertyEditor--PropertyEditor QCheckBox:disabled {
-  background-color: @ThemeAccentColor2;
-  border: 0px solid @ThemeAccentColor2;    
+Gui--PropertyEditor--PropertyEditor QComboBox:disabled {
+  background-color: @ThemeAccentColor3;
+  border: 0px solid @ThemeAccentColor3;    
   margin: 0px;
   border-radius: 0px;
   color: #ffffff;
