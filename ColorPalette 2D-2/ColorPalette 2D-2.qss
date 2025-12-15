@@ -2471,31 +2471,40 @@ QTreeView::branch:has-siblings:!adjoins-item {
 
 QTreeView::branch:has-siblings:adjoins-item {
     image: url(qss:images_classic/branch_more_black1.svg) 0;
+    border-image: none;
     padding: 4px;
 }
 
-QDockWidget QTreeView::branch:has-siblings:adjoins-item {
+QDockWidget QTreeView::branch:has-siblings:adjoins-item { 
+    border-image: url(qss:images_classic/branch_more_dark.svg) 0;
     image: none;
-    padding: 4px;
 }
 
 QTabWidget QTreeView::branch:has-siblings:adjoins-item {
     image: url(qss:images_classic/branch_more_black1.svg) 0;
+    border-image: none;
     padding: 4px;
 }
 
 QTreeView::branch:!has-children:!has-siblings:adjoins-item {
     image: url(qss:images_classic/branch_end_black2.svg) 0;
+    border-image: none;
     padding: 4px;
 }
 
 QDockWidget QTreeView::branch:!has-children:!has-siblings:adjoins-item {
+    border-image: url(qss:images_classic/branch_end_dark.svg) 0;
     image: none;
-    padding: 4px;
+}
+
+QDockWidget QTreeView::branch:has-children:!has-siblings:closed,
+QDockWidget QTreeView::branch:open:has-children:!has-siblings {
+    border-image: url(qss:images_classic/branch_end_dark.svg) 0;
 }
 
 QTabWidget QTreeView::branch:!has-children:!has-siblings:adjoins-item {
     image: url(qss:images_classic/branch_end_black2.svg) 0;
+    border-image: none;
     padding: 4px;
 }
 
@@ -2509,6 +2518,10 @@ QTreeView::branch:has-children:!has-siblings:closed {
     padding: 0px;
 }
 
+QTabWidget QTreeView::branch:has-children:!has-siblings:closed {
+    border-image: none;
+}
+
 QTreeView::branch:open:has-children:has-siblings {
     image: url(qss:images_classic/branch_more_open_black.svg) 0;
     padding: 0px;
@@ -2516,6 +2529,7 @@ QTreeView::branch:open:has-children:has-siblings {
 
 QTreeView::branch:open:has-children:!has-siblings {
     image: url(qss:images_classic/branch_end_open_black.svg) 0;
+    border-image: none;
     padding: 0px;
 }
 
@@ -2618,7 +2632,7 @@ QDockWidget QTreeView {
 
 QDockWidget QTreeView::item {
   background-color: rgba(0,0,0,0.06);
-  padding: 0px 0px 0px 3px;
+  padding: 0px 0px 1px 3px;
   margin: 1px 2px 2px 0px;
   border-radius: 3px;
 }
@@ -2655,7 +2669,7 @@ QTabWidget QTreeView::item {
 
 #DocumentTreeItems::item {
   background-color: transparent;
-  border: 0px solid transparent;
+  border: 1px solid rgba(0,0,0,0.2);
   border-radius: 3px;
   color: #ffff69;
   color: @ColorPaletteTextTreeEnd;
@@ -2671,14 +2685,14 @@ QTabWidget QTreeView::item {
 
 #DocumentTreeItems::item:has-children:!has-siblings:open {
   background-color: transparent;
-  border: 0px solid transparent;
+  border: 1px solid rgba(0,0,0,0.2);
   color: #ffaa7f;
   color: @ColorPaletteTextTreeEndOpen;
 }
 
 #DocumentTreeItems::item:has-children:open {
   background-color: transparent;
-  border: 0px solid transparent; 
+  border: 1px solid rgba(0,0,0,0.2); 
   color: #abff7d;
   color: @ColorPaletteTextTreeOpen;
 }
@@ -2695,7 +2709,7 @@ QTabWidget QTreeView::item {
 
 #DocumentTreeItems::item:has-children {
   background-color: transparent;
-  border: 0px solid transparent;
+  border: 1px solid rgba(0,0,0,0.2);
   color: #beffff;
   color: @ColorPaletteTextTreeClosed;
 }
