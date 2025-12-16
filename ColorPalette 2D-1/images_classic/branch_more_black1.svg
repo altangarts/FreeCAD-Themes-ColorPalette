@@ -7,7 +7,7 @@
    id="svg2"
    version="1.1"
    viewBox="0 0 20.000002 20.000001"
-   sodipodi:docname="branch_more_black1.svg"
+   sodipodi:docname="branch_end_black2.svg"
    inkscape:version="1.4.3rc (9500139, 2025-12-13)"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
@@ -75,6 +75,11 @@
        orientation="0,-1"
        id="guide10"
        inkscape:locked="false" />
+    <sodipodi:guide
+       position="11.988982,18.159781"
+       orientation="1,0"
+       id="guide7"
+       inkscape:locked="false" />
   </sodipodi:namedview>
   <defs
      id="defs4">
@@ -120,7 +125,7 @@
   </metadata>
   <path
      style="fill:#ffff69;fill-opacity:1;stroke:#000000;stroke-width:1.5;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
-     d="m 5.9724524,8.0000009 -0.022039,3.9779601 8.0440784,0.01102 -10e-7,-4.0000005 z"
+     d="m 3.2396698,8.0000009 -0.022039,3.9779601 8.0440782,0.01102 -10e-7,-4.0000005 z"
      id="path10"
      sodipodi:nodetypes="ccccc" />
 </svg>
