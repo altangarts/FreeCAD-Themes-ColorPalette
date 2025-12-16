@@ -91,45 +91,56 @@ Note:
 
  ### ☑️ Screenshots
 
-#### ⤵️ 3D-2 --->  background-top: #2c2c57, background-bottom: #777788. - selection: #00557f.
-
+#### ⤵️ 3D-2 + Overlay --->  background-top: #2c2c57, background-bottom: #777788. - selection: #00557f.
 
 
 <img width="3840" height="2160" alt="Ekran Görüntüsü (5)" src="https://github.com/user-attachments/assets/9567d6e1-31e0-4b87-a11d-1d0b63487aa8" />
 
 
 
-#### ⤵️ 3D-2 + Overlay --->  background: #282826.(lowblue) - selection: #55007f.
+#### ⤵️ 3D-2 + Overlay --->  background-top: #2d3234. - selection: #783c00.
 
-<img width="3840" height="2160" alt="Ekran Görüntüsü (79)" src="https://github.com/user-attachments/assets/85af3446-7425-4d84-9bca-7341c3b07f76" />
+
+<img width="3840" height="2160" alt="Ekran Görüntüsü (4)" src="https://github.com/user-attachments/assets/ec82b476-caad-4144-984e-b53ce8e52056" />
+
+
+
+
+#### ⤵️ 2D-1 --->  background: #282826.(lowblue) - selection: #55007f.
+
+
+<img width="3840" height="2160" alt="Ekran Görüntüsü (2)" src="https://github.com/user-attachments/assets/7c31e215-859f-42cf-b811-81836c464e4b" />
 
 
 
 
 #### ⤵️ 3D-1 --->  background: #7d6f4f. - selection: #680000.
 
-<img width="3840" height="2160" alt="Ekran Görüntüsü (87)" src="https://github.com/user-attachments/assets/711a9764-ecbe-4c04-97a1-9952c3538f8c" />
+
+<img width="3840" height="2160" alt="Ekran Görüntüsü (1)" src="https://github.com/user-attachments/assets/792af155-b187-416e-923a-c79b36c4f5de" />
 
 
 
 
-#### ⤵️ 3D-2 + Overlay --->  background-top: #646c6e, background-bottom: #a0a09e. - selection: #43696e.
-
-<img width="3840" height="2160" alt="Ekran Görüntüsü (76)" src="https://github.com/user-attachments/assets/786f4785-601f-4c76-a7ba-408a6e69c5cb" />
+#### ⤵️ 3D-1 + Overlay --->  background-top: #646c6e, background-bottom: #a0a09e. - selection: #43696e.
 
 
+<img width="3840" height="2160" alt="Ekran Görüntüsü (6)" src="https://github.com/user-attachments/assets/05a66858-18d3-4845-ab05-7d6c741d38ed" />
 
 
-#### ⤵️ 2D-2 --->  background-top: #786f5f, background-bottom: #a0a09e. - selection: #553900.
 
-<img width="3840" height="2160" alt="Ekran Görüntüsü (74)" src="https://github.com/user-attachments/assets/3cb8c3fe-70b6-48d7-a533-12587ffee7f3" />
+
+#### ⤵️ 3D-1 --->  background-top: #786f5f, background-bottom: #a0a09e. - selection: #553900.
+
+
+<img width="3840" height="2160" alt="Ekran Görüntüsü (7)" src="https://github.com/user-attachments/assets/33af8eba-515f-4591-9005-d595eb71438a" />
 
 
 
 
 #### ⤵️ 2D-2 --->  background-top: #a0748b, background-bottom: #a0a09e. - selection: #8a38dc.
 
-<img width="3840" height="2160" alt="Ekran Görüntüsü (77)" src="https://github.com/user-attachments/assets/532cc143-9fbe-4c75-90c0-bcda95118d4b" />
+<img width="3840" height="2160" alt="Ekran Görüntüsü (8)" src="https://github.com/user-attachments/assets/5eaab599-f9b9-4f06-b077-ad281d9368ea" />
 
 
 
