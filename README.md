@@ -98,10 +98,11 @@ Note:
 
 
 
-#### ⤵️ 3D-2 + Overlay --->  background-top: #2d3234. - selection: #783c00.
+
+#### ⤵️ 2D-2 + Overlay --->  background-top: #2d3234. - selection: #783c00.
 
 
-<img width="3840" height="2160" alt="Ekran Görüntüsü (4)" src="https://github.com/user-attachments/assets/ec82b476-caad-4144-984e-b53ce8e52056" />
+<img width="3840" height="2160" alt="Ekran Görüntüsü (9)" src="https://github.com/user-attachments/assets/a8182725-0cd1-42ba-bb19-f4178e78c362" />
 
 
 
