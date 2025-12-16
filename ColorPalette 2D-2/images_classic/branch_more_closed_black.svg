@@ -7,8 +7,11 @@
    id="svg2"
    version="1.1"
    viewBox="0 0 20.000002 20.000001"
-   sodipodi:docname="branch_more_closed_black.svg"
-   inkscape:version="1.4.2 (f4327f4, 2025-05-13)"
+   sodipodi:docname="branch_end_closed_black.svg"
+   inkscape:export-filename="branch_end_closed_yellow.png"
+   inkscape:export-xdpi="96"
+   inkscape:export-ydpi="96"
+   inkscape:version="1.4.3rc (9500139, 2025-12-13)"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
@@ -18,51 +21,23 @@
    xmlns:dc="http://purl.org/dc/elements/1.1/">
   <sodipodi:namedview
      id="namedview1"
-     pagecolor="#ffffff"
+     pagecolor="#877855"
      bordercolor="#000000"
      borderopacity="0.25"
      inkscape:showpageshadow="2"
      inkscape:pageopacity="0.0"
      inkscape:pagecheckerboard="0"
-     inkscape:deskcolor="#d1d1d1"
+     inkscape:deskcolor="#252525"
      showguides="true"
-     inkscape:zoom="89.249991"
-     inkscape:cx="10.000001"
-     inkscape:cy="9.9663876"
+     inkscape:zoom="89.249987"
+     inkscape:cx="9.9943992"
+     inkscape:cy="9.988797"
      inkscape:window-width="3840"
      inkscape:window-height="2054"
      inkscape:window-x="-11"
      inkscape:window-y="-11"
      inkscape:window-maximized="1"
-     inkscape:current-layer="svg2">
-    <sodipodi:guide
-       position="4.5042021,14.500002"
-       orientation="0,1"
-       id="guide1"
-       inkscape:locked="false"
-       inkscape:label=""
-       inkscape:color="rgb(0,134,229)" />
-    <sodipodi:guide
-       position="4.0336138,5.5000018"
-       orientation="0,1"
-       id="guide2"
-       inkscape:locked="false"
-       inkscape:label=""
-       inkscape:color="rgb(0,134,229)" />
-    <sodipodi:guide
-       position="6.9999999,10.330533"
-       orientation="-1,0"
-       id="guide3"
-       inkscape:locked="false"
-       inkscape:label=""
-       inkscape:color="rgb(0,134,229)" />
-    <sodipodi:guide
-       position="13,7.7198883"
-       orientation="-1,0"
-       id="guide4"
-       inkscape:locked="false"
-       inkscape:label=""
-       inkscape:color="rgb(0,134,229)" />
+     inkscape:current-layer="layer1">
     <inkscape:page
        x="0"
        y="0"
@@ -72,9 +47,38 @@
        margin="0"
        bleed="0" />
     <sodipodi:guide
-       position="8.5154068,11.137256"
+       position="13,15.563026"
+       orientation="-1,0"
+       id="guide1"
+       inkscape:locked="false"
+       inkscape:label=""
+       inkscape:color="rgb(0,134,229)" />
+    <sodipodi:guide
+       position="6.9999999,16.291317"
+       orientation="-1,0"
+       id="guide2"
+       inkscape:locked="false"
+       inkscape:label=""
+       inkscape:color="rgb(0,134,229)" />
+    <sodipodi:guide
+       position="3.4621854,14.543418"
+       orientation="0,-1"
+       id="guide3"
+       inkscape:locked="false" />
+    <sodipodi:guide
+       position="3.7983199,5.4565822"
+       orientation="0,-1"
+       id="guide4"
+       inkscape:locked="false" />
+    <sodipodi:guide
+       position="8.4929985,11.563025"
        orientation="1,0"
        id="guide5"
+       inkscape:locked="false" />
+    <sodipodi:guide
+       position="11.988797,17.456583"
+       orientation="1,0"
+       id="guide6"
        inkscape:locked="false" />
   </sodipodi:namedview>
   <defs
@@ -104,10 +108,14 @@
   <g
      id="layer1"
      transform="translate(-1074.0663,-336.59799)">
-    <path
-       style="opacity:1;fill:#beffff;fill-opacity:1;stroke:#252525;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-       d="m 1081.0663,352.10358 6.8123,-5.50559 -6.8123,-5.49441 1.5154,5.60084 z"
-       id="path2474"
-       sodipodi:nodetypes="ccccc" />
+    <g
+       transform="translate(4.7479144,-5.4999999)"
+       id="layer1-4">
+      <path
+         id="path2474"
+         d="m 1074.0663,357.75065 6.7619,-5.56302 -6.7619,-5.78712 1.493,5.67507 z"
+         style="opacity:1;fill:#beffff;fill-opacity:1;stroke:#252525;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+         sodipodi:nodetypes="ccccc" />
+    </g>
   </g>
 </svg>
