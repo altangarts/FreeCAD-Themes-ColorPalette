@@ -91,9 +91,11 @@ Note:
 
  ### ☑️ Screenshots
 
-#### ⤵️ 2D-1 --->  background-top: #2c2c57, background-bottom: #777788. - selection: #00557f.
+#### ⤵️ 3D-2 --->  background-top: #2c2c57, background-bottom: #777788. - selection: #00557f.
 
-<img width="3840" height="2160" alt="Ekran Görüntüsü (72)" src="https://github.com/user-attachments/assets/30db1c3a-e18b-46e9-909f-539eeeb93ce1" />
+
+
+<img width="3840" height="2160" alt="Ekran Görüntüsü (5)" src="https://github.com/user-attachments/assets/9567d6e1-31e0-4b87-a11d-1d0b63487aa8" />
 
 
 
