@@ -139,7 +139,7 @@ Note:
 
 
 
-#### ⤵️ 2D-2 --->  background-top: #a0748b, background-bottom: #a0a09e. - selection: #8a38dc.
+#### ⤵️ 3D-1 --->  background-top: #a0748b, background-bottom: #a0a09e. - selection: #8a38dc.
 
 <img width="3840" height="2160" alt="Ekran Görüntüsü (8)" src="https://github.com/user-attachments/assets/5eaab599-f9b9-4f06-b077-ad281d9368ea" />
 
