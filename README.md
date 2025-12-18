@@ -48,10 +48,10 @@ It offers four different appearance options for buttons and panels. (2D - 3D)
 1. Edit ➡ Preference ➡ Display ➡ UI ➡ Theme Customization
 
 
-   - Accent color 1:(Selection and Hover background)  
-   - Accent color 2:(top background)  
-   - Accent color 3:(middle background)  
-   - Accent color 3:(bottom background)
+   - Accent color 1 : (Selection and Hover background)  
+   - Accent color 2 : (top background)  
+   - Accent color 3 : (middle background)  
+   - Accent color 3 : (bottom background)
    
 #### ✅ Graphic View (Viewport) Color,
 1. Edit ➡ Preference ➡ Display ➡ IU ➡ Colors ➡ Background color
