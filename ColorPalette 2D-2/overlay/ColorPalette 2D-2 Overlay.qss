@@ -21,6 +21,7 @@ Gui--PropertyEditor--PropertyEditor {
   qproperty-itemBackground: transparent;    
   alternate-background-color: transparent;
   gridline-color: @ThemeAccentColor3;
+  gridline-color: @ColorPalettePropertyGridlineOverlay;
   color: #ffff69;
   color: @ColorPaletteTextList;
 }
@@ -50,18 +51,21 @@ Gui--OverlayProxyWidget {
 }
 
 QTabWidget QTreeView::item:has-children:open {
-  background-color: rgba(0,0,0,0.25);  
-  border: 1px solid rgba(0,0,0,0.2);
+  background-color: rgba(0,0,0,0.2);
+  background-color: @ColorPaletteOverlayHeader;
+  border: 1px solid rgba(0,0,0,0.15);
+  border: 1px solid @ColorPaletteOverlayContent2;
   border-radius: 3px;
   color: #ffaa7f;
   color: @ColorPaletteTextTreeEndOpen;
 }
 
 QTabWidget QTreeView::item {
-  background-color: rgba(250,250,250,0.05);  
+  background-color: rgba(250,250,250,0.07);
+  background-color: @ColorPaletteOverlayContent;
   border: 0px solid rgba(0,0,0,0.2);
   border-radius: 3px;
-  margin: 1px 2px 1px 0px;
+  margin: 1px 2px 2px 0px;
   color: #ffff69;
   color: @ColorPaletteTextTreeEnd;
 }
@@ -77,6 +81,19 @@ QTabWidget QTreeView::item:focus {
   background-color: @ThemeAccentColor1;
   border: 1px solid @ThemeAccentColor1;
   color: #ffffff;
+}
+
+QTabWidget QPushButton {
+  background-color: rgba(250,250,250,0.07);
+  background-color: @ColorPaletteOverlayContent;
+  color: #eeeeee;
+  color: @ColorPaletteTextGeneral;
+  text-align: center;
+  border: 1px solid rgba(0,0,0,0.15);
+  border: 1px solid @ColorPaletteOverlayBorder;
+  border-radius: 6px;
+  padding: 3px 8px 6px 8px;  
+  margin: 0px 0px 0px 0px;
 }
 
 Gui--TreePanel QTreeView::item:hover {
@@ -107,58 +124,91 @@ QTabWidget QTreeView {
   border: 1px solid transparent;
 }
 
-QTreeView::branch,
-QDockWidget QTreeView::branch {
+Gui--TreePanel QTreeView::branch {
     background: transparent;
 }
 
-QTreeView::branch:has-siblings:!adjoins-item {
+Gui--TreePanel QTreeView::branch:has-siblings:!adjoins-item {
     border-image: url(qss:images_classic/branch_vline_black.svg) 0;
 }
 
-QTreeView::branch:has-siblings:adjoins-item { 
+Gui--TreePanel QTreeView::branch:has-siblings:adjoins-item { 
     border-image: url(qss:images_classic/branch_more_dark.svg) 0;
     image: none;
 }
 
-QDockWidget QTreeView::branch:!has-children:!has-siblings:adjoins-item {
+Gui--TreePanel QTreeView::branch:!has-children:!has-siblings:adjoins-item {
     border-image: url(qss:images_classic/branch_end_dark.svg) 0;
     image: none;
 }
 
-QTreeView::branch:has-children:!has-siblings:closed,
-QTreeView::branch:open:has-children:!has-siblings {
+Gui--TreePanel QTreeView::branch:has-children:!has-siblings:closed,
+Gui--TreePanel QTreeView::branch:open:has-children:!has-siblings {
     border-image: url(qss:images_classic/branch_end_dark.svg) 0;
 }
 
-QTreeView::branch:!has-children:!has-siblings:adjoins-item {
-    image: url(qss:images_classic/branch_end_black2.svg) 0;
-    padding: 4px;
-}
-
-QTreeView::branch:closed:has-children:has-siblings {
+Gui--TreePanel QTreeView::branch:closed:has-children:has-siblings {
     image: url(qss:images_classic/branch_more_closed_black.svg) 0;
     padding: 0px;
 }
 
-QTreeView::branch:has-children:!has-siblings:closed {
+Gui--TreePanel QTreeView::branch:has-children:!has-siblings:closed {
     image: url(qss:images_classic/branch_end_closed_black.svg) 0;
     padding: 0px;
 }
 
-QTreeView::branch:open:has-children:has-siblings {
+Gui--TreePanel QTreeView::branch:open:has-children:has-siblings {
     image: url(qss:images_classic/branch_more_open_black.svg) 0;
     padding: 0px;
 }
 
-QTreeView::branch:open:has-children:!has-siblings {
+Gui--TreePanel QTreeView::branch:open:has-children:!has-siblings {
     image: url(qss:images_classic/branch_end_open_black.svg) 0;
     padding: 0px;
 }
 
+Gui--TreePanel QTreeView::indicator {  
+  background-color: rgba(0,0,0,0.5);
+  border: none;
+  border-radius: 6px;
+  width: 11px;
+  height: 11px;
+  margin-top: 3px;
+  padding: 1px;
+}
+
+Gui--TreePanel QTreeView::indicator:unchecked:disabled {
+  background-color: rgba(0,0,0,0.1);
+  border: none;
+  border-radius: 6px;
+  width: 11px;
+  height: 11px;
+}
+
+Gui--TreePanel QTreeView::indicator:checked {
+  image: url(qss:images_classic/check-mark-blue.svg);
+  background-color: rgba(0,0,0,0.5);
+}
+
+Gui--TreePanel QTreeView::indicator:checked:hover {
+  image: url(qss:images_classic/check-mark-white.svg);
+  background-color: @ThemeAccentColor1;
+}
+
+Gui--TreePanel QTreeView::indicator:checked:disabled  {
+  image: url(qss:images_classic/check-mark-lightgray.svg);
+  background-color: #393937;
+}
+
+Gui--TreePanel QTreeView::indicator:unchecked {
+  background-color: rgba(0,0,0,0.5);
+}
+
 #DocumentTreeItems::item {
-  background-color: rgba(250,250,250,0.05);  
-  border: 1px solid rgba(0,0,0,0.2);
+  background-color: rgba(250,250,250,0.07);
+  background-color: @ColorPaletteOverlayContent;
+  border: 1px solid rgba(0,0,0,0.15);
+  border: 1px solid @ColorPaletteOverlayBorder;
   border-radius: 4px;
   margin: 1px 0px 1px 0px;
   padding: 0px 0px 0px 0px;
@@ -174,7 +224,8 @@ QTreeView::branch:open:has-children:!has-siblings {
 
 #DocumentTreeItems::item:selected {
   background-color: @ThemeAccentColor1;
-  border: 1px solid rgba(0,0,0,0.2);
+  border: 1px solid rgba(0,0,0,0.15);
+  border: 1px solid @ColorPaletteOverlayBorder;
   color: #ffffff;
 }
 
@@ -185,15 +236,19 @@ QTreeView::branch:open:has-children:!has-siblings {
 }
 
 #DocumentTreeItems::item:has-children:!has-siblings:open {
-  background-color: rgba(0,0,0,0.25);  
-  border: 1px solid rgba(0,0,0,0.2);
+  background-color: rgba(0,0,0,0.2);
+  background-color: @ColorPaletteOverlayHeader;
+  border: 1px solid rgba(0,0,0,0.15);
+  border: 1px solid @ColorPaletteOverlayBorder;
   color: #ffaa7f;
   color: @ColorPaletteTextTreeEndOpen;
 }
 
 #DocumentTreeItems::item:has-children:open {
-  background-color: rgba(250,250,250,0.05);
-  border: 1px solid rgba(0,0,0,0.2); 
+  background-color: rgba(250,250,250,0.07);
+  background-color: @ColorPaletteOverlayContent;
+  border: 1px solid rgba(0,0,0,0.15);
+  border: 1px solid @ColorPaletteOverlayBorder;
   color: #abff7d;
   color: @ColorPaletteTextTreeOpen;
 }
@@ -206,7 +261,8 @@ QTreeView::branch:open:has-children:!has-siblings {
 
 #DocumentTreeItems::item:has-children:open:selected {
   background-color: @ThemeAccentColor1;
-  border: 1px solid rgba(0,0,0,0.2);
+  border: 1px solid rgba(0,0,0,0.15);
+  border: 1px solid @ColorPaletteOverlayBorder;
   color: #ffffff;
 }
 
@@ -217,8 +273,10 @@ QTreeView::branch:open:has-children:!has-siblings {
 }
 
 #DocumentTreeItems::item:has-children {
-  background-color: rgba(250,250,250,0.05);
-  border: 1px solid rgba(0,0,0,0.2);
+  background-color: rgba(250,250,250,0.07);
+  background-color: @ColorPaletteOverlayContent;
+  border: 1px solid rgba(0,0,0,0.15);
+  border: 1px solid @ColorPaletteOverlayBorder;
   color: #beffff;
   color: @ColorPaletteTextTreeClosed;
 }
@@ -231,7 +289,8 @@ QTreeView::branch:open:has-children:!has-siblings {
 
 #DocumentTreeItems::item:has-children:selected {
   background-color: @ThemeAccentColor1;
-  border: 1px solid rgba(0,0,0,0.2);
+  border: 1px solid rgba(0,0,0,0.15);
+  border: 1px solid @ColorPaletteOverlayBorder;
   color: #ffffff;
 }
 
@@ -243,8 +302,21 @@ Gui--TaskView--TaskPanel {
   border-radius: 10px;
 }
 
+QSint--ActionGroup QFrame[class="content"] {
+background-color: rgba(250,250,250,0.07);
+background-color: @ColorPaletteOverlayContent;
+border: 1px solid rgba(0,0,0,0.15);
+border: 1px solid @ColorPaletteOverlayBorder;
+border-radius: 6px;
+margin: 0px 0px 0px 0px;
+padding: -5px;
+}
+
 QSint--ActionGroup QFrame[class="header"] {
-background-color: rgba(0,0,0,0.25);
+background-color: rgba(0,0,0,0.2);
+background-color: @ColorPaletteOverlayHeader;
+border: 1px solid rgba(0,0,0,0.15);
+border: 1px solid @ColorPaletteOverlayBorder;
 border-radius: 6px;
 margin: 0px;
 padding: 0px;
@@ -272,6 +344,27 @@ QSint--ActionGroup QFrame[class="header"] QLabel {
   height: 10px;
 }
 
+QSint--ActionGroup QFrame[class="content"] QListView,
+QSint--ActionGroup QFrame[class="content"] QTableView {
+color: #ffff69;
+color: @ColorPaletteTextList;
+margin: 0px 2px 2px 2px;
+padding: 5px 0px 5px 5px;
+border: 1px solid rgba(0,0,0,0.15);
+border-radius: 8px;
+background-color: rgba(250,250,250,0.05);
+}
+
+QSint--ActionGroup QFrame[class="content"] QTreeView {
+color: #ffff69;
+color: @ColorPaletteTextList;
+margin: 0px 2px 0px 2px;
+padding: 5px;
+border: 1px solid rgba(0,0,0,0.15);
+border-radius: 8px;
+background-color: rgba(250,250,250,0.05);
+}
+
 QSint--ActionGroup QFrame[class="header"] QLabel[fold="false"] {
   padding: 2px;
   image: url(qss:images_classic/radio-mark-white1.svg);
@@ -290,6 +383,25 @@ QSint--ActionGroup QFrame[class="header"] QLabel[fold="true"] {
 QSint--ActionGroup QFrame[class="header"] QLabel[fold="true"]:hover {
   padding: 2px;
   image: url(qss:images_classic/Arrow-up-white.svg);
+}
+
+Gui--OverlayToolButton {
+  background-color: rgba(250,250,250,0.15);
+  background-color: @ColorPaletteOverlayContent; 
+  border: 1px solid rgba(0,0,0,0.2);
+  border: 1px solid @ColorPaletteOverlayBorder;
+  border-radius: 4px;
+  min-height: 11px;
+  min-width: 11px;
+  padding: 2px 6px 3px 6px;
+  margin: 0px 0px 3px 0px;
+  image: url(qss:images_classic/transparent.svg);
+}
+
+Gui--OverlayToolButton:hover {
+  image: url(qss:images_classic/close-white.svg);
+  background-color: @ThemeAccentColor1;
+  background-color: @ColorPaletteHover;
 }
 
 Gui--OverlayToolButton {
