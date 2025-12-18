@@ -80,6 +80,11 @@
        orientation="1,0"
        id="guide7"
        inkscape:locked="false" />
+    <sodipodi:guide
+       position="2.0055099,15.636364"
+       orientation="1,0"
+       id="guide8"
+       inkscape:locked="false" />
   </sodipodi:namedview>
   <defs
      id="defs4">
@@ -123,9 +128,16 @@
       </cc:Work>
     </rdf:RDF>
   </metadata>
-  <path
-     style="fill:#ffff69;fill-opacity:1;stroke:#000000;stroke-width:1.5;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
-     d="m 3.2396698,8.0000009 -0.022039,3.9779601 8.0440782,0.01102 -10e-7,-4.0000005 z"
-     id="path10"
-     sodipodi:nodetypes="ccccc" />
+  <g
+     id="g9"
+     transform="translate(-1.2231406)">
+    <path
+       style="fill:#ffff69;stroke:#000000;stroke-width:6.0000001;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;paint-order:normal"
+       d="m 4.5179068,10.005511 7.9889812,0.01102"
+       id="path8" />
+    <path
+       style="fill:#ffff69;stroke:#ffff69;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:normal"
+       d="m 4.5179068,10.005511 7.9889812,0.01102"
+       id="path9" />
+  </g>
 </svg>
