@@ -2652,7 +2652,7 @@ QTabWidget QTreeView::item:has-children:open {
 }
 
 QTabWidget QTreeView {
-  padding: 8px 2px 20px 5px;
+  padding: 8px 2px 26px 5px;
 }
 
 QTabWidget QTreeView::item {
