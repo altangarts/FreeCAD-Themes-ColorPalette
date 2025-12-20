@@ -6,7 +6,7 @@ It offers four different appearance options for buttons and panels. (2D - 3D)
 
 ## ---------------------------------- İnstallation ----------------------------------
 
-
+### ☑️ ColorPalette-Themes İnstallation
 #### ✅ İnstallation (Primary) :
 ➡️Launch FreeCAD - Tools - Addon Manager - Search "Color Palette Theme" and İnstall
 
