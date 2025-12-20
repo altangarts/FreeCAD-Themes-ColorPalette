@@ -208,8 +208,8 @@ Gui--TreePanel QTreeView::indicator:unchecked {
   background-color: @ColorPaletteOverlayContent;
   border: 1px solid rgba(0,0,0,0.15);
   border-radius: 5px;
-  margin: 1px 0px 1px 0px;
-  padding: 1px 0px 1px 0px;
+  margin: 1px 0px 0px 0px;
+  padding: 0px 0px 1px 0px;
   color: #ffff69;
   color: @ColorPaletteTextTreeEnd;
 }
