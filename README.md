@@ -76,7 +76,7 @@ It offers four different appearance options for buttons and panels. (2D - 3D)
 
   
 Note: 
-   - Max-Light: #909090, Max-Dark: #252525
+   - Max-Light: #909090, Max-Dark: #202020
    - If "Accent color 3" is not applied, it is substituted with other variables (Style Sheet(Advanced), Accent color 1-2 or restart)
    - Color selection suggestion: 'Dark colors' and 'Dark and pale pastel colors'
 ### Prerequisites
