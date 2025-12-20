@@ -1396,11 +1396,12 @@ QPushButton {
   border-right-color: rgba(0,0,0,0.3);
   border-bottom-color: rgba(0,0,0,0.6);
   border-left-color: rgba(0,0,0,0.3);
-  border-radius: 4px;
+  border-radius: 6px;
 }
 
 QToolBar QPushButton {
   padding: 10px 8px 11px 8px;
+  border-radius: 4px;
 }
 
 QStatusBar QPushButton {
