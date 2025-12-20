@@ -275,7 +275,7 @@ Gui--OverlayToolButton {
   min-height: 11px;
   min-width: 11px;
   padding: 1px 6px 3px 6px;
-  margin: 0px 0px 0px 0px;
+  margin: 0px 0px 1px 0px;
   image: url(qss:images_classic/transparent.svg);
   border-width: 1px 1px 2px 1px;
   border-style: solid;
@@ -1052,7 +1052,7 @@ QToolBar:top {
   background-color: @ThemeAccentColor2;
   border: 0px solid rgba(0,0,0,0.2);
   margin: 0px;
-  padding: 1px;
+  padding: 2px;
 }
 
 QToolBar:bottom {
