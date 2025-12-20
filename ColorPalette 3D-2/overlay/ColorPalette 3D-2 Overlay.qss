@@ -104,6 +104,13 @@ QTabWidget QPushButton {
   border-radius: 4px;
 }
 
+QTabWidget QPushButton:hover,
+QTabWidget QPushButton:selected {
+  background-color: @ThemeAccentColor1;
+  border: 1px solid rgba(0,0,0,0.15);
+  color: #ffffff;
+}
+
 Gui--TreePanel QTreeView::item:hover {
   background-color: transparent;
   border: 1px solid transparent;
