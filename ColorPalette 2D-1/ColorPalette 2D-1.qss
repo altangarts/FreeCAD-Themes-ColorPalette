@@ -2631,8 +2631,8 @@ QTabWidget QTreeView::indicator:checked {
   height: 14px;
   width: 14px;
   padding: -2px;
-  margin-left: 2.5px;
-  margin-bottom: 1px;
+  margin-left: 3px;
+  padding-bottom: -1px;
 }
 
 #DocumentTreeItems::indicator {
@@ -2682,7 +2682,7 @@ QDockWidget QTreeView::item:has-children:!has-siblings:open:focus {
 }
 
 QDockWidget QTreeView::item:has-children:!has-siblings:open {
-  background-color: rgba(0,0,0,0.04);
+  background-color: rgba(0,0,0,0.05);
 }
 
 QTabWidget QTreeView::item:has-children:!has-siblings:open,
@@ -2701,8 +2701,8 @@ QTabWidget QTreeView::item {
 }
 
 #DocumentTreeItems::item {
-  background-color: transparent;
-  border: 1px solid rgba(0,0,0,0.2);
+  background-color: rgba(0,0,0,0.05);
+  border: 1px solid rgba(0,0,0,0.15);
   border-radius: 3px;
   color: #ffff69;
   color: @ColorPaletteTextTreeEnd;
@@ -2718,14 +2718,14 @@ QTabWidget QTreeView::item {
 
 #DocumentTreeItems::item:has-children:!has-siblings:open {
   background-color: rgba(0,0,0,0.2);
-  border: 1px solid rgba(0,0,0,0.2);
+  border: 1px solid rgba(0,0,0,0.15);
   color: #ffaa7f;
   color: @ColorPaletteTextTreeEndOpen;
 }
 
 #DocumentTreeItems::item:has-children:open {
-  background-color: transparent;
-  border: 1px solid rgba(0,0,0,0.2); 
+  background-color: rgba(0,0,0,0.05);
+  border: 1px solid rgba(0,0,0,0.15); 
   color: #abff7d;
   color: @ColorPaletteTextTreeOpen;
 }
@@ -2741,8 +2741,8 @@ QTabWidget QTreeView::item {
 }
 
 #DocumentTreeItems::item:has-children {
-  background-color: transparent;
-  border: 1px solid rgba(0,0,0,0.2);
+  background-color: rgba(0,0,0,0.05);
+  border: 1px solid rgba(0,0,0,0.15);
   color: #beffff;
   color: @ColorPaletteTextTreeClosed;
 }
