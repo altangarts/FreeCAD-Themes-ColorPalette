@@ -119,7 +119,7 @@ Gui--TreePanel QTreeView::item,
 Gui--TreePanel QTreeView::item:has-children:open,
 QTabWidget QTreeView {
   background-color: transparent;
-  border: 1px solid transparent;
+  border: 0px solid transparent;
 }
 
 Gui--TreePanel QTreeView::branch {
@@ -208,7 +208,7 @@ Gui--TreePanel QTreeView::indicator:unchecked {
   border: 1px solid rgba(0,0,0,0.15);
   border-radius: 4px;
   margin: 1px 0px 1px 0px;
-  padding: 0px 0px 0px 0px;
+  padding: 1px 0px 1px 0px;
   color: #ffff69;
   color: @ColorPaletteTextTreeEnd;
 }

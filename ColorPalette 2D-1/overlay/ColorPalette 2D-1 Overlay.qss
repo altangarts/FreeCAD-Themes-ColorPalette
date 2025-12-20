@@ -119,7 +119,7 @@ Gui--TreePanel QTreeView::item,
 Gui--TreePanel QTreeView::item:has-children:open,
 QTabWidget QTreeView {
   background-color: transparent;
-  border: 1px solid transparent;
+  border: 0px solid transparent;
 }
 
 Gui--TreePanel QTreeView::branch {
