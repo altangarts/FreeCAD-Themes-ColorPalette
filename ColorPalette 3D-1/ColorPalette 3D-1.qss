@@ -78,7 +78,7 @@ Resetting everything helps to unify styles across different operating systems
   border-style: none;
   border-image: none;
   outline: 0;
-  selection-background-color: rgba(0,0,0,0.7);
+  selection-background-color: #101010;
   selection-color: #ffffff;
   font-size: 11px;
 }
@@ -95,7 +95,7 @@ Gui--PropertyEditor--PropertyEditor {
   gridline-color: @ThemeAccentColor3;
   gridline-color: @ColorPalettePropertyGridline;
   color: #ffff69;
-  color: @ColorPaletteTextList;
+  color: @ColorPaletteTextPropertyEditor;
   font-size: 12px;
 }
 
@@ -125,7 +125,7 @@ Gui--PropertyEditor--PropertyEditor QAbstractSpinBox:disabled {
   color: @ColorPaletteTextDisabled;
   border: 1px solid @ThemeAccentColor1;
   background-color: @ThemeAccentColor1;
-  selection-background-color: rgba(0,0,0,0.7);
+  selection-background-color: #101010;
   selection-color: #ffffff;
   border-radius: 0px;
 }
@@ -148,7 +148,6 @@ Gui--PropertyEditor--PropertyEditor QLineEdit,
 Gui--PropertyEditor--PropertyEditor QComboBox,
 Gui--PropertyEditor--PropertyEditor QPushButton {
   background-color: @ThemeAccentColor1;
-  border: 0px solid rgba(0,0,0,0.2);
   margin: 0px;
   padding: 0px 0px 2px 6px;
   border-radius: 0px;
@@ -161,8 +160,7 @@ Gui--PropertyEditor--PropertyEditor QAbstractSpinBox:selected,
 Gui--PropertyEditor--PropertyEditor QLineEdit:selected,
 Gui--PropertyEditor--PropertyEditor QComboBox:selected,
 Gui--PropertyEditor--PropertyEditor QPushButton:selected {
-  background-color: @ThemeAccentColor1;
-  border: 0px solid @ThemeAccentColor1;    
+  background-color: @ThemeAccentColor1;   
   margin: 0px;
   border-radius: 0px;
   color: #ffffff;
@@ -174,16 +172,14 @@ Gui--PropertyEditor--PropertyEditor QAbstractSpinBox:focus,
 Gui--PropertyEditor--PropertyEditor QLineEdit:focus,
 Gui--PropertyEditor--PropertyEditor QComboBox:focus,
 Gui--PropertyEditor--PropertyEditor QPushButton:focus {
-  background-color: @ThemeAccentColor1;
-  border: 0px solid @ThemeAccentColor1;    
+  background-color: @ThemeAccentColor1;  
   margin: 0px;
   border-radius: 0px;
   color: #ffffff;
 }
 
 Gui--PropertyEditor--PropertyEditor QComboBox:disabled {
-  background-color: @ThemeAccentColor3;
-  border: 0px solid @ThemeAccentColor3;    
+  background-color: @ThemeAccentColor3;  
   margin: 0px;
   border-radius: 0px;
   color: #ffffff;
@@ -314,7 +310,7 @@ QColorDialog QWidget {
   background-color: rgba(0,0,0,0.2);
   color: #eeeeee;
   color: @ColorPaletteTextGeneral;
-  selection-background-color: rgba(0,0,0,0.7);
+  selection-background-color: #101010;
   selection-color: #ffffff;
 }
 
@@ -415,7 +411,7 @@ QStatusBar QLabel {
 --------------------------------------------------------------------------- */
 QCheckBox {
   color: #c6f0ae;
-  color: @ColorPaletteTextCheck;
+  color: @ColorPaletteTextCheckBox;
   padding: 0px;
   outline: none;
   background-color: transparent;
@@ -546,7 +542,7 @@ QGroupBox::indicator:checked:disabled {
 QRadioButton {
   background-color: transparent;
   color: #91ffc8;
-  color: @ColorPaletteTextRadio;
+  color: @ColorPaletteTextRadioButton;
   border: none;
   spacing: 8px;
   outline: none;
@@ -1386,7 +1382,7 @@ QProgressBar::chunk:disabled {
 
 --------------------------------------------------------------------------- */
 QPushButton {
-  background-color: qlineargradient(x1:0, y1:0.3, x2:0, y2:1, stop:0 rgba(250,250,250,0.2), stop:1 rgba(0,0,0,0.2));
+  background-color: qlineargradient(x1:0, y1:0.3, x2:0, y2:1, stop:0 rgba(250,250,250,0.2), stop:1 rgba(0,0,0,0.1));
   color: #eeeeee;
   color: @ColorPaletteTextGeneral;
   text-align: center;
@@ -1483,7 +1479,7 @@ QDialogButtonBox QPushButton {
 
 QColorDialog QPushButton,
 QDialog QPushButton {
-  background-color: qlineargradient(x1:0, y1:0.3, x2:0, y2:1, stop:0 rgba(250,250,250,0.2), stop:1 rgba(0,0,0,0.2));
+  background-color: qlineargradient(x1:0, y1:0.3, x2:0, y2:1, stop:0 rgba(250,250,250,0.2), stop:1 rgba(0,0,0,0.1));
   color: #eeeeee;
   color: @ColorPaletteTextGeneral;
   text-align: center;
@@ -1525,7 +1521,7 @@ Gui--ColorButton:focus {
 
 --------------------------------------------------------------------------- */
 QToolBar QToolButton {
-  background-color: qlineargradient(x1:0, y1:0.3, x2:0, y2:1, stop:0 rgba(250,250,250,0.2), stop:1 rgba(0,0,0,0.2));
+  background-color: qlineargradient(x1:0, y1:0.3, x2:0, y2:1, stop:0 rgba(250,250,250,0.2), stop:1 rgba(0,0,0,0.1));
   border: 1px solid rgba(0,0,0,0.2);
   border-radius: 4px;
   color: #eeeeee;
@@ -1730,7 +1726,7 @@ QComboBox::down-arrow:hover {
 }
 
 QToolBar Gui--WorkbenchComboBox {
-  background-color: qlineargradient(x1:0, y1:0.3, x2:0, y2:1, stop:0 rgba(250,250,250,0.2), stop:1 rgba(0,0,0,0.2));
+  background-color: qlineargradient(x1:0, y1:0.3, x2:0, y2:1, stop:0 rgba(250,250,250,0.2), stop:1 rgba(0,0,0,0.1));
   border: 1px solid rgba(0,0,0,0.2);
   color: #eeeeee;
   color: @ColorPaletteTextGeneral;
@@ -1787,7 +1783,7 @@ border-color: transparent;
 
 /* Panel header */
 QSint--ActionGroup QFrame[class="header"] {
-background-color: rgba(0,0,0,0.15);
+background-color: rgba(0,0,0,0.2);
 border: 1px solid rgba(0,0,0,0.06);
 border-radius: 6px;
 margin: 0px;
@@ -2173,7 +2169,7 @@ QWidget QLineEdit {
   border: 1px solid rgba(0,0,0,0.15);
   border-radius: 4px;
   color: #ffff69;
-  color: @ColorPaletteTextAlternateList;
+  color: @ColorPaletteTextDarkenList;
 }
 
 QLineEdit:disabled {
@@ -2233,7 +2229,7 @@ QTabWidget {
 }
 
 QTabWidget QWidget {
-  selection-background-color: rgba(0,0,0,0.7);
+  selection-background-color: #101010;
   selection-color: #ffffff;  
 }
 
@@ -2286,7 +2282,7 @@ QFrame QTabBar {
 }
 
 QTabBar::tab {
-  background-color: qlineargradient(x1:0, y1:0.3, x2:0, y2:1, stop:0 rgba(250,250,250,0.2), stop:1 rgba(0,0,0,0.2));
+  background-color: qlineargradient(x1:0, y1:0.3, x2:0, y2:1, stop:0 rgba(250,250,250,0.2), stop:1 rgba(0,0,0,0.1));
   border: 1px solid rgba(0,0,0,0.2);
   border-radius: 6px;
   color: #eeeeee;
@@ -2621,7 +2617,7 @@ QDockWidget QTreeView {
 }
 
 QDockWidget QTreeView::item {
-  background-color: rgba(0,0,0,0.04);
+  background-color: rgba(0,0,0,0.05);
   padding: 0px 0px 1px 3px;
   margin: 1px 2px 2px 0px;
   border-radius: 3px;
@@ -2644,7 +2640,11 @@ QDockWidget QTreeView::item:has-children:!has-siblings:open:focus {
   color: #ffffff;
 }
 
-QDockWidget QTreeView::item:has-children:!has-siblings:open,
+QDockWidget QTreeView::item:has-children:!has-siblings:open {
+  background-color: rgba(0,0,0,0.04);
+}
+
+QTabWidget QTreeView::item:has-children:!has-siblings:open,
 QTabWidget QTreeView::item:has-children:open {
   background-color: rgba(0,0,0,0.2);
 }
@@ -2654,6 +2654,7 @@ QTabWidget QTreeView {
 }
 
 QTabWidget QTreeView::item {
+  background-color: @ColorPaletteTextPropertyitem;
   margin: 2px 2px 1px 0px;
 }
 
@@ -2674,7 +2675,7 @@ QTabWidget QTreeView::item {
 }
 
 #DocumentTreeItems::item:has-children:!has-siblings:open {
-  background-color: transparent;
+  background-color: rgba(0,0,0,0.2);
   border: 1px solid rgba(0,0,0,0.2);
   color: #ffaa7f;
   color: @ColorPaletteTextTreeEndOpen;
@@ -2842,7 +2843,7 @@ QTableView {
 QTableView::item {
   border: 1px solid transparent;
   color: #ffff69;
-  color: @ColorPaletteTextAlternateList;
+  color: @ColorPaletteTextDarkenList;
 }
 
 QTableView::item:hover {
@@ -2929,7 +2930,7 @@ QDialog#Gui__Dialog__DlgPreferences > QListView::item:selected {
 QDialog QTreeView {
   background-color: rgba(250,250,250,0.03);
   color: #eeeeee;
-  color: @ColorPaletteTextAlternateList;
+  color: @ColorPaletteTextDarkenList;
   margin: 0px 0px 0px 0px;
   border: 1px solid rgba(0,0,0,0.15);
   padding: 5px 5px 5px 5px;

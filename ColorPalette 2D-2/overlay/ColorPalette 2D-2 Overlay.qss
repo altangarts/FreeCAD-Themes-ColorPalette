@@ -23,7 +23,7 @@ Gui--PropertyEditor--PropertyEditor {
   gridline-color: @ThemeAccentColor3;
   gridline-color: @ColorPalettePropertyGridlineOverlay;
   color: #ffff69;
-  color: @ColorPaletteTextList;
+  color: @ColorPaletteTextPropertyEditor;
 }
 
 Gui--OverlayTabWidget::pane {
@@ -54,7 +54,6 @@ QTabWidget QTreeView::item:has-children:open {
   background-color: rgba(0,0,0,0.2);
   background-color: @ColorPaletteOverlayHeader;
   border: 1px solid rgba(0,0,0,0.15);
-  border: 1px solid @ColorPaletteOverlayContent2;
   border-radius: 3px;
   color: #ffaa7f;
   color: @ColorPaletteTextTreeEndOpen;
@@ -62,7 +61,7 @@ QTabWidget QTreeView::item:has-children:open {
 
 QTabWidget QTreeView::item {
   background-color: rgba(250,250,250,0.07);
-  background-color: @ColorPaletteOverlayContent;
+  background-color: @ColorPaletteOverlayContent1;
   border: 0px solid rgba(0,0,0,0.2);
   border-radius: 3px;
   margin: 1px 2px 2px 0px;
@@ -90,7 +89,6 @@ QTabWidget QPushButton {
   color: @ColorPaletteTextGeneral;
   text-align: center;
   border: 1px solid rgba(0,0,0,0.15);
-  border: 1px solid @ColorPaletteOverlayBorder;
   border-radius: 6px;
   padding: 3px 8px 6px 8px;  
   margin: 0px 0px 0px 0px;
@@ -208,7 +206,6 @@ Gui--TreePanel QTreeView::indicator:unchecked {
   background-color: rgba(250,250,250,0.07);
   background-color: @ColorPaletteOverlayContent;
   border: 1px solid rgba(0,0,0,0.15);
-  border: 1px solid @ColorPaletteOverlayBorder;
   border-radius: 4px;
   margin: 1px 0px 1px 0px;
   padding: 0px 0px 0px 0px;
@@ -225,7 +222,6 @@ Gui--TreePanel QTreeView::indicator:unchecked {
 #DocumentTreeItems::item:selected {
   background-color: @ThemeAccentColor1;
   border: 1px solid rgba(0,0,0,0.15);
-  border: 1px solid @ColorPaletteOverlayBorder;
   color: #ffffff;
 }
 
@@ -239,7 +235,6 @@ Gui--TreePanel QTreeView::indicator:unchecked {
   background-color: rgba(0,0,0,0.2);
   background-color: @ColorPaletteOverlayHeader;
   border: 1px solid rgba(0,0,0,0.15);
-  border: 1px solid @ColorPaletteOverlayBorder;
   color: #ffaa7f;
   color: @ColorPaletteTextTreeEndOpen;
 }
@@ -248,7 +243,6 @@ Gui--TreePanel QTreeView::indicator:unchecked {
   background-color: rgba(250,250,250,0.07);
   background-color: @ColorPaletteOverlayContent;
   border: 1px solid rgba(0,0,0,0.15);
-  border: 1px solid @ColorPaletteOverlayBorder;
   color: #abff7d;
   color: @ColorPaletteTextTreeOpen;
 }
@@ -262,7 +256,6 @@ Gui--TreePanel QTreeView::indicator:unchecked {
 #DocumentTreeItems::item:has-children:open:selected {
   background-color: @ThemeAccentColor1;
   border: 1px solid rgba(0,0,0,0.15);
-  border: 1px solid @ColorPaletteOverlayBorder;
   color: #ffffff;
 }
 
@@ -276,7 +269,6 @@ Gui--TreePanel QTreeView::indicator:unchecked {
   background-color: rgba(250,250,250,0.07);
   background-color: @ColorPaletteOverlayContent;
   border: 1px solid rgba(0,0,0,0.15);
-  border: 1px solid @ColorPaletteOverlayBorder;
   color: #beffff;
   color: @ColorPaletteTextTreeClosed;
 }
@@ -290,7 +282,6 @@ Gui--TreePanel QTreeView::indicator:unchecked {
 #DocumentTreeItems::item:has-children:selected {
   background-color: @ThemeAccentColor1;
   border: 1px solid rgba(0,0,0,0.15);
-  border: 1px solid @ColorPaletteOverlayBorder;
   color: #ffffff;
 }
 
@@ -306,7 +297,6 @@ QSint--ActionGroup QFrame[class="content"] {
 background-color: rgba(250,250,250,0.07);
 background-color: @ColorPaletteOverlayContent;
 border: 1px solid rgba(0,0,0,0.15);
-border: 1px solid @ColorPaletteOverlayBorder;
 border-radius: 6px;
 margin: 0px 0px 0px 0px;
 padding: -5px;
@@ -316,7 +306,6 @@ QSint--ActionGroup QFrame[class="header"] {
 background-color: rgba(0,0,0,0.2);
 background-color: @ColorPaletteOverlayHeader;
 border: 1px solid rgba(0,0,0,0.15);
-border: 1px solid @ColorPaletteOverlayBorder;
 border-radius: 6px;
 margin: 0px;
 padding: 0px;
@@ -389,7 +378,6 @@ Gui--OverlayToolButton {
   background-color: rgba(250,250,250,0.15);
   background-color: @ColorPaletteOverlayContent; 
   border: 1px solid rgba(0,0,0,0.2);
-  border: 1px solid @ColorPaletteOverlayBorder;
   border-radius: 4px;
   min-height: 11px;
   min-width: 11px;
