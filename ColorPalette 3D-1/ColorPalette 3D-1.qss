@@ -200,7 +200,7 @@ QMdiArea {
 }
 
 Gui--NavigationIndicatorGui--BlenderNavigationStyle {
- qproperty-icon: url(:/icons/icons/NavigationBlender_light.svg);
+ qproperty-icon: url(:/icons/icons/NavigationBlender_Dark.svg);
 }
 
 /* QDockWiget -------------------------------------------------------------
@@ -277,7 +277,7 @@ Gui--OverlayToolButton {
   min-height: 11px;
   min-width: 11px;
   padding: 1px 6px 4px 6px;
-  margin: 0px 0px 3px 0px;
+  margin: 0px 0px 0px 0px;
   image: url(qss:images_classic/transparent.svg);
 }
 
@@ -816,18 +816,17 @@ QAbstractItemView QLineEdit {
 --------------------------------------------------------------------------- */
 QAbstractScrollArea {
   background-color: transparent;
-  border: 1px solid transparent;
-  padding: 0px;  
-  margin: 0px;
+  border-style: none;
 }
 
 QAbstractScrollArea:disabled {
-  background-color: rgba(0,0,0,0.15);
+  background-color: #393937;
+  border-style: none;
 }
 
 QAbstractScrollArea::corner {
   background-color: transparent;
-  border: none;  
+  border-style: none;
 }
 
 /* QScrollArea ------------------------------------------------------------
@@ -1041,6 +1040,13 @@ QStackedWidget {
 /* QToolBar ---------------------------------------------------------------
 
 --------------------------------------------------------------------------- */
+QToolBar:only-one {
+  background-color: transparent;
+  border: 0px solid transparent;
+  margin: 0px;
+  padding: 0px;
+}
+
 QToolBar:top {
   background-color: @ThemeAccentColor2;
   border: 0px solid rgba(0,0,0,0.2);
@@ -1291,18 +1297,14 @@ QTextBrowser:pressed {
 --------------------------------------------------------------------------- */
 QGraphicsView {
   background-color: transparent;
-  border: 1px solid transparent;
-  color: #eeeeee;
+  border-style: none;
   color: @ColorPaletteTextGeneral;
-  padding: 0px;
-  selection-background-color: @ThemeAccentColor1;
-  selection-color: #ffffff;
+  margin: -1px;
 }
 
 QGraphicsView:disabled {
   background-color: #393937;
-  border: 0px solid #333331;
-  color: #bbbbbb;
+  border-style: none;
   color: @ColorPaletteTextDisabled;
 }
 
@@ -1310,8 +1312,7 @@ QGraphicsView:hover,
 QGraphicsView:!hover,
 QGraphicsView:selected,
 QGraphicsView:pressed {
-  color: #ffffff;
-  border: 0px solid #333331;
+  border-style: none;
 }
 
 /* QCalendarWidget --------------------------------------------------------

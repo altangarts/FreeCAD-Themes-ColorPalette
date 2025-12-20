@@ -200,7 +200,7 @@ QMdiArea {
 }
 
 Gui--NavigationIndicatorGui--BlenderNavigationStyle {
- qproperty-icon: url(:/icons/icons/NavigationBlender_light.svg);
+ qproperty-icon: url(:/icons/icons/NavigationBlender_Dark.svg);
 }
 
 /* QDockWiget -------------------------------------------------------------
@@ -275,7 +275,7 @@ Gui--OverlayToolButton {
   min-height: 11px;
   min-width: 11px;
   padding: 1px 6px 3px 6px;
-  margin: 0px 0px 3px 0px;
+  margin: 0px 0px 0px 0px;
   image: url(qss:images_classic/transparent.svg);
   border-width: 1px 1px 2px 1px;
   border-style: solid;
@@ -817,18 +817,17 @@ QAbstractItemView QLineEdit {
 --------------------------------------------------------------------------- */
 QAbstractScrollArea {
   background-color: transparent;
-  border: 1px solid transparent;
-  padding: 0px;  
-  margin: 0px;
+  border-style: none;
 }
 
 QAbstractScrollArea:disabled {
-  background-color: rgba(0,0,0,0.15);
+  background-color: #393937;
+  border-style: none;
 }
 
 QAbstractScrollArea::corner {
   background-color: transparent;
-  border: none;  
+  border-style: none;
 }
 
 /* QScrollArea ------------------------------------------------------------
@@ -1301,7 +1300,7 @@ QGraphicsView {
   background-color: transparent;
   border-style: none;
   color: @ColorPaletteTextGeneral;
-  padding: -1px;
+  margin: -1px;
 }
 
 QGraphicsView:disabled {
