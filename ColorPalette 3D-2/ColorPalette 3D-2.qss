@@ -498,7 +498,7 @@ QCheckBox::indicator:indeterminate:pressed {
 
 --------------------------------------------------------------------------- */
 QGroupBox {
-  background-color: rgba(250,250,250,0.03);
+  background-color: rgba(250,250,250,0.05);
   border: 1px solid rgba(0,0,0,0.15);
   border-radius: 6px;
   margin-top: 10px;
@@ -2563,7 +2563,6 @@ QListView::indicator,
 QTableView::indicator,
 QColumnView::indicator {  
   background-color: rgba(0,0,0,0.5);
-  border: 1px solid rgba(0,0,0,0.5);
   border-radius: 6px;
   width: 10px;
   height: 10px;
@@ -2574,7 +2573,6 @@ QListView::indicator:unchecked:disabled,
 QTableView::indicator:unchecked:disabled,
 QColumnView::indicator:unchecked:disabled {
   background-color: rgba(0,0,0,0.1);
-  border: 1px solid rgba(0,0,0,0.2);
   border-radius: 6px;
   width: 10px;
   height: 10px;
@@ -2586,7 +2584,6 @@ QTableView::indicator:checked,
 QColumnView::indicator:checked {
   image: url(qss:images_classic/check-mark-blue.svg);
   background-color: rgba(0,0,0,0.5);
-  border: 1px solid rgba(0,0,0,0.5);
 }
 
 QTreeView::indicator:checked:hover,
@@ -2594,7 +2591,6 @@ QTableView::indicator:checked:hover,
 QColumnView::indicator:checked:hover {
   image: url(qss:images_classic/check-mark-white.svg);
   background-color: @ThemeAccentColor1;
-  border: 1px solid transparent;
 }
 
 QTreeView::indicator:checked:disabled,
@@ -2603,8 +2599,6 @@ QTableView::indicator:checked:disabled,
 QColumnView::indicator:checked:disabled  {
   image: url(qss:images_classic/check-mark-lightgray.svg);
   background-color: #393937;
-  border: 1px solid #333331;
-  border-radius: 2px;
 }
 
 QTreeView::indicator:unchecked,
@@ -2612,16 +2606,23 @@ QListView::indicator:unchecked,
 QTableView::indicator:unchecked,
 QColumnView::indicator:unchecked {
   background-color: rgba(0,0,0,0.5);
-  border: 1px solid rgba(0,0,0,0.5);
 }
 
 QTabWidget QTreeView::indicator,
 QTabWidget QTreeView::indicator:checked,
 QTabWidget QTreeView::indicator:unchecked {
   background-color: rgba(250,250,250,0.2);
-  border: 0px solid rgba(250,250,250,0.2);
   border-radius: 5px;
-  margin: 1px 0px 0px 1px;
+  margin: 1px 0px 0px 4px;
+  height: 10px;
+  width: 10px;
+}
+
+QTabWidget QTreeView::indicator:disabled,
+QTabWidget QTreeView::indicator:unchecked:disabled {
+  background-color: rgba(0,0,0,0.15);
+  border-radius: 5px;
+  margin: 1px 0px 0px 4px;
   height: 10px;
   width: 10px;
 }
@@ -2631,13 +2632,22 @@ QTabWidget QTreeView::indicator:checked {
   height: 14px;
   width: 14px;
   padding: -2px;
-  margin-left: 3px;
+  margin-left: 4px;
+  padding-bottom: -1px;
+}
+
+QTabWidget QTreeView::indicator:checked:disabled {
+  background-color: rgba(250,250,250,0.1);
+  image: url(qss:images_classic/radio-mark-white1.svg);
+  height: 14px;
+  width: 14px;
+  padding: -2px;
+  margin-left: 4px;
   padding-bottom: -1px;
 }
 
 #DocumentTreeItems::indicator {
   background-color: rgba(0,0,0,0.5);
-  border: 0px solid rgba(0,0,0,0.5);
   border-radius: 5px;
   margin: 2px 0px 0px 1px;
   width: 10px;
@@ -3188,6 +3198,7 @@ QToolBox > QScrollArea > QWidget > QWidget {
 .QFrame[frameShape="0"] {
   border-radius: 0px;
   margin: -10px 0px 0px 0px;
+  padding: 0px 2px 0px 1px;
 }
 
 .QFrame[frameShape="4"] {
