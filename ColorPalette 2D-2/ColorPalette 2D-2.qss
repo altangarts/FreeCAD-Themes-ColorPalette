@@ -496,7 +496,8 @@ QGroupBox {
   background-color: rgba(250,250,250,0.05);
   border: 1px solid rgba(0,0,0,0.15);
   border-radius: 10px;
-  margin-top: 10px;
+  margin-top: 5px;
+  margin-bottom: 5px;
   padding-top: 5px;
   font-weight: bold;
 }
@@ -3132,13 +3133,13 @@ QToolBox > QScrollArea > QWidget > QWidget {
 --------------------------------------------------------------------------- */
 /* (dot) .QFrame  fix #141, #126, #123 */
 .QFrame {
-  background-color: transparent;
+  background-color: rgba(0,0,0,0.1);
 }
 
 .QFrame[frameShape="0"] {
   border-radius: 0px;
-  margin: -10px 0px 0px 0px;
-  padding: 0px 2px 0px 1px;
+  margin: -5px 0px 0px 0px;
+  padding: 0px 0px 0px 6px;
 }
 
 .QFrame[frameShape="4"] {
@@ -3341,7 +3342,7 @@ QMdiSubWindow:hover {
 Settings menu #groupsTreeView:
 ==================================================================================================*/
 QTreeView::item#groupsTreeView {
-  background-color: rgba(250,250,250,0.04);
+  background-color: rgba(250,250,250,0.02);
   color: #eeeeee;
 }
 
@@ -3360,7 +3361,7 @@ QTreeView::item#groupsTreeView:selected:hover {
 }
 
 QTreeView::branch#groupsTreeView {
-  background-color: rgba(250,250,250,0.04);
+  background-color: rgba(250,250,250,0.02);
   margin: 1px 0px 1px 0px;
 }
 
@@ -3368,14 +3369,14 @@ QTreeView::branch#groupsTreeView:closed:has-children:has-siblings,
 QTreeView::item#groupsTreeView:closed:has-children:has-siblings,
 QTreeView::branch#groupsTreeView:closed:has-children:!has-siblings,
 QTreeView::item#groupsTreeView:closed:has-children:!has-siblings {
-  background-color: rgba(250,250,250,0.02);
+  background-color: rgba(250,250,250,0.03);
 }
 
 QTreeView::branch#groupsTreeView:open:has-children:has-siblings,
 QTreeView::item#groupsTreeView:open:has-children:has-siblings,
 QTreeView::branch#groupsTreeView:open:has-children:!has-siblings,
 QTreeView::item#groupsTreeView:open:has-children:!has-siblings {
-  background-color: rgba(0,0,0,0.08);
+  background-color: rgba(250,250,250,0.03);
 }
 
 QTreeView::branch#groupsTreeView:closed:has-children:has-siblings:hover,
@@ -3399,7 +3400,7 @@ QTreeView::branch#groupsTreeView:closed:has-children:has-siblings:hover  {
 }
 
 QTreeView::branch#groupsTreeView:open:has-children:has-siblings  {
-  image: url(qss:images_classic/branch_end_open_black.svg);
+  image: url(qss:images_classic/branch_open_black.svg);
   padding: 0px;
 }
 
@@ -3429,13 +3430,13 @@ QTreeView::branch#groupsTreeView:has-children:!has-siblings:closed:hover  {
 
 QTreeView::branch#groupsTreeView:has-siblings:adjoins-item  {
   border-image: none;
-  image: url(qss:images_classic/branch_more_dark.svg);
+  image: url(qss:images_classic/branch_more_light.svg);
   padding: -9px 2px -9px -9px;
 }
 
 QTreeView::branch#groupsTreeView:!has-children:!has-siblings:adjoins-item  {
   border-image: none;
-  image: url(qss:images_classic/branch_end_dark.svg);
+  image: url(qss:images_classic/branch_end_light.svg);
   padding: -9px 2px -9px -9px;
 }
 
