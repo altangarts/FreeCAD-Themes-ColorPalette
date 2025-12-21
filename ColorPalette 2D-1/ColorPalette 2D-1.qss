@@ -1125,27 +1125,17 @@ QToolBar::handle:vertical:hover {
 }
 
 QToolBar::separator:vertical {
-  height: 2px;
-  padding: 2px 0px;
-  image: url(qss:images_classic/Vsepartoolbar-black.svg);
+  height: 0px;
+  padding: 0px 0px;
+  image: none;
 }
 
-QToolBar::separator:horizontal {
-  width: 2px;
-  padding: 4px 2px;
-  image: url(qss:images_classic/Hsepartoolbar-black.svg);
-}
-
-QStatusBar QToolBar::separator:horizontal {
-  width: 2px;
-  padding: 6px 2px;
-  image: url(qss:images_classic/Hsepartoolbar-black.svg);
-}
-
+QToolBar::separator:horizontal,
+QStatusBar QToolBar::separator:horizontal,
 QMenuBar QToolBar::separator:horizontal {
-  width: 2px;
-  padding: 6px 2px;
-  image: url(qss:images_classic/Hsepartoolbar-black.svg);
+  width: 0px;
+  padding: 0px 0px;
+  image: none;
 }
 
 QToolButton#qt_toolbar_ext_button {
@@ -3139,8 +3129,8 @@ QToolBox::tab:selected {
   color: #ffaa7f;
   color: @ColorPaletteTextHeader;
   font-weight: bold;
-  border-top-left-radius: 14px;
-  border-top-right-radius: 14px;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
   border-bottom-left-radius: 0px;
   border-bottom-right-radius: 0px;
 }
@@ -3176,8 +3166,8 @@ QToolBox > QScrollArea > QWidget > QWidget {
   border: 1px solid rgba(0,0,0,0.2);  
   border-top-left-radius: 0px;
   border-top-right-radius: 0px;
-  border-bottom-left-radius: 20px;
-  border-bottom-right-radius: 20px;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
   padding: 0px 10px 0px 10px;
   margin: 0px 0px 0px 0px;
 }
@@ -3396,7 +3386,7 @@ QMdiSubWindow:hover {
 Settings menu #groupsTreeView:
 ==================================================================================================*/
 QTreeView::item#groupsTreeView {
-  background-color: rgba(250,250,250,0.02);
+  background-color: rgba(250,250,250,0.04);
   color: #eeeeee;
 }
 
@@ -3415,11 +3405,30 @@ QTreeView::item#groupsTreeView:selected:hover {
 }
 
 QTreeView::branch#groupsTreeView {
-  background-color: rgba(250,250,250,0.02);
+  background-color: rgba(250,250,250,0.04);
   margin: 1px 0px 1px 0px;
 }
 
-QTreeView::branch#groupsTreeView:hover {
+QTreeView::branch#groupsTreeView:closed:has-children:has-siblings,
+QTreeView::item#groupsTreeView:closed:has-children:has-siblings,
+QTreeView::branch#groupsTreeView:closed:has-children:!has-siblings,
+QTreeView::item#groupsTreeView:closed:has-children:!has-siblings {
+  background-color: rgba(250,250,250,0.02);
+}
+
+QTreeView::branch#groupsTreeView:open:has-children:has-siblings,
+QTreeView::item#groupsTreeView:open:has-children:has-siblings,
+QTreeView::branch#groupsTreeView:open:has-children:!has-siblings,
+QTreeView::item#groupsTreeView:open:has-children:!has-siblings {
+  background-color: rgba(0,0,0,0.08);
+}
+
+QTreeView::branch#groupsTreeView:closed:has-children:has-siblings:hover,
+QTreeView::item#groupsTreeView:closed:has-children:has-siblings:hover,
+QTreeView::branch#groupsTreeView:closed:has-children:!has-siblings:hover,
+QTreeView::item#groupsTreeView:closed:has-children:!has-siblings:hover,
+QTreeView::branch#groupsTreeView:open:has-children:has-siblings:hover,
+QTreeView::item#groupsTreeView:open:has-children:has-siblings:hover {
   background-color: @ThemeAccentColor1;
   background-color: @ColorPaletteHover;
 }
@@ -3435,7 +3444,7 @@ QTreeView::branch#groupsTreeView:closed:has-children:has-siblings:hover  {
 }
 
 QTreeView::branch#groupsTreeView:open:has-children:has-siblings  {
-  image: url(qss:images_classic/branch_open_black.svg);
+  image: url(qss:images_classic/branch_end_open_black.svg);
   padding: 0px;
 }
 
@@ -3445,8 +3454,6 @@ QTreeView::branch#groupsTreeView:open:has-children:has-siblings:hover  {
 }
 
 QTreeView::branch#groupsTreeView:open:has-children:!has-siblings  {
-  image: url(qss:images_classic/arrow-up-white1.svg);
-  padding: 5px;
 }
 
 QTreeView::branch#groupsTreeView:open:has-children:!has-siblings:hover  {
@@ -3467,13 +3474,13 @@ QTreeView::branch#groupsTreeView:has-children:!has-siblings:closed:hover  {
 
 QTreeView::branch#groupsTreeView:has-siblings:adjoins-item  {
   border-image: none;
-  image: url(qss:images_classic/branch_more_light.svg);
+  image: url(qss:images_classic/branch_more_dark.svg);
   padding: -9px 2px -9px -9px;
 }
 
 QTreeView::branch#groupsTreeView:!has-children:!has-siblings:adjoins-item  {
   border-image: none;
-  image: url(qss:images_classic/branch_end_light.svg);
+  image: url(qss:images_classic/branch_end_dark.svg);
   padding: -9px 2px -9px -9px;
 }
 
