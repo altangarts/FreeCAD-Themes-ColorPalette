@@ -5,9 +5,9 @@ Gui--OverlayTitleBar {
   min-height: 22px;
 }
 
- /* Gui--OverlayTabWidget#OverlayLeft {} */
+/* Gui--OverlayTabWidget#OverlayLeft {} */
 
-Gui--OverlayTabWidget {
+/* Gui--OverlayTabWidget {
   qproperty-effectColor: transparent;
   qproperty-effectBlurRadius: 10.0;
   qproperty-effectOffsetX: 0.5;
@@ -15,7 +15,7 @@ Gui--OverlayTabWidget {
   qproperty-effectWidth: 1;
   qproperty-effectHeight: 1.5;
   qproperty-enableEffect: 1;
-}
+} */
 
 Gui--PropertyEditor--PropertyEditor {
   qproperty-itemBackground: transparent;    
@@ -57,6 +57,39 @@ QTabWidget QTreeView::item:has-children:open {
   border-radius: 3px;
   color: #ffaa7f;
   color: @ColorPaletteTextTreeEndOpen;
+}
+
+QTabWidget QTreeView::item:has-children:open:focus,
+QTabWidget QTreeView::item:has-children:open:selected,
+QTabWidget QTreeView::item:has-children:open:selected:focus {
+  background-color: @ThemeAccentColor1;
+  border: 1px solid @ThemeAccentColor1;
+  color: #ffffff;
+} 
+
+QTabWidget QTreeView::item:has-children:open:hover {
+  background-color: @ThemeAccentColor1;
+  background-color: @ColorPaletteHover;
+  border: 1px solid @ThemeAccentColor1;
+  color: #ffffff;
+}
+
+Gui--TreePanel QTreeView::item:has-children:open:focus,
+Gui--TreePanel QTreeView::item:has-children:open:selected,
+Gui--TreePanel QTreeView::item:has-children:open:selected:focus,
+Gui--TreePanel QTreeView::item:has-children:!has-siblings:open:focus,
+Gui--TreePanel QTreeView::item:has-children:!has-siblings:open:selected,
+Gui--TreePanel QTreeView::item:has-children:!has-siblings:open:selected:focus {
+  background-color: transparent;
+  border: 1px solid transparent;
+  color: #ffffff;
+}
+
+Gui--TreePanel QTreeView::item:has-children:open:hover,
+Gui--TreePanel QTreeView::item:has-children:!has-siblings:open:hover {
+  background-color: transparent;
+  border: 1px solid transparent;
+  color: #ffffff;
 }
 
 QTabWidget QTreeView::item {
@@ -221,21 +254,18 @@ Gui--TreePanel QTreeView::indicator:unchecked {
   color: @ColorPaletteTextTreeEnd;
 }
 
-#DocumentTreeItems::item:focus {
-  background-color: @ThemeAccentColor1;
-  border: 0px solid @ThemeAccentColor1;
-  color: #ffffff;
-}
-
-#DocumentTreeItems::item:selected {
-  background-color: @ThemeAccentColor1;
-  border: 1px solid rgba(0,0,0,0.15);
-  color: #ffffff;
-}
-
+#DocumentTreeItems::item:focus,
+#DocumentTreeItems::item:selected,
 #DocumentTreeItems::item:selected:focus {
   background-color: @ThemeAccentColor1;
-  border: 0px solid @ThemeAccentColor1;
+  border: 1px solid @ThemeAccentColor1;
+  color: #ffffff;
+}
+
+#DocumentTreeItems::item:hover {
+  background-color: @ThemeAccentColor1;
+  background-color: @ColorPaletteHover;
+  border: 1px solid @ThemeAccentColor1;
   color: #ffffff;
 }
 
@@ -248,6 +278,21 @@ Gui--TreePanel QTreeView::indicator:unchecked {
   color: @ColorPaletteTextTreeEndOpen;
 }
 
+#DocumentTreeItems::item:has-children:!has-siblings:open:focus,
+#DocumentTreeItems::item:has-children:!has-siblings:open:selected,
+#DocumentTreeItems::item:has-children:!has-siblings:open:selected:focus {
+  background-color: @ThemeAccentColor1;
+  border: 1px solid @ThemeAccentColor1;
+  color: #ffffff;
+}
+
+#DocumentTreeItems::item:has-children:!has-siblings:open:hover {
+  background-color: @ThemeAccentColor1;
+  background-color: @ColorPaletteHover;
+  border: 1px solid @ThemeAccentColor1;
+  color: #ffffff;
+}
+
 #DocumentTreeItems::item:has-children:open {
   background-color: rgba(250,250,250,0.07);
   background-color: @ColorPaletteOverlayContent;
@@ -256,21 +301,18 @@ Gui--TreePanel QTreeView::indicator:unchecked {
   color: @ColorPaletteTextTreeOpen;
 }
 
-#DocumentTreeItems::item:has-children:open:focus {
-  background-color: @ThemeAccentColor1;
-  border: 0px solid @ThemeAccentColor1;
-  color: #ffffff;
-}
-
-#DocumentTreeItems::item:has-children:open:selected {
-  background-color: @ThemeAccentColor1;
-  border: 1px solid rgba(0,0,0,0.15);
-  color: #ffffff;
-}
-
+#DocumentTreeItems::item:has-children:open:focus,
+#DocumentTreeItems::item:has-children:open:selected,
 #DocumentTreeItems::item:has-children:open:selected:focus {
   background-color: @ThemeAccentColor1;
-  border: 0px solid @ThemeAccentColor1;
+  border: 1px solid @ThemeAccentColor1;
+  color: #ffffff;
+}
+
+#DocumentTreeItems::item:has-children:open:hover {
+  background-color: @ThemeAccentColor1;
+  background-color: @ColorPaletteHover;
+  border: 1px solid @ThemeAccentColor1;
   color: #ffffff;
 }
 
@@ -282,15 +324,18 @@ Gui--TreePanel QTreeView::indicator:unchecked {
   color: @ColorPaletteTextTreeClosed;
 }
 
-#DocumentTreeItems::item:has-children:focus {
+#DocumentTreeItems::item:has-children:focus,
+#DocumentTreeItems::item:has-children:selected,
+#DocumentTreeItems::item:has-children:selected:focus {
   background-color: @ThemeAccentColor1;
-  border: 0px solid @ThemeAccentColor1;
+  border: 1px solid @ThemeAccentColor1;
   color: #ffffff;
 }
 
-#DocumentTreeItems::item:has-children:selected {
+#DocumentTreeItems::item:has-children:hover {
   background-color: @ThemeAccentColor1;
-  border: 1px solid rgba(0,0,0,0.15);
+  background-color: @ColorPaletteHover;
+  border: 1px solid @ThemeAccentColor1;
   color: #ffffff;
 }
 
