@@ -2831,7 +2831,6 @@ QDialog QListWidget {
 
 QListView QFrame {
   color: #eeeeee;
-  color: @ColorPaletteTextGeneral;
   margin: 3px 0px -4px 0px;
   padding: 1px 4px 0px 0px;
   border-radius: 4px;
