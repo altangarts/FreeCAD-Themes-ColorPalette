@@ -194,7 +194,7 @@ QDialog {
 }
 
 QMdiArea {
-  background-image: url(qss:images_dark-light/background_freecad.svg);
+  background-image: none;
   background-position: center center;
   background-repeat: no-repeat;
 }
@@ -387,6 +387,7 @@ QStatusBar {
   border: 0px solid rgba(0,0,0,0.2);
   background-color: @ThemeAccentColor3;
   spacing: 0px;
+  margin: 3px 0px 0px 0px;
 }
 
 QStatusBar::item {
@@ -620,7 +621,7 @@ QMenuBar::item {
   color: #eeeeee;
   color: @ColorPaletteTextGeneral;
   padding: 2px 6px 4px 6px;
-  margin: 2px 0px 2px 0px;
+  margin: 4px 0px 3px 0px;
 }
 
 QMenuBar::item:hover {
@@ -1059,18 +1060,21 @@ QToolBar:bottom {
   background-color: @ThemeAccentColor3;
   border: 0px solid rgba(0,0,0,0.2);
   margin: 0px;
+  padding: 1px;
 }
 
 QToolBar:right {
   background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop: 0 @ThemeAccentColor2, stop: 0.5 @ThemeAccentColor3,  stop: 1 @ThemeAccentColor3);
   border: 0px solid rgba(0,0,0,0.2);
   margin: 0px;
+  padding: 1px;
 }
 
 QToolBar:left {
   background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop: 0 @ThemeAccentColor2, stop: 0.5 @ThemeAccentColor3,  stop: 1 @ThemeAccentColor3);
   border: 0px solid rgba(0,0,0,0.2);
   margin: 0px;
+  padding: 1px;
 }
 
 QMenuBar QToolBar::handle:horizontal {
@@ -1387,6 +1391,20 @@ QToolBar QPushButton {
   padding: 10px 8px 11px 8px;
 }
 
+QToolBar QPushButton:hover {
+  background-color: @ThemeAccentColor1;
+  background-color: @ColorPaletteHover;
+  border: 1px solid @ThemeAccentColor1;
+  color: #ffffff;
+}
+
+QToolBar QPushButton:pressed,
+QToolBar QPushButton:selected {
+  background-color: @ThemeAccentColor1;
+  border: 1px solid @ThemeAccentColor1;
+  color: #ffffff;
+}
+
 QStatusBar QPushButton {
   padding: 0px 0px 9px 15px;
   min-width: 65px;
@@ -1530,7 +1548,7 @@ QToolBar QToolButton:disabled {
 QStatusBar QToolButton {
   max-height: 24px;
   margin: 1px 0px 0px 0px;
-  padding: 0px 1px 0px 2px;
+  padding: 0px 0px 0px 1px;
 }
 
 QToolBar QToolButton:hover {  
@@ -2280,13 +2298,13 @@ QTabBar::tab {
   border-radius: 6px;
   color: #eeeeee;
   color: @ColorPaletteTextGeneral;
-  margin: 2px 0px 0px 2px;
+  margin: 5px 0px 0px 2px;
   padding: 3px 4px 6px 6px;
   min-width: 50px;
 }
 
 QToolBar QTabBar::tab {
-  margin: 2px 2px 2px 0px;
+  margin: 2px 2px 5px 0px;
   padding: 4px 5px 7px 5px;
 }
 
@@ -2297,7 +2315,7 @@ QTabWidget QTabBar::tab:bottom {
 }
 
 QFrame QTabBar::tab {
-  margin: 2px 0px 0px 3px;
+  margin: 2px 0px 3px 3px;
   padding: 4px 0px 5px 4px;
 }
 
@@ -3339,9 +3357,9 @@ Gui--NotificationLabel {
 
 ==================================================================================================*/
 QMdiSubWindow {
-  background-color: rgba(0,0,0,0.1);
-  border: 1px solid rgba(0,0,0,0.2);
-  padding: 0px;
+  background-color: @ThemeAccentColor2;
+  border: 1px solid rgba(0,0,0,0.15);
+  padding: 1px;
   margin: 3px;
   selection-background-color: @ThemeAccentColor1;
   selection-color: #ffffff;
@@ -3352,33 +3370,38 @@ QMdiSubWindow {
 }
 
 QMdiSubWindow:hover {
-  border: 1px solid #ffff00;
+  background-color: @ThemeAccentColor1;
+  background-color: @ColorPaletteHover;
+  border: 2px solid @ThemeAccentColor1;
 }
 
 /*==================================================================================================
 Settings menu #groupsTreeView:
 ==================================================================================================*/
 QTreeView::item#groupsTreeView {
-  background-color: rgba(250,250,250,0.02);
-  color: #eeeeee;
+  background-color: rgba(250,250,250,0.03);
+  color: #ffff69;
 }
 
 QTreeView::item#groupsTreeView:hover {
   background-color: @ThemeAccentColor1;
   background-color: @ColorPaletteHover;
+  color: #eeeeee;
 }
 
 QTreeView::item#groupsTreeView:selected {
   background-color: @ThemeAccentColor1;
+  color: #eeeeee;
 }
 
 QTreeView::item#groupsTreeView:selected:hover {
   background-color: @ThemeAccentColor1;
   background-color: @ColorPaletteHover;
+  color: #eeeeee;
 }
 
 QTreeView::branch#groupsTreeView {
-  background-color: rgba(250,250,250,0.02);
+  background-color: rgba(250,250,250,0.03);
   margin: 1px 0px 1px 0px;
 }
 
@@ -3386,14 +3409,17 @@ QTreeView::branch#groupsTreeView:closed:has-children:has-siblings,
 QTreeView::item#groupsTreeView:closed:has-children:has-siblings,
 QTreeView::branch#groupsTreeView:closed:has-children:!has-siblings,
 QTreeView::item#groupsTreeView:closed:has-children:!has-siblings {
-  background-color: rgba(250,250,250,0.03);
+  background-color: rgba(250,250,250,0.05);
+  color: #eeeeee;
+  color: @ColorPaletteTextGeneral;
 }
 
 QTreeView::branch#groupsTreeView:open:has-children:has-siblings,
 QTreeView::item#groupsTreeView:open:has-children:has-siblings,
 QTreeView::branch#groupsTreeView:open:has-children:!has-siblings,
 QTreeView::item#groupsTreeView:open:has-children:!has-siblings {
-  background-color: rgba(250,250,250,0.03);
+  background-color: rgba(0,0,0,0.1);
+  color: #ffaa7f;
 }
 
 QTreeView::branch#groupsTreeView:closed:has-children:has-siblings:hover,
@@ -3404,6 +3430,7 @@ QTreeView::branch#groupsTreeView:open:has-children:has-siblings:hover,
 QTreeView::item#groupsTreeView:open:has-children:has-siblings:hover {
   background-color: @ThemeAccentColor1;
   background-color: @ColorPaletteHover;
+  color: #eeeeee;
 }
 
 QTreeView::branch#groupsTreeView:closed:has-children:has-siblings  {
@@ -3417,7 +3444,7 @@ QTreeView::branch#groupsTreeView:closed:has-children:has-siblings:hover  {
 }
 
 QTreeView::branch#groupsTreeView:open:has-children:has-siblings  {
-  image: url(qss:images_classic/branch_open_black.svg);
+  image: url(qss:images_classic/branch_end_open_black.svg);
   padding: 0px;
 }
 
