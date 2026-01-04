@@ -1054,14 +1054,14 @@ QToolBar:top {
   background-color: @ThemeAccentColor2;
   border: 0px solid rgba(0,0,0,0.2);
   margin: 0px;
-  padding: 1px;
+  padding: 0px;
 }
 
 QToolBar:bottom {
   background-color: @ThemeAccentColor3;
   border: 0px solid rgba(0,0,0,0.2);
   margin: 0px;
-  padding: 1px;
+  padding: 0px;
 }
 
 QToolBar:right {
@@ -1555,7 +1555,7 @@ QToolBar QToolButton {
   color: @ColorPaletteTextGeneral;
   min-width: 18px;
   min-height: 24px;
-  margin: 0px 0px 0px 0px;
+  margin: 1px 0px 1px 0px;
   padding: 2px 2px 8px 3px;
 }
 
