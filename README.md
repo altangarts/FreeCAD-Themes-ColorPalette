@@ -92,7 +92,7 @@ Note:
 
  ### ☑️ Screenshots
 
-#### ⤵️ 3D-2 --->  background-top: #2c2c57, background-bottom: #777788. - selection: #00557f.
+#### ⤵️ 3D-1 --->  background-top: #2c2c57, background-bottom: #777788. - selection: #00557f.
 
 
 ![Ekran görüntüsü 2026-01-04 203554](https://github.com/user-attachments/assets/d9ebfd60-930e-46ea-a319-260107a8da93)
@@ -119,7 +119,7 @@ Note:
 
 
 
-#### ⤵️ 3D-1 --->  background: #7d6f4f. - selection: #680000.
+#### ⤵️ 3D-1 + Overlay --->  background: #7d6f4f. - selection: #680000.
 
 
 ![Ekran görüntüsü 2026-01-04 203511](https://github.com/user-attachments/assets/6d8ecf37-4aab-4835-83d2-51781c4ce5d4)
