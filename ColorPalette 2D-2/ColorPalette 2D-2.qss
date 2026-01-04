@@ -1049,28 +1049,28 @@ QToolBar:top {
   background-color: @ThemeAccentColor2;
   border: 0px solid rgba(0,0,0,0.2);
   margin: 0px;
-  padding: 1px;
+  padding: 0px;
 }
 
 QToolBar:bottom {
   background-color: @ThemeAccentColor3;
   border: 0px solid rgba(0,0,0,0.2);
   margin: 0px;
-  padding: 1px;
+  padding: 0px;
 }
 
 QToolBar:right {
   background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop: 0 @ThemeAccentColor2, stop: 0.5 @ThemeAccentColor3,  stop: 1 @ThemeAccentColor3);
   border: 0px solid rgba(0,0,0,0.2);
   margin: 0px;
-  padding: 1px;
+  padding: 0px;
 }
 
 QToolBar:left {
   background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop: 0 @ThemeAccentColor2, stop: 0.5 @ThemeAccentColor3,  stop: 1 @ThemeAccentColor3);
   border: 0px solid rgba(0,0,0,0.2);
   margin: 0px;
-  padding: 1px;
+  padding: 0px;
 }
 
 QMenuBar QToolBar::handle:horizontal {
@@ -1533,7 +1533,7 @@ QToolBar QToolButton {
   color: @ColorPaletteTextGeneral;
   min-width: 18px;
   min-height: 24px;
-  margin: 0px 0px 0px 0px;
+  margin: 0px 0px 1px 0px;
   padding: 2px 2px 8px 3px;
 }
 
