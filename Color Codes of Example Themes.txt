@@ -8,46 +8,54 @@
 
 2. Dark-DarkPurple :
 
-        background: #282826.(lowblue) - selection: #55007f.
+        background: #262624.(lowblue) - selection: #55007f.
 
 
 
 3. MiddleGray-DarkOrange :
  
-        background: #565654.(lowblue) - selection: #783c00.
+        background: #666664.(lowblue) - selection: #aa5500.
 
 
 
-4. Sand-DarkRed :
+4. Light-PaleGreen :
+
+        background: #999997. - selection: #418100.
+
+
+
+5. Sand-DarkRed :
 
         background: #7d6f4f. - selection: #680000.
 
 
 
-5. GradientFreeCAD-DarkBlue :
+6. GradientFreeCAD-DarkBlue :
 
         background-top: #252549, background-bottom: #9797aa. - selection: #00557f.
 
 
 
-6. GradientPink-LightPurple :
+7. GradientPink-LightPurple :
 
         background-top: #a0748b, background-bottom: #a0a09e. - selection: #8a38dc.
 
 
 
-7. GradientPalePurple-DarkBlue :
+8. GradientPalePurple-DarkBlue :
 
         background-top: #55557f, background-bottom: #a0a09e. - selection: #00557f.
 
 
 
-8. GradientBrown-PaleBrown :
+9. GradientBrown-PaleBrown :
 
         background-top: #786f5f, background-bottom: #a0a09e. - selection: #553900.
 
 
 
-9. GradientSoftBlue-PaleBSoftBlue :
+10. GradientSoftBlue-PaleBSoftBlue :
 
-        background-top: #646c6e, background-bottom: #a0a09e. - selection: #43696e.
+        background-top: #646c6e, background-bottom: #a0a09e. - selection: #43696e. 
+
+
