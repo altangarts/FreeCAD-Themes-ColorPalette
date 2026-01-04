@@ -136,7 +136,7 @@ Note:
 
 
 
-#### ⤵️ 3D-1 --->  background-top: #786f5f, background-bottom: #a0a09e. - selection: #553900.
+#### ⤵️ 3D-2 --->  background-top: #786f5f, background-bottom: #a0a09e. - selection: #553900.
 
 
 ![Ekran görüntüsü 2026-01-04 203627](https://github.com/user-attachments/assets/4468ab3f-de67-447c-8b7f-9352686e146f)
