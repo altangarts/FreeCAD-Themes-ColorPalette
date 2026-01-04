@@ -92,26 +92,29 @@ Note:
 
  ### ☑️ Screenshots
 
-#### ⤵️ 3D-2 + Overlay --->  background-top: #2c2c57, background-bottom: #777788. - selection: #00557f.
+#### ⤵️ 3D-2 --->  background-top: #2c2c57, background-bottom: #777788. - selection: #00557f.
 
 
-<img width="3840" height="2160" alt="Ekran Görüntüsü (5)" src="https://github.com/user-attachments/assets/9567d6e1-31e0-4b87-a11d-1d0b63487aa8" />
-
-
-
-
-#### ⤵️ 2D-2 + Overlay --->  background-top: #2d3234. - selection: #783c00.
-
-
-<img width="3840" height="2160" alt="Ekran Görüntüsü (9)" src="https://github.com/user-attachments/assets/a8182725-0cd1-42ba-bb19-f4178e78c362" />
+![Ekran görüntüsü 2026-01-04 203554](https://github.com/user-attachments/assets/d9ebfd60-930e-46ea-a319-260107a8da93)
 
 
 
 
-#### ⤵️ 2D-1 --->  background: #282826.(lowblue) - selection: #55007f.
+
+#### ⤵️ 2D-1 --->  background: #262624.(lowblue) - selection: #55007f.
 
 
-<img width="3840" height="2160" alt="Ekran Görüntüsü (2)" src="https://github.com/user-attachments/assets/7c31e215-859f-42cf-b811-81836c464e4b" />
+![Ekran görüntüsü 2026-01-04 203311](https://github.com/user-attachments/assets/63bc60bd-e96c-4415-94ff-a3e96c0e985b)
+
+
+
+
+
+#### ⤵️ 3D-1 --->  background: #999997. - selection: #418100.
+
+
+![Ekran görüntüsü 2026-01-04 203443](https://github.com/user-attachments/assets/76610943-c829-4898-9716-8a6a5e264a6b)
+
 
 
 
@@ -119,7 +122,8 @@ Note:
 #### ⤵️ 3D-1 --->  background: #7d6f4f. - selection: #680000.
 
 
-<img width="3840" height="2160" alt="Ekran Görüntüsü (1)" src="https://github.com/user-attachments/assets/792af155-b187-416e-923a-c79b36c4f5de" />
+![Ekran görüntüsü 2026-01-04 203511](https://github.com/user-attachments/assets/6d8ecf37-4aab-4835-83d2-51781c4ce5d4)
+
 
 
 
@@ -127,7 +131,7 @@ Note:
 #### ⤵️ 3D-1 + Overlay --->  background-top: #646c6e, background-bottom: #a0a09e. - selection: #43696e.
 
 
-<img width="3840" height="2160" alt="Ekran Görüntüsü (6)" src="https://github.com/user-attachments/assets/05a66858-18d3-4845-ab05-7d6c741d38ed" />
+![Ekran görüntüsü 2026-01-04 203611](https://github.com/user-attachments/assets/4c33fbf5-8f19-41bf-a4b0-16a05f91c7c4)
 
 
 
@@ -135,14 +139,16 @@ Note:
 #### ⤵️ 3D-1 --->  background-top: #786f5f, background-bottom: #a0a09e. - selection: #553900.
 
 
-<img width="3840" height="2160" alt="Ekran Görüntüsü (7)" src="https://github.com/user-attachments/assets/33af8eba-515f-4591-9005-d595eb71438a" />
+![Ekran görüntüsü 2026-01-04 203627](https://github.com/user-attachments/assets/4468ab3f-de67-447c-8b7f-9352686e146f)
+
 
 
 
 
 #### ⤵️ 3D-1 --->  background-top: #a0748b, background-bottom: #a0a09e. - selection: #8a38dc.
 
-<img width="3840" height="2160" alt="Ekran Görüntüsü (8)" src="https://github.com/user-attachments/assets/5eaab599-f9b9-4f06-b077-ad281d9368ea" />
+
+![Ekran görüntüsü 2026-01-04 203645](https://github.com/user-attachments/assets/99bc77ec-5b49-4288-8e50-70d4f5196fc4)
 
 
 
