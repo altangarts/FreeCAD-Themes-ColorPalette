@@ -1768,7 +1768,7 @@ QFrame[class="panel"] {
 background-color: qlineargradient(x1:0, y1:0.94, x2:0, y2:1, stop:0 rgba(250,250,250,0.07), stop:1 rgba(0,0,0,0.2));
 border: 1px solid rgba(0,0,0,0.15);
 margin: 0px 0px 0px 0px;
-padding: 0px 3px 0px 3px;
+padding: -3px 0px 0px 0px;
 border-top-left-radius: 10px;
 border-top-right-radius: 10px;
 border-bottom-left-radius: 16px;
@@ -2246,7 +2246,7 @@ QTabWidget QWidget {
 
 QTabWidget QFrame {
   background-color: transparent;
-  border: -1px solid transparent;
+  border: 0px solid transparent;
   margin: 1px;
   padding: 0px;
   border-radius: 0px;
@@ -2636,7 +2636,7 @@ QDockWidget QTreeView {
   background-color: qlineargradient(x1:0, y1:0.94, x2:0, y2:1, stop:0 rgba(250,250,250,0.07), stop:1 rgba(0,0,0,0.2));  
   border: 1px solid rgba(0,0,0,0.15);
   margin: 0px 0px 0px 0px;
-  padding: 8px 0px 20px 5px;  
+  padding: 4px 0px 20px 4px;  
   selection-background-color: transparent;
   selection-color: #ffffff;
   border-top-left-radius: 10px;
@@ -2679,7 +2679,7 @@ QTabWidget QTreeView::item:has-children:open {
 }
 
 QTabWidget QTreeView {
-  padding: 8px 2px 26px 5px;
+  padding: 4px 0px 26px 4px;
 }
 
 QTabWidget QTreeView::item {

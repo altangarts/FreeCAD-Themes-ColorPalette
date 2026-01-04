@@ -1486,7 +1486,7 @@ QDockWidget QPushButton:pressed,
 QDockWidget QPushButton:selected,
 QDockWidget QPushButton:checked {
   background-color: @ThemeAccentColor1;
-  border: 1px solid ThemeAccentColor1;
+  border: 1px solid @ThemeAccentColor1;
   color: #ffffff;
 }
 
@@ -1797,7 +1797,7 @@ QFrame[class="panel"] {
 background-color: transparent;
 border: 1px solid transparent;
 margin: 0px 0px 0px 0px;
-padding: 0px 3px 0px 3px;
+padding: -3px 0px 0px 0px;
 border-radius: 10px;
 }
 
@@ -2664,7 +2664,7 @@ QDockWidget QTreeView {
   background-color: transparent;  
   border: 1px solid transparent;
   margin: 0px 0px 0px 0px;
-  padding: 6px -3px 6px 3px;  
+  padding: 4px -4px 6px 4px;  
   selection-background-color: transparent;
   selection-color: #ffffff;
   border-top-left-radius: 10px;
@@ -2707,7 +2707,7 @@ QTabWidget QTreeView::item:has-children:open {
 }
 
 QTabWidget QTreeView {
-  padding: 6px -2px 10px 2px;
+  padding: 0px -2px 10px 3px;
   margin-right: 2px;
 }
 
