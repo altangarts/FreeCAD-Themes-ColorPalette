@@ -20,7 +20,7 @@
 
 4. Light-PaleGreen :
 
-        background: #999997. - selection: #418100.
+        background: #999997. - selection: #336200.
 
 
 
