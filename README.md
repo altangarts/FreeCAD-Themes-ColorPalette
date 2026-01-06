@@ -7,7 +7,7 @@ It offers four different appearance options for buttons and panels. (2D - 3D)
  ___________________
 
 ### ☑️ ColorPalette-Themes İnstallation
- ___________________
+###
  
 #### ✅ İnstallation (Primary) :
 ➡️Launch FreeCAD - Tools - Addon Manager - Search "Color Palette Theme" and İnstall
@@ -34,7 +34,7 @@ It offers four different appearance options for buttons and panels. (2D - 3D)
  ___________________
 
 ### ☑️ Theme Selection
- ___________________
+###
 
 #### ✅ Theme Selection 1 :
 ----- (with ColorPalette configuration, automatic "Overlay" selection and "Gradient FreeCAD" theme settings for first installation) -----
@@ -49,7 +49,7 @@ It offers four different appearance options for buttons and panels. (2D - 3D)
  ___________________
 
 ### ☑️ Theme Color Selection:
- ___________________
+###
  
 #### ✅ Main Color and Selection Color,
 1. Edit ➡ Preference ➡ Display ➡ UI ➡ Theme Customization
@@ -98,7 +98,7 @@ Note:
  ___________________
 
  ### ☑️ Screenshots
- ___________________
+ ###
 
 ⤵️
 #### Selection(Accent color 1) : #00557f.
