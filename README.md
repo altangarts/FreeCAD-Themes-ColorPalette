@@ -92,61 +92,56 @@ Note:
 
  ### ☑️ Screenshots
 
-#### ⤵️ Background-top(Accent color 2): #2c2c57, Background-Bottom(Accent color 3): #777788. - Selection(Accent color 1): #00557f.
 
+#### Selection(Accent color 1) : #00557f.
+#### Background-top(Accent color 2) : #2c2c57.
+#### Background-Bottom(Accent color 3) : #777788.
+⤵️
 
 ![Ekran görüntüsü 2026-01-04 203554](https://github.com/user-attachments/assets/d9ebfd60-930e-46ea-a319-260107a8da93)
 
 
-
-
-
-#### ⤵️ Background(Accent color 2): #262624.(lowblue) - Selection(Accent color 1): #55007f.
-
+#### Selection(Accent color 1) : #55007f.
+#### Background(Accent color 2-3) : #262624.(lowblue) 
+⤵️
 
 ![Ekran görüntüsü 2026-01-04 203311](https://github.com/user-attachments/assets/63bc60bd-e96c-4415-94ff-a3e96c0e985b)
 
 
-
-
-
-#### ⤵️ Background(Accent color 2): #999997.(lowblue) - Selection(Accent color 1): #336200.
-
+#### Selection(Accent color 1) : #336200.
+#### Background(Accent color 2-3) : #999997.(lowblue) 
+⤵️
 
 ![Ekran görüntüsü 2026-01-04 203443](https://github.com/user-attachments/assets/76610943-c829-4898-9716-8a6a5e264a6b)
 
 
-
-
-
-#### ⤵️ Background(Accent color 2): #7d6f4f. - Selection(Accent color 1): #680000.
-
+#### Selection(Accent color 1) : #680000.
+#### Background(Accent color 2-3) : #7d6f4f. 
+⤵️
 
 ![Ekran görüntüsü 2026-01-04 203511](https://github.com/user-attachments/assets/6d8ecf37-4aab-4835-83d2-51781c4ce5d4)
 
 
-
-
-
-#### ⤵️ Background-top(Accent color 2): #646c6e, Background-Bottom(Accent color 3): #a0a09e. - Selection(Accent color 1): #43696e.
-
+#### Selection(Accent color 1) : #43696e.
+#### Background-top(Accent color 2) : #646c6e.
+#### Background-Bottom(Accent color 3) : #a0a09e.
+⤵️
 
 ![Ekran görüntüsü 2026-01-04 203611](https://github.com/user-attachments/assets/4c33fbf5-8f19-41bf-a4b0-16a05f91c7c4)
 
 
-
-
-#### ⤵️ Background-top(Accent color 2): #786f5f, Background-Bottom(Accent color 3): #a0a09e. - Selection(Accent color 1): #553900.
-
+#### Selection(Accent color 1) : #553900.
+#### Background-top(Accent color 2) : #786f5f. 
+#### Background-Bottom(Accent color 3) : #a0a09e.
+⤵️
 
 ![Ekran görüntüsü 2026-01-04 203627](https://github.com/user-attachments/assets/4468ab3f-de67-447c-8b7f-9352686e146f)
 
 
-
-
-
-#### ⤵️ Background-top(Accent color 2): #a0748b, Background-Bottom(Accent color 3): #a0a09e. - Selection(Accent color 1): #8a38dc.
-
+#### Selection(Accent color 1): #8a38dc.
+#### Background-top(Accent color 2): #a0748b. 
+#### Background-Bottom(Accent color 3): #a0a09e.
+⤵️
 
 ![Ekran görüntüsü 2026-01-04 203645](https://github.com/user-attachments/assets/99bc77ec-5b49-4288-8e50-70d4f5196fc4)
 
