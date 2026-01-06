@@ -2722,6 +2722,7 @@ QTabWidget QTreeView {
 
 QTabWidget QTreeView::item {
   background-color: @ColorPaletteTextPropertyitem;
+  color: #ffffff;
   margin: 2px 2px 1px 0px;
 }
 
@@ -2733,19 +2734,11 @@ QTabWidget QTreeView::item {
   color: @ColorPaletteTextTreeEnd;
 }
 
-#DocumentTreeItems::item:focus,
-#DocumentTreeItems::item:selected,
-#DocumentTreeItems::item:selected:focus {
-  background-color: @ThemeAccentColor1;
-  border: 0px solid @ThemeAccentColor1;
-  color: #ffffff;
-}
-
-#DocumentTreeItems::item:has-children:!has-siblings:open {
-  background-color: rgba(0,0,0,0.2);
+#DocumentTreeItems::item:has-children {
+  background-color: rgba(0,0,0,0.05);
   border: 1px solid rgba(0,0,0,0.15);
-  color: #ffaa7f;
-  color: @ColorPaletteTextTreeEndOpen;
+  color: #beffff;
+  color: @ColorPaletteTextTreeClosed;
 }
 
 #DocumentTreeItems::item:has-children:open {
@@ -2755,21 +2748,32 @@ QTabWidget QTreeView::item {
   color: @ColorPaletteTextTreeOpen;
 }
 
+#DocumentTreeItems::item:has-children:!has-siblings:open {
+  background-color: rgba(0,0,0,0.2);
+  border: 1px solid rgba(0,0,0,0.15);
+  color: #ffaa7f;
+  color: @ColorPaletteTextTreeEndOpen;
+}
+
+#DocumentTreeItems::item:focus,
+#DocumentTreeItems::item:selected,
+#DocumentTreeItems::item:selected:focus,
+#DocumentTreeItems::item:has-children:focus,
+#DocumentTreeItems::item:has-children:selected,
+#DocumentTreeItems::item:has-children:selected:focus,
 #DocumentTreeItems::item:has-children:open:focus,
 #DocumentTreeItems::item:has-children:open:selected,
-#DocumentTreeItems::item:has-children:open:selected:focus,
-#DocumentTreeItems::item:has-children:focus,
-#DocumentTreeItems::item:has-children:selected {
+#DocumentTreeItems::item:has-children:open:selected:focus {
   background-color: @ThemeAccentColor1;
   border: 0px solid @ThemeAccentColor1;
   color: #ffffff;
 }
 
-#DocumentTreeItems::item:has-children {
-  background-color: rgba(0,0,0,0.05);
-  border: 1px solid rgba(0,0,0,0.15);
-  color: #beffff;
-  color: @ColorPaletteTextTreeClosed;
+#DocumentTreeItems::item:hover,
+#DocumentTreeItems::item:has-children:hover,
+#DocumentTreeItems::item:has-children:open:hover,
+#DocumentTreeItems::item:has-children:!has-siblings:open:hover {
+  color: #ffffff;
 }
 
 QColumnView {
