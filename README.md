@@ -4,8 +4,6 @@ It offers four different appearance options for buttons and panels. (2D - 3D)
 
 ### ----- This themes are priority for FreeCAD version 1.1.0 -----
 
-## ---------------------------------- İnstallation ----------------------------------
-
 ### ☑️ ColorPalette-Themes İnstallation
  ___________________
  
@@ -30,7 +28,7 @@ It offers four different appearance options for buttons and panels. (2D - 3D)
   ```
  C:\Users\username\Appdata\Roaming\FreeCAD\Mod\
    ```
- ## ------------------------------------ Usage ------------------------------------
+   
 
 ### ☑️ Theme Selection
  ___________________
@@ -93,7 +91,6 @@ Note:
 ### License
 * LGPLv2.1 [LICENSE](LICENSE) 
 
- ## ------------------------------------ Examples ------------------------------------
 
  ### ☑️ Screenshots
  ___________________
