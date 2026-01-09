@@ -60,7 +60,7 @@ It offers four different appearance options for buttons and panels. (2D - 3D)
    - Accent color 3 : (middle background)  
    - Accent color 3 : (bottom background)
    
-#### ✅ Graphic View (Viewport) Color,
+#### ✅ Graphic View(Viewport) Color,
 1. Edit ➡ Preference ➡ Display ➡ IU ➡ Colors ➡ Background color
 
    - Simple color  
