@@ -2714,6 +2714,7 @@ QDockWidget QTreeView::item:has-children:!has-siblings:open {
 QTabWidget QTreeView::item:has-children:!has-siblings:open,
 QTabWidget QTreeView::item:has-children:open {
   background-color: rgba(0,0,0,0.2);
+  margin: 0px 2px 2px 0px;
 }
 
 QTabWidget QTreeView {
