@@ -215,7 +215,7 @@ QDockWidget {
 QDockWidget QFrame {
   background-color: transparent;
   border: 1px solid transparent;
-  margin: 1px 0px 0px 0px;
+  margin: 0px 0px 0px 0px;
   padding: 0px 0px 0px 0px;
   border-radius: 10px;
 }
@@ -277,7 +277,7 @@ Gui--OverlayToolButton {
   min-height: 11px;
   min-width: 11px;
   padding: 2px 6px 3px 6px;
-  margin: 0px 0px 0px 0px;
+  margin: 0px 0px 2px 0px;
   image: url(qss:images_classic/transparent.svg);
 }
 

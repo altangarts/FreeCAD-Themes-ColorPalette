@@ -20,7 +20,7 @@
 
 4. Light-PaleGreen :
 
-        background: #999997. - selection: #336200.
+        background: #999997. - selection: #418100.
 
 
 
@@ -38,24 +38,24 @@
 
 7. GradientPink-LightPurple :
 
-        background-top: #a0748b, background-bottom: #a0a09e. - selection: #8a38dc.
+        background-top: #a0748b, background-bottom: #999997. - selection: #8a38dc.
 
 
 
 8. GradientPalePurple-DarkBlue :
 
-        background-top: #55557f, background-bottom: #a0a09e. - selection: #00557f.
+        background-top: #55557f, background-bottom: #999997. - selection: #00557f.
 
 
 
 9. GradientBrown-PaleBrown :
 
-        background-top: #786f5f, background-bottom: #a0a09e. - selection: #553900.
+        background-top: #786f5f, background-bottom: #999997. - selection: #553900.
 
 
 
 10. GradientSoftBlue-PaleBSoftBlue :
 
-        background-top: #646c6e, background-bottom: #a0a09e. - selection: #43696e. 
+        background-top: #646c6e, background-bottom: #999997. - selection: #43696e. 
 
 

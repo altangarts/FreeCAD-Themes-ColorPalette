@@ -1,5 +1,5 @@
-
-Gui--OverlayTitleBar {
+Gui--OverlayTitleBar,
+Gui--OverlaySplitterHandle {
   background-color: transparent;
   color: transparent;
   min-height: 22px;
@@ -20,16 +20,10 @@ Gui--OverlayTitleBar {
 Gui--PropertyEditor--PropertyEditor {
   qproperty-itemBackground: transparent;    
   alternate-background-color: transparent;
-  gridline-color: @ThemeAccentColor3;
+  gridline-color: @ThemeAccentColor2;
   gridline-color: @ColorPalettePropertyGridlineOverlay;
   color: #ffff69;
   color: @ColorPaletteTextPropertyEditor;
-}
-
-Gui--PropertyEditor--PropertyEditor {
-  qproperty-groupTextColor: #ffaa7f;
-  qproperty-groupTextColor: @ColorPaletteTextHeader;
-  qproperty-groupBackground: transparent;
 }
 
 Gui--OverlayTabWidget::pane {
@@ -68,6 +62,7 @@ QTabWidget QTreeView::item:has-children:open {
   border-radius: 3px;
   color: #ffaa7f;
   color: @ColorPaletteTextTreeEndOpen;
+  margin: 1px 2px 2px 0px;
 }
 
 QTabWidget QTreeView::item:has-children:open:focus,
@@ -105,10 +100,10 @@ Gui--TreePanel QTreeView::item:has-children:!has-siblings:open:hover {
 
 QTabWidget QTreeView::item {
   background-color: rgba(250,250,250,0.07);
-  background-color: @ColorPaletteOverlayContent1;
+  background-color: @ColorPaletteOverlayContent;
   border: 0px solid rgba(0,0,0,0.15);
   border-radius: 3px;
-  margin: 1px 2px 2px 0px;
+  margin: 1px 2px 1px 0px;
   color: #ffff69;
   color: @ColorPaletteTextTreeEnd;
 }
@@ -146,7 +141,39 @@ QTabWidget QPushButton {
 QTabWidget QPushButton:hover,
 QTabWidget QPushButton:selected {
   background-color: @ThemeAccentColor1;
-  border: 1px solid rgba(0,0,0,0.15);
+  border: 1px solid @ThemeAccentColor1;
+  color: #ffffff;
+}
+
+QTabWidget QTabBar::tab:bottom {
+  background-color: rgba(250,250,250,0.07);
+  background-color: @ColorPaletteOverlayContent1;
+  border-width: 1px 1px 2px 1px;
+  border-style: solid;
+  border-top-color: rgba(250,250,250,0.3);
+  border-right-color: rgba(0,0,0,0.3);
+  border-bottom-color: rgba(0,0,0,0.6);
+  border-left-color: rgba(0,0,0,0.3);
+  border-radius: 4px;
+  margin: 3px 2px 0px 1px;
+  padding: 3px 3px 6px 6px;
+  min-width: 50px;
+}
+
+QTabWidget QTabBar::tab:bottom:selected {
+  background-color: @ThemeAccentColor1;
+  border: 1px solid @ThemeAccentColor1;
+}
+
+QTabWidget QTabBar::tab:bottom:hover {
+  background-color: @ThemeAccentColor1;
+  background-color: @ColorPaletteHover;
+  border: 1px solid @ThemeAccentColor1;
+}
+
+Gui--TreePanel QTreeView::item:hover {
+  background-color: transparent;
+  border: 0px solid transparent;
   color: #ffffff;
 }
 
