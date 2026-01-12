@@ -114,7 +114,7 @@ It offers four different appearance options for buttons and panels. (2D - 3D)
 #### Selection(Accent color 1) : #55007f.
 #### Background(Accent color 2-3) : #262624.(lowblue) 
 
-![Ekran görüntüsü 2026-01-12 035828](https://github.com/user-attachments/assets/7da41021-648c-4f70-979a-c3336b7b4dff)
+![Ekran görüntüsü 2026-01-12 041533](https://github.com/user-attachments/assets/e1bf9178-d9d3-4ebb-85eb-7b03040bebcb)
 
 
 ⤵️
