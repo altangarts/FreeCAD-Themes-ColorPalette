@@ -18,7 +18,9 @@ Gui--OverlaySplitterHandle {
 } */
 
 Gui--PropertyEditor--PropertyEditor {
-  qproperty-itemBackground: transparent;    
+  qproperty-itemBackground: transparent;
+  qproperty-groupTextColor: #ffaa7f;
+  qproperty-groupTextColor: @ColorPaletteTextHeader;
   alternate-background-color: transparent;
   gridline-color: @ThemeAccentColor2;
   gridline-color: @ColorPalettePropertyGridlineOverlay;
@@ -51,8 +53,8 @@ Gui--OverlayProxyWidget {
 }
 
 QTabWidget QTreeView::item:has-children:open {
-  background-color: rgba(0,0,0,0.2);
-  background-color: @ColorPaletteOverlayHeader;
+  background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop: 0 rgba(250,250,250,0.15), stop: 0.7 rgba(250,250,250,0.15), stop: 1 rgba(0,0,0,0.1));
+  background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop: 0 @ColorPaletteOverlayContent, stop: 0.7 @ColorPaletteOverlayContent, stop: 1 @ColorPaletteOverlayHeader1);
   border-width: 1px 1px 2px 1px;
   border-style: solid;
   border-top-color: rgba(250,250,250,0.3);
@@ -62,7 +64,7 @@ QTabWidget QTreeView::item:has-children:open {
   border-radius: 3px;
   color: #ffaa7f;
   color: @ColorPaletteTextTreeEndOpen;
-  margin: 1px 2px 2px 0px;
+  margin: 0px 2px 2px 0px;
 }
 
 QTabWidget QTreeView::item:has-children:open:focus,
@@ -101,9 +103,9 @@ Gui--TreePanel QTreeView::item:has-children:!has-siblings:open:hover {
 QTabWidget QTreeView::item {
   background-color: rgba(250,250,250,0.07);
   background-color: @ColorPaletteOverlayContent;
-  border: 0px solid rgba(0,0,0,0.15);
+  border: 0px solid rgba(0,0,0,0.2);
   border-radius: 3px;
-  margin: 1px 2px 1px 0px;
+  margin: 1px 2px 2px 0px;
   color: #ffff69;
   color: @ColorPaletteTextTreeEnd;
 }
@@ -122,10 +124,10 @@ QTabWidget QTreeView::item:focus {
 }
 
 QTabWidget QPushButton {
-  background-color: rgba(250,250,250,0.07);
-  background-color: @ColorPaletteOverlayContent;
+  background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop: 0 rgba(250,250,250,0.15), stop: 0.7 rgba(250,250,250,0.15), stop: 1 rgba(0,0,0,0.1));
+  background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop: 0 @ColorPaletteOverlayContent, stop: 0.7 @ColorPaletteOverlayContent, stop: 1 @ColorPaletteOverlayHeader1);
   color: #eeeeee;
-  color: @ColorPaletteTextGeneral;
+  color: @ColorPaletteTextGeneralTop;
   text-align: center;
   padding: 3px 8px 6px 8px;  
   margin: 0px 0px 0px 0px;
@@ -146,7 +148,7 @@ QTabWidget QPushButton:selected {
 }
 
 QTabWidget QTabBar::tab:bottom {
-  background-color: rgba(250,250,250,0.07);
+  /* background-color: rgba(250,250,250,0.07);
   background-color: @ColorPaletteOverlayContent1;
   border-width: 1px 1px 2px 1px;
   border-style: solid;
@@ -155,9 +157,9 @@ QTabWidget QTabBar::tab:bottom {
   border-bottom-color: rgba(0,0,0,0.6);
   border-left-color: rgba(0,0,0,0.3);
   border-radius: 4px;
-  margin: 3px 2px 0px 1px;
   padding: 3px 3px 6px 6px;
-  min-width: 50px;
+  min-width: 50px; */
+  margin: 3px 2px 0px 1px;
 }
 
 QTabWidget QTabBar::tab:bottom:selected {
@@ -169,6 +171,12 @@ QTabWidget QTabBar::tab:bottom:hover {
   background-color: @ThemeAccentColor1;
   background-color: @ColorPaletteHover;
   border: 1px solid @ThemeAccentColor1;
+}
+
+QTabWidget QAbstractItemView {
+  background-color: @ThemeAccentColor2;
+  border: 1px solid rgba(0,0,0,0.7);
+  padding: 2px;
 }
 
 Gui--TreePanel QTreeView::item:hover {
@@ -206,46 +214,46 @@ QTabWidget QTreeView {
 }
 
 Gui--TreePanel QTreeView::branch {
-    background: transparent;
+  background: transparent;
 }
 
 Gui--TreePanel QTreeView::branch:has-siblings:!adjoins-item {
-    border-image: url(qss:images_classic/branch_vline_black.svg) 0;
+  border-image: url(qss:images_classic/branch_vline_black.svg) 0;
 }
 
 Gui--TreePanel QTreeView::branch:has-siblings:adjoins-item { 
-    border-image: url(qss:images_classic/branch_more_dark.svg) 0;
-    image: none;
+  border-image: url(qss:images_classic/branch_more_dark.svg) 0;
+  image: none;
 }
 
 Gui--TreePanel QTreeView::branch:!has-children:!has-siblings:adjoins-item {
-    border-image: url(qss:images_classic/branch_end_dark.svg) 0;
-    image: none;
+  border-image: url(qss:images_classic/branch_end_dark.svg) 0;
+  image: none;
 }
 
 Gui--TreePanel QTreeView::branch:has-children:!has-siblings:closed,
 Gui--TreePanel QTreeView::branch:open:has-children:!has-siblings {
-    border-image: url(qss:images_classic/branch_end_dark.svg) 0;
+  border-image: url(qss:images_classic/branch_end_dark.svg) 0;
 }
 
 Gui--TreePanel QTreeView::branch:closed:has-children:has-siblings {
-    image: url(qss:images_classic/branch_more_closed_black.svg) 0;
-    padding: 0px;
+  image: url(qss:images_classic/branch_more_closed_black.svg) 0;
+  padding: 0px;
 }
 
 Gui--TreePanel QTreeView::branch:has-children:!has-siblings:closed {
-    image: url(qss:images_classic/branch_end_closed_black.svg) 0;
-    padding: 0px;
+  image: url(qss:images_classic/branch_end_closed_black.svg) 0;
+  padding: 0px;
 }
 
 Gui--TreePanel QTreeView::branch:open:has-children:has-siblings {
-    image: url(qss:images_classic/branch_more_open_black.svg) 0;
-    padding: 0px;
+  image: url(qss:images_classic/branch_more_open_black.svg) 0;
+  padding: 0px;
 }
 
 Gui--TreePanel QTreeView::branch:open:has-children:!has-siblings {
-    image: url(qss:images_classic/branch_end_open_black.svg) 0;
-    padding: 0px;
+  image: url(qss:images_classic/branch_end_open_black.svg) 0;
+  padding: 0px;
 }
 
 Gui--TreePanel QTreeView::indicator {  
@@ -312,8 +320,8 @@ Gui--TreePanel QTreeView::indicator:unchecked {
 }
 
 #DocumentTreeItems::item:has-children:!has-siblings:open {
-  background-color: rgba(0,0,0,0.2);
-  background-color: @ColorPaletteOverlayHeader;
+  background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop: 0 rgba(250,250,250,0.15), stop: 0.7 rgba(250,250,250,0.15), stop: 1 rgba(0,0,0,0.1));
+  background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop: 0 @ColorPaletteOverlayContent, stop: 0.7 @ColorPaletteOverlayContent, stop: 1 @ColorPaletteOverlayHeader1);
   border-width: 1px 1px 2px 1px;
   border-style: solid;
   border-top-color: rgba(250,250,250,0.3);
@@ -394,24 +402,24 @@ Gui--TaskView--TaskPanel {
 }
 
 QSint--ActionGroup QFrame[class="content"] {
-background-color: rgba(250,250,250,0.07);
-background-color: @ColorPaletteOverlayContent;
-border: 1px solid rgba(0,0,0,0.15);
-border-radius: 6px;
-margin: 0px 0px 0px 0px;
-padding: -5px;
+  background-color: rgba(250,250,250,0.07);
+  background-color: @ColorPaletteOverlayContent;
+  border: 1px solid rgba(0,0,0,0.15);
+  border-radius: 6px;
+  margin: 0px 0px 0px 0px;
+  padding: -5px;
 }
 
 QSint--ActionGroup QFrame[class="header"] {
-background-color: rgba(0,0,0,0.2);
-background-color: @ColorPaletteOverlayHeader;
-border-radius: 6px;
-border-width: 1px 1px 2px 1px;
-border-style: solid;
-border-top-color: rgba(250,250,250,0.3);
-border-right-color: rgba(0,0,0,0.3);
-border-bottom-color: rgba(0,0,0,0.6);
-border-left-color: rgba(0,0,0,0.3);
+  background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop: 0 rgba(250,250,250,0.15), stop: 0.7 rgba(250,250,250,0.15), stop: 1 rgba(0,0,0,0.1));
+  background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop: 0 @ColorPaletteOverlayContent, stop: 0.7 @ColorPaletteOverlayContent, stop: 1 @ColorPaletteOverlayHeader1);
+  border-radius: 5px;
+  border-width: 1px 1px 2px 1px;
+  border-style: solid;
+  border-top-color: rgba(250,250,250,0.3);
+  border-right-color: rgba(0,0,0,0.3);
+  border-bottom-color: rgba(0,0,0,0.6);
+  border-left-color: rgba(0,0,0,0.3);
 }
 
 QSint--ActionGroup QFrame[class="header"]:hover {
@@ -420,13 +428,13 @@ QSint--ActionGroup QFrame[class="header"]:hover {
 }
 
 QSint--ActionGroup QToolButton[class="header"] {
-color: #ffaa7f; /* Task Panel Header text color */
-color: @ColorPaletteTextHeader;
-text-align: left;
-font-weight: bold;
-border: none;
-margin: 0px;
-padding: 0px;
+  color: #ffaa7f; /* Task Panel Header text color */
+  color: @ColorPaletteTextHeader;
+  text-align: left;
+  font-weight: bold;
+  border: none;
+  margin: 0px;
+  padding: 0px;
 }
 
 QSint--ActionGroup QFrame[class="header"] QLabel {
@@ -438,23 +446,30 @@ QSint--ActionGroup QFrame[class="header"] QLabel {
 
 QSint--ActionGroup QFrame[class="content"] QListView,
 QSint--ActionGroup QFrame[class="content"] QTableView {
-color: #ffff69;
-color: @ColorPaletteTextList;
-margin: 0px 2px 2px 2px;
-padding: 5px 0px 5px 5px;
-border: 1px solid rgba(0,0,0,0.15);
-border-radius: 8px;
-background-color: rgba(250,250,250,0.05);
+  color: #ffff69;
+  color: @ColorPaletteTextList;
+  margin: 0px 2px 2px 2px;
+  padding: 5px 0px 5px 5px;
+  border: 1px solid rgba(0,0,0,0.15);
+  border-radius: 8px;
+  background-color: rgba(250,250,250,0.08);
 }
 
 QSint--ActionGroup QFrame[class="content"] QTreeView {
-color: #ffff69;
-color: @ColorPaletteTextList;
-margin: 0px 2px 0px 2px;
-padding: 5px;
-border: 1px solid rgba(0,0,0,0.15);
-border-radius: 8px;
-background-color: rgba(250,250,250,0.05);
+  color: #ffff69;
+  color: @ColorPaletteTextList;
+  margin: 0px 2px 0px 2px;
+  padding: 5px;
+  border: 1px solid rgba(0,0,0,0.15);
+  border-radius: 8px;
+  background-color: rgba(250,250,250,0.08);
+}
+
+QSint--ActionGroup QToolButton#filterButton QListWidget {
+  color: #eeeeee;
+  color: @ColorPaletteTextGeneralTop;
+  background-color: transparent;
+  border: none;
 }
 
 QSint--ActionGroup QFrame[class="header"] QLabel[fold="false"] {
@@ -478,8 +493,8 @@ QSint--ActionGroup QFrame[class="header"] QLabel[fold="true"]:hover {
 }
 
 Gui--OverlayToolButton {
-  background-color: rgba(250,250,250,0.15);
-  background-color: @ColorPaletteOverlayContent;
+  background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop: 0 rgba(250,250,250,0.15), stop: 0.7 rgba(250,250,250,0.15), stop: 1 rgba(0,0,0,0.1));
+  background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop: 0 @ColorPaletteOverlayContent, stop: 0.7 @ColorPaletteOverlayContent, stop: 1 @ColorPaletteOverlayHeader1);
   min-height: 11px;
   min-width: 11px;
   padding: 1px 6px 3px 6px;
