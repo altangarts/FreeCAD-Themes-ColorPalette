@@ -1231,6 +1231,7 @@ QAbstractSpinBox:selected {
 }
 
 QAbstractSpinBox:focus {
+  background-color: @ThemeAccentColor1;
   border: 1px solid @ThemeAccentColor1;
   color: #ffffff;
 }
