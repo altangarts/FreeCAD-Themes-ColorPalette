@@ -107,48 +107,47 @@ It offers four different appearance options for buttons and panels. (2D - 3D)
 #### Background-top(Accent color 2) : #2c2c57.
 #### Background-Bottom(Accent color 3) : #777788.
 
-![Ekran görüntüsü 2026-01-04 203554](https://github.com/user-attachments/assets/d9ebfd60-930e-46ea-a319-260107a8da93)
+![Ekran görüntüsü 2026-01-12 035451](https://github.com/user-attachments/assets/2e7e6192-40cd-493f-aa30-106fce2e9f87)
+
 
 ⤵️
 #### Selection(Accent color 1) : #55007f.
 #### Background(Accent color 2-3) : #262624.(lowblue) 
 
-![Ekran görüntüsü 2026-01-04 203311](https://github.com/user-attachments/assets/63bc60bd-e96c-4415-94ff-a3e96c0e985b)
+![Ekran görüntüsü 2026-01-12 035828](https://github.com/user-attachments/assets/7da41021-648c-4f70-979a-c3336b7b4dff)
+
 
 ⤵️
 #### Selection(Accent color 1) : #336200.
 #### Background(Accent color 2-3) : #999997.(lowblue) 
 
-![Ekran görüntüsü 2026-01-04 203443](https://github.com/user-attachments/assets/76610943-c829-4898-9716-8a6a5e264a6b)
+![Ekran görüntüsü 2026-01-12 035923](https://github.com/user-attachments/assets/20366aaf-05c3-48f4-8d97-a5f8b1880def)
 
 ⤵️
 #### Selection(Accent color 1) : #680000.
 #### Background(Accent color 2-3) : #7d6f4f. 
 
-![Ekran görüntüsü 2026-01-04 203511](https://github.com/user-attachments/assets/6d8ecf37-4aab-4835-83d2-51781c4ce5d4)
+![Ekran görüntüsü 2026-01-12 035958](https://github.com/user-attachments/assets/7ed4dc67-d8dd-47e2-9493-dc3b2f2c927f)
 
 ⤵️
 #### Selection(Accent color 1) : #43696e.
 #### Background-top(Accent color 2) : #646c6e.
 #### Background-Bottom(Accent color 3) : #999997.
 
-![Ekran görüntüsü 2026-01-04 203611](https://github.com/user-attachments/assets/4c33fbf5-8f19-41bf-a4b0-16a05f91c7c4)
+![Ekran görüntüsü 2026-01-12 035632](https://github.com/user-attachments/assets/5c613851-a5d8-446a-92f5-e28ed3ba4180)
 
 ⤵️
 #### Selection(Accent color 1) : #553900.
 #### Background-top(Accent color 2) : #786f5f. 
 #### Background-Bottom(Accent color 3) : #999997.
 
-![Ekran görüntüsü 2026-01-04 203627](https://github.com/user-attachments/assets/4468ab3f-de67-447c-8b7f-9352686e146f)
+![Ekran görüntüsü 2026-01-12 035854](https://github.com/user-attachments/assets/567dabf7-e2d4-4527-a5e0-c2e6e55a5860)
 
 ⤵️
 #### Selection(Accent color 1): #8a38dc.
 #### Background-top(Accent color 2): #a0748b. 
 #### Background-Bottom(Accent color 3): #999997.
 
-![Ekran görüntüsü 2026-01-04 203645](https://github.com/user-attachments/assets/99bc77ec-5b49-4288-8e50-70d4f5196fc4)
-
-
-
+![Ekran görüntüsü 2026-01-12 035910](https://github.com/user-attachments/assets/ebf04a31-919f-40a0-89ee-be7ba7cf4c80)
 
 
