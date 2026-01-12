@@ -472,6 +472,61 @@ QSint--ActionGroup QToolButton#filterButton QListWidget {
   border: none;
 }
 
+QSint--ActionGroup QFrame[class="content"] QComboBox QAbstractItemView {
+  border: 1px solid rgba(0,0,0,0.7);
+  border-radius: 0px;
+  margin: 0px;
+  padding: 1px;
+  background-color: @ThemeAccentColor2;
+}
+
+QSint--ActionGroup QFrame[class="content"] > QWidget {
+  background-color: transparent;
+}
+
+QSint--ActionGroup QFrame[class="content"] QTreeView::indicator,
+QSint--ActionGroup QFrame[class="content"] QListView::indicator {
+  background-color: rgba(0,0,0,0.5);
+  border: 0px solid transparent;
+  border-radius: 8px;
+  height: 12px;
+  width: 12px;
+  padding: 2px;
+  margin: 4px;
+}
+
+QSint--ActionGroup QFrame[class="content"] QTreeView::indicator:disabled,
+QSint--ActionGroup QFrame[class="content"] QListView::indicator:disabled {
+  border-radius: 8px;
+  height: 12px;
+  width: 12px;
+  padding: 2px;
+  margin: 4px;
+}
+
+QSint--ActionGroup QFrame[class="content"] QTreeView::indicator:checked,
+QSint--ActionGroup QFrame[class="content"] QTreeView::indicator:checked {
+  image: url(qss:images_classic/check-mark-blue.svg);
+}
+
+QSint--ActionGroup QFrame[class="content"] QTreeView::indicator:checked:hover,
+QSint--ActionGroup QFrame[class="content"] QTreeView::indicator:checked:pressed {
+  image: url(qss:images_classic/check-mark-white.svg);
+  background-color: @ThemeAccentColor1;
+}
+
+QSint--ActionGroup QFrame[class="content"] QHeaderView {
+  background-color: transparent;
+  border: 1px solid transparent;
+  margin: 0px;
+  padding: 0px;
+}
+
+QSint--ActionGroup QFrame[class="content"] QStackedWidget {
+  background-color: transparent;
+  border: 1px solid transparent;
+}
+
 QSint--ActionGroup QFrame[class="header"] QLabel[fold="false"] {
   padding: 2px;
   image: url(qss:images_classic/radio-mark-white1.svg);
