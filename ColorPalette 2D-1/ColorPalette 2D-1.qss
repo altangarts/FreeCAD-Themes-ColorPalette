@@ -1391,7 +1391,7 @@ QProgressBar::chunk:disabled {
 QPushButton {
   background-color: rgba(250,250,250,0.15);
   color: #eeeeee;
-  color: @ColorPaletteTextGeneralTop;
+  color: @ColorPaletteTextGeneralBottom;
   text-align: center;
   border: 1px solid rgba(0,0,0,0.2);
   border-radius: 6px;
@@ -1400,6 +1400,8 @@ QPushButton {
 }
 
 QToolBar QPushButton {
+  color: #eeeeee;
+  color: @ColorPaletteTextGeneralTop;
   background-color: transparent;
   border: 1px solid transparent;
   padding: 10px 8px 10px 8px;
