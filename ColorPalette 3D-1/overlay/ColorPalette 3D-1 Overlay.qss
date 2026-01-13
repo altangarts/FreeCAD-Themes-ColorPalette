@@ -414,7 +414,7 @@ QSint--ActionGroup QFrame[class="content"] QTableView::item {
   margin: 1px 5px 1px 0px;
   padding: 2px;
   background-color: rgba(0,0,0,0.1);
-  border: 0px solid rgba(0,0,0,0.1);
+  border: 1px solid transparent;
   border-radius: 6px;
 }
 
@@ -422,7 +422,7 @@ QSint--ActionGroup QFrame[class="content"] QTreeView::item {
   margin: 2px 2px 0px 0px;
   padding: 2px;
   background-color: rgba(0,0,0,0.1);
-  border: 0px solid rgba(0,0,0,0.1);
+  border: 1px solid transparent;
   border-radius: 3px;
 }
 
