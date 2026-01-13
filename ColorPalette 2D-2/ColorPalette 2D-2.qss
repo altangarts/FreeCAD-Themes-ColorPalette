@@ -1950,7 +1950,7 @@ QSint--ActionGroup QFrame[class="content"] QListView::indicator {
   height: 12px;
   width: 12px;
   padding: 2px;
-  margin: 4px;
+  margin: 4px 4px 2px 4px;
 }
 
 QSint--ActionGroup QFrame[class="content"] QTreeView::indicator:disabled,
@@ -1959,7 +1959,7 @@ QSint--ActionGroup QFrame[class="content"] QListView::indicator:disabled {
   height: 12px;
   width: 12px;
   padding: 2px;
-  margin: 4px;
+  margin: 4px 4px 2px 4px;
 }
 
 QSint--ActionGroup QFrame[class="content"] QTreeView::indicator:checked:hover,
