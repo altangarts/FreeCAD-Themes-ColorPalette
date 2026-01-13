@@ -278,7 +278,7 @@ Gui--TreePanel QTreeView::indicator:unchecked {
   background-color: qlineargradient(x1:0, y1:0.3, x2:0, y2:1, stop:0 @ColorPaletteOverlayitemEnd1, stop:1 @ColorPaletteOverlayHeader);
   border: 1px solid rgba(0,0,0,0.15);
   border-radius: 5px;
-  margin: 1px 0px 1px 0px;
+  margin: 0px 0px 1px 0px;
   padding: 0px 0px 2px 0px;
   color: #ffff69;
   color: @ColorPaletteTextTreeEnd;
