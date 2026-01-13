@@ -193,22 +193,22 @@ Gui--TreePanel QTreeView::branch:open:has-children:!has-siblings {
 
 Gui--TreePanel QTreeView::branch:closed:has-children:has-siblings {
   image: url(qss:images_classic/branch_more_closed_black.svg) 0;
-  padding: 0px;
+  padding: -2px;
 }
 
 Gui--TreePanel QTreeView::branch:has-children:!has-siblings:closed {
   image: url(qss:images_classic/branch_end_closed_black.svg) 0;
-  padding: 0px;
+  padding: -2px;
 }
 
 Gui--TreePanel QTreeView::branch:open:has-children:has-siblings {
   image: url(qss:images_classic/branch_more_open_black.svg) 0;
-  padding: 0px;
+  padding: -2px;
 }
 
 Gui--TreePanel QTreeView::branch:open:has-children:!has-siblings {
   image: url(qss:images_classic/branch_end_open_black.svg) 0;
-  padding: 0px;
+  padding: -2px;
 }
 
 Gui--TreePanel QTreeView::indicator {  

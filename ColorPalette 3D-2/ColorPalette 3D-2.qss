@@ -2511,7 +2511,7 @@ QTabBar[style="text-only"]::tab:left {
 /* QTreeView QListView QTableView -----------------------------------------
 
 --------------------------------------------------------------------------- */
-QQTreeView::branch,
+QTreeView::branch,
 QDockWidget QTreeView::branch {
     background: transparent;
 }
@@ -2526,34 +2526,7 @@ QTreeView::branch:has-siblings:adjoins-item {
     padding: 4px;
 }
 
-QDockWidget QTreeView::branch:has-siblings:adjoins-item { 
-    border-image: url(qss:images_classic/branch_more_dark.svg) 0;
-    image: none;
-}
-
-QTabWidget QTreeView::branch:has-siblings:adjoins-item {
-    image: url(qss:images_classic/branch_more_black1.svg) 0;
-    border-image: none;
-    padding: 4px;
-}
-
 QTreeView::branch:!has-children:!has-siblings:adjoins-item {
-    image: url(qss:images_classic/branch_end_black2.svg) 0;
-    border-image: none;
-    padding: 4px;
-}
-
-QDockWidget QTreeView::branch:!has-children:!has-siblings:adjoins-item {
-    border-image: url(qss:images_classic/branch_end_dark.svg) 0;
-    image: none;
-}
-
-QDockWidget QTreeView::branch:has-children:!has-siblings:closed,
-QDockWidget QTreeView::branch:open:has-children:!has-siblings {
-    border-image: url(qss:images_classic/branch_end_dark.svg) 0;
-}
-
-QTabWidget QTreeView::branch:!has-children:!has-siblings:adjoins-item {
     image: url(qss:images_classic/branch_end_black2.svg) 0;
     border-image: none;
     padding: 4px;
@@ -2569,11 +2542,6 @@ QTreeView::branch:has-children:!has-siblings:closed {
     padding: 0px;
 }
 
-QTabWidget QTreeView::branch:has-children:!has-siblings:closed,
-QTabWidget QTreeView::branch:open:has-children:!has-siblings {
-    border-image: none;
-}
-
 QTreeView::branch:open:has-children:has-siblings {
     image: url(qss:images_classic/branch_more_open_black.svg) 0;
     padding: 0px;
@@ -2583,6 +2551,78 @@ QTreeView::branch:open:has-children:!has-siblings {
     image: url(qss:images_classic/branch_end_open_black.svg) 0;
     border-image: none;
     padding: 0px;
+}
+
+QDockWidget QTreeView::branch:has-siblings:adjoins-item { 
+    border-image: url(qss:images_classic/branch_more_dark.svg) 0;
+    image: none;
+}
+
+QDockWidget QTreeView::branch:!has-children:!has-siblings:adjoins-item {
+    border-image: url(qss:images_classic/branch_end_dark.svg) 0;
+    image: none;
+}
+
+QDockWidget QTreeView::branch:has-children:!has-siblings:closed,
+QDockWidget QTreeView::branch:open:has-children:!has-siblings {
+    border-image: url(qss:images_classic/branch_end_dark.svg) 0;
+}
+
+QDockWidget QTreeView::branch:open:has-children:!has-siblings {
+    image: url(qss:images_classic/branch_end_open_black.svg) 0;
+    padding: -2px;
+}
+
+QDockWidget QTreeView::branch:open:has-children:has-siblings {
+    image: url(qss:images_classic/branch_more_open_black.svg) 0;
+    padding: -2px;
+}
+
+QDockWidget QTreeView::branch:has-children:!has-siblings:closed {
+    image: url(qss:images_classic/branch_end_closed_black.svg) 0;
+    padding: -2px;
+}
+
+QDockWidget QTreeView::branch:closed:has-children:has-siblings {
+    image: url(qss:images_classic/branch_more_closed_black.svg) 0;
+    padding: -2px;
+}
+
+QTabWidget QTreeView::branch:open:has-children:!has-siblings {
+    image: url(qss:images_classic/branch_end_open_black.svg) 0;
+    padding: 0px;
+}
+
+QTabWidget QTreeView::branch:open:has-children:has-siblings {
+    image: url(qss:images_classic/branch_more_open_black.svg) 0;
+    padding: 0px;
+}
+
+QTabWidget QTreeView::branch:has-children:!has-siblings:closed {
+    image: url(qss:images_classic/branch_end_closed_black.svg) 0;
+    padding: 0px;
+}
+
+QTabWidget QTreeView::branch:closed:has-children:has-siblings {
+    image: url(qss:images_classic/branch_more_closed_black.svg) 0;
+    padding: 0px;
+}
+
+QTabWidget QTreeView::branch:has-siblings:adjoins-item {
+    image: url(qss:images_classic/branch_more_black1.svg) 0;
+    border-image: none;
+    padding: 4px;
+}
+
+QTabWidget QTreeView::branch:!has-children:!has-siblings:adjoins-item {
+    image: url(qss:images_classic/branch_end_black2.svg) 0;
+    border-image: none;
+    padding: 4px;
+}
+
+QTabWidget QTreeView::branch:has-children:!has-siblings:closed,
+QTabWidget QTreeView::branch:has-children:!has-siblings:open {
+    border-image: none;
 }
 
 QTabWidget QTreeView::branch:open:has-children:!has-siblings {
@@ -3495,7 +3535,7 @@ QTreeView::item#groupsTreeView:open:has-children:has-siblings:hover {
 
 QTreeView::branch#groupsTreeView:closed:has-children:has-siblings  {
   image: url(qss:images_classic/branch_closed_black.svg);
-  padding: 0px;
+  padding: -1px;
 }
 
 QTreeView::branch#groupsTreeView:closed:has-children:has-siblings:hover  {
@@ -3505,7 +3545,7 @@ QTreeView::branch#groupsTreeView:closed:has-children:has-siblings:hover  {
 
 QTreeView::branch#groupsTreeView:open:has-children:has-siblings  {
   image: url(qss:images_classic/branch_end_open_black.svg);
-  padding: 0px;
+  padding: -1px;
 }
 
 QTreeView::branch#groupsTreeView:open:has-children:has-siblings:hover  {
@@ -3524,7 +3564,7 @@ QTreeView::branch#groupsTreeView:open:has-children:!has-siblings:hover  {
 QTreeView::branch#groupsTreeView:has-children:!has-siblings:closed  {
   border-image: none;
   image: url(qss:images_classic/branch_closed_black.svg);
-  padding: 0px;
+  padding: -1px;
 }
 
 QTreeView::branch#groupsTreeView:has-children:!has-siblings:closed:hover  {
