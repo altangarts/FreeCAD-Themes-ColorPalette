@@ -1795,8 +1795,8 @@ QSint--ActionGroup QFrame[width="1"] {
 
 /* Panel header */
 QSint--ActionGroup QFrame[class="header"] {
-  background-color: rgba(0,0,0,0.2);
-  border: 1px solid rgba(0,0,0,0.06);
+  background-color: rgba(0,0,0,0.15);
+  border: 1px solid rgba(0,0,0,0.15);
   border-radius: 6px;
   margin: 0px;
   padding: 0px;
@@ -1885,7 +1885,7 @@ QSint--ActionGroup QFrame[class="content"] QTableView {
   padding: 5px 0px 5px 5px;
   border: 1px solid rgba(0,0,0,0.15);
   border-radius: 8px;
-  background-color: rgba(250,250,250,0.02);
+  background-color: rgba(250,250,250,0.04);
 }
 
 QSint--ActionGroup QFrame[class="content"] QTreeView {
@@ -1895,7 +1895,7 @@ QSint--ActionGroup QFrame[class="content"] QTreeView {
   padding: 5px;
   border: 1px solid rgba(0,0,0,0.15);
   border-radius: 8px;
-  background-color: rgba(250,250,250,0.02);
+  background-color: rgba(250,250,250,0.04);
 }
 
 QSint--ActionGroup QFrame[class="content"] QListView::item,
@@ -2687,8 +2687,8 @@ QDockWidget QTreeView::item:has-children:!has-siblings:open {
 
 QTabWidget QTreeView::item:has-children:!has-siblings:open,
 QTabWidget QTreeView::item:has-children:open {
-  background-color: rgba(0,0,0,0.2);
-  margin: 0px 2px 2px 0px;
+  background-color: rgba(0,0,0,0.15);
+  margin: 2px 2px 2px 0px;
 }
 
 QTabWidget QTreeView {
@@ -2723,7 +2723,7 @@ QTabWidget QTreeView::item {
 }
 
 #DocumentTreeItems::item:has-children:!has-siblings:open {
-  background-color: rgba(0,0,0,0.2);
+  background-color: rgba(0,0,0,0.15);
   border: 1px solid rgba(0,0,0,0.15);
   color: #ffaa7f;
   color: @ColorPaletteTextTreeEndOpen;
