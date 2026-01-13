@@ -1906,7 +1906,7 @@ QSint--ActionGroup QFrame[class="content"] QListView::item,
 QSint--ActionGroup QFrame[class="content"] QTableView::item {
   margin: 1px 5px 0px 0px;
   padding: 2px;
-  background-color: rgba(0,0,0,0.06);
+  background-color: rgba(0,0,0,0.1);
   border: 0px solid rgba(0,0,0,0.1);
   border-radius: 6px;
 }
@@ -1914,7 +1914,7 @@ QSint--ActionGroup QFrame[class="content"] QTableView::item {
 QSint--ActionGroup QFrame[class="content"] QTreeView::item {
   margin: 1px 1px 0px 0px;
   padding: 2px;
-  background-color: rgba(0,0,0,0.03);
+  background-color: rgba(0,0,0,0.1);
   border: 0px solid rgba(0,0,0,0.1);
   border-radius: 3px;
 }
@@ -1973,6 +1973,12 @@ QSint--ActionGroup QFrame[class="content"] QHeaderView {
   border: 1px solid transparent;
   margin: 0px;
   padding: 0px;
+}
+
+QSint--ActionGroup QFrame[class="content"] QHeaderView::section::horizontal {
+  background-color: rgba(0,0,0,0.3);
+  padding: 3px 0px 3px 10px;
+  margin: 0px 3px 4px 0px;
 }
 
 QSint--ActionGroup QFrame[class="content"] QStackedWidget {
@@ -3015,7 +3021,7 @@ QTableCornerButton::section {
 
 QHeaderView::section::horizontal {
   padding: 3px 3px 3px 10px;
-  margin: 0px 1px 5px 1px;
+  margin: 0px 1px 2px 1px;
 }
 
 QHeaderView::section::horizontal::first,
