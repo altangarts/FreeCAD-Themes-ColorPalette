@@ -410,6 +410,8 @@ QStatusBar QToolTip {
 }
 
 QStatusBar QLabel {
+  color: #eeeeee;
+  color: @ColorPaletteTextGeneralBottom;
   background-color: transparent;
   margin: 0px 7px 0px 7px;
 }
