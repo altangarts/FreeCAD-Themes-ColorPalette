@@ -3418,7 +3418,7 @@ QTreeView::branch#groupsTreeView:closed:has-children:!has-siblings,
 QTreeView::item#groupsTreeView:closed:has-children:!has-siblings {
   background-color: rgba(250,250,250,0.05);
   color: #eeeeee;
-  color: @ColorPaletteTextGeneral;
+  color: @ColorPaletteTextGeneralTop;
 }
 
 QTreeView::branch#groupsTreeView:open:has-children:has-siblings,
