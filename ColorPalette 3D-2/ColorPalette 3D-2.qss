@@ -102,7 +102,7 @@ Gui--PropertyEditor--PropertyEditor {
 Gui--PropertyEditor--PropertyEditor {
   qproperty-groupTextColor: #ffaa7f;
   qproperty-groupTextColor: @ColorPaletteTextHeader;
-  qproperty-groupBackground: transparent;
+  qproperty-groupBackground: rgba(0,0,0,0.15);
 }
 
 Gui--PropertyEditor--PropertyEditor > QWidget > QFrame:focus {
@@ -1426,26 +1426,22 @@ QStatusBar QPushButton {
 }
 
 QPushButton:disabled {
-  background-color: rgba(0,0,0,0.06);
-  border: 1px solid rgba(0,0,0,0.1);
   color: #bbbbbb;
   color: @ColorPaletteTextDisabled;
 }
 
 QPushButton:checked {
-  border: 1px solid  @ThemeAccentColor1;
+  border: 1px solid @ThemeAccentColor1;
 }
 
 QPushButton:checked:disabled {
-  background-color: rgba(0,0,0,0.06);
-  border: 1px solid rgba(0,0,0,0.1);
   color: #bbbbbb;
   color: @ColorPaletteTextDisabled;
 }
 
 QPushButton:checked:hover,
 QPushButton:checked:selected {
-  border: 2px solid  @ThemeAccentColor1;
+  border: 2px solid @ThemeAccentColor1;
 }
 
 QPushButton:hover,
@@ -1473,6 +1469,31 @@ QDockWidget QPushButton:checked,
 QStatusBar QPushButton:pressed {
   background-color: @ThemeAccentColor1;
   border: 1px solid @ThemeAccentColor1;
+  color: #ffffff;
+}
+
+QDialog QListView QPushButton {
+  background-color: rgba(250,250,250,0.1);
+  border: 1px solid rgba(0,0,0,0.1);
+  color: #ffffff;
+  border-radius: 4px;
+  padding: 2px 5px 5px 5px;  
+  margin: 0px 0px 1px 0px;
+}
+
+QDialog QListView QPushButton:disabled {
+  background-color: rgba(0,0,0,0.1);
+  border: 1px solid rgba(0,0,0,0.1);
+  color: #bbbbbb;
+  color: @ColorPaletteTextDisabled;
+  border-radius: 4px;
+  padding: 2px 5px 5px 5px;  
+  margin: 0px 0px 1px 0px;
+}
+
+QDialog QListView QPushButton:hover {
+  background-color: rgba(0,0,0,0.4);
+  border: 1px solid rgba(0,0,0,0.4);
   color: #ffffff;
 }
 
@@ -1519,19 +1540,13 @@ QDialog QPushButton {
 }
 
 Gui--ColorButton {
-  background-color: rgba(0,0,0,0.07);
-  border: 1px solid rgba(0,0,0,0.15);
-  color: #eeeeee;
-  color: @ColorPaletteTextGeneralBottom;
-  border-radius: 4px;
+  border-radius: 6px;
   padding: 4px 6px 4px 6px; 
   margin: 0px;
   min-width: 60px;
 }
 
-Gui--ColorButton:disabled {
-  background-color: #393937;
-  border: 1px solid rgba(0,0,0,0.2);    
+Gui--ColorButton:disabled {   
 }
 
 Gui--ColorButton:hover {
@@ -2773,14 +2788,14 @@ QDockWidget QTreeView::item:has-children:!has-siblings:open {
   background-color: rgba(0,0,0,0.05);
 }
 
-QTabWidget QTreeView::item:has-children:!has-siblings:open,
+/* QTabWidget QTreeView::item:has-children:!has-siblings:open,
 QTabWidget QTreeView::item:has-children:open {
   background-color: rgba(0,0,0,0.15);
   margin: 2px 2px 2px 0px;
-}
+} */
 
 QTabWidget QTreeView {
-  padding: 4px 0px 10px 4px;
+  padding: 4px 0px 20px 4px;
 }
 
 QTabWidget QTreeView::item {
@@ -2812,10 +2827,10 @@ QTabWidget QTreeView::item {
 }
 
 #DocumentTreeItems::item:has-children:!has-siblings:open {
-  background-color: rgba(0,0,0,0.15);
-  border: 1px solid rgba(0,0,0,0.15);
-  color: #ffaa7f;
-  color: @ColorPaletteTextTreeEndOpen;
+  background-color: rgba(0,0,0,0.05);
+  border: 1px solid rgba(0,0,0,0.15); 
+  color: #abff7d;
+  color: @ColorPaletteTextTreeOpen;
 }
 
 #DocumentTreeItems::item:focus,
@@ -2934,18 +2949,25 @@ QDialog QListWidget {
   selection-color: #ffffff;
 }
 
-QListView QFrame {
-  color: #eeeeee;
+QDialog QListView QFrame {
   margin: 3px 0px -4px 0px;
   padding: 1px 4px 0px 0px;
-  border-radius: 4px;
+}
+
+QDialog QListView QLabel {
+  background-color: transparent;
+  border: 1px solid transparent;
+  color: #eeeeee;
+  color: @ColorPaletteTextDarkenList;
+  padding: 0px 0px 0px 4px;  
+  margin: 0px 0px 0px 0px;
 }
 
 QListView::item {
   background-color: rgba(0,0,0,0.06);
   border: 0px solid rgba(0,0,0,0.1);
-  margin: 0px 0px 1px 0px;
-  padding: 0px;
+  margin: 1px 0px 1px 0px;
+  padding: 0px 0px -1px 0px;
   border-radius: 4px;
 }
 
@@ -3045,9 +3067,9 @@ QDialog QTreeView {
   selection-color: #ffffff;
 }
 
-QDialog QTreeView::item:has-children:!has-siblings:open {
-  color: #ffaa7f;
-  color: @ColorPaletteTextTreeEndOpen;
+QDialog QTreeView::item:has-children:!has-siblings:open { 
+  color: #abff7d;
+  color: @ColorPaletteTextTreeOpen;
 }
 
 QDialog QTreeView:item {
@@ -3098,22 +3120,13 @@ QHeaderView::section:hover {
   color: #ffffff;
 }
 
-QTableCornerButton::section {
-  background-color: @ThemeAccentColor1;
-  color: #eeeeee;
-  color: @ColorPaletteTextGeneralTop;
-  border: 1px solid rgba(0,0,0,0.2);
-  border-radius: 4px;
-}
-
 QHeaderView::section::horizontal {
-  padding: 3px 3px 3px 10px;
+  padding: 4px 5px 4px 5px;
   margin: 0px 1px 2px 1px;
 }
 
 QHeaderView::section::horizontal::first,
 QHeaderView::section::horizontal::only-one {
-  /* border-left: 0px solid #020202; */
 }
 
 QHeaderView::section::horizontal:disabled {
@@ -3128,12 +3141,19 @@ QHeaderView::section::vertical {
 
 QHeaderView::section::vertical::first,
 QHeaderView::section::vertical::only-one {
-  /* border-top: 2px solid #020202; */
 }
 
 QHeaderView::section::vertical:disabled {
   color: #bbbbbb;
   color: @ColorPaletteTextDisabled;
+}
+
+QTableCornerButton::section {
+  background-color: rgba(0,0,0,0.15);
+  color: #eeeeee;
+  color: @ColorPaletteTextGeneralTop;
+  border: 1px solid rgba(0,0,0,0.2);
+  border-radius: 4px;
 }
 
 QHeaderView::down-arrow {
@@ -3518,8 +3538,9 @@ QTreeView::branch#groupsTreeView:open:has-children:has-siblings,
 QTreeView::item#groupsTreeView:open:has-children:has-siblings,
 QTreeView::branch#groupsTreeView:open:has-children:!has-siblings,
 QTreeView::item#groupsTreeView:open:has-children:!has-siblings {
-  background-color: rgba(250,250,250,0.03);
-  color: #ffaa7f;
+  background-color: rgba(250,250,250,0.03); 
+  color: #abff7d;
+  color: @ColorPaletteTextTreeOpen;
 }
 
 QTreeView::branch#groupsTreeView:closed:has-children:has-siblings:hover,
@@ -3530,7 +3551,7 @@ QTreeView::branch#groupsTreeView:open:has-children:has-siblings:hover,
 QTreeView::item#groupsTreeView:open:has-children:has-siblings:hover {
   background-color: @ThemeAccentColor1;
   background-color: @ColorPaletteHover;
-  color: #eeeeee;
+  color: #ffffff;
 }
 
 QTreeView::branch#groupsTreeView:closed:has-children:has-siblings  {

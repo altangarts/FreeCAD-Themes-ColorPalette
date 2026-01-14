@@ -19,8 +19,10 @@ Gui--OverlaySplitterHandle {
 
 Gui--PropertyEditor--PropertyEditor {
   qproperty-itemBackground: transparent;
+  qproperty-groupBackground: rgba(0,0,0,0.15);
+  qproperty-groupBackground: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop: 0 rgba(250,250,250,0.4), stop: 0.1 @ColorPaletteOverlayHeader, stop: 0.6 @ColorPaletteOverlayHeader, stop: 0.85 @ColorPaletteOverlayHeader1, stop: 1 rgba(0,0,0,0.8));
   qproperty-groupTextColor: #ffaa7f;
-  qproperty-groupTextColor: @ColorPaletteTextHeader;
+  qproperty-groupTextColor: @ColorPaletteTextHeaderOverlay;
   alternate-background-color: transparent;
   gridline-color: @ThemeAccentColor2;
   gridline-color: @ColorPalettePropertyGridlineOverlay;
@@ -52,9 +54,9 @@ Gui--OverlayProxyWidget {
   qproperty-hintColor: rgba(250,250,250,0.1);
 }
 
-QTabWidget QTreeView::item:has-children:open {
+/* QTabWidget QTreeView::item:has-children:open {
   background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop: 0 rgba(250,250,250,0.15), stop: 0.7 rgba(250,250,250,0.15), stop: 1 rgba(0,0,0,0.1));
-  background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop: 0 @ColorPaletteOverlayContent, stop: 0.7 @ColorPaletteOverlayContent, stop: 1 @ColorPaletteOverlayHeader1);
+  background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop: 0 @ColorPaletteOverlayHeader, stop: 0.7 @ColorPaletteOverlayHeader, stop: 1 @ColorPaletteOverlayHeader1);
   border-width: 1px 1px 2px 1px;
   border-style: solid;
   border-top-color: rgba(250,250,250,0.3);
@@ -63,7 +65,7 @@ QTabWidget QTreeView::item:has-children:open {
   border-left-color: rgba(0,0,0,0.3);
   border-radius: 3px;
   color: #ffaa7f;
-  color: @ColorPaletteTextTreeEndOpen;
+  color: @ColorPaletteTextHeaderOverlay;
   margin: 0px 2px 2px 0px;
 }
 
@@ -80,7 +82,7 @@ QTabWidget QTreeView::item:has-children:open:hover {
   background-color: @ColorPaletteHover;
   border: 1px solid @ThemeAccentColor1;
   color: #ffffff;
-}
+} */
 
 Gui--TreePanel QTreeView::item:has-children:open:focus,
 Gui--TreePanel QTreeView::item:has-children:open:selected,
@@ -155,7 +157,7 @@ QTabWidget QPushButton:selected {
 
 QTabWidget QTabBar::tab:bottom {
   background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop: 0 rgba(250,250,250,0.15), stop: 0.7 rgba(250,250,250,0.15), stop: 1 rgba(0,0,0,0.1));
-  background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop: 0 @ColorPaletteOverlayContent1, stop: 0.7 @ColorPaletteOverlayContent1, stop: 1 @ColorPaletteOverlayHeader1);
+  background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop: 0 @ColorPaletteOverlayContent1, stop: 0.7 @ColorPaletteOverlayContent1, stop: 1 @ColorPaletteOverlayitemEnd);
   border-width: 1px 1px 2px 1px;
   border-style: solid;
   border-top-color: rgba(250,250,250,0.3);
@@ -332,9 +334,9 @@ Gui--TreePanel QTreeView::indicator:unchecked {
   border-top-color: rgba(250,250,250,0.3);
   border-right-color: rgba(0,0,0,0.3);
   border-bottom-color: rgba(0,0,0,0.6);
-  border-left-color: rgba(0,0,0,0.3);
-  color: #ffaa7f;
-  color: @ColorPaletteTextTreeEndOpen;
+  border-left-color: rgba(0,0,0,0.3); 
+  color: #abff7d;
+  color: @ColorPaletteTextTreeOpen;
 }
 
 #DocumentTreeItems::item:has-children:!has-siblings:open:focus,
@@ -416,12 +418,6 @@ Gui--TaskView--TaskPanel {
   border-radius: 10px;
 }
 
-QSint--ActionGroup QFrame[class="content"] QHeaderView::section::horizontal {
-  background-color: rgba(0,0,0,0.3);
-  padding: 3px 0px 3px 10px;
-  margin: 0px 3px 1px 0px;
-}
-
 QSint--ActionGroup QFrame[class="content"] {
   background-color: rgba(250,250,250,0.07);
   background-color: @ColorPaletteOverlayContent;
@@ -433,7 +429,7 @@ QSint--ActionGroup QFrame[class="content"] {
 
 QSint--ActionGroup QFrame[class="header"] {
   background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop: 0 rgba(250,250,250,0.15), stop: 0.7 rgba(250,250,250,0.15), stop: 1 rgba(0,0,0,0.1));
-  background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop: 0 @ColorPaletteOverlayContent, stop: 0.7 @ColorPaletteOverlayContent, stop: 1 @ColorPaletteOverlayHeader1);
+  background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop: 0 @ColorPaletteOverlayHeader, stop: 0.7 @ColorPaletteOverlayHeader, stop: 1 @ColorPaletteOverlayHeader1);
   border-radius: 5px;
   border-width: 1px 1px 2px 1px;
   border-style: solid;
@@ -450,7 +446,7 @@ QSint--ActionGroup QFrame[class="header"]:hover {
 
 QSint--ActionGroup QToolButton[class="header"] {
   color: #ffaa7f; /* Task Panel Header text color */
-  color: @ColorPaletteTextHeader;
+  color: @ColorPaletteTextHeaderOverlay;
   text-align: left;
   font-weight: bold;
   border: none;
@@ -596,6 +592,12 @@ QSint--ActionGroup QFrame[class="content"] QHeaderView {
   border: 1px solid transparent;
   margin: 0px;
   padding: 0px;
+}
+
+QSint--ActionGroup QFrame[class="content"] QHeaderView::section::horizontal {
+  background-color: rgba(0,0,0,0.3);
+  padding: 3px 0px 2px 5px;
+  margin: 0px 3px 1px 0px;
 }
 
 QSint--ActionGroup QFrame[class="content"] QStackedWidget {
