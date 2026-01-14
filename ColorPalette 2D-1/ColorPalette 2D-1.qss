@@ -201,7 +201,7 @@ QMdiArea {
 }
 
 Gui--NavigationIndicatorGui--BlenderNavigationStyle {
- qproperty-icon: url(:/icons/icons/NavigationBlender_light.svg);
+  qproperty-icon: url(:/icons/icons/NavigationBlender_dark.svg);
 }
 
 /* QDockWiget -------------------------------------------------------------
@@ -732,7 +732,8 @@ QMenu::item:exclusive:checked:pressed {
   color: #ffffff;
 }
 
-QMenu::icon {
+QMenu::icon {  
+  background-color: rgba(250,250,250,0.5);
   margin-left: 10px;
   width: 14px;
   height: 14px;
@@ -2859,6 +2860,13 @@ QColumnView {
   selection-background-color: @ThemeAccentColor1;
   selection-color: #ffffff;
   border-radius: 10px;
+}
+
+QStatusBar QMenu::icon {
+  background-color: rgba(250,250,250,0.3);
+  border-radius: 3px;
+  padding: 1px;
+  margin: 2px;
 }
 
 QStatusBar QMenu::item:default {
