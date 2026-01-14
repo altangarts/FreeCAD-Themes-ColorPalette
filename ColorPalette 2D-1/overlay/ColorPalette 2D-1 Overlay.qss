@@ -20,7 +20,7 @@ Gui--OverlaySplitterHandle {
 Gui--PropertyEditor--PropertyEditor {
   qproperty-itemBackground: transparent;
   qproperty-groupBackground: rgba(0,0,0,0.15);
-  qproperty-groupBackground: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop: 0 rgba(0,0,0,0.4), stop: 0.1 @ColorPaletteOverlayHeader, stop: 0.8 @ColorPaletteOverlayHeader, stop: 0.85 rgba(0,0,0,0.9), stop: 1 rgba(0,0,0,0.9));
+  qproperty-groupBackground: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop: 0 rgba(0,0,0,0.4), stop: 0.1 @ColorPaletteOverlayHeader, stop: 0.8 @ColorPaletteOverlayHeader, stop: 0.85 rgba(0,0,0,0.9), stop: 1 @ThemeAccentColor3);
   qproperty-groupTextColor: #ffaa7f;
   qproperty-groupTextColor: @ColorPaletteTextHeaderOverlay;
   alternate-background-color: transparent;
@@ -169,6 +169,12 @@ QTabWidget QTabBar::tab:bottom:hover {
   background-color: @ThemeAccentColor1;
   background-color: @ColorPaletteHover;
   border: 1px solid @ThemeAccentColor1;
+}
+
+QTabWidget::pane {
+  margin: 0px;
+  padding: 0px -13px 0px 0px;
+  background-color: transparent;
 }
 
 Gui--TreePanel QTreeView::item:hover {

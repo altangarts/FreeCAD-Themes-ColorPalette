@@ -103,6 +103,7 @@ Gui--PropertyEditor--PropertyEditor {
   qproperty-groupTextColor: #ffaa7f;
   qproperty-groupTextColor: @ColorPaletteTextHeader;
   qproperty-groupBackground: rgba(0,0,0,0.15);
+  qproperty-groupBackground: qlineargradient(x1:0, y1:0, x2:1, y2:0, stop: 0 @ColorPaletteOverlayitemEnd, stop: 0.99 @ColorPaletteOverlayitemEnd, stop: 1 @ColorPalettePropertyGridline);
 }
 
 Gui--PropertyEditor--PropertyEditor > QWidget > QFrame:focus {
