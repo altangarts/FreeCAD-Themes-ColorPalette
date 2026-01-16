@@ -51,7 +51,7 @@ It offers four different appearance options for buttons and panels. (2D - 3D)
 ## ☑️ Theme Color Selection:
 
  
-#### ✅ Main Color and Selection Color,
+#### ✅ Main Colors and Selection Color,
 1. Edit ➡ Preference ➡ Display ➡ UI ➡ Theme Customization
 
 
@@ -60,7 +60,7 @@ It offers four different appearance options for buttons and panels. (2D - 3D)
    - Accent color 3 : (middle background)  
    - Accent color 3 : (bottom background)
    
-#### ✅ Graphic View(Viewport) Color,
+#### ✅ Graphic View(Viewport) Colors,
 1. Edit ➡ Preference ➡ Display ➡ IU ➡ Colors ➡ Background color
 
    - Simple color  
@@ -74,7 +74,7 @@ It offers four different appearance options for buttons and panels. (2D - 3D)
    - Middle = Accent color 3  
    - Bottom = Accent color 3
    
-#### ✅ Font Color,
+#### ✅ Font Colors,
    1. Edit ➡ Preference ➡ Display ➡ UI ➡ Open Theme Editor ➡ User Parameters
 
        - ColorPaletteText...   ---(If these variables are not visible, install using the "Theme Selection 1" directive)---
