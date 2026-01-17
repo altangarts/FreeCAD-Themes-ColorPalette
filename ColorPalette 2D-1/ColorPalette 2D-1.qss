@@ -2790,7 +2790,7 @@ QTabWidget QTreeView::indicator:unchecked {
 
 QTabWidget QTreeView::indicator:unchecked:disabled {
   background-color: rgba(0,0,0,0.3);
-  border-image: url(qss:images_classic/close-lightgray1.svg);
+  border-image: url(qss:images_classic/close-lightgray2.svg);
   height: 7px;
   width: 7px;
   padding: 3px;
