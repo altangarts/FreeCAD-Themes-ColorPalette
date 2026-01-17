@@ -589,7 +589,7 @@ QSint--ActionGroup QFrame[class="content"] QTreeView::indicator:checked:pressed 
 
 QSint--ActionGroup QFrame[class="content"] QTreeView::indicator:unchecked,
 QSint--ActionGroup QFrame[class="content"] QListView::indicator:unchecked {
-  image: none;
+  border-image: none;
 }
 
 QSint--ActionGroup QFrame[class="content"] QHeaderView {
