@@ -261,6 +261,7 @@ Gui--TreePanel QTreeView::indicator {
   width: 11px;
   height: 11px;
   margin-top: 0px;
+  margin-right: -5px;
   padding: 1px;
 }
 
