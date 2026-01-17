@@ -274,15 +274,15 @@ Gui--TreePanel QTreeView::indicator {
   background-color: rgba(0,0,0,0.5);
   border: none;
   border-radius: 6px;
-  width: 10px;
-  height: 10px;
+  width: 11px;
+  height: 11px;
   margin-top: 0px;
   padding: 1px;
 }
 
 Gui--TreePanel QTreeView::indicator:unchecked {
   background-color: rgba(0,0,0,0.5);
-  image: none;
+  border-image: none;
 }
 
 Gui--TreePanel QTreeView::indicator:disabled,
@@ -291,14 +291,13 @@ Gui--TreePanel QTreeView::indicator:unchecked:disabled {
   image: none;
   border: none;
   border-radius: 6px;
-  width: 10px;
-  height: 10px;
+  width: 11px;
+  height: 11px;
 }
 
 Gui--TreePanel QTreeView::indicator:checked {
   image: url(qss:images_classic/check-mark-blue.svg);
   background-color: rgba(0,0,0,0.5);
-  margin-top: 0px;
 }
 
 Gui--TreePanel QTreeView::indicator:checked:hover {
@@ -599,7 +598,6 @@ QSint--ActionGroup QFrame[class="content"] QTreeView::indicator:checked {
 QSint--ActionGroup QFrame[class="content"] QTreeView::indicator:checked:hover,
 QSint--ActionGroup QFrame[class="content"] QTreeView::indicator:checked:pressed {
   image: url(qss:images_classic/check-mark-white.svg);
-  background-color: @ThemeAccentColor1;
 }
 
 QSint--ActionGroup QFrame[class="content"] QTreeView::indicator:unchecked,

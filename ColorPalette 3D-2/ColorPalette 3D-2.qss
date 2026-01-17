@@ -464,9 +464,11 @@ QCheckBox::indicator:unchecked {
   background-color: rgba(0,0,0,0.5);
 }
 
-QCheckBox::indicator:unchecked:hover,
-QCheckBox::indicator:unchecked:pressed {
+QCheckBox::indicator:unchecked:hover {
   background-color: @ThemeAccentColor1;
+}
+
+QCheckBox::indicator:unchecked:pressed {
 }
 
 QCheckBox::indicator:unchecked:disabled {
@@ -481,7 +483,6 @@ QCheckBox::indicator:checked {
 QCheckBox::indicator:checked:hover, 
 QCheckBox::indicator:checked:pressed {
   image:url(qss:images_classic/check-mark-white.svg);
-  background-color: @ThemeAccentColor1;
 }
 
 QCheckBox::indicator:checked:disabled {
@@ -501,7 +502,6 @@ QCheckBox::indicator:indeterminate:disabled {
 
 QCheckBox::indicator:indeterminate:hover, 
 QCheckBox::indicator:indeterminate:pressed {
-  background-color: @ThemeAccentColor1;
 }
 
 /* QGroupBox --------------------------------------------------------------
@@ -543,7 +543,6 @@ QGroupBox::indicator:checked {
 }
 
 QGroupBox::indicator:checked:hover {
-  background-color: @ThemeAccentColor1;
   image:url(qss:images_classic/check-mark-white.svg);
 }
 
@@ -693,7 +692,7 @@ QMenu::item:pressed {
 }
 
 QMenu::item:disabled {
-  background-color: rgba(0,0,0,0.06);
+  background-color: rgba(0,0,0,0.1);
   color: #bbbbbb;
   color: @ColorPaletteTextDisabled;
 }
@@ -761,7 +760,6 @@ QMenu::indicator:non-exclusive:checked:hover,
 QMenu::indicator:non-exclusive:checked:focus,
 QMenu::indicator:non-exclusive:checked:pressed,
 QMenu::indicator:non-exclusive:checked:selected {
-  background-color: @ThemeAccentColor1;
   image:url(qss:images_classic/check-mark-white.svg);
 }
 
@@ -786,7 +784,6 @@ QMenu::indicator:exclusive:checked:hover,
 QMenu::indicator:exclusive:checked:focus,
 QMenu::indicator:exclusive:checked:pressed,
 QMenu::indicator:exclusive:checked:selected {
-  background-color: @ThemeAccentColor1;
   image: url(qss:images_classic/check-mark-white.svg);
 }
 
@@ -2048,7 +2045,6 @@ QSint--ActionGroup QFrame[class="content"] QListView::indicator:disabled {
 QSint--ActionGroup QFrame[class="content"] QTreeView::indicator:checked:hover,
 QSint--ActionGroup QFrame[class="content"] QTreeView::indicator:checked:pressed {
   image: url(qss:images_classic/check-mark-white.svg);
-  background-color: @ThemeAccentColor1;
 }
 
 QSint--ActionGroup QFrame[class="content"] QHeaderView {
@@ -2686,6 +2682,19 @@ QTabWidget QTreeView::branch:open:has-children:!has-siblings {
     padding: 0px;
 }
 
+#DocumentTreeItems::indicator {
+  background-color: rgba(0,0,0,0.5);
+  border-radius: 6px;
+  margin: 2px 0px 0px 1px;
+  width: 11px;
+  height: 11px;
+}
+
+#DocumentTreeItems::indicator:checked {
+  background-color: rgba(0,0,0,0.5);
+  padding: 1px;
+}
+
 QTreeView::indicator,
 QListView::indicator,
 QTableView::indicator,
@@ -2772,7 +2781,7 @@ QTabWidget QTreeView::indicator:checked:disabled {
 
 QTabWidget QTreeView::indicator:unchecked {
   background-color: #aa0000;
-  image: url(qss:images_classic/close-white.svg);
+  border-image: url(qss:images_classic/close-white1.svg);
   height: 7px;
   width: 7px;
   padding: 3px;
@@ -2781,19 +2790,11 @@ QTabWidget QTreeView::indicator:unchecked {
 
 QTabWidget QTreeView::indicator:unchecked:disabled {
   background-color: rgba(0,0,0,0.3);
-  image: url(qss:images_classic/close-lightgray1.svg);
+  border-image: url(qss:images_classic/close-lightgray1.svg);
   height: 7px;
   width: 7px;
   padding: 3px;
   margin-left: 2px;
-}
-
-#DocumentTreeItems::indicator {
-  background-color: rgba(0,0,0,0.5);
-  border-radius: 5px;
-  margin: 2px 0px 0px 1px;
-  width: 10px;
-  height: 10px;
 }
 
 QDockWidget QTreeView {
