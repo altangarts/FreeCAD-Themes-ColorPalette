@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 <package format="1" xmlns="https://wiki.freecad.org/Package_Metadata">
  <name>ColorPaletteTheme</name>
- <version>1.5.5</version>
- <date>2026.01.14</date>
- <description>2D-3D ColorPalette Theme</description>
- <maintainer email="">altangarts@gmail</maintainer>
+ <version>1.5.6</version>
+ <date>2026.01.16</date>
+ <description>Choose your colors with the "ColorPalette" Theme and increase the focus on objects and text</description>
+ <maintainer email="">altangarts</maintainer>
  <license file="LICENSE">LGPL-2.1-or-later</license>
  <url type="repository" branch="main">https://github.com/altangarts/FreeCAD-Themes-ColorPalette</url>
  <icon>resources/icons/ColorPaletteTheme.svg</icon>

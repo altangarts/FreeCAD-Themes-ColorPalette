@@ -178,7 +178,7 @@ QTabWidget QTabBar::tab:bottom:hover {
 
 QTabWidget::pane {
   margin: 0px;
-  padding: 0px -13px 0px 0px;
+  padding: 0px 0px 0px 0px;
   background-color: transparent;
   border: none;
 }
@@ -258,37 +258,40 @@ Gui--TreePanel QTreeView::indicator {
   background-color: rgba(0,0,0,0.5);
   border: none;
   border-radius: 6px;
-  width: 11px;
-  height: 11px;
-  margin-top: 3px;
+  width: 10px;
+  height: 10px;
+  margin-top: 0px;
   padding: 1px;
 }
 
+Gui--TreePanel QTreeView::indicator:unchecked {
+  background-color: rgba(0,0,0,0.5);
+  image: none;
+}
+
+Gui--TreePanel QTreeView::indicator:disabled,
 Gui--TreePanel QTreeView::indicator:unchecked:disabled {
   background-color: rgba(0,0,0,0.1);
+  image: none;
   border: none;
   border-radius: 6px;
-  width: 11px;
-  height: 11px;
+  width: 10px;
+  height: 10px;
 }
 
 Gui--TreePanel QTreeView::indicator:checked {
   image: url(qss:images_classic/check-mark-blue.svg);
   background-color: rgba(0,0,0,0.5);
+  margin-top: 0px;
 }
 
 Gui--TreePanel QTreeView::indicator:checked:hover {
   image: url(qss:images_classic/check-mark-white.svg);
-  background-color: @ThemeAccentColor1;
 }
 
 Gui--TreePanel QTreeView::indicator:checked:disabled  {
   image: url(qss:images_classic/check-mark-lightgray.svg);
-  background-color: #393937;
-}
-
-Gui--TreePanel QTreeView::indicator:unchecked {
-  background-color: rgba(0,0,0,0.5);
+  background-color: rgba(0,0,0,0.4);
 }
 
 #DocumentTreeItems::item {
@@ -484,7 +487,7 @@ QSint--ActionGroup QFrame[class="content"] QListView::item,
 QSint--ActionGroup QFrame[class="content"] QTableView::item {
   margin: 1px 5px 1px 0px;
   padding: 2px;
-  background-color: rgba(0,0,0,0.1);
+  background-color: rgba(0,0,0,0.07);
   border: 1px solid transparent;
   border-radius: 6px;
 }
@@ -492,7 +495,7 @@ QSint--ActionGroup QFrame[class="content"] QTableView::item {
 QSint--ActionGroup QFrame[class="content"] QTreeView::item {
   margin: 2px 2px 0px 0px;
   padding: 2px;
-  background-color: rgba(0,0,0,0.1);
+  background-color: rgba(0,0,0,0.07);
   border: 1px solid transparent;
   border-radius: 3px;
 }
@@ -585,6 +588,11 @@ QSint--ActionGroup QFrame[class="content"] QTreeView::indicator:checked:pressed 
   background-color: @ThemeAccentColor1;
 }
 
+QSint--ActionGroup QFrame[class="content"] QTreeView::indicator:unchecked,
+QSint--ActionGroup QFrame[class="content"] QListView::indicator:unchecked {
+  image: none;
+}
+
 QSint--ActionGroup QFrame[class="content"] QHeaderView {
   background-color: transparent;
   border: 1px solid transparent;
@@ -621,6 +629,38 @@ QSint--ActionGroup QFrame[class="header"] QLabel[fold="true"] {
 QSint--ActionGroup QFrame[class="header"] QLabel[fold="true"]:hover {
   padding: 2px;
   image: url(qss:images_classic/Arrow-up-white.svg);
+}
+
+QSint--ActionGroup QFrame[class="content"] QPushButton {
+  background-color: rgba(250,250,250,0.1);  
+  border: 1px solid rgba(0,0,0,0.2);
+  color: #eeeeee;
+  color: @ColorPaletteTextGeneralBottom;
+  text-align: center;
+  border-radius: 6px;
+  padding: 2px 8px 4px 8px;
+}
+
+QSint--ActionGroup QFrame[class="content"] QPushButton:disabled {
+  background-color: rgba(0,0,0,0.2);  
+  border: 1px solid rgba(0,0,0,0.2);
+}
+
+QSint--ActionGroup QFrame[class="content"] QPushButton:hover {
+  background-color: @ThemeAccentColor1;
+  background-color: @ColorPaletteHover;
+  border: 1px solid @ThemeAccentColor1;
+  color: #ffffff;
+}
+
+QSint--ActionGroup QFrame[class="content"] QPushButton:pressed {
+  background-color: @ThemeAccentColor1;
+  border: 1px solid @ThemeAccentColor1;
+  color: #ffffff;
+}
+
+QSint--ActionGroup QFrame[class="content"] QPushButton:focus {
+  border: 1px solid  @ThemeAccentColor1;
 }
 
 Gui--OverlayToolButton {
