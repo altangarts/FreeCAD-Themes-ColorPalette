@@ -3,7 +3,7 @@
  <name>ColorPaletteTheme</name>
  <version>1.5.6</version>
  <date>2026.01.16</date>
- <description>Choose your colors with the "ColorPalette" Theme and increase the focus on objects and text</description>
+ <description>Choose your colors with the "ColorPalette" Theme and increase the focus on objects and texts( v1.1.0 ≥ )</description>
  <maintainer email="">altangarts</maintainer>
  <license file="LICENSE">LGPL-2.1-or-later</license>
  <url type="repository" branch="main">https://github.com/altangarts/FreeCAD-Themes-ColorPalette</url>
