@@ -272,7 +272,7 @@ Gui--OverlayTitleBar {
 }
 
 Gui--OverlayToolButton {
-  background-color: qlineargradient(x1:0, y1:0.3, x2:0, y2:1, stop:0 rgba(250,250,250,0.2), stop:1 rgba(0,0,0,0.1));  
+  background-color: qlineargradient(x1:0, y1:0.3, x2:0, y2:1, stop:0 rgba(250,250,250,0.2), stop:1 rgba(0,0,0,0.2));  
   border: 1px solid rgba(0,0,0,0.2);
   border-radius: 4px;
   min-height: 11px;
@@ -1391,7 +1391,7 @@ QProgressBar::chunk:disabled {
 
 --------------------------------------------------------------------------- */
 QPushButton {
-  background-color: qlineargradient(x1:0, y1:0.3, x2:0, y2:1, stop:0 rgba(250,250,250,0.2), stop:1 rgba(0,0,0,0.1));
+  background-color: qlineargradient(x1:0, y1:0.3, x2:0, y2:1, stop:0 rgba(250,250,250,0.2), stop:1 rgba(0,0,0,0.2));
   color: #eeeeee;
   color: @ColorPaletteTextGeneralBottom;
   text-align: center;
@@ -1402,7 +1402,7 @@ QPushButton {
 }
 
 QDialog QPushButton {
-  background-color: qlineargradient(x1:0, y1:0.3, x2:0, y2:1, stop:0 rgba(250,250,250,0.2), stop:1 rgba(0,0,0,0.1));
+  background-color: qlineargradient(x1:0, y1:0.3, x2:0, y2:1, stop:0 rgba(250,250,250,0.2), stop:1 rgba(0,0,0,0.2));
   color: #eeeeee;
   color: @ColorPaletteTextGeneralBottom;
   text-align: center;
@@ -1582,7 +1582,7 @@ QGroupBox QPushButton:focus {
 
 --------------------------------------------------------------------------- */
 QToolBar QToolButton {
-  background-color: qlineargradient(x1:0, y1:0.3, x2:0, y2:1, stop:0 rgba(250,250,250,0.2), stop:1 rgba(0,0,0,0.1));
+  background-color: qlineargradient(x1:0, y1:0.3, x2:0, y2:1, stop:0 rgba(250,250,250,0.2), stop:1 rgba(0,0,0,0.2));
   border: 1px solid rgba(0,0,0,0.2);
   border-radius: 4px;
   color: #eeeeee;
@@ -1790,7 +1790,7 @@ QComboBox::down-arrow:hover {
 }
 
 QToolBar Gui--WorkbenchComboBox {
-  background-color: qlineargradient(x1:0, y1:0.3, x2:0, y2:1, stop:0 rgba(250,250,250,0.2), stop:1 rgba(0,0,0,0.1));
+  background-color: qlineargradient(x1:0, y1:0.3, x2:0, y2:1, stop:0 rgba(250,250,250,0.2), stop:1 rgba(0,0,0,0.2));
   border: 1px solid rgba(0,0,0,0.2);
   color: #eeeeee;
   color: @ColorPaletteTextGeneralTop;
@@ -2358,7 +2358,7 @@ QFrame QTabBar {
 }
 
 QTabBar::tab {
-  background-color: qlineargradient(x1:0, y1:0.3, x2:0, y2:1, stop:0 rgba(250,250,250,0.2), stop:1 rgba(0,0,0,0.1));
+  background-color: qlineargradient(x1:0, y1:0.3, x2:0, y2:1, stop:0 rgba(250,250,250,0.2), stop:1 rgba(0,0,0,0.2));
   border: 1px solid rgba(0,0,0,0.2);
   border-radius: 6px;
   color: #eeeeee;
@@ -3535,43 +3535,32 @@ Settings menu #groupsTreeView:
   border: none;
 }
 
-.QFrame QTreeView::item {
-  margin-left: -1px;
-  border-left: 2px solid transparent;
-}
-
-.QFrame QTreeView::item:hover {
-  background-color: @ThemeAccentColor1;
-  background-color: @ColorPaletteHover;
-  border: 1px solid transparent;
-  color: #ffffff;
-}
-
-.QFrame QTreeView::item:selected {
-  background-color: @ThemeAccentColor1;
-  border: 1px solid transparent;
-  color: #ffffff;
-}
-
 QTreeView::item#groupsTreeView {
   background-color: rgba(250,250,250,0.03);
   color: #ffff69;
+  border-radius: 0px;
+  margin-left: -1px;
 }
 
-QTreeView::item#groupsTreeView:hover {
+QTreeView::item#groupsTreeView:hover,
+QTreeView::branch#groupsTreeView:hover {
   background-color: @ThemeAccentColor1;
   background-color: @ColorPaletteHover;
   color: #eeeeee;
 }
 
-QTreeView::item#groupsTreeView:selected {
+QTreeView::item#groupsTreeView:selected,
+QTreeView::branch#groupsTreeView:selected {
   background-color: @ThemeAccentColor1;
   color: #eeeeee;
 }
 
-QTreeView::item#groupsTreeView:selected:hover {
+QTreeView::item#groupsTreeView:selected:hover,
+QTreeView::branch#groupsTreeView:selected:hover {
   background-color: @ThemeAccentColor1;
   background-color: @ColorPaletteHover;
+  border: 1px solid @ThemeAccentColor1;
+  border: 1px solid @ColorPaletteHover;
   color: #eeeeee;
 }
 
@@ -3593,7 +3582,7 @@ QTreeView::branch#groupsTreeView:open:has-children:has-siblings,
 QTreeView::item#groupsTreeView:open:has-children:has-siblings,
 QTreeView::branch#groupsTreeView:open:has-children:!has-siblings,
 QTreeView::item#groupsTreeView:open:has-children:!has-siblings {
-  background-color: rgba(250,250,250,0.03); 
+  background-color: rgba(250,250,250,0.05); 
   color: #abff7d;
   color: @ColorPaletteTextTreeOpen;
 }
