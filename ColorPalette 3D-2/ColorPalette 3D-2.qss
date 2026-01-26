@@ -2407,6 +2407,24 @@ QToolBar QTabBar::tab {
   padding: 4px 5px 5px 5px;
 }
 
+QToolBar QTabBar::tab:left {
+  color: #eeeeee;
+  color: @ColorPaletteTextGeneralTop;
+  margin: 1px 0px 1px 2px;
+  padding: 0px 0px 4px 0px;
+  min-height: 5px;
+  min-width: 24px;
+}
+
+QToolBar QTabBar::tab:right {
+  color: #eeeeee;
+  color: @ColorPaletteTextGeneralTop;
+  margin: 1px 2px 1px 0px;
+  padding: 4px 0px 0px 0px;
+  min-height: 5px;
+  min-width: 24px;
+}
+
 QTabWidget QTabBar::tab:bottom {
   color: #eeeeee;
   color: @ColorPaletteTextGeneralBottom;
