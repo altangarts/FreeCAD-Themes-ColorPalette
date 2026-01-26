@@ -2653,7 +2653,7 @@ QTabWidget QTreeView::branch:open:has-children:!has-siblings {
 #DocumentTreeItems::indicator {
   background-color: rgba(0,0,0,0.5);
   border-radius: 6px;
-  margin: 2px 0px 0px 1px;
+  margin: 0px 0px 0px 1px;
   width: 11px;
   height: 11px;
 }
@@ -2781,7 +2781,7 @@ QDockWidget QTreeView::item {
   background-color: rgba(0,0,0,0.05);
   padding: 0px 0px 1px 3px;
   margin: 1px 2px 2px 0px;
-  border-radius: 3px;
+  border-radius: 4px;
 }
 
 QDockWidget QTreeView::item:hover,
@@ -2816,14 +2816,46 @@ QTabWidget QTreeView {
 }
 
 QTabWidget QTreeView::item {
+  background-color: rgba(0,0,0,0.05);
   background-color: @ColorPaletteTextPropertyitem;
-  margin: 2px 2px 1px 0px;
+  margin: 1px 2px 2px 0px;
+}
+
+QTabWidget QTreeView::item:first {
+  margin-right: -3px;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 0px;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 0px;
+}
+
+QTabWidget QTreeView::item:last {
+  border-top-left-radius: 0px;
+  border-top-right-radius: 4px;
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 4px;
+}
+
+QTabWidget QTreeView::branch {
+  background-color: rgba(0,0,0,0.05);
+  background-color: @ColorPaletteTextPropertyitem;
+  margin: 1px -1px 2px 0px;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 0px;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 0px;
+}
+
+QTabWidget QTreeView::branch:hover {
+  background-color: @ThemeAccentColor1;
+  background-color: @ColorPaletteHover;
+  color: #ffffff;
 }
 
 #DocumentTreeItems::item {
   background-color: rgba(0,0,0,0.05);
   border: 1px solid rgba(0,0,0,0.15);
-  border-radius: 3px;
+  border-radius: 4px;
   color: #ffff69;
   color: @ColorPaletteTextTreeEnd;
 }

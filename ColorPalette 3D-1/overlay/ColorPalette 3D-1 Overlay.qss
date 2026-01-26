@@ -54,31 +54,6 @@ Gui--OverlayProxyWidget {
   qproperty-hintColor: rgba(250,250,250,0.1);
 }
 
-/* QTabWidget QTreeView::item:has-children:open {
-  background-color: qlineargradient(x1:0, y1:0.3, x2:0, y2:1, stop:0 rgba(250,250,250,0.2), stop:1 rgba(0,0,0,0.2));
-  background-color: qlineargradient(x1:0, y1:0.3, x2:0, y2:1, stop:0 @ColorPaletteOverlayContent, stop:1 @ColorPaletteOverlayHeader2);
-  border: 1px solid rgba(0,0,0,0.15);
-  border-radius: 3px;
-  color: #ffaa7f;
-  color: @ColorPaletteTextHeaderOverlay;
-  margin: 0px 2px 2px 0px;
-}
-
-QTabWidget QTreeView::item:has-children:open:focus,
-QTabWidget QTreeView::item:has-children:open:selected,
-QTabWidget QTreeView::item:has-children:open:selected:focus {
-  background-color: @ThemeAccentColor1;
-  border: 1px solid @ThemeAccentColor1;
-  color: #ffffff;
-} 
-
-QTabWidget QTreeView::item:has-children:open:hover {
-  background-color: @ThemeAccentColor1;
-  background-color: @ColorPaletteHover;
-  border: 1px solid @ThemeAccentColor1;
-  color: #ffffff;
-} */
-
 Gui--TreePanel QTreeView::item:has-children:open:focus,
 Gui--TreePanel QTreeView::item:has-children:open:selected,
 Gui--TreePanel QTreeView::item:has-children:open:selected:focus,
@@ -107,10 +82,35 @@ QTabWidget QTreeView::item {
   color: @ColorPaletteTextTreeEnd;
 }
 
-QTabWidget QTreeView::item:hover {
+QTabWidget QTreeView::item:first {
+  border-top-left-radius: 4px;
+  border-top-right-radius: 0px;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 0px;
+}
+
+QTabWidget QTreeView::item:last {
+  margin-left: -1px;
+  border-top-left-radius: 0px;
+  border-top-right-radius: 4px;
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 4px;
+}
+
+QTabWidget QTreeView::branch {
+  background-color: rgba(250,250,250,0.07);
+  background-color: @ColorPaletteOverlayContent;
+  margin: 1px -2px 2px 0px;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 0px;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 0px;
+}
+
+QTabWidget QTreeView::item:hover,
+QTabWidget QTreeView::branch:hover {
   background-color: @ThemeAccentColor1;
   background-color: @ColorPaletteHover;
-  border: 1px solid @ThemeAccentColor1;
   color: #ffffff;
 }
 
@@ -206,8 +206,10 @@ QTabWidget QTreeView {
   border: 0px solid transparent;
 }
 
-Gui--TreePanel QTreeView::branch {
+Gui--TreePanel QTreeView::branch,
+Gui--TreePanel QTreeView::branch:hover {
   background: transparent;
+  margin: 0px;
 }
 
 Gui--TreePanel QTreeView::branch:has-siblings:!adjoins-item {
@@ -255,7 +257,7 @@ Gui--TreePanel QTreeView::indicator {
   border-radius: 6px;
   width: 11px;
   height: 11px;
-  margin-top: 1px;
+  margin-top: 2px;
   margin-right: -5px;
   padding: 1px;
 }
