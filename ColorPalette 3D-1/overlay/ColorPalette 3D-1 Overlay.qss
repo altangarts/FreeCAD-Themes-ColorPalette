@@ -616,6 +616,8 @@ QSint--ActionGroup QFrame[class="content"] QPushButton {
 QSint--ActionGroup QFrame[class="content"] QPushButton:disabled {
   background-color: rgba(0,0,0,0.2);  
   border: 1px solid rgba(0,0,0,0.2);
+  color: #bbbbbb;
+  color: @ColorPaletteTextDisabled;
 }
 
 QSint--ActionGroup QFrame[class="content"] QPushButton:hover {

@@ -1516,8 +1516,8 @@ QPushButton::menu-indicator {
   image: url(qss:images_classic/radio-mark-white1.svg);
   right: 5px;
   top: 1px;
-  width: 11px;
-  height: 11px;
+  width: 12px;
+  height: 12px;
   margin-left: 5px;
 }
 
@@ -1632,6 +1632,7 @@ QToolBar > QToolButton#qt_toolbutton_menubutton::menu-button {
   subcontrol-origin: padding; 
   subcontrol-position: bottom center;
   border: none;
+  top: 1px;
   width: 30px;
   height: 12px;
   outline: none;
@@ -1653,8 +1654,8 @@ QToolButton::menu-indicator {
 
 QToolButton::menu-arrow {
   image: url(qss:images_classic/radio-mark-white1.svg);
-  width: 10px;
-  height: 10px;
+  width: 12px;
+  height: 12px;
 }
 
 QToolButton::menu-arrow:open {
@@ -3340,8 +3341,8 @@ QToolBox > QScrollArea > QWidget > QWidget {
 
 .QFrame[frameShape="0"] {
   border-radius: 0px;
-  margin: -5px 0px 0px 0px;
-  padding: 0px 7px 0px 6px;
+  margin: -11px 0px 0px 0px;
+  padding: 0px 2px 0px 0px;
 }
 
 .QFrame[frameShape="4"] {
@@ -3571,6 +3572,10 @@ QTreeView::item#groupsTreeView:selected,
 QTreeView::branch#groupsTreeView:selected {
   background-color: @ThemeAccentColor1;
   color: #eeeeee;
+}
+
+QTreeView::item#groupsTreeView:selected {
+  margin-left: -2px;
 }
 
 QTreeView::item#groupsTreeView:selected:hover,

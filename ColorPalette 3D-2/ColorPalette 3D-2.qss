@@ -1530,8 +1530,8 @@ QPushButton::menu-indicator {
   image: url(qss:images_classic/radio-mark-white1.svg);
   right: 5px;
   top: 1px;
-  width: 11px;
-  height: 11px;
+  width: 12px;
+  height: 12px;
   margin-left: 5px;
 }
 
@@ -1597,7 +1597,7 @@ QGroupBox QPushButton:focus {
 
 --------------------------------------------------------------------------- */
 QToolBar QToolButton {
-  background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop: 0 rgba(250,250,250,0.15), stop: 0.85 rgba(250,250,250,0.15), stop: 1 rgba(0,0,0,0.2));
+  background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop: 0 rgba(250,250,250,0.15), stop: 0.8 rgba(250,250,250,0.15), stop: 1 rgba(0,0,0,0.2));
   border-width: 1px 1px 2px 1px;  
   border-style: solid;
   border-top-color: rgba(250,250,250,0.3);
@@ -1652,6 +1652,7 @@ QToolBar > QToolButton#qt_toolbutton_menubutton::menu-button {
   subcontrol-origin: padding; 
   subcontrol-position: bottom center;
   border: none;
+  top: 1px;
   width: 30px;
   height: 12px;
   outline: none;
@@ -1673,8 +1674,8 @@ QToolButton::menu-indicator {
 
 QToolButton::menu-arrow {
   image: url(qss:images_classic/radio-mark-white1.svg);
-  width: 10px;
-  height: 10px;
+  width: 12px;
+  height: 12px;
 }
 
 QToolButton::menu-arrow:open {
@@ -3378,8 +3379,8 @@ QToolBox > QScrollArea > QWidget > QWidget {
 
 .QFrame[frameShape="0"] {
   border-radius: 0px;
-  margin: -5px 0px 0px 0px;
-  padding: 0px 7px 0px 6px;
+  margin: -11px 0px 0px 0px;
+  padding: 0px 2px 0px 0px;
 }
 
 .QFrame[frameShape="4"] {
@@ -3525,7 +3526,7 @@ Gui--StatefulLabel[state="empty_sketch"] {
   color : #ffffff; /* 50% opacity white */
 }
 Gui--StatefulLabel[state="under_constrained"] {
-  color : #ffffff
+  color : #ffffff;
 }
 Gui--StatefulLabel[state="conflicting_constraints"] {
   color : #fc6c6c; /* Red */
@@ -3609,6 +3610,10 @@ QTreeView::item#groupsTreeView:selected,
 QTreeView::branch#groupsTreeView:selected {
   background-color: @ThemeAccentColor1;
   color: #eeeeee;
+}
+
+QTreeView::item#groupsTreeView:selected {
+  margin-left: -2px;
 }
 
 QTreeView::item#groupsTreeView:selected:hover,
