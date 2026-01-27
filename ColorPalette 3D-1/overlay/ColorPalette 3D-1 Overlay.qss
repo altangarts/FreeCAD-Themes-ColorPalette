@@ -21,7 +21,7 @@ Gui--PropertyEditor--PropertyEditor {
   qproperty-itemBackground: transparent;
   qproperty-groupBackground: rgba(0,0,0,0.15);
   qproperty-groupBackground: qlineargradient(x1:0, y1:0.3, x2:0, y2:1, stop:0 @ColorPaletteOverlayContent, stop:0.85 @ColorPaletteOverlayHeader2, stop:1 @ThemeAccentColor3);
-  qproperty-groupTextColor: #ffaa7f;
+  qproperty-groupTextColor: #f5c5f5;
   qproperty-groupTextColor: @ColorPaletteTextHeaderOverlay;
   alternate-background-color: transparent;
   gridline-color: @ThemeAccentColor2;
@@ -65,6 +65,7 @@ Gui--TreePanel QTreeView::item:has-children:!has-siblings:open:selected:focus {
   color: #ffffff;
 }
 
+Gui--TreePanel QTreeView::branch:has-children:open,
 Gui--TreePanel QTreeView::item:has-children:open:hover,
 Gui--TreePanel QTreeView::item:has-children:!has-siblings:open:hover {
   background-color: transparent;
@@ -108,7 +109,9 @@ QTabWidget QTreeView::branch {
 }
 
 QTabWidget QTreeView::item:hover,
-QTabWidget QTreeView::branch:hover {
+QTabWidget QTreeView::branch:hover,
+QTabWidget QTreeView::item:has-children:open:hover,
+QTabWidget QTreeView::branch:has-children:open:hover {
   background-color: @ThemeAccentColor1;
   background-color: @ColorPaletteHover;
   color: #ffffff;
@@ -415,11 +418,12 @@ QSint--ActionGroup QFrame[class="header"] {
 
 QSint--ActionGroup QFrame[class="header"]:hover {
   background-color: @ThemeAccentColor1;
+  border: 1px solid @ThemeAccentColor1;
   color: #ffffff;
 }
 
 QSint--ActionGroup QToolButton[class="header"] {
-  color: #ffaa7f; /* Task Panel Header text color */
+  color: #f5c5f5; 
   color: @ColorPaletteTextHeaderOverlay;
   text-align: left;
   font-weight: bold;
@@ -516,6 +520,7 @@ QSint--ActionGroup QToolButton#filterButton QListWidget::item:hover {
   background-color: @ThemeAccentColor1;
   background-color: @ColorPaletteHover;
   border: 1px solid @ThemeAccentColor1;
+  border: 1px solid @ColorPaletteHover;
 }
 
 QSint--ActionGroup QFrame[class="content"] QComboBox QAbstractItemView {
@@ -624,6 +629,7 @@ QSint--ActionGroup QFrame[class="content"] QPushButton:hover {
   background-color: @ThemeAccentColor1;
   background-color: @ColorPaletteHover;
   border: 1px solid @ThemeAccentColor1;
+  border: 1px solid @ColorPaletteHover;
   color: #ffffff;
 }
 
@@ -634,7 +640,7 @@ QSint--ActionGroup QFrame[class="content"] QPushButton:pressed {
 }
 
 QSint--ActionGroup QFrame[class="content"] QPushButton:focus {
-  border: 1px solid  @ThemeAccentColor1;
+  border: 1px solid @ThemeAccentColor1;
 }
 
 Gui--OverlayToolButton {
@@ -653,6 +659,8 @@ Gui--OverlayToolButton:hover {
   image: url(qss:images_classic/close-white.svg);
   background-color: @ThemeAccentColor1;
   background-color: @ColorPaletteHover;
+  border: 1px solid @ThemeAccentColor1;
+  border: 1px solid @ColorPaletteHover;
 }
 
 Gui--OverlayToolButton {
