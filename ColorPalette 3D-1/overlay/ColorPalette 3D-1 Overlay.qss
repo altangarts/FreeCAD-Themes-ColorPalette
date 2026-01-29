@@ -53,9 +53,7 @@ Gui--OverlayProxyWidget {
 }
 
 QTabWidget QTreeView::item:has-children:!has-siblings:open,
-QTabWidget QTreeView::item:has-children:open,
-QTabWidget QTreeView::branch:has-children:!has-siblings:open,
-QTabWidget QTreeView::branch:has-children:open {
+QTabWidget QTreeView::item:has-children:open {
   background-color: rgba(0,0,0,0.15);
   background-color: qlineargradient(x1:0, y1:0.3, x2:0, y2:1, stop:0 @ColorPaletteOverlayContent, stop:1 @ColorPaletteOverlayHeader2);
 }
@@ -71,7 +69,7 @@ QTabWidget QTreeView::item {
 }
 
 QTabWidget QTreeView::item:first {
-  margin-right: -2px;
+  margin-right: -4px;
   border-top-left-radius: 4px;
   border-top-right-radius: 0px;
   border-bottom-left-radius: 4px;
@@ -79,27 +77,15 @@ QTabWidget QTreeView::item:first {
 }
 
 QTabWidget QTreeView::item:last {
-  margin-left: 0px;
   border-top-left-radius: 0px;
   border-top-right-radius: 4px;
   border-bottom-left-radius: 0px;
   border-bottom-right-radius: 4px;
 }
 
-QTabWidget QTreeView::branch {
-  margin: 2px -2px 2px 0px;
-  border-top-left-radius: 4px;
-  border-top-right-radius: 0px;
-  border-bottom-left-radius: 4px;
-  border-bottom-right-radius: 0px;
-}
-
 QTabWidget QTreeView::item:hover,
-QTabWidget QTreeView::branch:hover,
 QTabWidget QTreeView::item:has-children:!has-siblings:open:hover,
-QTabWidget QTreeView::item:has-children:open:hover,
-QTabWidget QTreeView::branch:has-children:!has-siblings:open:hover,
-QTabWidget QTreeView::branch:has-children:open:hover {
+QTabWidget QTreeView::item:has-children:open:hover {
   background-color: @ThemeAccentColor1;
   background-color: @ColorPaletteHover;
   color: #ffffff;
@@ -199,22 +185,17 @@ Gui--TreePanel QTreeView {
 Gui--TreePanel QTreeView::item,
 Gui--TreePanel QTreeView::item:hover,
 Gui--TreePanel QTreeView::item:focus,
-Gui--TreePanel QTreeView::branch,
-Gui--TreePanel QTreeView::branch:hover,
 Gui--TreePanel QTreeView::item:has-children:open,
-Gui--TreePanel QTreeView::branch:has-children:open,
 Gui--TreePanel QTreeView::item:has-children:open:hover,
 Gui--TreePanel QTreeView::item:has-children:open:focus,
 Gui--TreePanel QTreeView::item:has-children:open:selected,
 Gui--TreePanel QTreeView::item:has-children:!has-siblings:open,
-Gui--TreePanel QTreeView::branch:has-children:!has-siblings:open,
 Gui--TreePanel QTreeView::item:has-children:!has-siblings:open:hover,
 Gui--TreePanel QTreeView::item:has-children:!has-siblings:open:focus,
 Gui--TreePanel QTreeView::item:has-children:!has-siblings:open:selected {
   background-color: transparent;
   border: 1px solid transparent;
   color: #ffffff;
-  margin: 0px;
 }
 
 Gui--TreePanel QTreeView::branch:has-siblings:!adjoins-item {

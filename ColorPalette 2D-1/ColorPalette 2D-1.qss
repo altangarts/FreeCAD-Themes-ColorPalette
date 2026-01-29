@@ -2634,7 +2634,7 @@ QTreeView::branch:has-siblings:adjoins-item {
 QTreeView::branch:!has-children:!has-siblings:adjoins-item {
     image: url(qss:images_classic/branch_end_black2.svg) 0;
     border-image: none;
-    padding: 4px;
+    padding: 3px;
 }
 
 QTreeView::branch:closed:has-children:has-siblings {
@@ -2722,7 +2722,7 @@ QTabWidget QTreeView::branch:has-siblings:adjoins-item {
 QTabWidget QTreeView::branch:!has-children:!has-siblings:adjoins-item {
     image: url(qss:images_classic/branch_end_black2.svg) 0;
     border-image: none;
-    padding: 4px;
+    padding: 3px;
 }
 
 QTabWidget QTreeView::branch:has-children:!has-siblings:closed,
@@ -2890,15 +2890,13 @@ QDockWidget QTreeView::item:has-children:!has-siblings:open {
 }
 
 QTabWidget QTreeView::item:has-children:!has-siblings:open,
-QTabWidget QTreeView::item:has-children:open,
-QTabWidget QTreeView::branch:has-children:!has-siblings:open,
-QTabWidget QTreeView::branch:has-children:open {
+QTabWidget QTreeView::item:has-children:open {
   background-color: rgba(0,0,0,0.15);
   background-color: @ColorPaletteOverlayitemEnd;
 }
 
 QTabWidget QTreeView {
-  padding: 4px 0px 10px 4px;
+  padding: 4px 0px 20px 4px;
 }
 
 QTabWidget QTreeView::item {
@@ -2908,7 +2906,7 @@ QTabWidget QTreeView::item {
 }
 
 QTabWidget QTreeView::item:first {
-  margin-right: 0px;
+  margin-right: -4px;
   border-top-left-radius: 4px;
   border-top-right-radius: 0px;
   border-bottom-left-radius: 4px;
@@ -2931,19 +2929,8 @@ QTabWidget QTreeView::item:last:has-children:!has-siblings:open:focus {
 }
 
 QTabWidget QTreeView::branch {
-  margin: 1px -1px 2px 0px;
-  border-top-left-radius: 4px;
-  border-top-right-radius: 0px;
-  border-bottom-left-radius: 4px;
-  border-bottom-right-radius: 0px;
-}
-
-QTabWidget QTreeView::branch:hover,
-QTabWidget QTreeView::branch:has-children:!has-siblings:open:hover,
-QTabWidget QTreeView::branch:has-children:open:hover {
-  background-color: @ThemeAccentColor1;
-  background-color: @ColorPaletteHover;
-  color: #ffffff;
+  margin: 0px;
+  padding: 0px;
 }
 
 #DocumentTreeItems::item {

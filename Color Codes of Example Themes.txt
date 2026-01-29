@@ -1,66 +1,57 @@
 
 
-1. SeaStone-DarkOrange :
-
-        background: #2d3234. - selection: #783c00.
-                    
+   SUGGESTİON COLORS;
 
 
-2. Dark-DarkPurple :
+1. Dark - DarkPurple :
 
-        background: #262624.(lowblue) - selection: #55007f.
+        background: #323230.(lowblue) - selection: #55007f.
 
 
 
-3. MiddleGray-DarkOrange :
- 
-        background: #666664.(lowblue) - selection: #aa5500.
+2. Light - DarkOrange :
+
+        background: #898987. - selection: #8c4600.
 
 
 
-4. Light-PaleGreen :
+3. Gradient Dark / Light - DarkOrange :
 
-        background: #999997. - selection: #418100.
-
-
-
-5. Sand-DarkRed :
-
-        background: #7d6f4f. - selection: #680000.
-
-
-5.1 Sand-DarkRed - Gradient:
-
-        background-top: #5a4e3a, background-bottom: #96835e. - selection: #680000.
+        background-top: #454542, background-bottom: #777775. - selection: #34694e.
 
 
 
-6. GradientFreeCAD-DarkBlue :
+4. Gradient Sand - DarkRed:
+
+        background-top: #463d2d, background-bottom: #7d6f4f. - selection: #680000.
+
+
+
+5. Gradient FreeCAD - DarkBlue :
 
         background-top: #252549, background-bottom: #9797aa. - selection: #00557f.
 
 
 
-7. GradientPink-LightPurple :
+6. Gradient Green-PaleSoftGreen :
 
-        background-top: #a0748b, background-bottom: #999997. - selection: #8a38dc.
-
-
-
-8. GradientPalePurple-DarkBlue :
-
-        background-top: #55557f, background-bottom: #999997. - selection: #00557f.
+        background-top: #5b6264, background-bottom: #898987. - selection: #37575a.
 
 
 
-9. GradientBrown-PaleBrown :
+7. Gradient Brown-PaleBrown :
 
-        background-top: #786f5f, background-bottom: #999997. - selection: #553900.
+        background-top: #696253, background-bottom: #898987. - selection: #5f3e00.
 
 
 
-10. GradientSoftBlue-PaleBSoftBlue :
+8. Gradient Pink-PalePurple :
 
-        background-top: #646c6e, background-bottom: #999997. - selection: #43696e. 
+        background-top: #6e5060, background-bottom: #898987. - selection: #642964.
+
+
+
+
+
 
 
