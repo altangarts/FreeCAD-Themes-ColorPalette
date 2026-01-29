@@ -64,10 +64,10 @@ It offers four different appearance options for buttons and panels. (2D - 3D)
 1. Edit ➡ Preference ➡ Display ➡ IU ➡ Colors ➡ Background color
 
    - Simple color  
-   - Radial color  
-   - Linear color
+   - Radial Gradient color  
+   - Linear Gradient color
    
-2. Linear color position:
+2. Linear Gradient color position:
 
 
    - Top    = Accent color 2  
