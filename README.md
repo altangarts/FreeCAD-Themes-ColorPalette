@@ -11,6 +11,7 @@ It offers four different appearance options for buttons and panels. (2D - 3D)
  
 #### ✅ İnstallation (Primary) :
 ➡️Launch FreeCAD - Tools - Addon Manager - Search "Color Palette Theme" and İnstall
+![Ekran görüntüsü 2026-01-29 190000](https://github.com/user-attachments/assets/94e4d0a6-b083-4972-9531-b998a4b88836)
 
   (For "FreeCAD 1.02" you need to install the new addon manager plugin from the addon manager.)
 
