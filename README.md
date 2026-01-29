@@ -177,7 +177,7 @@ Sample
 
 ⤵️
 #### Selection(Accent color 1) : #680000.
-#### Background-top(Accent color 2) : #463d2d.
+#### Background-top(Accent color 2) : #504535.
 #### Background-Bottom(Accent color 3) : #7d6f4f.
 
 ![Ekran görüntüsü 2026-01-30 005934](https://github.com/user-attachments/assets/6aa8a02f-bb1d-4cab-b224-cf33834065c0)
