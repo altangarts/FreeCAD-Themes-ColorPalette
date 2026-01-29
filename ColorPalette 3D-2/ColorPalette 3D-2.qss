@@ -2144,6 +2144,8 @@ QSint--ActionGroup QFrame[class="content"] QToolButton:hover,
 QSint--ActionGroup QFrame[class="content"] QToolButton:checked:hover {
   background-color: @ThemeAccentColor1;
   background-color: @ColorPaletteHover;
+  border: 1px solid @ThemeAccentColor1;
+  border: 1px solid @ColorPaletteHover;
   color: #ffffff;
 }
 
