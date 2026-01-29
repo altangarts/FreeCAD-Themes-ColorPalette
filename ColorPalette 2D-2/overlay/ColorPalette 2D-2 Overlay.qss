@@ -32,10 +32,8 @@ Gui--PropertyEditor--PropertyEditor {
 
 Gui--OverlayTabWidget::pane {
   background-color: transparent;
-  border: 1px solid transparent;
-  margin: 0px 2px 0px 2px;
-  padding: 0px -5px 0px 0px;
-  border-radius: 10px;
+  margin: 0px;
+  border: none;
 }
 
 Gui--OverlayTabWidget::tab-bar:top,
@@ -54,22 +52,8 @@ Gui--OverlayProxyWidget {
   qproperty-hintColor: rgba(250,250,250,0.1);
 }
 
-Gui--TreePanel QTreeView::item:has-children:open:focus,
-Gui--TreePanel QTreeView::item:has-children:open:selected,
-Gui--TreePanel QTreeView::item:has-children:open:selected:focus,
-Gui--TreePanel QTreeView::item:has-children:!has-siblings:open:focus,
-Gui--TreePanel QTreeView::item:has-children:!has-siblings:open:selected,
-Gui--TreePanel QTreeView::item:has-children:!has-siblings:open:selected:focus {
-  background-color: transparent;
-  border: 1px solid transparent;
-  color: #ffffff;
-}
-
-Gui--TreePanel QTreeView::item:has-children:open:hover,
-Gui--TreePanel QTreeView::item:has-children:!has-siblings:open:hover {
-  background-color: transparent;
-  border: 1px solid transparent;
-  color: #ffffff;
+QTabWidget QTreeView::item:has-children:open,
+QTabWidget QTreeView::item:has-children:!has-siblings:open {
 }
 
 QTabWidget QTreeView::item {
@@ -143,8 +127,14 @@ QTabWidget QPushButton {
   margin: 0px 0px 0px 0px;
 }
 
-QTabWidget QPushButton:hover,
-QTabWidget QPushButton:selected {
+QTabWidget QPushButton:hover {
+  background-color: @ThemeAccentColor1;
+  background-color: @ColorPaletteHover;
+  color: #ffffff;
+}
+
+QTabWidget QPushButton:selected,
+QTabWidget QPushButton:pressed {
   background-color: @ThemeAccentColor1;
   border: 1px solid @ThemeAccentColor1;
   color: #ffffff;
@@ -169,7 +159,7 @@ QTabWidget QTabBar::tab:bottom {
 
 QTabWidget QTabBar::tab:bottom:selected {
   background-color: @ThemeAccentColor1;
-  border: 1px solid @ThemeAccentColor1;
+  border: 1px solid transparent;
   color: #ffffff;
   font-weight: bold;
 }
@@ -177,41 +167,32 @@ QTabWidget QTabBar::tab:bottom:selected {
 QTabWidget QTabBar::tab:bottom:hover {
   background-color: @ThemeAccentColor1;
   background-color: @ColorPaletteHover;
-  border: 1px solid @ThemeAccentColor1;
   color: #ffffff;
 }
 
-QTabWidget::pane {
-  margin: 0px;
-  padding: 0px 0px 0px 0px;
-  background-color: transparent;
-  border: none;
-}
-
-Gui--TreePanel QTreeView::item:hover {
-  background-color: transparent;
+QTabWidget QTabBar::tab:bottom:selected:hover {
+  background-color: @ThemeAccentColor1;
+  background-color: @ColorPaletteHover;
   border: 1px solid transparent;
   color: #ffffff;
+  font-weight: bold;
 }
 
-Gui--TreePanel QTreeView::item:focus {
-  background-color: transparent;
-  border: 1px solid transparent;
-  color: #ffffff;
-}
-
+QTabWidget QTreeView,
 Gui--TreePanel QTreeView,
 Gui--TreePanel QTableView {
   background-color: transparent;
-  border: 1px solid transparent;
-  margin: 0px 5px 0px 5px;
-  padding: 0px -5px 0px 0px;
-  border-radius: 10px;
+  margin: 0px;
+  padding: 0px;
+  border: none;
+}
+
+Gui--TreePanel QTreeView::item:has-children:open,
+Gui--TreePanel QTreeView::item:has-children:!has-siblings:open {
 }
 
 Gui--TreePanel QTreeView::item,
-Gui--TreePanel QTreeView::item:has-children:open,
-QTabWidget QTreeView {
+Gui--TreePanel QTreeView::item:has-children:open {
   background-color: transparent;
   border: 0px solid transparent;
 }
@@ -220,6 +201,19 @@ Gui--TreePanel QTreeView::branch,
 Gui--TreePanel QTreeView::branch:hover {
   background: transparent;
   margin: 0px;
+}
+
+Gui--TreePanel QTreeView::item:hover,
+Gui--TreePanel QTreeView::item:focus,
+Gui--TreePanel QTreeView::item:has-children:open:hover,
+Gui--TreePanel QTreeView::item:has-children:open:focus,
+Gui--TreePanel QTreeView::item:has-children:open:selected,
+Gui--TreePanel QTreeView::item:has-children:!has-siblings:open:hover,
+Gui--TreePanel QTreeView::item:has-children:!has-siblings:open:focus,
+Gui--TreePanel QTreeView::item:has-children:!has-siblings:open:selected {
+  background-color: transparent;
+  border: 1px solid transparent;
+  color: #ffffff;
 }
 
 Gui--TreePanel QTreeView::branch:has-siblings:!adjoins-item {
@@ -317,111 +311,60 @@ Gui--TreePanel QTreeView::indicator:checked:disabled  {
   padding: 1px 0px 1px 0px;
 }
 
-#DocumentTreeItems::item:focus,
-#DocumentTreeItems::item:selected,
-#DocumentTreeItems::item:selected:focus {
-  background-color: @ThemeAccentColor1;
-  border: 1px solid @ThemeAccentColor1;
-  color: #ffffff;
-}
-
-#DocumentTreeItems::item:hover {
-  background-color: @ThemeAccentColor1;
-  background-color: @ColorPaletteHover;
-  border: 1px solid @ThemeAccentColor1;
-  color: #ffffff;
-}
-
 #DocumentTreeItems::item:has-children:!has-siblings:open {
-  background-color: rgba(250,250,250,0.15);
-  background-color: @ColorPaletteOverlayContent;
-  border-width: 1px 1px 2px 1px;
-  border-style: solid;
-  border-top-color: rgba(0,0,0,0.2);
-  border-right-color: rgba(0,0,0,0.2);
-  border-bottom-color: rgba(0,0,0,0.6);
-  border-left-color: rgba(0,0,0,0.2); 
   color: #abff7d;
   color: @ColorPaletteTextTreeOpen;
-}
-
-#DocumentTreeItems::item:has-children:!has-siblings:open:focus,
-#DocumentTreeItems::item:has-children:!has-siblings:open:selected,
-#DocumentTreeItems::item:has-children:!has-siblings:open:selected:focus {
-  background-color: @ThemeAccentColor1;
-  border: 1px solid @ThemeAccentColor1;
-  color: #ffffff;
-}
-
-#DocumentTreeItems::item:has-children:!has-siblings:open:hover {
-  background-color: @ThemeAccentColor1;
-  background-color: @ColorPaletteHover;
-  border: 1px solid @ThemeAccentColor1;
-  color: #ffffff;
 }
 
 #DocumentTreeItems::item:has-children:open {
-  background-color: rgba(250,250,250,0.15);
-  background-color: @ColorPaletteOverlayContent;
-  border-width: 1px 1px 2px 1px;
-  border-style: solid;
-  border-top-color: rgba(0,0,0,0.2);
-  border-right-color: rgba(0,0,0,0.2);
-  border-bottom-color: rgba(0,0,0,0.6);
-  border-left-color: rgba(0,0,0,0.2);
   color: #abff7d;
   color: @ColorPaletteTextTreeOpen;
 }
 
-#DocumentTreeItems::item:has-children:open:focus,
-#DocumentTreeItems::item:has-children:open:selected,
-#DocumentTreeItems::item:has-children:open:selected:focus {
-  background-color: @ThemeAccentColor1;
-  border: 1px solid @ThemeAccentColor1;
-  color: #ffffff;
-}
-
-#DocumentTreeItems::item:has-children:open:hover {
-  background-color: @ThemeAccentColor1;
-  background-color: @ColorPaletteHover;
-  border: 1px solid @ThemeAccentColor1;
-  color: #ffffff;
-}
-
 #DocumentTreeItems::item:has-children {
-  background-color: rgba(250,250,250,0.15);
-  background-color: @ColorPaletteOverlayContent;
-  border-width: 1px 1px 2px 1px;
-  border-style: solid;
-  border-top-color: rgba(0,0,0,0.2);
-  border-right-color: rgba(0,0,0,0.2);
-  border-bottom-color: rgba(0,0,0,0.6);
-  border-left-color: rgba(0,0,0,0.2);
   color: #beffff;
   color: @ColorPaletteTextTreeClosed;
 }
 
-#DocumentTreeItems::item:has-children:focus,
+#DocumentTreeItems::item:selected,
 #DocumentTreeItems::item:has-children:selected,
-#DocumentTreeItems::item:has-children:selected:focus {
+#DocumentTreeItems::item:has-children:open:selected,
+#DocumentTreeItems::item:has-children:!has-siblings:open:selected {
   background-color: @ThemeAccentColor1;
   border: 1px solid @ThemeAccentColor1;
   color: #ffffff;
 }
 
-#DocumentTreeItems::item:has-children:hover {
+#DocumentTreeItems::item:focus,
+#DocumentTreeItems::item:has-children:focus,
+#DocumentTreeItems::item:has-children:open:focus,
+#DocumentTreeItems::item:has-children:!has-siblings:open:focus {
+  background-color: @ThemeAccentColor1;
+  color: #ffffff;
+}
+
+#DocumentTreeItems::item:hover,
+#DocumentTreeItems::item:focus:hover,
+#DocumentTreeItems::item:selected:hover,
+#DocumentTreeItems::item:has-children:hover,
+#DocumentTreeItems::item:has-children:focus:hover,
+#DocumentTreeItems::item:has-children:selected:hover,
+#DocumentTreeItems::item:has-children:open:hover,
+#DocumentTreeItems::item:has-children:open:focus:hover,
+#DocumentTreeItems::item:has-children:open:selected:hover,
+#DocumentTreeItems::item:has-children:!has-siblings:open:hover
+#DocumentTreeItems::item:has-children:!has-siblings:open:focus:hover,
+#DocumentTreeItems::item:has-children:!has-siblings:open:selected:hover {
   background-color: @ThemeAccentColor1;
   background-color: @ColorPaletteHover;
-  border: 1px solid @ThemeAccentColor1;
   color: #ffffff;
 }
 
 Gui--TaskView--TaskPanel { 
   background-color: transparent;
-  border: 1px solid transparent;
-  margin: 0px 0px 0px 0px;
-  padding: 0px 0px 0px 0px;
-  border-radius: 10px;
+  margin: 0px;
+  padding: 0px;
+  border: none;
 }
 
 QSint--ActionGroup QFrame[class="content"] {
@@ -449,7 +392,7 @@ QSint--ActionGroup QFrame[class="header"] {
 
 QSint--ActionGroup QFrame[class="header"]:hover {
   background-color: @ThemeAccentColor1;
-  border: 1px solid @ThemeAccentColor1;
+  background-color: @ColorPaletteHover;
   color: #ffffff;
 }
 
@@ -512,20 +455,17 @@ QSint--ActionGroup QFrame[class="content"] QTreeView::item:hover,
 QSint--ActionGroup QFrame[class="content"] QListView::item:hover,
 QSint--ActionGroup QFrame[class="content"] QTableView::item:hover {
   color: #ffffff;
-  border: 1px solid @ThemeAccentColor1;
-  border: 1px solid @ColorPaletteHover;
   background-color: @ThemeAccentColor1;
   background-color: @ColorPaletteHover;
 }
 
+QSint--ActionGroup QFrame[class="content"] QTreeView::item:selected,
 QSint--ActionGroup QFrame[class="content"] QListView::item:selected,
 QSint--ActionGroup QFrame[class="content"] QTableView::item:selected {
   color: #ffffff;
-  border: 1px solid @ThemeAccentColor1;
   background-color: @ThemeAccentColor1;
 }
 
-QSint--ActionGroup QFrame[class="content"] QTreeView::item:selected,
 QSint--ActionGroup QFrame[class="content"] QTreeView::item:focus,
 QSint--ActionGroup QFrame[class="content"] QListView::item:focus,
 QSint--ActionGroup QFrame[class="content"] QTableView::item:focus {
@@ -540,27 +480,27 @@ QSint--ActionGroup QToolButton#filterButton QListWidget {
 }
 
 QSint--ActionGroup QToolButton#filterButton QListWidget::item {
+  background-color: transparent;
+  border: 1px solid transparent;
   color: #eeeeee;
   color: @ColorPaletteTextGeneralTop;
   padding: 2px;
-  background-color: transparent;
-  border: 1px solid transparent;
+  margin-left: 5px;
+  border-radius: 4px;
 }
 
 QSint--ActionGroup QToolButton#filterButton QListWidget::item:hover {
   color: #ffffff;
   background-color: @ThemeAccentColor1;
   background-color: @ColorPaletteHover;
-  border: 1px solid @ThemeAccentColor1;
-  border: 1px solid @ColorPaletteHover;
 }
 
 QSint--ActionGroup QFrame[class="content"] QComboBox QAbstractItemView {
+  background-color: @ThemeAccentColor2;
   border: 1px solid rgba(0,0,0,0.7);
   border-radius: 0px;
   margin: 0px;
   padding: 1px;
-  background-color: @ThemeAccentColor2;
 }
 
 QSint--ActionGroup QFrame[class="content"] > QWidget {
@@ -593,7 +533,8 @@ QSint--ActionGroup QFrame[class="content"] QTreeView::indicator:checked {
 }
 
 QSint--ActionGroup QFrame[class="content"] QTreeView::indicator:checked:hover,
-QSint--ActionGroup QFrame[class="content"] QTreeView::indicator:checked:pressed {
+QSint--ActionGroup QFrame[class="content"] QTreeView::indicator:checked:pressed,
+QSint--ActionGroup QToolButton#filterButton QListWidget::indicator:checked:hover {
   image: url(qss:images_classic/check-mark-white.svg);
 }
 
@@ -696,8 +637,12 @@ Gui--OverlayToolButton:hover {
   image: url(qss:images_classic/close-white.svg);
   background-color: @ThemeAccentColor1;
   background-color: @ColorPaletteHover;
+}
+
+Gui--OverlayToolButton:pressed {
+  image: url(qss:images_classic/close-white.svg);
+  background-color: @ThemeAccentColor1;
   border: 1px solid @ThemeAccentColor1;
-  border: 1px solid @ColorPaletteHover;
 }
 
 Gui--OverlayToolButton {
