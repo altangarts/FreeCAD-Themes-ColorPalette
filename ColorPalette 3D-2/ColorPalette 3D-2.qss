@@ -1450,19 +1450,19 @@ QPushButton:selected {
   border: 2px solid @ThemeAccentColor1;
 }
 
+QToolBar QPushButton {
+  color: #eeeeee;
+  color: @ColorPaletteTextGeneralTop;
+  padding: 10px 8px 11px 8px;
+  border-radius: 4px;
+}
+
 QStatusBar QPushButton {
   color: #eeeeee;
   color: @ColorPaletteTextGeneralBottom;
   padding: 0px 0px 9px 15px;
   min-width: 65px;
   min-height: 16px;
-  border-radius: 4px;
-}
-
-QToolBar QPushButton {
-  color: #eeeeee;
-  color: @ColorPaletteTextGeneralTop;
-  padding: 10px 8px 11px 8px;
   border-radius: 4px;
 }
 
