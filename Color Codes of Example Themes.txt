@@ -29,6 +29,11 @@
         background: #7d6f4f. - selection: #680000.
 
 
+5.1 Sand-DarkRed - Gradient:
+
+        background-top: #5a4e3a, background-bottom: #96835e. - selection: #680000.
+
+
 
 6. GradientFreeCAD-DarkBlue :
 
