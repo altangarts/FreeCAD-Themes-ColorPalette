@@ -65,6 +65,9 @@ It offers four different appearance options for buttons and panels. (2D - 3D)
    - Accent color 2 : (top background)  
    - Accent color 3 : (middle background)  
    - Accent color 3 : (bottom background)
+  
+![Ekran görüntüsü 2026-01-29 1902491](https://github.com/user-attachments/assets/19c2478b-6eb5-4195-8d5c-ae1ded03c14e)
+
    
 #### ✅ Graphic View(Viewport) Colors,
 1. Edit ➡ Preference ➡ Display ➡ IU ➡ Colors ➡ Background color
@@ -79,13 +82,17 @@ It offers four different appearance options for buttons and panels. (2D - 3D)
    - Top    = Accent color 2  
    - Middle = Accent color 3  
    - Bottom = Accent color 3
+
+![Ekran görüntüsü 2026-01-29 190346](https://github.com/user-attachments/assets/4a0dec82-9fed-4060-b6a0-5fb612a32a13)
+
    
 #### ✅ Font Colors,
    1. Edit ➡ Preference ➡ Display ➡ UI ➡ Open Theme Editor ➡ User Parameters
 
        - ColorPaletteText...   ---(If these variables are not visible, install using the "Theme Selection 1" directive)---
        - And "Property Editor Gridline" color setting
-
+     
+  ![Ekran görüntüsü 2026-01-29 190924](https://github.com/user-attachments/assets/59c464fa-9a18-46e5-9def-f57ae3d343b2)
 
   ___________________
  ## ☑️ Note: 
