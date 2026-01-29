@@ -134,6 +134,12 @@ QTabWidget QPushButton {
   margin: 0px 0px 0px 0px;
 }
 
+QTabWidget QPushButton:disabled {
+  background-color: rgba(0,0,0,0.05);
+  color: #bbbbbb;
+  color: @ColorPaletteTextDisabled;
+}
+
 QTabWidget QPushButton:hover {
   background-color: @ThemeAccentColor1;
   background-color: @ColorPaletteHover;
@@ -312,6 +318,11 @@ Gui--TreePanel QTreeView::indicator:checked:disabled  {
   border-radius: 4px;
   margin: 1px 0px 1px 0px;
   padding: 1px 0px 1px 0px;
+}
+
+#DocumentTreeItems:disabled {
+  background-color: rgba(0,0,0,0.05);
+  background-color: @ColorPaletteOverlayHeader1; 
 }
 
 #DocumentTreeItems::item:has-children:!has-siblings:open {

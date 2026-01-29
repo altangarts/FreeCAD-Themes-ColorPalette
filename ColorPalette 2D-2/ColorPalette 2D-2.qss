@@ -1422,6 +1422,7 @@ QDialog QPushButton {
 }
 
 QPushButton:disabled {
+  background-color: rgba(0,0,0,0.05);
   color: #bbbbbb;
   color: @ColorPaletteTextDisabled;
 }
@@ -1489,6 +1490,15 @@ QStatusBar QPushButton:pressed {
   background-color: @ThemeAccentColor1;
   border: 1px solid @ThemeAccentColor1;
   color: #ffffff;
+}
+
+QToolBar QPushButton:disabled,
+QDialog QPushButton:disabled,
+QDockWidget QPushButton:disabled,
+QStatusBar QPushButton:disabled {
+  background-color: rgba(0,0,0,0.05);
+  color: #bbbbbb;
+  color: @ColorPaletteTextDisabled;
 }
 
 QDialog QListView QPushButton {
@@ -1606,6 +1616,7 @@ QToolBar QToolButton {
 }
 
 QToolBar QToolButton:disabled {
+  background-color: rgba(0,0,0,0.05);
   padding: 2px 2px 8px 3px;
 }
 
@@ -2896,6 +2907,10 @@ QTabWidget QTreeView::branch:has-children:open:hover {
   border-radius: 4px;
   color: #ffff69;
   color: @ColorPaletteTextTreeEnd;
+}
+
+#DocumentTreeItems::item:disabled {
+  background-color: rgba(0,0,0,0.15);
 }
 
 #DocumentTreeItems::item:has-children {

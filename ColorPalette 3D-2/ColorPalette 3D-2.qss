@@ -1424,6 +1424,7 @@ QPushButton {
 }
 
 QPushButton:disabled {
+  background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop: 0 rgba(0,0,0,0.05), stop: 0.75 rgba(0,0,0,0.05), stop: 1 rgba(0,0,0,0.35));
   color: #bbbbbb;
   color: @ColorPaletteTextDisabled;
 }
@@ -1493,6 +1494,15 @@ QStatusBar QPushButton:pressed {
   background-color: @ThemeAccentColor1;
   border: 1px solid @ThemeAccentColor1;
   color: #ffffff;
+}
+
+QToolBar QPushButton:disabled,
+QDialog QPushButton:disabled,
+QDockWidget QPushButton:disabled,
+QStatusBar QPushButton:disabled {
+  background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop: 0 rgba(0,0,0,0.05), stop: 0.75 rgba(0,0,0,0.05), stop: 1 rgba(0,0,0,0.35));
+  color: #bbbbbb;
+  color: @ColorPaletteTextDisabled;
 }
 
 QDialog QListView QPushButton {
@@ -1611,6 +1621,7 @@ QToolBar QToolButton {
 }
 
 QToolBar QToolButton:disabled {
+  background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop: 0 rgba(0,0,0,0.05), stop: 0.8 rgba(0,0,0,0.05), stop: 1 rgba(0,0,0,0.35));
   padding: 2px 2px 8px 3px;
 }
 
@@ -2904,6 +2915,10 @@ QTabWidget QTreeView::branch:has-children:open:hover {
   border-radius: 4px;
   color: #ffff69;
   color: @ColorPaletteTextTreeEnd;
+}
+
+#DocumentTreeItems::item:disabled {
+  background-color: rgba(0,0,0,0.15);
 }
 
 #DocumentTreeItems::item:has-children {
