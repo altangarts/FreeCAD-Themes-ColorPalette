@@ -108,7 +108,13 @@ It offers four different appearance options for buttons and panels. (2D - 3D)
 
 ⤵️
 ![Ekran görüntüsü 2026-01-29 203552](https://github.com/user-attachments/assets/d64488e9-7bba-453f-8a53-d66ad3222f0b)
-       - Additionally, the light and object color are adjusted in the ColorPalette theme settings so that the outlines of the objects are easily visible. The outlines do not disappear in shadow or light
+
+#### ✅ Shape Appearance Settings,
+   1. Edit ➡ Preference ➡ Part/Part Design ➡ Shape Appearance
+
+       - The light and object color are adjusted in the ColorPalette theme settings so that the outlines of the objects are easily visible. The outlines do not disappear in shadow or light
+⤵️
+![Ekran görüntüsü 2026-01-29 211941](https://github.com/user-attachments/assets/4f782058-894f-4a03-8313-099e71a2fd78)
 
 Sample
 ⤵️
