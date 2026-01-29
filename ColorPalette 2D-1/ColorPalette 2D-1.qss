@@ -2923,8 +2923,6 @@ QTabWidget QTreeView::item:last:has-children:!has-siblings:open:focus {
 }
 
 QTabWidget QTreeView::branch {
-  background-color: rgba(0,0,0,0.08);
-  background-color: @ColorPalettePropertyitem;
   margin: 1px -1px 2px 0px;
   border-top-left-radius: 4px;
   border-top-right-radius: 0px;
