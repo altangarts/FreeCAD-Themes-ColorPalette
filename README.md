@@ -104,8 +104,8 @@ It offers four different appearance options for buttons and panels. (2D - 3D)
 #### ✅ Light Colors and Settings,
    1. Edit ➡ Preference ➡ Display ➡ Light Sources
 
-   -  With the ColorPalette configuration lighting settings, objects do not whiten or blacken at any angle of view
-   -  Additionally, the light and object color are adjusted in the ColorPalette theme settings so that the outlines of the objects are easily visible. The outlines do not disappear in shadow or light
+       - With the ColorPalette configuration lighting settings, objects do not whiten or blacken at any angle of view
+       - Additionally, the light and object color are adjusted in the ColorPalette theme settings so that the outlines of the objects are easily visible. The outlines do not disappear in shadow or light
 
 ⤵️
 ![Ekran görüntüsü 2026-01-29 203552](https://github.com/user-attachments/assets/d64488e9-7bba-453f-8a53-d66ad3222f0b)
