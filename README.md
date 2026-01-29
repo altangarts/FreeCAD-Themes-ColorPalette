@@ -101,6 +101,14 @@ It offers four different appearance options for buttons and panels. (2D - 3D)
 ⤵️     
 ![Ekran görüntüsü 2026-01-29 190924](https://github.com/user-attachments/assets/59c464fa-9a18-46e5-9def-f57ae3d343b2)
 
+#### ✅ Light Colors and Settings,
+   1. Edit ➡ Preference ➡ Display ➡ Light Sources
+
+ ----- (With the ColorPalette configuration lighting settings, objects do not whiten or blacken at any angle) ----- 
+
+⤵️
+![Ekran görüntüsü 2026-01-29 203552](https://github.com/user-attachments/assets/d64488e9-7bba-453f-8a53-d66ad3222f0b)
+
   ___________________
  ## ☑️ Note: 
  
