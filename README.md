@@ -88,7 +88,8 @@ It offers four different appearance options for buttons and panels. (2D - 3D)
    - Bottom = Accent color 3
 
 ⤵️
-![Ekran görüntüsü 2026-01-29 190346](https://github.com/user-attachments/assets/4a0dec82-9fed-4060-b6a0-5fb612a32a13)
+![Ekran görüntüsü 2026-01-29 190346](https://github.com/user-attachments/assets/8ac0182d-340b-4824-98c7-eea09697811c)
+
 
    
 #### ✅ Font Colors,
