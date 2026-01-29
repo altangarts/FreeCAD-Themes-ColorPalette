@@ -11,6 +11,7 @@ It offers four different appearance options for buttons and panels. (2D - 3D)
  
 #### ✅ İnstallation (Primary) :
 ➡️Launch FreeCAD - Tools - Addon Manager - Search "Color Palette Theme" and İnstall
+
 ⤵️
 ![Ekran görüntüsü 2026-01-29 190000](https://github.com/user-attachments/assets/94e4d0a6-b083-4972-9531-b998a4b88836)
 
@@ -41,6 +42,7 @@ It offers four different appearance options for buttons and panels. (2D - 3D)
 #### ✅ Theme Selection 1 :
 ----- (with ColorPalette configuration, automatic "Overlay" selection and "Gradient FreeCAD" theme settings for first installation) -----
 1. Edit ➡ Preference ➡ General ➡ Application ➡ Theme - and restart
+
 ⤵️
 ![Ekran görüntüsü 2026-01-29 185701](https://github.com/user-attachments/assets/c9d265f4-c1d1-43f5-b6a6-213d0d414ac5)
 
@@ -49,6 +51,7 @@ It offers four different appearance options for buttons and panels. (2D - 3D)
 ----- (Choosing a theme without changing your configuration) -----
 1. Edit ➡ Preference ➡ Display ➡ UI ➡ Theme Customization ➡ Style Sheet(Advanced) = Theme
 2. Edit ➡ Preference ➡ Display ➡ UI ➡ Theme Customization ➡ Overlay Style Sheet = Overlay (Select same name as the theme)
+
 ⤵️
 ![Ekran görüntüsü 2026-01-29 190249](https://github.com/user-attachments/assets/a012d272-e9dd-4b0e-a9f7-96a6072201e8)
 
@@ -65,6 +68,7 @@ It offers four different appearance options for buttons and panels. (2D - 3D)
    - Accent color 2 : (top background)  
    - Accent color 3 : (middle background)  
    - Accent color 3 : (bottom background)
+
 ⤵️
 ![Ekran görüntüsü 2026-01-29 1902491](https://github.com/user-attachments/assets/19c2478b-6eb5-4195-8d5c-ae1ded03c14e)
 
@@ -82,6 +86,7 @@ It offers four different appearance options for buttons and panels. (2D - 3D)
    - Top    = Accent color 2  
    - Middle = Accent color 3  
    - Bottom = Accent color 3
+
 ⤵️
 ![Ekran görüntüsü 2026-01-29 190346](https://github.com/user-attachments/assets/4a0dec82-9fed-4060-b6a0-5fb612a32a13)
 
@@ -91,6 +96,7 @@ It offers four different appearance options for buttons and panels. (2D - 3D)
 
        - ColorPaletteText...   ---(If these variables are not visible, install using the "Theme Selection 1" directive)---
        - And "Property Editor Gridline" color setting
+
 ⤵️     
 ![Ekran görüntüsü 2026-01-29 190924](https://github.com/user-attachments/assets/59c464fa-9a18-46e5-9def-f57ae3d343b2)
 
