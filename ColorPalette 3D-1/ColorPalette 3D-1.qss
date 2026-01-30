@@ -1500,7 +1500,7 @@ QDialog QListView QPushButton:disabled {
   color: #bbbbbb;
   color: @ColorPaletteTextDisabled;
   border-radius: 4px;
-  padding: 2px 5px 5px 5px;  
+  padding: 2px 5px 5px 5px;
   margin: 0px 0px 1px 0px;
 }
 
@@ -2991,25 +2991,18 @@ QDialog QListWidget {
   selection-color: #ffffff;
 }
 
-QDialog QListView QFrame {
-  margin: 3px 0px -4px 0px;
-  padding: 1px 4px 0px 0px;
-}
-
 QDialog QListView QLabel {
   background-color: transparent;
   border: 1px solid transparent;
   color: #eeeeee;
   color: @ColorPaletteTextDarkenList;
-  padding: 0px 0px 0px 4px;  
-  margin: 0px 0px 0px 0px;
 }
 
 QListView::item {
-  background-color: rgba(0,0,0,0.06);
-  border: 0px solid rgba(0,0,0,0.1);
+  background-color: rgba(0,0,0,0.05);
+  border: 1px solid transparent;
   margin: 1px 0px 1px 0px;
-  padding: 0px 0px -1px 0px;
+  padding: 2px 0px 2px 2px;
   border-radius: 4px;
 }
 
@@ -3067,7 +3060,7 @@ QDialog QTableView {
 }
 
 QDialog#Gui__Dialog__DlgPreferences > QListView {
-  background-color: @ThemeAccentColor3;
+  background-color: @ThemeAccentColor2;
   color: #eeeeee;
   color: @ColorPaletteTextGeneralTop;
   border: 1px solid rgba(0,0,0,0.3);
@@ -3081,7 +3074,7 @@ QDialog#Gui__Dialog__DlgPreferences > QListView::item {
   background-color: rgba(0,0,0,0.06);
   border: 0px solid rgba(0,0,0,0.1);
   margin: 0px 0px 1px 0px;
-  padding: 0px;
+  padding: 2px;
   border-radius: 4px;
 }
 
@@ -3109,29 +3102,38 @@ QDialog QTreeView {
   selection-color: #ffffff;
 }
 
-QDialog QTreeView::item:has-children:!has-siblings:open { 
+QDialog QTreeView::item:has-children:!has-siblings:open,
+QDialog QTreeView::item:has-children:open { 
   color: #abff7d;
   color: @ColorPaletteTextTreeOpen;
 }
 
+QDialog QTreeView::item:has-children {
+  color: #beffff;
+  color: @ColorPaletteTextTreeClosed;
+}
+
 QDialog QTreeView:item {
-  background-color: rgba(0,0,0,0.04);
+  background-color: rgba(0,0,0,0.05);
   margin: 1px 1px 1px 0px;
+  padding: 2px 0px 2px 2px;
+  border-radius: 4px;
 }
 
 QDialog QTreeView:item:hover {
   background-color: @ThemeAccentColor1;
   background-color: @ColorPaletteHover;
-  border: 0px solid @ThemeAccentColor1;
   color: #ffffff;
-  margin: 1px 0px 1px 0px;
 }
 
-QDialog QTreeView:item:selected {
+QDialog QTreeView:item:focus {
   background-color: @ThemeAccentColor1;
-  border: 1px solid @ThemeAccentColor1;
   color: #ffffff;
-  margin: 1px 0px 1px 0px;
+}
+
+QDialog QTreeView::indicator,
+QDialog QListView::indicator {
+  margin-bottom: 0px;
 }
 
 /* QHeaderView ------------------------------------------------------------
@@ -3543,15 +3545,13 @@ QTreeView::branch#groupsTreeView:selected {
 }
 
 QTreeView::item#groupsTreeView:selected {
-  margin-left: -2px;
+  margin-left: -1px;
 }
 
 QTreeView::item#groupsTreeView:selected:hover,
 QTreeView::branch#groupsTreeView:selected:hover {
   background-color: @ThemeAccentColor1;
   background-color: @ColorPaletteHover;
-  border: 1px solid @ThemeAccentColor1;
-  border: 1px solid @ColorPaletteHover;
   color: #eeeeee;
 }
 
