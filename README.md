@@ -15,8 +15,6 @@ It offers four different appearance options for buttons and panels. (2D - 3D)
 ⤵️
 ![Ekran görüntüsü 2026-01-29 190000](https://github.com/user-attachments/assets/94e4d0a6-b083-4972-9531-b998a4b88836)
 
-  (For "FreeCAD 1.02" you need to install the new addon manager plugin from the addon manager.)
-
 #### ✅ İnstallation (Manual) :
 
 ↘️Extract `FreeCAD-Themes-ColorPalette-main.rar` to
@@ -132,7 +130,7 @@ Sample
    - Color selection suggestion: 'Dark colors' and 'Dark and pale pastel colors'
    - When using "Overlay", darker or a gradient from dark to lighter colors from top to bottom is recommended
 ### Prerequisites
-* FreeCAD ≥ v1.0.0
+* FreeCAD ≥ v1.1.0
 
 ### Discussion
 * FreeCAD forum [thread](https://forum.freecad.org/viewtopic.php?t=93274)
