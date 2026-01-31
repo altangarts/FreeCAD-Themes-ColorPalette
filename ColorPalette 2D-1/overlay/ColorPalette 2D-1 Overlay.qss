@@ -65,7 +65,7 @@ QTabWidget QDialog QTreeView::item:has-children:open {
 QTabWidget QTreeView::item:has-children:!has-siblings:open,
 QTabWidget QTreeView::item:has-children:open {
   background-color: rgba(0,0,0,0.15);
-  background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop: 0 @ColorPaletteOverlayHeader, stop: 0.8 @ColorPaletteOverlayHeader, stop: 1 rgba(0,0,0,0.9));
+  background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop: 0 @ColorPaletteOverlayHeader3, stop: 0.8 @ColorPaletteOverlayHeader3, stop: 1 rgba(0,0,0,0.9));
 }
 
 QTabWidget QTreeView::item {
@@ -73,7 +73,7 @@ QTabWidget QTreeView::item {
   background-color: @ColorPaletteOverlayContent;
   border: 0px solid rgba(0,0,0,0.15);
   border-radius: 4px;
-  margin: 1px 2px 2px 0px;
+  margin: 0px 2px 2px 0px;
   color: #ffff69;
   color: @ColorPaletteTextTreeEnd;
 }
@@ -423,14 +423,17 @@ QSint--ActionGroup QFrame[class="content"] {
   background-color: rgba(250,250,250,0.15);
   background-color: @ColorPaletteOverlayContent;
   border: 1px solid rgba(0,0,0,0.15);
-  border-radius: 6px;
   margin: 0px 0px 0px 0px;
   padding: -5px;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+  border-bottom-left-radius: 14px;
+  border-bottom-right-radius: 14px;
 }
 
 QSint--ActionGroup QFrame[class="header"] {
-  background-color: rgba(250,250,250,0.15);
-  background-color: @ColorPaletteOverlayHeader;
+  background-color: rgba(0,0,0,0.15);
+  background-color: @ColorPaletteOverlayHeader3;
   border-width: 1px 1px 2px 1px;
   border-style: solid;
   border-top-color: rgba(0,0,0,0.2);
@@ -467,40 +470,40 @@ QSint--ActionGroup QFrame[class="header"] QLabel {
 
 QSint--ActionGroup QFrame[class="content"] QListView,
 QSint--ActionGroup QFrame[class="content"] QTableView {
+  background-color: transparent;
+  border: 0px solid transparent;
   color: #ffff69;
   color: @ColorPaletteTextList;
-  margin: 0px 2px 2px 2px;
-  padding: 5px 0px 5px 5px;
-  border: 1px solid rgba(0,0,0,0.15);
+  margin: 0px;
+  padding: 0px;
   border-radius: 8px;
-  background-color: rgba(250,250,250,0.07);
 }
 
 QSint--ActionGroup QFrame[class="content"] QTreeView {
+  background-color: rgba(250,250,250,0.04);
+  border: 1px solid rgba(0,0,0,0.1);
   color: #ffff69;
   color: @ColorPaletteTextList;
-  margin: 0px 2px 0px 2px;
-  padding: 5px;
-  border: 1px solid rgba(0,0,0,0.15);
+  margin: 0px;
+  padding: 3px 0px 0px 3px;
   border-radius: 8px;
-  background-color: rgba(250,250,250,0.07);
 }
 
 QSint--ActionGroup QFrame[class="content"] QListView::item,
 QSint--ActionGroup QFrame[class="content"] QTableView::item {
-  margin: 1px 5px 1px 0px;
-  padding: 2px;
-  background-color: rgba(0,0,0,0.07);
+  background-color: rgba(0,0,0,0.1);
   border: 1px solid transparent;
+  margin: 1px 0px 1px 0px;
+  padding: 2px;
   border-radius: 6px;
 }
 
 QSint--ActionGroup QFrame[class="content"] QTreeView::item {
-  margin: 2px 2px 0px 0px;
-  padding: 2px;
-  background-color: rgba(0,0,0,0.07);
+  background-color: rgba(0,0,0,0.1);
   border: 1px solid transparent;
-  border-radius: 3px;
+  margin: 1px 1px 1px 0px;
+  padding: 2px;
+  border-radius: 4px;
 }
 
 QSint--ActionGroup QFrame[class="content"] QTreeView::item:hover,
@@ -537,7 +540,7 @@ QSint--ActionGroup QToolButton#filterButton QListWidget::item {
   color: #eeeeee;
   color: @ColorPaletteTextGeneralTop;
   padding: 2px;
-  margin-left: 5px;
+  margin: 2px 3px 0px 3px;
   border-radius: 4px;
 }
 
@@ -567,7 +570,7 @@ QSint--ActionGroup QFrame[class="content"] QListView::indicator {
   height: 12px;
   width: 12px;
   padding: 2px;
-  margin: 4px 4px 2px 4px;
+  margin: 3px 4px 4px 4px;
 }
 
 QSint--ActionGroup QFrame[class="content"] QTreeView::indicator:disabled,
@@ -576,7 +579,7 @@ QSint--ActionGroup QFrame[class="content"] QListView::indicator:disabled {
   height: 12px;
   width: 12px;
   padding: 2px;
-  margin: 4px 4px 2px 4px;
+  margin: 3px 4px 4px 4px;
 }
 
 QSint--ActionGroup QFrame[class="content"] QTreeView::indicator:checked,
@@ -635,7 +638,7 @@ QSint--ActionGroup QFrame[class="header"] QLabel[fold="true"]:hover {
 
 QSint--ActionGroup QFrame[class="content"] QPushButton {
   background-color: rgba(250,250,250,0.1);  
-  border: 1px solid rgba(0,0,0,0.2);
+  border: 1px solid rgba(0,0,0,0.15);
   color: #eeeeee;
   color: @ColorPaletteTextGeneralBottom;
   text-align: center;
