@@ -116,13 +116,24 @@ QTabWidget QAbstractItemView {
 QTabWidget QTreeView QPushButton {
   background-color: @ThemeAccentColor1;
   border: 1px solid @ThemeAccentColor1;
-  margin-right: 2px;
-  padding: 0px 0px 2px 0px;
+  margin: 0px 3px 1px 0px;
+  padding: 0px;
   color: #ffffff;
   border-top-left-radius: 0px;
   border-top-right-radius: 4px;
   border-bottom-left-radius: 0px;
   border-bottom-right-radius: 4px;
+}
+
+QTabWidget QDialog QPushButton {
+  background-color: rgba(250,250,250,0.1);
+  border: 1px solid rgba(0,0,0,0.15);
+  color: #eeeeee;
+  color: @ColorPaletteTextGeneralBottom;
+  text-align: center;
+  border-radius: 4px;
+  padding: 3px 8px 6px 8px;
+  margin: 0px 0px 0px 0px;
 }
 
 QTabWidget QPushButton {
@@ -137,19 +148,14 @@ QTabWidget QPushButton {
   margin: 0px 0px 0px 0px;
 }
 
-QTabWidget QDialog QPushButton {
-  background-color: qlineargradient(x1:0, y1:0.3, x2:0, y2:1, stop:0 rgba(250,250,250,0.2), stop:1 rgba(0,0,0,0.2));
-  color: #eeeeee;
-  color: @ColorPaletteTextGeneralBottom;
-  text-align: center;
-  border: 1px solid rgba(0,0,0,0.2);
-  border-radius: 6px;
-  padding: 3px 8px 6px 8px;  
-  margin: 0px 0px 0px 0px;
-}
-
 QTabWidget QPushButton:disabled {
   background-color: qlineargradient(x1:0, y1:0.3, x2:0, y2:1, stop:0 rgba(250,250,250,0.1), stop:1 rgba(0,0,0,0.35));
+  color: #bbbbbb;
+  color: @ColorPaletteTextDisabled;
+}
+
+QTabWidget QDialog QPushButton:disabled {
+  background-color: rgba(0,0,0,0.2);
   color: #bbbbbb;
   color: @ColorPaletteTextDisabled;
 }
@@ -463,7 +469,7 @@ QSint--ActionGroup QFrame[class="content"] QTableView::item {
 }
 
 QSint--ActionGroup QFrame[class="content"] QTreeView::item {
-  background-color: rgba(0,0,0,0.1);
+  background-color: rgba(0,0,0,0.05);
   border: 1px solid transparent;
   margin: 1px 1px 1px 0px;
   padding: 2px;
@@ -496,6 +502,7 @@ QSint--ActionGroup QToolButton#filterButton QListWidget {
   color: @ColorPaletteTextGeneralTop;
   background-color: transparent;
   border: none;
+  padding: 5px;
 }
 
 QSint--ActionGroup QToolButton#filterButton QListWidget::item {
