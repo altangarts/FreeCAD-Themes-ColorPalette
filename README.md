@@ -148,6 +148,7 @@ Sample
 
 ⤵️
 ![Ekran görüntüsü 2026-01-30 005909](https://github.com/user-attachments/assets/59e4e184-bcdf-4055-b52c-c2fe37f867c0)
+  ___________________
 
 
 #### Accent color 1 : #55007f. (Selection)
@@ -155,6 +156,7 @@ Sample
 #### Accent color 3 : #323230. (Background-Bottom)
 
 ![Ekran görüntüsü 2026-01-30 010117](https://github.com/user-attachments/assets/a17f5828-a6ba-4f3e-8d24-25a1718c9020)
+  ___________________
 
 
 #### Accent color 1 : #8c4600. (Selection)
@@ -163,6 +165,7 @@ Sample
 
 ⤵️
 ![Ekran görüntüsü 2026-01-30 010055](https://github.com/user-attachments/assets/a66f5eb5-89a5-4194-9092-ebd6c9594a32)
+  ___________________
 
 
 #### Accent color 1 : #34694e. (Selection)
@@ -171,6 +174,7 @@ Sample
 
 ⤵️
 ![Ekran görüntüsü 2026-01-30 010135](https://github.com/user-attachments/assets/f66aa18f-565d-4d76-8b1b-44ca1734aa2b)
+  ___________________
 
 
 #### Accent color 1 : #680000. (Selection)
@@ -179,6 +183,7 @@ Sample
 
 ⤵️
 ![Ekran görüntüsü 2026-01-30 005934](https://github.com/user-attachments/assets/6aa8a02f-bb1d-4cab-b224-cf33834065c0)
+  ___________________
 
 
 #### Accent color 1 : #37575a. (Selection)
@@ -187,6 +192,7 @@ Sample
 
 ⤵️
 ![Ekran görüntüsü 2026-01-30 005954](https://github.com/user-attachments/assets/97184e40-0592-4f59-a2b5-4842adec96c1)
+  ___________________
 
 
 #### Accent color 1 : #5f3e00. (Selection)
@@ -195,6 +201,7 @@ Sample
 
 ⤵️
 ![Ekran görüntüsü 2026-01-30 010012](https://github.com/user-attachments/assets/518e9c4f-c613-48b3-9109-cd7752561a03)
+  ___________________
 
 
 #### Accent color 1: #642964. (Selection)
@@ -203,6 +210,7 @@ Sample
 
 ⤵️
 ![Ekran görüntüsü 2026-01-30 010032](https://github.com/user-attachments/assets/75833529-8906-4386-bb71-0bd29170d7d8)
+  ___________________
 
 
 
