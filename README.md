@@ -62,10 +62,10 @@ It offers four different appearance options for buttons and panels. (2D - 3D)
 1. Edit ➡ Preference ➡ Display ➡ UI ➡ Theme Customization
 
 
-   - Accent color 1 : (Selection and Hover background)  
-   - Accent color 2 : (top background)  
-   - Accent color 3 : (middle background)  
-   - Accent color 3 : (bottom background)
+   - "Accent color 1" = Selection background 
+   - "Accent color 2" = Top background
+   - "Accent color 3" = Middle background
+   - "Accent color 3" = Bottom background
 
 ⤵️
 ![Ekran görüntüsü 2026-01-29 1902491](https://github.com/user-attachments/assets/19c2478b-6eb5-4195-8d5c-ae1ded03c14e)
@@ -81,9 +81,9 @@ It offers four different appearance options for buttons and panels. (2D - 3D)
 2. Linear Gradient color position:
 
 
-   - Top    = Accent color 2  
-   - Middle = Accent color 3  
-   - Bottom = Accent color 3
+   - Top    = "Accent color 2"  
+   - Middle = "Accent color 3"  
+   - Bottom = "Accent color 3"
 
 ⤵️
 ![Ekran görüntüsü 2026-01-29 190346](https://github.com/user-attachments/assets/8ac0182d-340b-4824-98c7-eea09697811c)
@@ -144,64 +144,66 @@ Sample
  
 
 ⤵️
-#### Selection(Accent color 1) : #00557f.
-#### Background-top(Accent color 2) : #2c2c57.
-#### Background-Bottom(Accent color 3) : #777788.
+#### Accent color 1 : #00557f. (Selection)
+#### Accent color 2 : #2c2c57. (Background-Top)
+#### Accent color 3 : #777788. (Background-Bottom)
 
 ![Ekran görüntüsü 2026-01-30 005909](https://github.com/user-attachments/assets/59e4e184-bcdf-4055-b52c-c2fe37f867c0)
 
 
 ⤵️
-#### Selection(Accent color 1) : #55007f.
-#### Background(Accent color 2-3) : #323230.(lowblue) 
+#### Accent color 1 : #55007f. (Selection)
+#### Accent color 2 : #323230. (Background-Top)
+#### Accent color 3 : #323230. (Background-Bottom)
 
 ![Ekran görüntüsü 2026-01-30 010117](https://github.com/user-attachments/assets/a17f5828-a6ba-4f3e-8d24-25a1718c9020)
 
 
 ⤵️
-#### Selection(Accent color 1) : #8c4600.
-#### Background(Accent color 2-3) : #898987.(lowblue) 
+#### Accent color 1 : #8c4600. (Selection)
+#### Accent color 2 : #898987. (Background-Top)
+#### Accent color 3 : #898987. (Background-Bottom)
 
 ![Ekran görüntüsü 2026-01-30 010055](https://github.com/user-attachments/assets/a66f5eb5-89a5-4194-9092-ebd6c9594a32)
 
 
 ⤵️
-#### Selection(Accent color 1) : #34694e.
-#### Background-top(Accent color 2) : #454542.
-#### Background-Bottom(Accent color 3) : #777775. 
+#### Accent color 1 : #34694e. (Selection)
+#### Accent color 2 : #454542. (Background-Top)
+#### Accent color 3 : #777775. (Background-Bottom)
 
 ![Ekran görüntüsü 2026-01-30 010135](https://github.com/user-attachments/assets/f66aa18f-565d-4d76-8b1b-44ca1734aa2b)
 
 
 ⤵️
-#### Selection(Accent color 1) : #680000.
-#### Background-top(Accent color 2) : #463c2e.
-#### Background-Bottom(Accent color 3) : #7d6f4f.
+#### Accent color 1 : #680000. (Selection)
+#### Accent color 2 : #463c2e. (Background-Top)
+#### Accent color 3 : #7d6f4f. (Background-Bottom)
 
 ![Ekran görüntüsü 2026-01-30 005934](https://github.com/user-attachments/assets/6aa8a02f-bb1d-4cab-b224-cf33834065c0)
 
 
 ⤵️
-#### Selection(Accent color 1) : #37575a.
-#### Background-top(Accent color 2) : #5b6264.
-#### Background-Bottom(Accent color 3) : #898987.
+#### Accent color 1 : #37575a. (Selection)
+#### Accent color 2 : #5b6264. (Background-Top)
+#### Accent color 3 : #898987. (Background-Bottom)
 
 ![Ekran görüntüsü 2026-01-30 005954](https://github.com/user-attachments/assets/97184e40-0592-4f59-a2b5-4842adec96c1)
 
 
 ⤵️
-#### Selection(Accent color 1) : #5f3e00.
-#### Background-top(Accent color 2) : #696253. 
-#### Background-Bottom(Accent color 3) : #898987.
+#### Accent color 1 : #5f3e00. (Selection)
+#### Accent color 2 : #696253. (Background-Top)
+#### Accent color 3 : #898987. (Background-Bottom)
 
 
 ![Ekran görüntüsü 2026-01-30 010012](https://github.com/user-attachments/assets/518e9c4f-c613-48b3-9109-cd7752561a03)
 
 
 ⤵️
-#### Selection(Accent color 1): #642964.
-#### Background-top(Accent color 2): #6e5060. 
-#### Background-Bottom(Accent color 3): #898987.
+#### Accent color 1: #642964. (Selection)
+#### Accent color 2: #6e5060. (Background-Top)
+#### Accent color 3: #898987. (Background-Bottom)
 
 
 ![Ekran görüntüsü 2026-01-30 010032](https://github.com/user-attachments/assets/75833529-8906-4386-bb71-0bd29170d7d8)
