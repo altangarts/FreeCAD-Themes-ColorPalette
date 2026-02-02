@@ -93,8 +93,10 @@ It offers four different appearance options for buttons and panels. (2D - 3D)
 #### ✅ Font Colors - Font Size,
    1. Edit ➡ Preference ➡ Display ➡ UI ➡ Open Theme Editor ➡ User Parameters
 
-       - ColorPaletteText...   ---(If these variables are not visible, install using the "Theme Selection 1" directive)---
+       - ColorPaletteText... 
        - ColorPaletteFontSize...
+
+ ---(If these variables are not visible, install using the "Theme Selection 1" directive)---
 
 ⤵️     
 ![Ekran görüntüsü 2026-01-29 190924](https://github.com/user-attachments/assets/59c464fa-9a18-46e5-9def-f57ae3d343b2)
