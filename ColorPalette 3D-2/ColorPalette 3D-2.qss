@@ -1278,7 +1278,7 @@ QTextBrowser {
   color: @ColorPaletteTextDarkenList;
   border: 1px solid rgba(0,0,0,0.1);
   border-radius: 10px;
-  padding: 10px;
+  padding: 10px 5px 10px 5px;
 }
 
 QTextBrowser:disabled {
@@ -3092,7 +3092,7 @@ QWidget QListView {
   color: @ColorPaletteTextGeneralTop;
   border: 1px solid rgba(0,0,0,0.1);
   border-radius: 10px;
-  padding: 10px;
+  padding: 10px 5px 10px 5px;
 }
 
 QDialog QGroupBox QListWidget {
