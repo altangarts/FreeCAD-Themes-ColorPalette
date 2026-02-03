@@ -80,8 +80,6 @@ Resetting everything helps to unify styles across different operating systems
   outline: 0;
   selection-background-color: #101010;
   selection-color: #ffffff;
-  color: #eeeeee;
-  color: @ColorPaletteTextGeneralBottom;
   font-size: 11px;
   font-size: @ColorPaletteFontSizeGeneral;
 }
@@ -396,6 +394,8 @@ QToolTip {
 --------------------------------------------------------------------------- */
 QStatusBar {
   background-color: rgba(250,250,250,0.07);
+  color: #eeeeee;
+  color: @ColorPaletteTextGeneralBottom;
   border-width: 1px 1px 2px 1px;
   border-style: solid;
   border-top-color: rgba(0,0,0,0.2);
@@ -408,8 +408,7 @@ QStatusBar {
   min-height: 25px;
 }
 
-QStatusBar QLabel,
-QStatusBar QColumnView QLabel {
+QStatusBar QLabel {
   color: #eeeeee;
   color: @ColorPaletteTextGeneralBottom;
   background-color: transparent;
@@ -1313,7 +1312,7 @@ QLabel:disabled {
 }
 
 QLabel[haslink="true"] {
-  color: #ffffff;
+  color: #ffff69;
 }
 
 /* QTextBrowser -----------------------------------------------------------
@@ -1377,7 +1376,7 @@ QCalendarWidget {
 }
 
 QCalendarWidget:disabled {
-  background-color: rgba(0,0,0,0.4);
+  background-color: rgba(0,0,0,0.2);
   color: #bbbbbb;
   color: @ColorPaletteTextDisabled;
 }
@@ -1391,7 +1390,7 @@ QLCDNumber {
 }
 
 QLCDNumber:disabled {
-  background-color: rgba(0,0,0,0.4);
+  background-color: rgba(0,0,0,0.2);
   color: #bbbbbb;
   color: @ColorPaletteTextDisabled;
 }
@@ -1401,14 +1400,14 @@ QLCDNumber:disabled {
 --------------------------------------------------------------------------- */
 QProgressBar {
   background-color: rgba(0,0,0,0.1);
-  border: 1px solid rgba(0,0,0,0.2);
+  border: 1px solid rgba(0,0,0,0.15);
   color: #eeeeee;
   border-radius: 4px;
   text-align: center;
 }
 
 QProgressBar:disabled {
-  background-color: rgba(0,0,0,0.4);
+  background-color: rgba(0,0,0,0.2);
   border: 1px solid rgba(0,0,0,0.2);
   color: #bbbbbb;
   color: @ColorPaletteTextDisabled;
@@ -1423,7 +1422,7 @@ QProgressBar::chunk {
 }
 
 QProgressBar::chunk:disabled {
-  background-color: rgba(0,0,0,0.4);
+  background-color: rgba(0,0,0,0.2);
   color: #bbbbbb;
   color: @ColorPaletteTextDisabled;
   border-radius: 4px;
@@ -1723,6 +1722,7 @@ QCommandLinkButton {
   background-color: rgba(250,250,250,0.1);
   border: 1px solid rgba(0,0,0,0.2);
   color: #eeeeee;
+  color: @ColorPaletteTextGeneralTop;
   padding: 2px;
   margin: 0px;
 }
@@ -1783,12 +1783,6 @@ QDockWidget QComboBox QAbstractItemView {
   padding: 2px;
 }
 
-QGroupBox > QComboBox QListView {
-  background-color: @ThemeAccentColor2;
-  border: 1px solid rgba(0,0,0,0.7);
-  padding: 1px;
-}
-
 QComboBox:checked {
   color: #beffff;
   color: @ColorPaletteTextCombobox;
@@ -1809,7 +1803,34 @@ QComboBox:hover {
   color: #ffffff;
 }
 
-QComboBox::item {
+QDialog QComboBox QListView {
+  background-color: transparent;
+  border: 1px solid rgba(0,0,0,0.7);
+  padding: 0px 0px 0px -27px;
+}
+
+QComboBox QListView,
+QGroupBox > QComboBox QListView {
+  background-color: @ThemeAccentColor2;
+  border: 1px solid rgba(0,0,0,0.7);
+  padding: 1px;
+}
+
+QDialog QComboBox::item {
+  background-color: rgba(0,0,0,0.01);
+  color: #eeeeee;
+  color: @ColorPaletteTextGeneralTop;
+}
+
+QDialog QComboBox::item:disabled {
+  background-color: rgba(0,0,0,0.1);
+  color: #eeeeee;
+}
+
+QComboBox::item,
+QGroupBox QComboBox::item,
+QDockWidget QTabWidget QComboBox::item {
+  background-color: none;
   selection-background-color: @ThemeAccentColor1;
   selection-color: #ffffff;
   color: #eeeeee;
@@ -2350,12 +2371,17 @@ QWidget QLineEdit {
   padding: 2px 4px 2px 4px;
   border: 1px solid rgba(0,0,0,0.15);
   border-radius: 4px;
-  color: #ffff69;
+  color: #eeeeee;
   color: @ColorPaletteTextDarkenList;
 }
 
+QDialog QGroupBox QLineEdit {
+  color: #ffff69;
+  color: @ColorPaletteTextSpinBox;
+}
+
 QLineEdit:disabled {
-  background-color: rgba(0,0,0,0.06);
+  background-color: rgba(0,0,0,0.2);
   color: #bbbbbb;
   color: @ColorPaletteTextDisabled;
 }
@@ -2491,6 +2517,17 @@ QFrame QTabBar::tab {
   color: @ColorPaletteTextGeneralBottom;
   margin: 2px 0px 3px 3px;
   padding: 3px 0px 4px 4px;
+}
+
+QDialog QTabBar::tab {
+  background-color: rgba(250,250,250,0.15);
+  color: #eeeeee;
+  color: @ColorPaletteTextGeneralTop;
+  margin: 0px 0px 0px 2px;
+  padding: 3px 4px 5px 4px;
+  min-width: 50px;
+  border: 1px solid rgba(0,0,0,0.15);
+  border-radius: 4px;
 }
 
 QTabBar::tab:selected,
@@ -3100,13 +3137,13 @@ QWidget QListView {
 }
 
 QDialog QListWidget {
-  background-color: rgba(250,250,250,0.02);
+  background-color: transparent;
   color: #eeeeee;
   color: @ColorPaletteTextGeneralTop;
   margin: 0px;
-  border: 1px solid rgba(0,0,0,0.2);
-  padding: 10px 5px 10px 10px;
-  border-radius: 10px;
+  border: 0px solid rgba(0,0,0,0.1);
+  padding: 0px;
+  border-radius: 0px;
   selection-background-color: @ThemeAccentColor1;
   selection-color: #ffffff;
 }
@@ -3599,7 +3636,7 @@ QDateTimeEdit QAbstractItemView {
 /* QAbstractView ----------------------------------------------------------
 
 --------------------------------------------------------------------------- */
-QAbstractView:hover {
+AbstractView:hover {
   border: 1px solid @ThemeAccentColor1;
   background-color: @ThemeAccentColor1;
   background-color: @ColorPaletteHover;
