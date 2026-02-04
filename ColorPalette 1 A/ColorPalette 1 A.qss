@@ -1725,7 +1725,7 @@ QToolButton::menu-arrow {
 QToolButton::menu-arrow:open {
   subcontrol-origin: padding; 
   subcontrol-position: center left;
-  left: 6px;
+  left: 5px;
   image: url(qss:images_classic/arrow-up-white1.svg);
   width: 9px;
   height: 9px;
@@ -1734,7 +1734,7 @@ QToolButton::menu-arrow:open {
 QToolButton::menu-arrow:hover {
   subcontrol-origin: padding; 
   subcontrol-position: center left;
-  left: 6px;
+  left: 5px;
   image: url(qss:images_classic/arrow-down-white1.svg);
   width: 9px;
   height: 9px;
