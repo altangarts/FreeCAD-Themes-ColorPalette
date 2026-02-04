@@ -1610,7 +1610,7 @@ QToolBar QToolButton {
 }
 
 QToolBar QToolButton:disabled {
-  padding: 2px 2px 9px 3px;
+  padding: 2px 3px 9px 4px;
 }
 
 QStatusBar QToolButton {

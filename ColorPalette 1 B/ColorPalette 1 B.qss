@@ -1606,8 +1606,7 @@ QToolBar QToolButton {
 }
 
 QToolBar QToolButton:disabled {
-/*  background-color: rgba(0,0,0,0.05); */
-  padding: 2px 2px 9px 3px;
+  padding: 2px 3px 9px 4px;
 }
 
 QStatusBar QToolButton {
