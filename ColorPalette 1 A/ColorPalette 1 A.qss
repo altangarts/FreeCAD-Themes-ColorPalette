@@ -1464,8 +1464,7 @@ QToolBar QPushButton {
   border: 1px solid transparent;
   color: #eeeeee;
   color: @ColorPaletteTextGeneralTop;
-  padding: 6px 5px 8px 5px;
-  margin: 0px 3px 0px 0px;
+  padding: 9px 5px 11px 5px;
   border-radius: 4px;
 }
 
@@ -1522,7 +1521,8 @@ QDialog QPushButton:disabled {
 
 QDialog QGroupBox QPushButton:hover,
 QDialog QPushButton:hover,
-QTabWidget QDialog QPushButton:hover {
+QTabWidget QDialog QPushButton:hover,
+QToolBar QPushButton:hover {
   background-color: @ThemeAccentColor1;
   background-color: @ColorPaletteHover;
   border: 1px solid @ThemeAccentColor1;
@@ -1536,7 +1536,6 @@ QDialog QListView QPushButton:hover {
   color: #ffffff;
 }
 
-QToolBar QPushButton:hover,
 QDockWidget QPushButton:hover,
 QStatusBar QPushButton:hover {
   background-color: @ThemeAccentColor1;
