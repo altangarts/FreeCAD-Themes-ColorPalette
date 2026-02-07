@@ -132,6 +132,8 @@ Sample
    - If "Accent color 3" is not applied, it is substituted with other variables (Style Sheet(Advanced), Accent color 1-2 or restart)
    - Color selection suggestion: 'Dark colors' and 'Dark and pale pastel colors'
    - When using "Overlay", darker or a gradient from dark to lighter colors from top to bottom is recommended
+   - After rearranging toolbars horizontally or vertically in "ColorPalette 1A/2A/3A" themes, you need to restart FreeCAD for the horizontally and vertically designed toolbuttons to function correctly.
+
 ### Prerequisites
 * FreeCAD ≥ v1.1.0
 
