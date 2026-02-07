@@ -409,8 +409,8 @@ QSint--ActionGroup QFrame[class="content"] {
   padding: -5px;
   border-top-left-radius: 6px;
   border-top-right-radius: 6px;
-  border-bottom-left-radius: 6px;
-  border-bottom-right-radius: 6px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
 }
 
 QSint--ActionGroup QFrame[class="header"] {
