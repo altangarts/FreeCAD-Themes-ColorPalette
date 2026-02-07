@@ -1083,7 +1083,7 @@ QToolBar:right {
 }
 
 QToolBar:left {
-  background-color: qlineargradient(x1:0, y1:0, x2:1, y2:0, stop:0 rgba(0,0,0,0.2), stop:0.7 rgba(250,250,250,0.1), stop:1 rgba(250,250,250,0.1));
+  background-color: qlineargradient(x1:0.3, y1:0, x2:1, y2:0, stop:0 rgba(250,250,250,0.1), stop:1 rgba(0,0,0,0.2));
   border: 1px solid rgba(0,0,0,0.2);
   border-radius: 4px;
   margin: 1px 0px 1px 1px;
@@ -1563,7 +1563,7 @@ QDialogButtonBox QPushButton {
 /* QToolButton ------------------------------------------------------------
 
 --------------------------------------------------------------------------- */
-QToolBar QToolButton {
+QToolBar[orientation="1"] QToolButton {
   background-color: transparent;
   border: 1px solid transparent;
   border-radius: 4px;
@@ -1575,12 +1575,29 @@ QToolBar QToolButton {
   padding: 1px 2px 9px 3px;
 }
 
-QToolBar QToolButton:disabled {
+QToolBar[orientation="1"] QToolButton:disabled {
   margin: 2px 0px 1px 0px;
   padding: 1px 2px 9px 3px;
 }
 
-QStatusBar QToolButton {
+QToolBar[orientation="2"] QToolButton {
+  background-color: transparent;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  color: #eeeeee;
+  color: @ColorPaletteTextGeneralTop;
+  min-width: 18px;
+  min-height: 24px;
+  margin: 0px 2px 0px 2px;
+  padding: 1px 2px 9px 3px;
+}
+
+QToolBar[orientation="2"] QToolButton:disabled {
+  margin: 0px 2px 0px 2px;
+  padding: 1px 2px 9px 3px;
+}
+
+QStatusBar QToolBar[orientation="1"] QToolButton {
   background-color: qlineargradient(x1:0, y1:0.3, x2:0, y2:1, stop:0 rgba(250,250,250,0.15), stop:1 rgba(0,0,0,0.2));
   border: 1px solid rgba(0,0,0,0.2);
   max-height: 24px;
@@ -1588,7 +1605,7 @@ QStatusBar QToolButton {
   padding: 0px 0px 0px 1px;
 }
 
-QStatusBar QToolButton:disabled {
+QStatusBar QToolBar[orientation="1"] QToolButton:disabled {
   background-color: rgba(0,0,0,0.2);
   border: 1px solid rgba(0,0,0,0.2);
   max-height: 24px;
@@ -1609,32 +1626,59 @@ QToolButton#qt_toolbar_ext_button:hover {
 QToolButton#qt_toolbar_ext_button:on {
 }
 
-QToolBar QToolButton:hover,
+QToolBar[orientation="1"] QToolButton:hover,
+QToolBar[orientation="1"] QToolButton:checked:hover,
 #WbTabBar #WbTabBarMore:hover {  
+  background-color: @ThemeAccentColor1;
+  background-color: qlineargradient(x1:0, y1:0.3, x2:0, y2:1, stop:0 @ColorPaletteHover1, stop:1 @ColorPaletteHover2);
+  border: 1px solid transparent;
+  color: #ffffff;
+}
+
+QToolBar[orientation="1"] QToolButton:pressed,
+QToolBar[orientation="1"] QToolButton:selected,
+QToolBar[orientation="1"] QToolButton:checked {  
+  background-color: @ThemeAccentColor1;
+  background-color: qlineargradient(x1:0, y1:0.3, x2:0, y2:1, stop:0 @ThemeAccentColor1, stop:1 @ColorPaletteHover2);
+  border: 1px solid transparent;
+  color: #ffffff;
+}
+
+QToolBar[orientation="2"] QToolButton:hover,
+QToolBar[orientation="2"] QToolButton:checked:hover { 
+  background-color: @ThemeAccentColor1;
+  background-color: qlineargradient(x1:0.3, y1:0, x2:1, y2:0, stop:0 @ColorPaletteHover1, stop:1 @ColorPaletteHover2);
+  border: 1px solid transparent;
+  color: #ffffff;
+}
+
+QToolBar[orientation="2"] QToolButton:pressed,
+QToolBar[orientation="2"] QToolButton:selected,
+QToolBar[orientation="2"] QToolButton:checked {  
+  background-color: @ThemeAccentColor1;
+  background-color: qlineargradient(x1:0.3, y1:0, x2:1, y2:0, stop:0 @ThemeAccentColor1, stop:1 @ColorPaletteHover2);
+  border: 1px solid transparent;
+  color: #ffffff;
+}
+
+QStatusBar QToolBar[orientation="1"] QToolButton:pressed,
+QStatusBar QToolBar[orientation="1"] QToolButton:selected,
+QStatusBar QToolBar[orientation="1"] QToolButton:checked {  
+  background-color: @ThemeAccentColor1;
+  border: 1px solid transparent;
+  color: #ffffff;
+}
+
+QStatusBar QToolBar[orientation="1"] QToolButton:hover {  
   background-color: @ThemeAccentColor1;
   background-color: qlineargradient(x1:0, y1:0.3, x2:0, y2:1, stop:0 @ColorPaletteHover1, stop:1 @ColorPaletteHover2);
   border: 1px solid rgba(0,0,0,0.2);
   color: #ffffff;
 }
 
-QToolBar QToolButton:checked:hover {  
+QStatusBar QToolBar[orientation="1"] QToolButton:checked:hover {  
   background-color: @ThemeAccentColor1;
   background-color: @ColorPaletteHover;
-  border: 1px solid transparent;
-  color: #ffffff;
-}
-
-/* QToolBar:left QToolButton:hover {
-  background-color: qlineargradient(x1:0, y1:0, x2:1, y2:0, stop:0 @ColorPaletteHover2, stop:0.7 @ColorPaletteHover1, stop:1 @ColorPaletteHover1);
-  border: 1px solid rgba(0,0,0,0.2);
-  border-radius: 4px;
-  margin: 1px 0px 1px 1px;
-} */
-
-QToolBar QToolButton:pressed,
-QToolBar QToolButton:selected,
-QToolBar QToolButton:checked {  
-  background-color: @ThemeAccentColor1;
   border: 1px solid transparent;
   color: #ffffff;
 }

@@ -1608,7 +1608,7 @@ QDialogButtonBox QPushButton {
 /* QToolButton ------------------------------------------------------------
 
 --------------------------------------------------------------------------- */
-QToolBar QToolButton {
+QToolBar[orientation="1"] QToolButton {
   background-color: transparent;
   border: 1px solid transparent;
   border-radius: 4px;
@@ -1620,12 +1620,29 @@ QToolBar QToolButton {
   padding: 1px 2px 9px 3px;
 }
 
-QToolBar QToolButton:disabled {
+QToolBar[orientation="1"] QToolButton:disabled {
   margin: 2px 0px 2px 0px;
   padding: 1px 2px 9px 3px;
 }
 
-QStatusBar QToolButton {
+QToolBar[orientation="2"] QToolButton {
+  background-color: transparent;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  color: #eeeeee;
+  color: @ColorPaletteTextGeneralTop;
+  min-width: 18px;
+  min-height: 24px;
+  margin: 0px 2px 0px 2px;
+  padding: 1px 2px 9px 3px;
+}
+
+QToolBar[orientation="2"] QToolButton:disabled {
+  margin: 0px 2px 0px 2px;
+  padding: 1px 2px 9px 3px;
+}
+
+QStatusBar QToolBar[orientation="1"] QToolButton {
   background-color: rgba(250,250,250,0.15);
   border-width: 1px 1px 2px 1px;
   border-style: solid;
@@ -1638,7 +1655,7 @@ QStatusBar QToolButton {
   padding: 0px 0px 0px 1px;
 }
 
-QStatusBar QToolButton:disabled {
+QStatusBar QToolBar[orientation="1"] QToolButton:disabled {
   background-color: rgba(0,0,0,0.2);
   border: 1px solid rgba(0,0,0,0.2);
   max-height: 24px;
