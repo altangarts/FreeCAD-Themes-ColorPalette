@@ -1067,20 +1067,12 @@ QToolBar {
   background-color: @ThemeAccentColor2;
 }
 
-QToolBar:top {
-  background-color: rgba(250,250,250,0.12);
-  border-width: 1px 1px 2px 1px;
-  border-style: solid;
-  border-top-color: rgba(0,0,0,0.2);
-  border-right-color: rgba(0,0,0,0.2);
-  border-bottom-color: rgba(0,0,0,0.6);
-  border-left-color: rgba(0,0,0,0.2);
-  border-radius: 4px;
-  margin: 1px 0px 0px 1px;
-  padding: -2px;
+QToolBar[orientation="1"] {
+  margin: 1px 1px 1px 1px;
+  padding: 1px;
 }
 
-QToolBar:bottom {
+QToolBar:horizontal {
   background-color: rgba(250,250,250,0.12);
   border-width: 1px 1px 2px 1px;
   border-style: solid;
@@ -1089,24 +1081,14 @@ QToolBar:bottom {
   border-bottom-color: rgba(0,0,0,0.6);
   border-left-color: rgba(0,0,0,0.2);
   border-radius: 4px;
-  margin: 0px 0px 1px 1px;
-  padding: -2px;
 }
 
-QToolBar:right {
-  background-color: rgba(250,250,250,0.12);
-  border-width: 1px 1px 2px 1px;
-  border-style: solid;
-  border-top-color: rgba(0,0,0,0.2);
-  border-right-color: rgba(0,0,0,0.2);
-  border-bottom-color: rgba(0,0,0,0.6);
-  border-left-color: rgba(0,0,0,0.2);
-  border-radius: 4px;
-  margin: 1px 1px 1px 0px;
-  padding: -2px;
+QToolBar[orientation="2"] {
+  margin: 1px 1px 1px 1px;
+  padding: 1px;
 }
 
-QToolBar:left {
+QToolBar:vertical {
   background-color: rgba(250,250,250,0.12);
   border-width: 1px 1px 2px 1px;
   border-style: solid;
@@ -1115,8 +1097,6 @@ QToolBar:left {
   border-bottom-color: rgba(0,0,0,0.6);
   border-left-color: rgba(0,0,0,0.2);
   border-radius: 4px;
-  margin: 1px 0px 1px 1px;
-  padding: -2px;
 }
 
 QMenuBar QToolBar:only-one,
@@ -1428,7 +1408,7 @@ QStatusBar QToolBar QPushButton {
   margin: 0px 0px 0px 0px;
 }
 
-QDialog QGroupBox QPushButton {
+QGroupBox QPushButton {
   min-width: 60px;
 }
 
@@ -1464,7 +1444,7 @@ QToolBar QPushButton {
   border: 1px solid transparent;
   color: #eeeeee;
   color: @ColorPaletteTextGeneralTop;
-  padding: 9px 5px 11px 5px;
+  padding: 9px 5px 12px 5px;
   border-radius: 4px;
 }
 
@@ -1490,7 +1470,7 @@ QStatusBar QPushButton:disabled {
 }
 
 QDialog QListView QPushButton,
-QDialog QGroupBox QPushButton,
+QGroupBox QPushButton,
 QDialog QPushButton {
   background-color: rgba(250,250,250,0.1);
   border: 1px solid rgba(0,0,0,0.15);
@@ -1505,12 +1485,12 @@ QDialog QPushButton {
 }
 
 QDialog QListView QPushButton,
-QDialog QGroupBox QPushButton {
+QGroupBox QPushButton {
   padding: 3px 10px 5px 10px;
 }
 
 QDialog QListView QPushButton:disabled,
-QDialog QGroupBox QPushButton:disabled,
+QGroupBox QPushButton:disabled,
 QDialog QPushButton:disabled {
   background-color: rgba(0,0,0,0.2);
   border: 1px solid rgba(0,0,0,0.1);
@@ -1519,7 +1499,7 @@ QDialog QPushButton:disabled {
   margin: 0px 0px 1px 0px;
 }
 
-QDialog QGroupBox QPushButton:hover,
+QGroupBox QPushButton:hover,
 QDialog QPushButton:hover,
 QTabWidget QDialog QPushButton:hover,
 QToolBar QPushButton:hover {
@@ -1562,9 +1542,9 @@ QStatusBar QPushButton:pressed,
 QTabWidget QDialog QPushButton:pressed,
 QTabWidget QDialog QPushButton:selected,
 QTabWidget QDialog QPushButton:checked,
-QDialog QGroupBox QPushButton:pressed,
-QDialog QGroupBox QPushButton:selected,
-QDialog QGroupBox QPushButton:checked {
+QGroupBox QPushButton:pressed,
+QGroupBox QPushButton:selected,
+QGroupBox QPushButton:checked {
   background-color: @ThemeAccentColor1;
   border: 1px solid @ThemeAccentColor1;
   color: #ffffff;
@@ -1608,7 +1588,7 @@ QDialogButtonBox QPushButton {
 /* QToolButton ------------------------------------------------------------
 
 --------------------------------------------------------------------------- */
-QToolBar[orientation="1"] QToolButton {
+QToolBar QToolButton {
   background-color: transparent;
   border: 1px solid transparent;
   border-radius: 4px;
@@ -1616,33 +1596,16 @@ QToolBar[orientation="1"] QToolButton {
   color: @ColorPaletteTextGeneralTop;
   min-width: 18px;
   min-height: 24px;
-  margin: 2px 0px 2px 0px;
+  margin: 0px 0px 0px 0px;
   padding: 1px 2px 9px 3px;
 }
 
-QToolBar[orientation="1"] QToolButton:disabled {
-  margin: 2px 0px 2px 0px;
+QToolBar QToolButton:disabled {
+  margin: 0px 0px 0px 0px;
   padding: 1px 2px 9px 3px;
 }
 
-QToolBar[orientation="2"] QToolButton {
-  background-color: transparent;
-  border: 1px solid transparent;
-  border-radius: 4px;
-  color: #eeeeee;
-  color: @ColorPaletteTextGeneralTop;
-  min-width: 18px;
-  min-height: 24px;
-  margin: 0px 2px 0px 2px;
-  padding: 1px 2px 9px 3px;
-}
-
-QToolBar[orientation="2"] QToolButton:disabled {
-  margin: 0px 2px 0px 2px;
-  padding: 1px 2px 9px 3px;
-}
-
-QStatusBar QToolBar[orientation="1"] QToolButton {
+QStatusBar QToolBar QToolButton {
   background-color: rgba(250,250,250,0.15);
   border-width: 1px 1px 2px 1px;
   border-style: solid;
@@ -1655,25 +1618,12 @@ QStatusBar QToolBar[orientation="1"] QToolButton {
   padding: 0px 0px 0px 1px;
 }
 
-QStatusBar QToolBar[orientation="1"] QToolButton:disabled {
+QStatusBar QToolBar QToolButton:disabled {
   background-color: rgba(0,0,0,0.2);
   border: 1px solid rgba(0,0,0,0.2);
   max-height: 24px;
   margin: 0px 0px 0px 0px;
   padding: 0px 0px 0px 1px;
-}
-
-QToolButton#qt_toolbar_ext_button {
-  background-repeat: none;
-  background-position: center center;
-  padding: 0px;
-  right: -2px;
-}
-
-QToolButton#qt_toolbar_ext_button:hover {
-}
-
-QToolButton#qt_toolbar_ext_button:on {
 }
 
 QToolBar QToolButton:hover,
@@ -1701,6 +1651,19 @@ QToolBar QToolButton > QMenu::icon {
   padding-right: 0px;
 }
 
+QToolButton#qt_toolbar_ext_button {
+  background-repeat: none;
+  background-position: center center;
+  padding: 0px;
+  right: -2px;
+}
+
+QToolButton#qt_toolbar_ext_button:hover {
+}
+
+QToolButton#qt_toolbar_ext_button:on {
+}
+
 #WbTabBar #WbTabBarMore {      /* workbench tabbar menu buttton */
   background-color: rgba(250,250,250,0.15);
   color: #eeeeee;
@@ -1714,6 +1677,10 @@ QToolBar QToolButton > QMenu::icon {
   border-radius: 4px;
   padding: -2px 1px -2px 2px;
   margin: 0px 0px 0px 0px;
+}
+
+QToolBar QToolButton::menu-indicator {
+  image: url(qss:images_classic/transparent.svg);
 }
 
 QToolBar QToolButton::menu-button,
