@@ -143,8 +143,8 @@ QTabWidget QDialog QPushButton {
 }
 
 QTabWidget QPushButton {
-  background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop: 0 rgba(250,250,250,0.15), stop: 0.75 rgba(250,250,250,0.15), stop: 1 rgba(0,0,0,0.1));
-  background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop: 0 @ColorPaletteOverlayContent, stop: 0.75 @ColorPaletteOverlayContent, stop: 1 @ColorPaletteOverlayHeader1);
+  background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop: 0 rgba(250,250,250,0.15), stop: 0.7 rgba(250,250,250,0.15), stop: 1 rgba(0,0,0,0.1));
+  background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop: 0 @ColorPaletteOverlayContent, stop: 0.7 @ColorPaletteOverlayContent, stop: 1 @ColorPaletteOverlayHeader1);
   color: #eeeeee;
   color: @ColorPaletteTextGeneralTop;
   text-align: center;
@@ -160,7 +160,7 @@ QTabWidget QPushButton {
 }
 
 QTabWidget QPushButton:disabled {
-  background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop: 0 rgba(0,0,0,0.05), stop: 0.75 rgba(0,0,0,0.05), stop: 1 rgba(0,0,0,0.35));
+  background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop: 0 rgba(0,0,0,0.05), stop: 0.7 rgba(0,0,0,0.05), stop: 1 rgba(0,0,0,0.35));
   color: #bbbbbb;
   color: @ColorPaletteTextDisabled;
 }
@@ -173,7 +173,7 @@ QTabWidget QDialog QPushButton:disabled {
 
 QTabWidget QPushButton:hover {
   background-color: @ThemeAccentColor1;
-  background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop: 0 @ColorPaletteHover, stop: 0.75 @ColorPaletteHover, stop: 1 @ColorPaletteHover2);
+  background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop: 0 @ColorPaletteHover, stop: 0.7 @ColorPaletteHover, stop: 1 @ColorPaletteHover2);
   color: #ffffff;
   border-width: 1px 1px 2px 1px;
   border-style: solid;
@@ -193,8 +193,8 @@ QTabWidget QDialog QPushButton:pressed {
 }
 
 QTabWidget QTabBar::tab:bottom {
-  background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop: 0 rgba(250,250,250,0.15), stop: 0.8 rgba(250,250,250,0.15), stop: 1 rgba(0,0,0,0.1));
-  background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop: 0 @ColorPaletteOverlayContent1, stop: 0.75 @ColorPaletteOverlayContent1, stop: 1 @ColorPaletteOverlayitemEnd);
+  background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop: 0 rgba(250,250,250,0.15), stop: 0.7 rgba(250,250,250,0.15), stop: 1 rgba(0,0,0,0.1));
+  background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop: 0 @ColorPaletteOverlayContent1, stop: 0.7 @ColorPaletteOverlayContent1, stop: 1 @ColorPaletteOverlayitemEnd);
   color: #eeeeee;
   color: @ColorPaletteTextGeneralBottom;
   border-width: 1px 1px 2px 1px;
@@ -218,7 +218,7 @@ QTabWidget QTabBar::tab:bottom:selected {
 
 QTabWidget QTabBar::tab:bottom:hover {
   background-color: @ThemeAccentColor1;
-  background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop: 0 @ColorPaletteHover, stop: 0.8 @ColorPaletteHover, stop: 1 @ColorPaletteHover2);
+  background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop: 0 @ColorPaletteHover, stop: 0.7 @ColorPaletteHover, stop: 1 @ColorPaletteHover2);
   color: #ffffff;
 }
 

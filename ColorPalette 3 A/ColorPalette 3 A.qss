@@ -232,11 +232,6 @@ QDockWidget QWidget::pane {
   padding: 0px;
 }
 
-QDockWidget QTabBar {
-  background-color: transparent;
-  border: 1px solid transparent;
-}
-
 QDockWidget::title {
 }
 
@@ -1077,7 +1072,7 @@ QToolBar[orientation="2"] {
 }
 
 QToolBar:vertical {
-  background-color: qlineargradient(x1:0, y1:0.97, x2:0, y2:1, stop:0 rgba(250,250,250,0.07), stop:1 rgba(0,0,0,0.2));
+  background-color: qlineargradient(x1:0, y1:0.99, x2:0, y2:1, stop:0 rgba(250,250,250,0.07), stop:1 rgba(0,0,0,0.2));
   border: 1px solid rgba(0,0,0,0.2);
   border-radius: 4px;
 }
@@ -1094,18 +1089,7 @@ QToolBar:left {
   border-radius: 4px;
 } */
 
-QMenuBar QToolBar:only-one,
-QToolBar:top QToolBar:only-one {
-  background-color: @ThemeAccentColor2;
-  border: none;
-  margin: 0px;
-  padding: 0px;
-}
-
-QStatusBar QToolBar:only-one,
-QToolBar:left QToolBar:only-one,
-QToolBar:right QToolBar:only-one,
-QToolBar:bottom QToolBar:only-one {
+QStatusBar QToolBar:only-one {
   background-color: transparent;
   border: none;
 }
@@ -1119,8 +1103,8 @@ QToolBar::handle:horizontal {
 
 QMenuBar QToolBar::handle:horizontal {
   width: 10px;
-  padding: 5px;
-  margin-bottom: 3px;
+  padding: 4px;
+  margin-bottom: 2px;
   image: url(qss:images_classic/Hmovetoolbar-black.svg);
 }
 
@@ -1551,7 +1535,7 @@ QStatusBar QPushButton::menu-indicator {
 }
 
 QPushButton::menu-indicator:hover {
-  image: url(qss:images_classic/arrow-up-white1.svg);
+  image: url(qss:images_classic/arrow-up-white2.svg);
   right: 4px;
   padding: 0px;
   width: 10px;
@@ -1559,7 +1543,7 @@ QPushButton::menu-indicator:hover {
 }
 
 QPushButton::menu-indicator:open {
-  image: url(qss:images_classic/arrow-down-white1.svg);
+  image: url(qss:images_classic/arrow-down-white2.svg);
   right: 4px;
   padding: 0px;
   width: 10px;
@@ -1669,10 +1653,11 @@ QToolButton#qt_toolbar_ext_button:on {
 }
 
 #WbTabBar #WbTabBarMore {      /* workbench tabbar menu buttton */
-  background-color: qlineargradient(x1:0, y1:0.3, x2:0, y2:1, stop:0 rgba(250,250,250,0.15), stop:1 rgba(0,0,0,0.2));
-  border: 1px solid rgba(0,0,0,0.2);
-  padding: -2px 1px 0px 2px;
-  margin: 0px 0px 2px 0px;
+  background-color: transparent;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  padding: -3px 1px -1px 2px;
+  margin: 0px 0px 0px 0px;
 }
 
 QToolBar QToolButton::menu-indicator {
@@ -1706,14 +1691,14 @@ QToolBar QToolButton::menu-arrow {
 QToolBar QToolButton::menu-arrow:open {
   top: 1px;
   right: 10px;
-  image: url(qss:images_classic/arrow-up-white1.svg);
+  image: url(qss:images_classic/arrow-up-white2.svg);
   width: 10px;
 }
 
 QToolBar QToolButton::menu-arrow:hover {
   top: 1px;
   right: 10px;
-  image: url(qss:images_classic/arrow-down-white1.svg);
+  image: url(qss:images_classic/arrow-down-white2.svg);
   width: 10px;
 }
 
@@ -2306,7 +2291,7 @@ QTabWidget::pane:right {
 /* QTabBar ----------------------------------------------------------------
 
 --------------------------------------------------------------------------- */
-QFrame QTabBar {
+QMdiArea QTabBar {
   qproperty-drawBase: 0;
   alignment: center;
 }
@@ -2328,16 +2313,18 @@ QTabBar::tab {
 }
 
 QToolBar QTabBar::tab {
+  background-color: transparent;
+  border: 1px solid transparent;
   color: #eeeeee;
   color: @ColorPaletteTextGeneralTop;
-  margin: 2px 2px 5px 0px;
-  padding: 3px 5px 6px 5px;
+  margin: 0px 2px 0px 0px;
+  padding: 3px 5px 4px 5px;
 }
 
 QToolBar QTabBar::tab:left {
   color: #eeeeee;
-  color: @ColorPaletteTextGeneralTop;
-  margin: 1px 0px 1px 2px;
+  color: @ColorPaletteTextGeneralBottom;
+  margin: 1px 1px 1px 1px;
   padding: 0px 0px 4px 0px;
   min-height: 5px;
   min-width: 24px;
@@ -2345,8 +2332,8 @@ QToolBar QTabBar::tab:left {
 
 QToolBar QTabBar::tab:right {
   color: #eeeeee;
-  color: @ColorPaletteTextGeneralTop;
-  margin: 1px 2px 1px 0px;
+  color: @ColorPaletteTextGeneralBottom;
+  margin: 1px 1px 1px 1px;
   padding: 4px 0px 0px 0px;
   min-height: 5px;
   min-width: 24px;
@@ -2360,7 +2347,7 @@ QTabWidget QTabBar::tab:bottom {
   min-width: 50px;
 }
 
-QFrame QTabBar::tab {
+QMdiArea QTabBar::tab {
   color: #eeeeee;
   color: @ColorPaletteTextGeneralBottom;
   margin: 2px 0px 3px 3px;
@@ -2379,24 +2366,37 @@ QDialog QTabBar::tab {
 }
 
 QTabBar::tab:selected,
-QToolBar QTabBar::tab:selected,
-QFrame QTabBar::tab:selected {
+QMdiArea QTabBar::tab:selected,
+QTabWidget QTabBar::tab:selected,
+QToolBar QTabBar::tab:left:selected,
+QToolBar QTabBar::tab:right:selected {
   background-color: @ThemeAccentColor1;
   color: #ffffff;
   border: 1px solid transparent;
   font-weight: bold;
 }
 
-QTabBar::tab:hover,
-QToolBar QTabBar::tab:hover,
-QFrame QTabBar::tab:hover {
+QToolBar QTabBar::tab:selected {
   background-color: @ThemeAccentColor1;
-  background-color: qlineargradient(x1:0, y1:0.3, x2:0, y2:1, stop:0 @ColorPaletteHover1, stop:1 @ColorPaletteHover2);
-  border: 1px solid rgba(0,0,0,0.2);
+  background-color: qlineargradient(x1:0, y1:0.3, x2:0, y2:1, stop:0 @ThemeAccentColor1, stop:1 @ColorPaletteHover2);
+  border: 1px solid transparent;
   color: #ffffff;
 }
 
-QDialog QTabBar::tab:hover {
+QTabBar::tab:hover,
+QToolBar QTabBar::tab:hover,
+QMdiArea QTabBar::tab:hover,
+QTabWidget QTabBar::tab:hover,
+QToolBar QTabBar::tab:selected:hover {
+  background-color: @ThemeAccentColor1;
+  background-color: qlineargradient(x1:0, y1:0.3, x2:0, y2:1, stop:0 @ColorPaletteHover1, stop:1 @ColorPaletteHover2);
+  border: 1px solid transparent;
+  color: #ffffff;
+}
+
+QDialog QTabBar::tab:hover,
+QToolBar QTabBar::tab:left:hover,
+QToolBar QTabBar::tab:right:hover {
   background-color: @ThemeAccentColor1;
   background-color: @ColorPaletteHover;
   color: #ffffff;
@@ -2404,8 +2404,8 @@ QDialog QTabBar::tab:hover {
 }
 
 QTabBar::tab:selected:hover,
-QToolBar QTabBar::tab:selected:hover,
-QFrame QTabBar::tab:selected:hover {
+QMdiArea QTabBar::tab:selected:hover,
+QTabWidget QTabBar::tab:selected:hover {
   background-color: @ThemeAccentColor1;
   background-color: @ColorPaletteHover;
   color: #ffffff;
@@ -2414,17 +2414,28 @@ QFrame QTabBar::tab:selected:hover {
 }
 
 QTabBar QToolButton {
-  background-color: qlineargradient(x1:0, y1:0.3, x2:0, y2:1, stop:0 rgba(250,250,250,0.15), stop:1 rgba(0,0,0,0.2));
-  border: 1px solid rgba(0,0,0,0.15);
+  background-color: transparent;
+  border: 1px solid transparent;
   border-radius: 4px;
-  margin: 0px 4px 4px 4px;
-  padding: -3px;
+  margin: 1px;
+  padding: -6px;
+}
+
+QTabBar QToolButton:disabled {
+  margin: 1px;
+  padding: -6px;
 }
 
 QTabBar QToolButton:hover {
+  background-color: @ThemeAccentColor1;
+  background-color: @ColorPaletteHover;
+  border: 1px solid @ThemeAccentColor1;
+  border: 1px solid @ColorPaletteHover;
 }
 
 QTabBar QToolButton:pressed {
+  background-color: @ThemeAccentColor1;
+  border: 1px solid @ThemeAccentColor1;
 }
 
 QTabBar QToolButton::left-arrow:enabled {
@@ -2435,7 +2446,6 @@ QTabBar QToolButton::left-arrow:enabled {
 
 QTabBar QToolButton::left-arrow:disabled {
   image: url(qss:images_classic/arrow-left-disabled_dark.svg);
-  top: 3px;
   height: 15px;
   width: 15px;
 }
@@ -2448,7 +2458,30 @@ QTabBar QToolButton::right-arrow:enabled {
 
 QTabBar QToolButton::right-arrow:disabled {
   image: url(qss:images_classic/arrow-right-disabled_dark.svg);
-  top: 3px;
+  height: 15px;
+  width: 15px;
+}
+
+QTabBar QToolButton::up-arrow:enabled {
+  image: url(qss:images_classic/arrow-up-white1.svg);
+  height: 16px;
+  width: 16px;
+}
+
+QTabBar QToolButton::up-arrow:disabled {
+  image: url(qss:images_classic/arrow-up-disabled_dark.svg);
+  height: 15px;
+  width: 15px;
+}
+
+QTabBar QToolButton::down-arrow:enabled {
+  image: url(qss:images_classic/arrow-down-white1.svg);
+  height: 16px;
+  width: 16px;
+}
+
+QTabBar QToolButton::down-arrow:disabled {
+  image: url(qss:images_classic/arrow-down-disabled_dark.svg);
   height: 15px;
   width: 15px;
 }
@@ -3862,7 +3895,7 @@ QTreeView::branch#groupsTreeView:closed:has-children:has-siblings  {
 }
 
 QTreeView::branch#groupsTreeView:closed:has-children:has-siblings:hover  {
-  image: url(qss:images_classic/arrow-down-white1.svg);
+  image: url(qss:images_classic/arrow-down-white2.svg);
   padding: 4px;
 }
 
@@ -3872,7 +3905,7 @@ QTreeView::branch#groupsTreeView:open:has-children:has-siblings  {
 }
 
 QTreeView::branch#groupsTreeView:open:has-children:has-siblings:hover  {
-  image: url(qss:images_classic/arrow-up-white1.svg);
+  image: url(qss:images_classic/arrow-up-white2.svg);
   padding: 4px;
 }
 
@@ -3880,7 +3913,7 @@ QTreeView::branch#groupsTreeView:open:has-children:!has-siblings  {
 }
 
 QTreeView::branch#groupsTreeView:open:has-children:!has-siblings:hover  {
-  image: url(qss:images_classic/arrow-up-white1.svg);
+  image: url(qss:images_classic/arrow-up-white2.svg);
   padding: 4px;
 }
 
@@ -3891,7 +3924,7 @@ QTreeView::branch#groupsTreeView:has-children:!has-siblings:closed  {
 }
 
 QTreeView::branch#groupsTreeView:has-children:!has-siblings:closed:hover  {
-  image: url(qss:images_classic/arrow-down-white1.svg);
+  image: url(qss:images_classic/arrow-down-white2.svg);
   padding: 4px;
 }
 
