@@ -160,12 +160,12 @@ Gui--PropertyEditor--PropertyEditor QAbstractSpinBox:up-button {
   background-color: transparent;
   border: 1px solid transparent;
   margin: 0px;
-  padding: -3px;
-  top: 1px;
+  padding: -4px;
+  right: 2px;
+  bottom: 1px;
 }
 
-Gui--PropertyEditor--PropertyEditor QAbstractSpinBox::up-arrow,
-Gui--PropertyEditor--PropertyEditor QAbstractSpinBox::up-arrow:off {
+Gui--PropertyEditor--PropertyEditor QAbstractSpinBox::up-arrow {
   image: url(qss:images_classic/arrow-up-disabled_dark.svg);
 }
 
@@ -173,12 +173,12 @@ Gui--PropertyEditor--PropertyEditor QAbstractSpinBox:down-button {
   background-color: transparent;
   border: 1px solid transparent;
   margin: 0px;
-  padding: -3px;
-  bottom: 1px;
+  padding: -4px;
+  right: 2px;
+  top: 1px;
 }
 
-Gui--PropertyEditor--PropertyEditor QAbstractSpinBox::down-arrow,
-Gui--PropertyEditor--PropertyEditor QAbstractSpinBox::down-arrow:off {
+Gui--PropertyEditor--PropertyEditor QAbstractSpinBox::down-arrow {
   image: url(qss:images_classic/arrow-down-disabled_dark.svg);
 }
 
@@ -1161,6 +1161,7 @@ QMenuBar QToolBar::separator:horizontal {
 
 --------------------------------------------------------------------------- */
 QAbstractSpinBox,
+QDoubleSpinBox,
 QSpinBox,
 QDialog QAbstractSpinBox {
   background-color: rgba(250,250,250,0.05);
@@ -1187,18 +1188,21 @@ QAbstractSpinBox:up-button {
   border-left: 1px solid rgba(0,0,0,0.25);
   border-top-right-radius: 6px;
   margin: 1px 1px 0px 0px;
-  padding: 3px 0px 0px 0px;
 }
 
-QAbstractSpinBox::up-arrow,
-QAbstractSpinBox::up-arrow:off {
+QAbstractSpinBox::up-arrow {
   image: url(qss:images_classic/arrow-up-black1.svg);
-  width: 8px;
+  width: 9px;
+  top: 2px;
+}
+
+QAbstractSpinBox::up-arrow:off,
+QAbstractSpinBox::up-arrow:off:hover {
+  image: none;
 }
 
 QAbstractSpinBox::up-arrow:disabled {
   image: url(qss:images_classic/arrow-up-disabled_dark.svg);
-  width: 8px;
 }
 
 QAbstractSpinBox::up-arrow:hover {
@@ -1216,18 +1220,21 @@ QAbstractSpinBox:down-button {
   border-left: 1px solid rgba(0,0,0,0.25);
   border-bottom-right-radius: 6px;
   margin: 0px 1px 1px 0px;
-  padding: 0px 0px 3px 0px;
 }
 
-QAbstractSpinBox::down-arrow,
-QAbstractSpinBox::down-arrow:off {
+QAbstractSpinBox::down-arrow {
   image: url(qss:images_classic/arrow-down-black1.svg);
-  width: 8px;
+  width: 9px;
+  bottom: 1px;
+}
+
+QAbstractSpinBox::down-arrow:off,
+QAbstractSpinBox::down-arrow:off:hover {
+  image: none;
 }
 
 QAbstractSpinBox::down-arrow:disabled {
   image: url(qss:images_classic/arrow-down-disabled_dark.svg);
-  width: 8px;
 }
 
 QAbstractSpinBox::down-arrow:hover {
@@ -1407,6 +1414,7 @@ QStatusBar QToolBar QPushButton {
   border-radius: 4px;
   padding: 3px 10px 4px 10px;  
   margin: 0px 0px 0px 0px;
+  min-height: 15px;
 }
 
 QPushButton:disabled {
@@ -1478,6 +1486,7 @@ QDialog QPushButton {
   border-radius: 6px;
   margin: 0px 0px 1px 0px;
   padding: 3px 10px 4px 10px;
+  min-height: 15px;
 }
 
 QGroupBox QPushButton {
@@ -1860,24 +1869,37 @@ QSint--ActionGroup QFrame[class="content"] {
   background-color: rgba(250,250,250,0.04);
   border: 1px solid rgba(0,0,0,0.1);
   margin: 0px 0px 0px 0px;
-  padding: -5px;
+  padding: 0px;
   border-top-left-radius: 6px;
   border-top-right-radius: 6px;
-  border-bottom-left-radius: 6px;
-  border-bottom-right-radius: 6px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
 }
 
 QSint--ActionGroup QFrame[class="content"] QLabel {
   background-color: transparent;
   border: 0px solid transparent;
+  margin: 0px 0px 0px 5px;
+}
+
+QSint--ActionGroup QFrame[class="content"] QLineEdit {
+  background-color: rgba(250,250,250,0.05);
+  border: 1px solid rgba(0,0,0,0.15);
+  margin: 3px 0px 3px 0px;
+}
+
+QSint--ActionGroup QFrame[class="content"] QComboBox {
+  background-color: rgba(250,250,250,0.05);
+  border: 1px solid rgba(0,0,0,0.15);
+  margin: 3px 0px 3px 0px;
 }
 
 QSint--ActionGroup QFrame[class="content"] QComboBox QAbstractItemView {
+  background-color: @ThemeAccentColor2;
   border: 1px solid rgba(0,0,0,0.7);
   border-radius: 0px;
   margin: 0px;
   padding: 1px;
-  background-color: @ThemeAccentColor2;
 }
 
 QSint--ActionGroup QFrame[class="content"] > QWidget {
@@ -1885,18 +1907,7 @@ QSint--ActionGroup QFrame[class="content"] > QWidget {
 }
 
 QSint--ActionGroup QFrame[class="content"] QListView,
-QSint--ActionGroup QFrame[class="content"] QTableView {
-  background-color: transparent;
-  border: 0px solid transparent;
-  color: #ffff69;
-  color: @ColorPaletteTextList;
-  selection-background-color: transparent;
-  selection-color: #ffffff;
-  margin: 0px;
-  padding: 0px;
-  border-radius: 8px;
-}
-
+QSint--ActionGroup QFrame[class="content"] QTableView,
 QSint--ActionGroup QFrame[class="content"] QTreeView {
   background-color: rgba(250,250,250,0.03);
   border: 1px solid rgba(0,0,0,0.1);
@@ -1905,7 +1916,7 @@ QSint--ActionGroup QFrame[class="content"] QTreeView {
   selection-background-color: transparent;
   selection-color: #ffffff;
   margin: 0px;
-  padding: 3px 0px 0px 3px;
+  padding: 5px;
   border-radius: 8px;
 }
 
@@ -1984,12 +1995,12 @@ QSint--ActionGroup QFrame[class="content"] QTreeView QAbstractSpinBox:up-button 
   background-color: transparent;
   border: 1px solid transparent;
   margin: 0px;
-  padding: 0px;
-  top: 1px;
+  padding: -4px;
+  right: 2px;
+  bottom: 1px;
 }
 
-QSint--ActionGroup QFrame[class="content"] QTreeView QAbstractSpinBox::up-arrow,
-QSint--ActionGroup QFrame[class="content"] QTreeView QAbstractSpinBox::up-arrow:off {
+QSint--ActionGroup QFrame[class="content"] QTreeView QAbstractSpinBox::up-arrow {
   image: url(qss:images_classic/arrow-up-disabled_dark.svg);
 }
 
@@ -2001,12 +2012,12 @@ QSint--ActionGroup QFrame[class="content"] QTreeView QAbstractSpinBox:down-butto
   background-color: transparent;
   border: 1px solid transparent;
   margin: 0px;
-  padding: 0px;
-  bottom: 2px;
+  padding: -4px;
+  right: 2px;
+  top: 0px;
 }
 
-QSint--ActionGroup QFrame[class="content"] QTreeView QAbstractSpinBox::down-arrow,
-QSint--ActionGroup QFrame[class="content"] QTreeView QAbstractSpinBox::down-arrow:off {
+QSint--ActionGroup QFrame[class="content"] QTreeView QAbstractSpinBox::down-arrow {
   image: url(qss:images_classic/arrow-down-disabled_dark.svg);
 }
 
@@ -2035,14 +2046,16 @@ QSint--ActionGroup QFrame[class="content"] QStackedWidget {
 QSint--ActionGroup QToolButton#settingsButton,
 QSint--ActionGroup QToolButton#filterButton {
   padding-right: 20px;
-  color: #dddddd;
+  color: #beffff;
+  color: @ColorPaletteTextCombobox;
 }
 
 QSint--ActionGroup QToolButton#manualUpdate {
   padding: 0px;
 }
 
-QSint--ActionGroup QToolButton#filterButton:hover {
+QSint--ActionGroup QToolButton#filterButton:hover,
+QSint--ActionGroup QToolButton#filterButton:open {
   color: #ffffff;
 }
 
@@ -2078,10 +2091,10 @@ QSint--ActionGroup QFrame[class="content"] QToolButton {
   color: #eeeeee;
   color: @ColorPaletteTextGeneralTop;
   text-align: center;
-  background-color: rgba(0,0,0,0.1);
+  background-color: rgba(250,250,250,0.05);
   border: 1px solid rgba(0,0,0,0.15);
-  padding-left: 1px; 
-  margin: 0px;
+  padding-left: 1px;
+  margin: 3px 0px 3px 0px;
   min-height: 18px;
   min-width: 22px;
   border-radius: 6px;
@@ -2233,6 +2246,7 @@ QDockWidget QTabWidget QLineEdit {
   border-bottom-right-radius: 4px;
   padding: -1px 0px -1px 0px;
   margin: 1px 2px 2px 0px;
+  min-height: 18px;
 }
 
 QDockWidget QTabWidget QLineEdit:focus {
@@ -2250,10 +2264,11 @@ QWidget QLineEdit,
 QTabWidget QDialog QLineEdit {
   background-color: rgba(250,250,250,0.05);
   border: 1px solid rgba(0,0,0,0.15);
-  padding: 2px 4px 2px 4px;
-  border-radius: 6px;
   color: #eeeeee;
   color: @ColorPaletteTextDarkenList;
+  padding: 2px 4px 2px 4px;
+  border-radius: 6px;
+  min-height: 18px;
 }
 
 QDialog QGroupBox QLineEdit,
@@ -3060,6 +3075,8 @@ QDialog QWidget QListView {
   border: 1px solid rgba(0,0,0,0.1);
   border-radius: 10px;
   padding: 10px 5px 10px 5px;
+  selection-background-color: transparent;
+  selection-color: #ffffff;
 }
 
 QDialog QGroupBox QListWidget {
@@ -3219,12 +3236,12 @@ QDialog QTreeView QAbstractSpinBox:up-button {
   background-color: transparent;
   border: 1px solid transparent;
   margin: 0px;
-  padding: 0px;
-  top: 1px;
+  padding: -4px;
+  right: 2px;
+  bottom: 1px;
 }
 
-QDialog QTreeView QAbstractSpinBox::up-arrow,
-QDialog QTreeView QAbstractSpinBox::up-arrow:off {
+QDialog QTreeView QAbstractSpinBox::up-arrow {
   image: url(qss:images_classic/arrow-up-disabled_dark.svg);
 }
 
@@ -3232,12 +3249,12 @@ QDialog QTreeView QAbstractSpinBox:down-button {
   background-color: transparent;
   border: 1px solid transparent;
   margin: 0px;
-  padding: 0px;
-  bottom: 2px;
+  padding: -4px;
+  right: 2px;
+  top: 0px;
 }
 
-QDialog QTreeView QAbstractSpinBox::down-arrow,
-QDialog QTreeView QAbstractSpinBox::down-arrow:off {
+QDialog QTreeView QAbstractSpinBox::down-arrow {
   image: url(qss:images_classic/arrow-down-disabled_dark.svg);
 }
 
@@ -3564,24 +3581,26 @@ QTableCornerButton::section {
   border-radius: 4px;
 }
 
-QHeaderView::down-arrow {
-  background-color: transparent;
-  border: none;
-  height: 12px;
-  width: 12px;
-  padding-left: 2px;
-  padding-right: 2px;
-  image: url(qss:images_classic/arrow-down-white1.svg);
-}
-
 QHeaderView::up-arrow {
   background-color: transparent;
   border: none;
-  height: 12px;
-  width: 12px;
-  padding-left: 2px;
-  padding-right: 2px;
+  padding: 2px;
+  image: url(qss:images_classic/arrow-up-disabled_dark.svg);
+}
+
+QHeaderView::up-arrow:hover {
   image: url(qss:images_classic/arrow-up-white1.svg);
+}
+
+QHeaderView::down-arrow {
+  background-color: transparent;
+  border: none;
+  padding: 2px;
+  image: url(qss:images_classic/arrow-down-disabled_dark.svg);
+}
+
+QHeaderView::down-arrow:hover {
+  image: url(qss:images_classic/arrow-down-white1.svg);
 }
 
 /* QToolBox --------------------------------------------------------------
