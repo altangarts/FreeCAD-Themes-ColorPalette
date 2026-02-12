@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 <package format="1" xmlns="https://wiki.freecad.org/Package_Metadata">
  <name>ColorPalette Theme</name>
- <version>2.0.3</version>
- <date>2026.02.10</date>
+ <version>2.0.4</version>
+ <date>2026.02.12</date>
  <description>Choose your colors with the "ColorPalette" Theme and increase the focus on objects and texts(FreeCAD v1.1.0 ≥)</description>
  <maintainer email="">altangarts</maintainer>
  <license file="LICENSE">LGPL-2.1-or-later</license>
