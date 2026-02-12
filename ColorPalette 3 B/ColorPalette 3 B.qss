@@ -164,7 +164,8 @@ Gui--PropertyEditor--PropertyEditor QAbstractSpinBox:up-button {
   top: 1px;
 }
 
-Gui--PropertyEditor--PropertyEditor QAbstractSpinBox::up-arrow {
+Gui--PropertyEditor--PropertyEditor QAbstractSpinBox::up-arrow,
+Gui--PropertyEditor--PropertyEditor QAbstractSpinBox::up-arrow:off {
   image: url(qss:images_classic/arrow-up-disabled_dark.svg);
 }
 
@@ -176,7 +177,8 @@ Gui--PropertyEditor--PropertyEditor QAbstractSpinBox:down-button {
   bottom: 1px;
 }
 
-Gui--PropertyEditor--PropertyEditor QAbstractSpinBox::down-arrow {
+Gui--PropertyEditor--PropertyEditor QAbstractSpinBox::down-arrow,
+Gui--PropertyEditor--PropertyEditor QAbstractSpinBox::down-arrow:off {
   image: url(qss:images_classic/arrow-down-disabled_dark.svg);
 }
 
@@ -1189,13 +1191,13 @@ QAbstractSpinBox:up-button {
   padding: 3px 0px 0px 0px;
 }
 
-QAbstractSpinBox::up-arrow {
+QAbstractSpinBox::up-arrow,
+QAbstractSpinBox::up-arrow:off {
   image: url(qss:images_classic/arrow-up-black1.svg);
   width: 8px;
 }
 
-QAbstractSpinBox::up-arrow:disabled,
-QAbstractSpinBox::up-arrow:off {
+QAbstractSpinBox::up-arrow:disabled {
   image: url(qss:images_classic/arrow-up-disabled_dark.svg);
   width: 8px;
 }
@@ -1218,13 +1220,13 @@ QAbstractSpinBox:down-button {
   padding: 0px 0px 3px 0px;
 }
 
-QAbstractSpinBox::down-arrow {
+QAbstractSpinBox::down-arrow,
+QAbstractSpinBox::down-arrow:off {
   image: url(qss:images_classic/arrow-down-black1.svg);
   width: 8px;
 }
 
-QAbstractSpinBox::down-arrow:disabled,
-QAbstractSpinBox::down-arrow:off {
+QAbstractSpinBox::down-arrow:disabled {
   image: url(qss:images_classic/arrow-down-disabled_dark.svg);
   width: 8px;
 }
@@ -1934,7 +1936,8 @@ QSint--ActionGroup QFrame[class="content"] QTreeView QAbstractSpinBox:up-button 
   top: 1px;
 }
 
-QSint--ActionGroup QFrame[class="content"] QTreeView QAbstractSpinBox::up-arrow {
+QSint--ActionGroup QFrame[class="content"] QTreeView QAbstractSpinBox::up-arrow,
+QSint--ActionGroup QFrame[class="content"] QTreeView QAbstractSpinBox::up-arrow:off {
   image: url(qss:images_classic/arrow-up-disabled_dark.svg);
 }
 
@@ -1950,7 +1953,8 @@ QSint--ActionGroup QFrame[class="content"] QTreeView QAbstractSpinBox:down-butto
   bottom: 2px;
 }
 
-QSint--ActionGroup QFrame[class="content"] QTreeView QAbstractSpinBox::down-arrow {
+QSint--ActionGroup QFrame[class="content"] QTreeView QAbstractSpinBox::down-arrow,
+QSint--ActionGroup QFrame[class="content"] QTreeView QAbstractSpinBox::down-arrow:off {
   image: url(qss:images_classic/arrow-down-disabled_dark.svg);
 }
 
@@ -3173,7 +3177,8 @@ QDialog QTreeView QAbstractSpinBox:up-button {
   top: 1px;
 }
 
-QDialog QTreeView QAbstractSpinBox::up-arrow {
+QDialog QTreeView QAbstractSpinBox::up-arrow,
+QDialog QTreeView QAbstractSpinBox::up-arrow:off {
   image: url(qss:images_classic/arrow-up-disabled_dark.svg);
 }
 
@@ -3185,7 +3190,8 @@ QDialog QTreeView QAbstractSpinBox:down-button {
   bottom: 2px;
 }
 
-QDialog QTreeView QAbstractSpinBox::down-arrow {
+QDialog QTreeView QAbstractSpinBox::down-arrow,
+QDialog QTreeView QAbstractSpinBox::down-arrow:off {
   image: url(qss:images_classic/arrow-down-disabled_dark.svg);
 }
 
