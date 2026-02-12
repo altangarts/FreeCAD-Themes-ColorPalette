@@ -2098,7 +2098,7 @@ QSint--ActionGroup QFrame[class="content"] QToolButton:disabled,
 QSint--ActionGroup QFrame[class="content"] QToolButton:disabled:checked {
   color: #bbbbbb;
   color: @ColorPaletteTextDisabled;
-  background-color: rgba(0,0,0,0.4);
+  background-color: rgba(0,0,0,0.2);
 }
 
 QSint--ActionGroup QFrame[class="content"] QToolButton:checked,
@@ -2144,6 +2144,11 @@ QSint--ActionGroup QFrame[class="content"] QToolButton::menu-arrow:hover {
 
 QSint--ActionGroup QFrame[class="content"] QToolButton::menu-arrow:open {
   image: url(qss:images_classic/arrow-up-white1.svg);
+  width: 10px;
+}
+
+QSint--ActionGroup QFrame[class="content"] QToolButton::menu-arrow:disabled {
+  image: url(qss:images_classic/arrow-down-disabled_dark.svg);
   width: 10px;
 }
 
@@ -3449,6 +3454,10 @@ QComboBox::down-arrow {
 QComboBox::down-arrow:on,
 QComboBox::down-arrow:hover {
   image: url(qss:images_classic/arrow-down-white1.svg);
+}
+
+QComboBox::down-arrow:disabled {
+  image: url(qss:images_classic/arrow-down-disabled_dark.svg);
 }
 
 QToolBar Gui--WorkbenchComboBox {
