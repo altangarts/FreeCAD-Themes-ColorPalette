@@ -1714,6 +1714,7 @@ QToolBar QToolButton::menu-arrow {
   subcontrol-origin: padding;
   subcontrol-position: bottom center;
   image: url(qss:images_classic/radio-mark-white1.svg);
+  top: 1px;
   width: 12px;
 }
 

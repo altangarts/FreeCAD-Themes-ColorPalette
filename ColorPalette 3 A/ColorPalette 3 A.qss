@@ -1599,12 +1599,12 @@ QToolBar QToolButton {
   min-width: 18px;
   min-height: 24px;
   margin: 0px 0px 0px 0px;
-  padding: 1px 2px 9px 3px;
+  padding: 1px 2px 8px 3px;
 }
 
 QToolBar QToolButton:disabled {
   margin: 0px 0px 0px 0px;
-  padding: 1px 2px 9px 3px;
+  padding: 1px 2px 8px 3px;
 }
 
 QStatusBar QToolBar QToolButton {
@@ -1718,6 +1718,7 @@ QToolBar QToolButton::menu-arrow {
   subcontrol-origin: padding;
   subcontrol-position: bottom center;
   image: url(qss:images_classic/radio-mark-white1.svg);
+  top: 2px;
   width: 12px;
 }
 
