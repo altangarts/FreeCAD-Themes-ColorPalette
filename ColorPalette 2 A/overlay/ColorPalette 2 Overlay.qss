@@ -166,7 +166,7 @@ QTabWidget QPushButton:disabled {
 }
 
 QTabWidget QDialog QPushButton:disabled {
-  background-color: rgba(0,0,0,0.2);
+  background-color: rgba(0,0,0,0.1);
   color: #bbbbbb;
   color: @ColorPaletteTextDisabled;
 }
@@ -316,7 +316,7 @@ Gui--TreePanel QTreeView::indicator:unchecked {
 
 Gui--TreePanel QTreeView::indicator:disabled,
 Gui--TreePanel QTreeView::indicator:unchecked:disabled {
-  background-color: rgba(0,0,0,0.1);
+  background-color: rgba(0,0,0,0.3);
   image: none;
   border: none;
   border-radius: 6px;
@@ -335,7 +335,7 @@ Gui--TreePanel QTreeView::indicator:checked:hover {
 
 Gui--TreePanel QTreeView::indicator:checked:disabled  {
   image: url(qss:images_classic/check-mark-lightgray.svg);
-  background-color: rgba(0,0,0,0.4);
+  background-color: rgba(0,0,0,0.3);
 }
 
 #DocumentTreeItems::item {
@@ -481,7 +481,7 @@ QSint--ActionGroup QFrame[class="content"] QTreeView {
 
 QSint--ActionGroup QFrame[class="content"] QListView::item,
 QSint--ActionGroup QFrame[class="content"] QTableView::item {
-  background-color: rgba(0,0,0,0.1);
+  background-color: rgba(0,0,0,0.05);
   border: 1px solid transparent;
   margin: 1px 0px 1px 0px;
   padding: 2px;
@@ -489,7 +489,7 @@ QSint--ActionGroup QFrame[class="content"] QTableView::item {
 }
 
 QSint--ActionGroup QFrame[class="content"] QTreeView::item {
-  background-color: rgba(0,0,0,0.1);
+  background-color: rgba(0,0,0,0.05);
   border: 1px solid transparent;
   margin: 1px 1px 1px 0px;
   padding: 2px;
@@ -550,10 +550,6 @@ QSint--ActionGroup QFrame[class="content"] QComboBox QAbstractItemView {
   padding: 1px;
 }
 
-QSint--ActionGroup QFrame[class="content"] > QWidget {
-  background-color: transparent;
-}
-
 QSint--ActionGroup QFrame[class="content"] QTreeView::indicator,
 QSint--ActionGroup QFrame[class="content"] QListView::indicator {
   background-color: rgba(0,0,0,0.5);
@@ -592,15 +588,15 @@ QSint--ActionGroup QFrame[class="content"] QListView::indicator:unchecked {
 
 QSint--ActionGroup QFrame[class="content"] QHeaderView {
   background-color: transparent;
-  border: 1px solid transparent;
+  border: none;
   margin: 0px;
   padding: 0px;
 }
 
 QSint--ActionGroup QFrame[class="content"] QHeaderView::section::horizontal {
   background-color: rgba(0,0,0,0.3);
-  padding: 3px 0px 2px 5px;
-  margin: 0px 3px 1px 0px;
+  padding: 4px 0px 1px 5px;
+  margin: 0px 1px 3px 0px;
 }
 
 QSint--ActionGroup QFrame[class="header"] QLabel[fold="false"] {
