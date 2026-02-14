@@ -52,6 +52,17 @@ Gui--OverlayProxyWidget {
   qproperty-hintColor: rgba(250,250,250,0.1);
 }
 
+QTabWidget QDialog QTreeView {
+  background-color: rgba(250,250,250,0.05);    
+  alternate-background-color: transparent;
+  margin: 0px 0px 0px 0px;
+  border: 1px solid rgba(0,0,0,0.1);
+  padding: 5px 5px 5px 5px;
+  border-radius: 10px;
+  selection-background-color: transparent;
+  selection-color: #ffffff;
+}
+
 QTabWidget QDialog QTreeView::item,
 QTabWidget QDialog QTreeView::item:has-children,
 QTabWidget QDialog QTreeView::item:has-children:!has-siblings:open,
