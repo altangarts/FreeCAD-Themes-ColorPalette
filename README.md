@@ -36,8 +36,9 @@ ColorPalette Themes, makes the interface and workspaces more user-focused. It si
 ## ☑️ Theme Selection
 
 
-#### ✅ Theme Selection 1 : (Important for processing theme requirements)
------ (with ColorPalette configuration, automatic "Overlay" selection and "Gradient FreeCAD" theme settings for first installation) -----
+#### ✅ Theme Selection 1 : 
+   - Important for processing theme requirements
+   - With ColorPalette configuration, automatic "Overlay" selection and "Gradient FreeCAD" theme settings for first installation
 1. Edit ➡ Preference ➡ General ➡ Application ➡ Theme - apply and restart
 
 ⤵️
@@ -45,7 +46,7 @@ ColorPalette Themes, makes the interface and workspaces more user-focused. It si
 
 
 #### ✅ Theme Selection 2 : (This should be used after "Theme Selection 1" when changing themes)
------ (Choosing a theme without changing your configuration) -----
+   - Choosing a theme without changing your configuration
 1. Edit ➡ Preference ➡ Display ➡ UI ➡ Theme Customization ➡ Style Sheet(Advanced) = Theme
 2. Edit ➡ Preference ➡ Display ➡ UI ➡ Theme Customization ➡ Overlay Style Sheet = Overlay (Select same name as the theme)
 
