@@ -2048,19 +2048,16 @@ QSint--ActionGroup QToolButton#settingsButton,
 QSint--ActionGroup QToolButton#filterButton {
   background-color: rgba(250,250,250,0.05);
   border: 1px solid rgba(0,0,0,0.15);
-  padding: 0px 0px 0px 0px;
   color: #beffff;
   color: @ColorPaletteTextCombobox;
 }
 
 QSint--ActionGroup QToolButton#settingsButton {
-  padding: 0px 2px 0px -15px;
+  padding: 1px 2px 1px -15px;
 }
 
 QSint--ActionGroup QToolButton#manualUpdate {
-  background-color: rgba(250,250,250,0.05);
-  border: 1px solid rgba(0,0,0,0.15);
-  padding: 0px 0px 0px 0px;
+  padding: 1px -14px 1px -14px;
 }
 
 QSint--ActionGroup QToolButton#filterButton:hover,
@@ -2178,11 +2175,11 @@ QSint--ActionGroup QToolButton::menu-indicator {
   subcontrol-origin: padding;
   subcontrol-position: right center;
   image: url(qss:images_classic/arrow-down-black1.svg);
-  max-width: 18px;
-  max-height: 22px;
-  min-width: 18px;
-  min-height: 22px;
-  padding: 3px;
+  max-width: 19px;
+  max-height: 23px;
+  min-width: 19px;
+  min-height: 23px;
+  padding: 4px;
 }
 
 QSint--ActionGroup QToolButton::menu-arrow:hover,
