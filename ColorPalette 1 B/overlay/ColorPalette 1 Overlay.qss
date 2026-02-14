@@ -72,8 +72,8 @@ QTabWidget QTreeView::item {
   background-color: rgba(250,250,250,0.07);
   background-color: @ColorPaletteOverlayContent;
   border-radius: 4px;
-  margin: 0px 2px 2px 0px;
-  padding: 0px 0px 3px 0px;
+  margin: 1px 2px 2px 0px;
+  padding: 0px 0px 2px 0px;
   color: #ffff69;
   color: @ColorPaletteTextTreeEnd;
 }
@@ -338,7 +338,7 @@ Gui--TreePanel QTreeView::indicator:checked:disabled  {
   color: #ffff69;
   color: @ColorPaletteTextTreeEnd;
   border-radius: 4px;
-  margin: 0px 0px 1px 0px;
+  margin: 1px 0px 0px 0px;
   padding: 0px 0px 1px 0px;
 }
 
