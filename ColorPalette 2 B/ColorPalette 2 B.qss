@@ -997,7 +997,7 @@ QScrollBar::sub-page:vertical {
 report view
 --------------------------------------------------------------------------- */
 QTextEdit {
-  background-color: rgba(250,250,250,0.03);
+  background-color: rgba(250,250,250,0.05);
   border: 1px solid rgba(0,0,0,0.15);
   color: #eeeeee;
   color: @ColorPaletteTextGeneralTop;
@@ -1007,7 +1007,7 @@ QTextEdit {
 
 QTextEdit:hover,
 QTextEdit:focus {
-  background-color: rgba(250,250,250,0.03);
+  background-color: rgba(250,250,250,0.05);
   border: 1px solid @ThemeAccentColor1;
   color: #ffffff;
 }
@@ -1017,7 +1017,7 @@ Python
 --------------------------------------------------------------------------- */
 QPlainTextEdit,
 QTabWidget QDialog QPlainTextEdit {
-  background-color: rgba(250,250,250,0.03);
+  background-color: rgba(250,250,250,0.05);
   border: 1px solid rgba(0,0,0,0.15);
   color: #eeeeee;
   color: @ColorPaletteTextGeneralTop;
@@ -1033,7 +1033,7 @@ QMdiArea QPlainTextEdit {
 
 QPlainTextEdit:hover,
 QPlainTextEdit:focus {
-  background-color: rgba(250,250,250,0.03);
+  background-color: rgba(250,250,250,0.05);
   border: 1px solid @ThemeAccentColor1;
   color: #ffffff;
 }
