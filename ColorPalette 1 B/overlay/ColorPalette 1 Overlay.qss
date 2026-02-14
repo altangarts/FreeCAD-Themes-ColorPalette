@@ -367,7 +367,17 @@ QTabWidget QDialog QTreeView::item:has-children {
 #DocumentTreeItems::item:focus,
 #DocumentTreeItems::item:has-children:focus,
 #DocumentTreeItems::item:has-children:open:focus,
-#DocumentTreeItems::item:has-children:!has-siblings:open:focus,
+#DocumentTreeItems::item:has-children:!has-siblings:open:focus  {
+  background-color: @ThemeAccentColor1;
+  border-width: 1px 1px 2px 1px;
+  border-style: solid;
+  border-top-color: rgba(0,0,0,0.2);
+  border-right-color: rgba(0,0,0,0.2);
+  border-bottom-color: rgba(0,0,0,0.6);
+  border-left-color: rgba(0,0,0,0.2);
+  color: #ffffff;
+}
+
 #DocumentTreeItems::item:selected,
 #DocumentTreeItems::item:has-children:selected,
 #DocumentTreeItems::item:has-children:open:selected,
