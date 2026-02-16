@@ -1643,6 +1643,17 @@ QToolBar QToolButton:checked {
   color: #ffffff;
 }
 
+QStatusBar QToolBar QToolButton:pressed,
+QStatusBar QToolBar QToolButton:selected,
+QStatusBar QToolBar QToolButton:checked,
+#WbTabBar #WbTabBarMore:pressed,
+#WbTabBar #WbTabBarMore:selected,
+#WbTabBar #WbTabBarMore:checked {  
+  background-color: @ThemeAccentColor1;
+  border: 1px solid transparent;
+  color: #ffffff;
+}
+
 QStatusBar QToolBar QToolButton:hover,
 #WbTabBar #WbTabBarMore:hover {
   background-color: @ThemeAccentColor1;
