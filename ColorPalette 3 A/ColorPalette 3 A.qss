@@ -2478,26 +2478,17 @@ QDialog QGroupBox QTabBar::tab {
 QTabBar::tab:selected,
 QMdiArea QTabBar::tab:selected,
 QTabWidget QTabBar::tab:selected,
-QToolBar QTabBar::tab:left:selected,
-QToolBar QTabBar::tab:right:selected {
+QToolBar QTabBar::tab:selected {
   background-color: @ThemeAccentColor1;
   color: #ffffff;
   border: 1px solid transparent;
   font-weight: bold;
 }
 
-QToolBar QTabBar::tab:selected {
-  background-color: @ThemeAccentColor1;
-  background-color: qlineargradient(x1:0, y1:0.3, x2:0, y2:1, stop:0 @ThemeAccentColor1, stop:1 @ColorPaletteHover2);
-  border: 1px solid transparent;
-  color: #ffffff;
-}
-
 QTabBar::tab:hover,
 QToolBar QTabBar::tab:hover,
 QMdiArea QTabBar::tab:hover,
-QTabWidget QTabBar::tab:hover,
-QToolBar QTabBar::tab:selected:hover {
+QTabWidget QTabBar::tab:hover {
   background-color: @ThemeAccentColor1;
   background-color: qlineargradient(x1:0, y1:0.3, x2:0, y2:1, stop:0 @ColorPaletteHover1, stop:1 @ColorPaletteHover2);
   border: 1px solid transparent;
@@ -2513,7 +2504,8 @@ QDialog QTabBar::tab:hover {
 
 QTabBar::tab:selected:hover,
 QMdiArea QTabBar::tab:selected:hover,
-QTabWidget QTabBar::tab:selected:hover {
+QTabWidget QTabBar::tab:selected:hover,
+QToolBar QTabBar::tab:selected:hover {
   background-color: @ThemeAccentColor1;
   background-color: @ColorPaletteHover;
   color: #ffffff;
