@@ -1643,17 +1643,6 @@ QToolBar QToolButton:checked {
   color: #ffffff;
 }
 
-QStatusBar QToolBar QToolButton:pressed,
-QStatusBar QToolBar QToolButton:selected,
-QStatusBar QToolBar QToolButton:checked,
-#WbTabBar #WbTabBarMore:pressed,
-#WbTabBar #WbTabBarMore:selected,
-#WbTabBar #WbTabBarMore:checked {  
-  background-color: @ThemeAccentColor1;
-  border: 1px solid transparent;
-  color: #ffffff;
-}
-
 QStatusBar QToolBar QToolButton:hover,
 #WbTabBar #WbTabBarMore:hover {
   background-color: @ThemeAccentColor1;
@@ -1700,6 +1689,17 @@ QToolButton#qt_toolbar_ext_button:on {
   border-radius: 4px;
   padding: -2px 1px -1px 2px;
   margin: 0px 0px 2px 0px;
+}
+
+QStatusBar QToolBar QToolButton:pressed,
+QStatusBar QToolBar QToolButton:selected,
+QStatusBar QToolBar QToolButton:checked,
+#WbTabBar #WbTabBarMore:pressed,
+#WbTabBar #WbTabBarMore:selected,
+#WbTabBar #WbTabBarMore:checked {  
+  background-color: @ThemeAccentColor1;
+  border: 1px solid transparent;
+  color: #ffffff;
 }
 
 QToolBar QToolButton::menu-indicator {
