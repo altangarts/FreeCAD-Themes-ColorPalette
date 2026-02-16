@@ -1585,6 +1585,14 @@ QToolBar QToolButton:hover {
   color: #ffffff;
 }
 
+QStatusBar QToolBar QToolButton:hover,
+#WbTabBar #WbTabBarMore:hover {  
+  background-color: @ThemeAccentColor1;
+  background-color: qlineargradient(x1:0, y1:0.3, x2:0, y2:1, stop:0 @ColorPaletteHover1, stop:1 @ColorPaletteHover2);
+  border: 1px solid rgba(0,0,0,0.2);
+  color: #ffffff;
+}
+
 QToolBar QToolButton:checked:hover {  
   background-color: @ThemeAccentColor1;
   background-color: @ColorPaletteHover;
