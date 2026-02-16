@@ -1671,7 +1671,15 @@ QToolButton#qt_toolbar_ext_button:on {
   margin: 0px 0px 2px 0px;
 }
 
-#WbTabBar #WbTabBarMore:hover {
+QStatusBar QToolBar QToolButton:pressed,
+QStatusBar QToolBar QToolButton:selected,
+QStatusBar QToolBar QToolButton:checked,
+#WbTabBar #WbTabBarMore:pressed,
+#WbTabBar #WbTabBarMore:selected,
+#WbTabBar #WbTabBarMore:checked {  
+  background-color: @ThemeAccentColor1;
+  border: 1px solid transparent;
+  color: #ffffff;
 }
 
 QToolBar QToolButton::menu-indicator {
