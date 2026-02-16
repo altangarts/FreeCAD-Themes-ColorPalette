@@ -1643,7 +1643,8 @@ QToolBar QToolButton:checked {
   color: #ffffff;
 }
 
-QStatusBar QToolBar QToolButton:hover {
+QStatusBar QToolBar QToolButton:hover,
+#WbTabBar #WbTabBarMore:hover {
   background-color: @ThemeAccentColor1;
   background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop: 0 @ColorPaletteHover, stop: 0.7 @ColorPaletteHover, stop: 1 @ColorPaletteHover2);
   color: #ffffff;
@@ -1688,11 +1689,6 @@ QToolButton#qt_toolbar_ext_button:on {
   border-radius: 4px;
   padding: -2px 1px -1px 2px;
   margin: 0px 0px 2px 0px;
-}
-
-#WbTabBar #WbTabBarMore:hover {
-  background-color: @ThemeAccentColor1;
-  background-color: @ColorPaletteHover;
 }
 
 QToolBar QToolButton::menu-indicator {
