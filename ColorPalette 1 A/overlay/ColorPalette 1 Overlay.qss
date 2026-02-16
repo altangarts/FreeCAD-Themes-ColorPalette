@@ -521,16 +521,15 @@ QSint--ActionGroup QFrame[class="content"] QTableView::item:selected {
 QSint--ActionGroup QFrame[class="content"] QTreeView::item:focus,
 QSint--ActionGroup QFrame[class="content"] QListView::item:focus,
 QSint--ActionGroup QFrame[class="content"] QTableView::item:focus {
-  background-color: @ThemeAccentColor1;
   border: 1px solid @ThemeAccentColor1;
 }
 
 QSint--ActionGroup QToolButton#filterButton QListWidget {
+  background-color: transparent;
   color: #eeeeee;
   color: @ColorPaletteTextGeneralTop;
-  background-color: transparent;
+  border-radius: 0px;
   border: none;
-  padding: 0px 5px 0px 0px;
 }
 
 QSint--ActionGroup QToolButton#filterButton QListWidget::item {
@@ -539,7 +538,7 @@ QSint--ActionGroup QToolButton#filterButton QListWidget::item {
   color: #eeeeee;
   color: @ColorPaletteTextGeneralTop;
   padding: 2px;
-  margin: 2px 3px 0px 3px;
+  margin: 1px 0px 1px 4px;
   border-radius: 4px;
 }
 
@@ -629,6 +628,10 @@ QSint--ActionGroup QFrame[class="header"] QLabel[fold="true"] {
 QSint--ActionGroup QFrame[class="header"] QLabel[fold="true"]:hover {
   padding: 2px;
   image: url(qss:images_classic/arrow-up-white1.svg);
+}
+
+Gui--OverlayTabWidget[transparent="true"] QSplitter::handle:vertical {
+  image: none;
 }
 
 QFrame[class="panel"] QPushButton {

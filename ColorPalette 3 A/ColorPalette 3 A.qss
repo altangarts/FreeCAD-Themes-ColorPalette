@@ -844,50 +844,17 @@ QScrollArea QWidget:disabled {
 /* QScrollBar -------------------------------------------------------------
 
 --------------------------------------------------------------------------- */
-QDockWidget QScrollBar::handle:vertical {
-  background-color: rgba(0,0,0,0.2);
-  min-height: 10px;
-  border-radius: 2px;
-  margin: 14px 3px 14px 2px;
-}
-
-QDockWidget QScrollBar::sub-line:vertical {
-  margin: 3px 4px 3px 0px; 
-  border-image: url(qss:images_classic/arrow-up-black1.svg);
-  height: 9px;
-  width: 9px;
-  subcontrol-position: top;
-  subcontrol-origin: margin;
-}
-
-QDockWidget QScrollBar::add-line:vertical {
-  margin: 3px 5px 3px 2px; 
-  border-image: url(qss:images_classic/arrow-down-black1.svg);
-  height: 9px;
-  width: 9px;
-  subcontrol-position: bottom;
-  subcontrol-origin: margin;
-}
-
-QDockWidget QScrollBar:vertical {
-  background-color: transparent;
-  width: 12px;
-  margin: 0px;
-  padding: 0px 2px 0px 0px;
-}
-
 QScrollBar:horizontal {
   background-color: transparent;
-  height: 14px;
-  margin: 0px;
-  padding: 0px 0px -2px 0px;
+  height: 16px;
+  padding: 0px 15px 0px 15px;
 }
 
 QScrollBar::handle:horizontal {
   background-color: rgba(0,0,0,0.2);
-  min-width: 10px;
+  min-width: 15px;
   border-radius: 2px;
-  margin: 8px 14px 3px 14px;
+  margin: 8px 0px 3px 0px;
 }
 
 QScrollBar::handle:horizontal:hover {
@@ -895,101 +862,100 @@ QScrollBar::handle:horizontal:hover {
 }
 
 QScrollBar::sub-line:horizontal {
-  margin: 4px 3px -3px 3px; 
-  border-image: url(qss:images_classic/arrow-left-black1.svg);
-  width: 9px;
-  height: 9px;
   subcontrol-position: left;
   subcontrol-origin: margin;
-}
-
-QScrollBar::add-line:horizontal {
-  margin: 4px 3px -3px 3px; 
-  border-image: url(qss:images_classic/arrow-right-black1.svg);
-  width: 9px;
-  height: 9px;
-  subcontrol-position: right;
-  subcontrol-origin: margin;
+  image: url(qss:images_classic/arrow-left-black1.svg);
+  padding: 4px 4px 0px 4px;
+  width: 11px;
+  height: 11px;
 }
 
 QScrollBar::sub-line:horizontal:hover,
 QScrollBar::sub-line:horizontal:on {
-  border-image: url(qss:images_classic/arrow-left-white1.svg);
+  image: url(qss:images_classic/arrow-left-white1.svg);
+}
+
+QScrollBar::add-line:horizontal {
+  subcontrol-position: right;
+  subcontrol-origin: margin;
+  image: url(qss:images_classic/arrow-right-black1.svg);
+  padding: 4px 2px 0px 6px;
+  width: 11px;
+  height: 11px;
 }
 
 QScrollBar::add-line:horizontal:hover,
 QScrollBar::add-line:horizontal:on {
-  border-image: url(qss:images_classic/arrow-right-white1.svg);
+  image: url(qss:images_classic/arrow-right-white1.svg);
 }
 
-QScrollBar::up-arrow:horizontal,
-QScrollBar::down-arrow:horizontal {
-  background-color: none;
-}
-
-QScrollBar::add-page:horizontal,
 QScrollBar::sub-page:horizontal {
-  background-color: transparent;
 }
 
-QScrollBar:vertical,
-QSint--ActionGroup QScrollBar:vertical {
-  background-color: transparent;
-  width: 15px;
-  margin: 0px;
-  padding: 0px -1px 0px 0px;
+QScrollBar::add-page:horizontal {
 }
 
-QScrollBar::handle:vertical,
-QSint--ActionGroup QScrollBar::handle:vertical {
+QScrollBar::up-arrow:horizontal {
+}
+
+QScrollBar::down-arrow:horizontal {
+}
+
+QScrollBar:vertical {
+  background-color: transparent;
+  width: 16px;
+  padding: 15px 0px 15px 0px;
+}
+
+QScrollBar::handle:vertical {
   background-color: rgba(0,0,0,0.2);
-  min-height: 10px;
+  min-height: 15px;
   border-radius: 2px;
-  margin: 14px 3px 14px 8px;
+  margin: 0px 3px 0px 8px;
 }
 
 QScrollBar::handle:vertical:hover {
   background-color: @ThemeAccentColor1;
 }
 
-QScrollBar::sub-line:vertical,
-QSint--ActionGroup QScrollBar::sub-line:vertical {
-  margin: 3px -2px 3px 4px; 
-  border-image: url(qss:images_classic/arrow-up-black1.svg);
-  height: 9px;
-  width: 9px;
+QScrollBar::sub-line:vertical {
   subcontrol-position: top;
   subcontrol-origin: margin;
+  image: url(qss:images_classic/arrow-up-black1.svg);
+  padding: 4px 0px 4px 4px;
+  width: 11px;
+  height: 11px;
 }
 
-QScrollBar::add-line:vertical,
-QSint--ActionGroup QScrollBar::add-line:vertical {
-  margin: 3px 0px 3px 6px; 
-  border-image: url(qss:images_classic/arrow-down-black1.svg);
-  height: 9px;
-  width: 9px;
+QScrollBar::add-line:vertical {
   subcontrol-position: bottom;
-  subcontrol-origin: margin;
+  subcontrol-origin: margin; 
+  image: url(qss:images_classic/arrow-down-black1.svg);
+  padding: 4px 0px 4px 4px;
+  width: 11px;
+  height: 11px;
 }
 
 QScrollBar::sub-line:vertical:hover,
 QScrollBar::sub-line:vertical:on {
-  border-image: url(qss:images_classic/arrow-up-white1.svg);
+  image: url(qss:images_classic/arrow-up-white1.svg);
 }
 
 QScrollBar::add-line:vertical:hover,
 QScrollBar::add-line:vertical:on {
-  border-image: url(qss:images_classic/arrow-down-white1.svg);
+  image: url(qss:images_classic/arrow-down-white1.svg);
 }
 
-QScrollBar::up-arrow:vertical,
-QScrollBar::down-arrow:vertical {
-  background-color: none;
-}
-
-QScrollBar::add-page:vertical,
 QScrollBar::sub-page:vertical {
-  background-color: none;
+}
+
+QScrollBar::add-page:vertical {
+}
+
+QScrollBar::up-arrow:vertical {
+}
+
+QScrollBar::down-arrow:vertical {
 }
 
 /* QTextEdit --------------------------------------------------------------
@@ -1426,7 +1392,7 @@ QPushButton:checked:selected {
 QPushButton:hover,
 QPushButton:pressed,
 QPushButton:selected {
-  background-color: rgba(250,250,250,0.2);
+  background-color: rgba(250,250,250,0.15);
   border: 2px solid @ThemeAccentColor1;
 }
 
@@ -1598,12 +1564,12 @@ QToolBar QToolButton {
   color: @ColorPaletteTextGeneralTop;
   min-width: 18px;
   min-height: 24px;
-  margin: 0px 0px 0px 0px;
+  margin: 0px 1px 0px 0px;
   padding: 1px 2px 8px 3px;
 }
 
 QToolBar QToolButton:disabled {
-  margin: 0px 0px 0px 0px;
+  margin: 0px 1px 0px 0px;
   padding: 1px 2px 8px 3px;
 }
 
@@ -1951,7 +1917,6 @@ QSint--ActionGroup QFrame[class="content"] QTableView::item:selected {
 QSint--ActionGroup QFrame[class="content"] QTreeView::item:focus,
 QSint--ActionGroup QFrame[class="content"] QListView::item:focus,
 QSint--ActionGroup QFrame[class="content"] QTableView::item:focus {
-  background-color: @ThemeAccentColor1;
   border: 1px solid @ThemeAccentColor1;
 }
 
@@ -2023,15 +1988,15 @@ QSint--ActionGroup QFrame[class="content"] QTreeView QAbstractSpinBox::down-arro
 
 QSint--ActionGroup QFrame[class="content"] QHeaderView {
   background-color: transparent;
-  border: 1px solid transparent;
+  border: none;
   margin: 0px;
   padding: 0px;
 }
 
 QSint--ActionGroup QFrame[class="content"] QHeaderView::section::horizontal {
   background-color: rgba(0,0,0,0.3);
-  padding: 3px 0px 3px 10px;
-  margin: 0px 3px 1px 0px;
+  padding: 4px 0px 1px 5px;
+  margin: 0px 1px 3px 0px;
 }
 
 QSint--ActionGroup QFrame[class="content"] QStackedWidget {
@@ -2080,8 +2045,8 @@ QSint--ActionGroup QToolButton#filterButton QListWidget {
   background-color: transparent;
   color: #eeeeee;
   color: @ColorPaletteTextGeneralTop;
+  border-radius: 0px;
   border: none;
-  padding: 0px 5px 0px 0px;
 }
 
 QSint--ActionGroup QToolButton#filterButton QListWidget::item {
@@ -2090,7 +2055,7 @@ QSint--ActionGroup QToolButton#filterButton QListWidget::item {
   color: #eeeeee;
   color: @ColorPaletteTextGeneralTop;
   padding: 2px;
-  margin: 2px 3px 0px 3px;
+  margin: 1px 0px 1px 4px;
   border-radius: 4px;
 }
 
@@ -2915,13 +2880,17 @@ QTabWidget QTreeView {
   background-color: qlineargradient(x1:0, y1:0.94, x2:0, y2:1, stop:0 rgba(250,250,250,0.07), stop:1 rgba(0,0,0,0.2));  
   border: 1px solid rgba(0,0,0,0.15);
   margin: 0px 0px 0px 0px;
-  padding: 4px 0px 20px 4px;
+  padding: 4px 2px 20px 4px;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
   border-bottom-left-radius: 16px;
   border-bottom-right-radius: 16px;
   selection-background-color: transparent;
   selection-color: #ffffff;
+}
+
+QDockWidget QTabWidget QTreeView {
+  padding: 4px 2px 20px 4px;
 }
 
 Gui--TreePanel QTreeView::item {
@@ -2947,10 +2916,6 @@ QDockWidget QTabWidget QTreeView::item:has-children:!has-siblings:open,
 QDockWidget QTabWidget QTreeView::item:has-children:open {
   background-color: rgba(0,0,0,0.15);
   background-color: @ColorPaletteOverlayitemEnd;
-}
-
-QDockWidget QTabWidget QTreeView {
-  padding: 4px 2px 20px 4px;
 }
 
 QDockWidget QTabWidget QTreeView::item {
@@ -3115,7 +3080,7 @@ QListView {
   color: @ColorPaletteTextGeneralTop;
   margin: 0px;
   border: 0px solid rgba(0,0,0,0.2);
-  padding: 5px 2px 5px 2px;
+  padding: 5px 5px 5px 5px;
   border-radius: 0px;
   selection-background-color: @ThemeAccentColor1;
   selection-color: #ffffff;
@@ -3773,27 +3738,16 @@ QToolBox > QScrollArea > QWidget > QWidget {
 /* QSplitter --------------------------------------------------------------
 
 ---------------------------------------------------------------------------*/
-QSplitterHandle:hover { 
-}
-
-QSplitter::handle {
-}
-
 QSplitter::handle:horizontal {
   background-position: center center;
-  background-repeat: none;  
-  width: 1px;
-  padding: 3px;
+  background-repeat: none;
+  width: 6px;
 }
 
 QSplitter::handle:vertical {
-  background-color: transparent;
-  border-top: 0px solid transparent;
-  border-bottom: 0px solid transparent;
   background-position: center center;
   background-repeat: none;
-  height: 4px;
-  padding: 1px 0px 0px 0px;
+  height: 6px;
 }
 
 QSplitter::handle:vertical {
@@ -4091,19 +4045,19 @@ QTreeView::branch#groupsTreeView:has-siblings:!adjoins-item  {
 /*==================================================================================================
 Start page
 ==================================================================================================*/
-#thumbnailWidget {
+QWidget#thumbnailWidget {
   background-color: rgba(250,250,250,0.1);
   border-radius: 10px;
   border: 1px solid rgba(0,0,0,0.3);
 }
 
-#thumbnailWidget:hover {
+QWidget#thumbnailWidget[state="hovered"] {
   background-color: @ThemeAccentColor1;
   background-color: @ColorPaletteHover;
   border: 1px solid @ThemeAccentColor1;
 }
 
-#thumbnailWidget:pressed {
+QWidget#thumbnailWidget[state="pressed"] {
   background-color: @ThemeAccentColor1;
   border: 1px solid @ThemeAccentColor1;
 }
