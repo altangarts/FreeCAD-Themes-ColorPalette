@@ -675,7 +675,7 @@ QMenu::separator {
 
 QMenu::item {
   background-color: transparent;
-  padding: 3px 10px 3px 6px;
+  padding: 3px 20px 3px 6px;
   margin: 1px 0px 1px 0px;
   border-radius: 4px;
 }
