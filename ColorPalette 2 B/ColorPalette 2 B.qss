@@ -2516,8 +2516,7 @@ QDialog QTabBar::tab:hover {
 QTabBar::tab:selected:hover,
 QToolBar QTabBar::tab:selected:hover,
 QMdiArea QTabBar::tab:selected:hover,
-QTabWidget QTabBar::tab:selected:hover,
-QDialog QTabBar::tab:hover {
+QTabWidget QTabBar::tab:selected:hover {
   background-color: @ThemeAccentColor1;
   background-color: @ColorPaletteHover;
   color: #ffffff;
