@@ -2437,6 +2437,11 @@ QToolBar QTabBar::tab {
   padding: 3px 5px 4px 5px;
 }
 
+QToolBar QTabBar::tab:bottom {
+  color: #eeeeee;
+  color: @ColorPaletteTextGeneralBottom;
+}
+
 QToolBar QTabBar::tab:left {
   background-color: rgba(250,250,250,0.15);
   color: #eeeeee;
