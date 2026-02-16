@@ -1580,12 +1580,12 @@ QToolBar QToolButton {
   min-width: 18px;
   min-height: 24px;
   margin: 0px 0px 0px 0px;
-  padding: 2px 3px 10px 4px;
+  padding: 1px 3px 10px 4px;
 }
 
 QToolBar QToolButton:disabled {
   margin: 0px 0px 0px 0px;
-  padding: 2px 3px 10px 4px;
+  padding: 1px 3px 10px 4px;
 }
 
 QStatusBar QToolButton {
@@ -1681,19 +1681,19 @@ QToolBar QToolButton::menu-arrow {
   subcontrol-origin: padding;
   subcontrol-position: bottom center;
   image: url(qss:images_classic/radio-mark-white1.svg);
-  top: 1px;
+  top: 0px;
   width: 12px;
 }
 
 QToolBar QToolButton::menu-arrow:open {
-  top: 1px;
+  top: 0px;
   right: 10px;
   image: url(qss:images_classic/arrow-up-white2.svg);
   width: 10px;
 }
 
 QToolBar QToolButton::menu-arrow:hover {
-  top: 1px;
+  top: 0px;
   right: 10px;
   image: url(qss:images_classic/arrow-down-white2.svg);
   width: 10px;
