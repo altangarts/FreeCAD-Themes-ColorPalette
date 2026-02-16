@@ -3763,6 +3763,13 @@ QSplitter::handle:horizontal {
   width: 6px;
 }
 
+QDialog QSplitter::handle:horizontal {
+  background-position: center center;
+  background-repeat: none;
+  width: 3px;
+  margin: 1px;
+}
+
 QSplitter::handle:vertical {
   background-position: center center;
   background-repeat: none;
