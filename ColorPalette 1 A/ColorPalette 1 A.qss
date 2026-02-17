@@ -203,9 +203,12 @@ Gui--PropertyEditor--PropertyEditor > QWidget > QWidget QLabel {
 /*==================================================================================================
 Main window
 ==================================================================================================*/
-QMainWindow,
+QMainWindow {
+  background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop: 0 @ThemeAccentColor2, stop: 0.12 @ThemeAccentColor2, stop: 0.5 @ThemeAccentColor3, stop: 1 @ThemeAccentColor3); /* main background color */
+}
+
 QDialog {
-  background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop: 0 @ThemeAccentColor2, stop: 0.085 @ThemeAccentColor2, stop: 0.5 @ThemeAccentColor3, stop: 1 @ThemeAccentColor3); /* main background color */
+  background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop: 0 @ThemeAccentColor2, stop: 0.5 @ThemeAccentColor3, stop: 1 @ThemeAccentColor3);
 }
 
 QMdiArea {
@@ -228,23 +231,11 @@ QDockWidget {
 }
 
 QDockWidget QFrame {
-  background-color: transparent;
+  background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop: 0 @ThemeAccentColor2, stop: 0.475 @ThemeAccentColor3, stop: 1 @ThemeAccentColor3);
   border: 1px solid transparent;
   margin: 0px 0px 0px 0px;
   padding: 0px 0px 0px 0px;
   border-radius: 10px;
-}
-
-/* QDockWidget QFrame QFrame {
-  background-color: transparent;
-  border: 1px solid transparent;
-} */
-
-QDockWidget QWidget::pane {
-  background-color: transparent;
-  border: 1px solid transparent;
-  margin: 0px;
-  padding: 0px;
 }
 
 QDockWidget::title {
@@ -361,10 +352,17 @@ QColorDialog QLabel {
 /* QMainWindow ------------------------------------------------------------
 
 --------------------------------------------------------------------------- */
-QMainWindow::separator {
-  border-right: 0px solid rgba(0,0,0,0.2);
-  spacing: 0px;
-  padding: 0px;
+QMainWindow::separator:horizontal {
+  height: 5px;
+  margin: -1px;
+  padding: 2px;
+}
+
+QMainWindow::separator:vertical {
+  background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop: 0 @ThemeAccentColor2, stop: 0.485 @ThemeAccentColor3, stop: 1 @ThemeAccentColor3);
+  width: 5px;
+  margin: -1px;
+  padding: 2px;
 }
 
 QMainWindow::separator:vertical {
@@ -383,25 +381,13 @@ QMainWindow::separator:horizontal:hover {
   image: url(qss:images_classic/splitter_horizontal-white.svg);
 }
 
-QMainWindow::separator:horizontal {
-  height: 2px;
-  margin-top: 1px;
-  margin-bottom: 1px;
-}
-
-QMainWindow::separator:vertical {  
-  width: 5px;
-  margin-left: 1px;
-  margin-right: 1px;
-}
-
 /* QToolTip ---------------------------------------------------------------
 
 --------------------------------------------------------------------------- */
 QToolTip {
-  background-color: #aa5500;
-  color: #ffffff;
-  border: 1px solid rgba(0,0,0,0.3);
+  background-color: #948988;
+  color: #151515;
+  border: 1px solid #151515;
   padding: 2px;
 }
 
@@ -1034,24 +1020,9 @@ QStackedWidget {
 /* QToolBar ---------------------------------------------------------------
 
 --------------------------------------------------------------------------- */
-QToolBar {
-  background-color: @ThemeAccentColor2;
-}
-
 QToolBar[orientation="1"] {
-  margin: 1px 1px 1px 1px;
-  padding: 1px;
-}
-
-QToolBar:horizontal {
-  background-color: rgba(250,250,250,0.12);
-  border-width: 1px 1px 2px 1px;
-  border-style: solid;
-  border-top-color: rgba(0,0,0,0.2);
-  border-right-color: rgba(0,0,0,0.2);
-  border-bottom-color: rgba(0,0,0,0.6);
-  border-left-color: rgba(0,0,0,0.2);
-  border-radius: 4px;
+  margin: 2px 1px 0px 1px;
+  padding: 0px;
 }
 
 QToolBar[orientation="2"] {
@@ -1059,7 +1030,16 @@ QToolBar[orientation="2"] {
   padding: 1px;
 }
 
-QToolBar:vertical {
+QToolBar {
+  background-color: @ThemeAccentColor2;
+  border: 1px solid rgba(0,0,0,0.6);
+}
+
+QToolBar:top,
+QToolBar:bottom,
+QToolBar:left,
+QToolBar:right {
+  background: transparent;
   background-color: rgba(250,250,250,0.12);
   border-width: 1px 1px 2px 1px;
   border-style: solid;
@@ -1070,17 +1050,12 @@ QToolBar:vertical {
   border-radius: 4px;
 }
 
-QMenuBar QToolBar:only-one,
-QToolBar:only-one:top {
-  background-color: @ThemeAccentColor2;
+QMenuBar QToolBar,
+QStatusBar QToolBar {
+  background-color: transparent;
   border: none;
   margin: 0px;
   padding: 0px;
-}
-
-QStatusBar QToolBar:only-one {
-  background-color: transparent;
-  border: none;
 }
 
 QToolBar::handle:horizontal {
@@ -1093,7 +1068,7 @@ QToolBar::handle:horizontal {
 QMenuBar QToolBar::handle:horizontal {
   width: 10px;
   padding: 5px;
-  margin-bottom: 3px;
+  margin-bottom: 0px;
   image: url(qss:images_classic/Hmovetoolbar-black.svg);
 }
 
@@ -1472,6 +1447,14 @@ QGroupBox QPushButton {
   min-width: 60px;
 }
 
+QGroupBox QTableView QPushButton,
+QGroupBox QTableView QPushButton:hover,
+QGroupBox QTableView QPushButton:pressed {
+  background-color: transparent;
+  border: 1px solid transparent;
+  margin: 0px 0px 3px 0px;
+}
+
 QStatusBar QToolBar QPushButton {
   padding: 4px 10px 5px 10px;
   margin: 1px 0px 0px 0px;
@@ -1593,12 +1576,12 @@ QToolBar QToolButton {
   min-width: 18px;
   min-height: 24px;
   margin: 0px 1px 0px 0px;
-  padding: 1px 2px 9px 3px;
+  padding: 2px 2px 8px 3px;
 }
 
 QToolBar QToolButton:disabled {
   margin: 0px 1px 0px 0px;
-  padding: 1px 2px 9px 3px;
+  padding: 2px 2px 8px 3px;
 }
 
 QStatusBar QToolBar QToolButton {
@@ -1683,7 +1666,7 @@ QToolButton#qt_toolbar_ext_button:on {
   border-left-color: rgba(0,0,0,0.2);
   border-radius: 4px;
   padding: -2px 1px -2px 2px;
-  margin: 0px 0px 2px 0px;
+  margin: 1px 0px 0px 0px;
 }
 
 QStatusBar QToolBar QToolButton:pressed,
@@ -1796,6 +1779,11 @@ QDockWidget QPushButton {
 QSint--ActionGroup {
   padding: 0px;
   margin: 0px; 
+}
+
+QSint--ActionGroup QFrame {
+  background-color: transparent;
+  border: 1px solid transparent;
 }
 
 /* Separator line */
@@ -2401,6 +2389,7 @@ QTabWidget QFrame {
 QTabWidget::pane {
   margin: 0px;
   padding: 0px;
+  border: none;
   background-color: transparent;
 }
 
@@ -2441,16 +2430,18 @@ QTabBar::tab {
   border-radius: 4px;
 }
 
-QToolBar QTabBar::tab {
+QToolBar QTabBar::tab:top {
   color: #eeeeee;
   color: @ColorPaletteTextGeneralTop;
-  margin: 2px 2px 5px 0px;
+  margin: 2px 2px 1px 0px;
   padding: 3px 5px 4px 5px;
 }
 
 QToolBar QTabBar::tab:bottom {
   color: #eeeeee;
   color: @ColorPaletteTextGeneralBottom;
+  margin: 2px 2px 1px 0px;
+  padding: 3px 5px 4px 5px;
 }
 
 QToolBar QTabBar::tab:left {
@@ -2464,7 +2455,7 @@ QToolBar QTabBar::tab:left {
   border-bottom-color: rgba(0,0,0,0.2);
   border-left-color: rgba(0,0,0,0.2);
   border-radius: 4px;
-  margin: 2px 5px 0px 2px;
+  margin: 2px 2px 0px 1px;
   padding: 0px 3px 4px 0px;
   min-height: 5px;
   min-width: 24px;
@@ -2481,7 +2472,7 @@ QToolBar QTabBar::tab:right {
   border-bottom-color: rgba(0,0,0,0.2);
   border-left-color: rgba(0,0,0,0.6);
   border-radius: 4px;
-  margin: 2px 2px 0px 5px;
+  margin: 2px 1px 0px 2px;
   padding: 4px 0px 0px 3px;
   min-height: 5px;
   min-width: 24px;
@@ -3245,6 +3236,11 @@ QDialog QGroupBox QTableView {
   border-radius: 0px;
 }
 
+QDialog QGroupBox QTableView::item {
+  color: #eeeeee;
+  color: @ColorPaletteTextGeneralBottom;
+}
+
 QTableView::item {
   border: 1px solid transparent;
   color: #eeeeee;
@@ -3304,6 +3300,15 @@ QTabWidget QDialog QTreeView {
   border-radius: 10px;
   selection-background-color: transparent;
   selection-color: #ffffff;
+}
+
+QDialog QTreeView QPushButton,
+QDialog QTreeView QPushButton:hover,
+QDialog QTreeView QPushButton:pressed {
+  background-color: transparent;
+  border: 1px solid transparent;
+  padding: 0px 5px 0px 5px;
+  margin: -2px 0px 0px 0px;
 }
 
 QDialog QTreeView QLineEdit {
@@ -3803,20 +3808,15 @@ QToolBox > QScrollArea > QWidget > QWidget {
 QSplitter::handle:horizontal {
   background-position: center center;
   background-repeat: none;
-  width: 6px;
-}
-
-QDialog QSplitter::handle:horizontal {
-  background-position: center center;
-  background-repeat: none;
   width: 3px;
-  margin: 1px;
+  padding: 1px;
 }
 
 QSplitter::handle:vertical {
   background-position: center center;
   background-repeat: none;
-  height: 6px;
+  height: 3px;
+  padding: 1px;
 }
 
 QSplitter::handle:vertical {
