@@ -96,8 +96,9 @@ ColorPalette Themes, makes the interface and workspaces more user-focused. It si
 
 ---(If these variables are not visible, install using the "Theme Selection 1" directive)---
 
-   - ColorPaletteText... 
-   - ColorPaletteFontSize...
+   - "ColorPaletteText..." 
+   - "ColorPaletteFontSize..."
+   - And "ColorPalettePropertyGridlineOverlay" (Property Gridline color, for Overlay)  
   
 
 ⤵️     
