@@ -1016,43 +1016,39 @@ QStackedWidget {
 /* QToolBar ---------------------------------------------------------------
 
 --------------------------------------------------------------------------- */
-QToolBar[orientation="1"] {
-  margin: 0px;
-  padding: 1px 0px 1px 0px;
-}
-
-QToolBar[orientation="2"] {
-  margin: 0px;
-  padding: 0px 1px 0px 1px;
-}
-
 QToolBar {
   background-color: @ThemeAccentColor2;
-  border: 1px solid rgba(0,0,0,0.6);
+  border: 1px solid #151515;
+  spacing: 0px;
+  padding: 0px;
 }
 
 QToolBar:top {
   background-color: @ThemeAccentColor2;
-  border: none;
+  border: 1px solid @ThemeAccentColor2;
+  spacing: 0px;
+  padding: 0px;
 }
 
 QToolBar:bottom {
   background-color: @ThemeAccentColor3;
-  border: none;
+  border: 1px solid @ThemeAccentColor3;
+  spacing: 0px;
+  padding: 0px;
 }
 
 QToolBar:left,
 QToolBar:right {
   background-color: transparent;
   border: 1px solid transparent;
-  margin: 0px;
+  spacing: 0px;
   padding: 0px;
 }
 
 QMenuBar QToolBar,
 QStatusBar QToolBar {
   background-color: transparent;
-  border: none;
+  border: 1px solid transparent;
   margin: 0px;
   padding: 0px;
 }
@@ -1123,7 +1119,7 @@ QDialog QAbstractSpinBox {
   border-bottom-right-radius: 6px;
   min-height: 22px;
   max-height: 22px;
-  padding-left: 5px;
+  padding: 0px 5px 0px 5px;
 }
 
 QAbstractSpinBox:up-button {
@@ -3309,6 +3305,8 @@ QTabWidget QDialog QTreeView {
   border: 1px solid rgba(0,0,0,0.1);
   padding: 5px 5px 5px 5px;
   border-radius: 10px;
+  selection-background-color: transparent;
+  selection-color: #ffffff;
 }
 
 QDialog QTreeView QPushButton,
@@ -3429,7 +3427,7 @@ QDialog QComboBox {
   border-bottom-right-radius: 6px;
   color: #beffff;
   color: @ColorPaletteTextCombobox;
-  padding-left: 8px;
+  padding: 0px 8px 0px 8px;
   min-height: 22px;
 }
 

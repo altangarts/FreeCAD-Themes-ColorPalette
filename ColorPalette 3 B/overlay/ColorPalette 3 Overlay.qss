@@ -19,8 +19,6 @@ Gui--OverlaySplitterHandle {
 
 Gui--PropertyEditor--PropertyEditor {
   qproperty-itemBackground: transparent;
-/*  qproperty-groupBackground: rgba(0,0,0,0.15);
-  qproperty-groupBackground: qlineargradient(x1:0, y1:0.3, x2:0, y2:1, stop:0 @ColorPaletteOverlayContent, stop:0.85 @ColorPaletteOverlayHeader2, stop:1 @ThemeAccentColor3); */
   qproperty-groupTextColor: #f5c5f5;
   qproperty-groupTextColor: @ColorPaletteTextHeaderOverlay;
   alternate-background-color: transparent;
@@ -231,13 +229,13 @@ QTabWidget QTreeView,
 Gui--TreePanel QTreeView,
 Gui--TreePanel QTableView {
   background-color: transparent;
-  margin: 0px;
+  margin: 0px 0px 0px 4px;
   padding: 0px;
   border: none;
 }
 
 Gui--TreePanel QTreeView {
-  margin-left: -4px;
+  margin-left: 0px;
 }
 
 Gui--TreePanel QTreeView::item,

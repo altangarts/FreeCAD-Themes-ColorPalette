@@ -1016,33 +1016,31 @@ QStackedWidget {
 /* QToolBar ---------------------------------------------------------------
 
 --------------------------------------------------------------------------- */
-QToolBar[orientation="1"] {
-  margin: 2px 1px 0px 1px;
-  padding: 0px;
-}
-
-QToolBar[orientation="2"] {
-  margin: 1px 1px 1px 1px;
-  padding: 1px;
-}
-
 QToolBar {
   background-color: @ThemeAccentColor2;
-  border: 1px solid rgba(0,0,0,0.6);
+  border: 1px solid #151515;
+  spacing: 0px;
+  padding: 0px;
 }
 
 QToolBar:top,
 QToolBar:bottom {
   background-color: qlineargradient(x1:0, y1:0.3, x2:0, y2:1, stop:0 rgba(250,250,250,0.1), stop:1 rgba(0,0,0,0.2));
   border: 1px solid rgba(0,0,0,0.2);
+  spacing: 0px;
+  padding: -2px;
   border-radius: 4px;
+  margin: 2px 1px 0px 1px;
 }
 
 QToolBar:left,
 QToolBar:right {
   background-color: qlineargradient(x1:0, y1:0.99, x2:0, y2:1, stop:0 rgba(250,250,250,0.07), stop:1 rgba(0,0,0,0.2));
   border: 1px solid rgba(0,0,0,0.2);
+  spacing: 0px;
+  padding: -2px;
   border-radius: 4px;
+  margin: 2px 1px 0px 1px;
 }
 
 QMenuBar QToolBar,
@@ -1119,7 +1117,7 @@ QDialog QAbstractSpinBox {
   border-bottom-right-radius: 6px;
   min-height: 22px;
   max-height: 22px;
-  padding-left: 5px;
+  padding: 0px 5px 0px 5px;
 }
 
 QAbstractSpinBox:up-button {
@@ -1557,13 +1555,13 @@ QToolBar QToolButton {
   color: @ColorPaletteTextGeneralTop;
   min-width: 18px;
   min-height: 24px;
-  margin: 0px 1px 0px 0px;
-  padding: 2px 2px 8px 3px;
+  margin: 2px 0px 2px 0px;
+  padding: 2px 3px 8px 4px;
 }
 
 QToolBar QToolButton:disabled {
-  margin: 0px 1px 0px 0px;
-  padding: 2px 2px 8px 3px;
+  margin: 2px 0px 2px 0px;
+  padding: 2px 3px 8px 4px;
 }
 
 QStatusBar QToolBar QToolButton {
@@ -1685,14 +1683,14 @@ QToolBar QToolButton::menu-arrow {
 }
 
 QToolBar QToolButton::menu-arrow:open {
-  top: 1px;
+  top: 2px;
   right: 10px;
   image: url(qss:images_classic/arrow-up-white2.svg);
   width: 10px;
 }
 
 QToolBar QToolButton::menu-arrow:hover {
-  top: 1px;
+  top: 2px;
   right: 10px;
   image: url(qss:images_classic/arrow-down-white2.svg);
   width: 10px;
@@ -3393,7 +3391,7 @@ QDialog QComboBox {
   border-bottom-right-radius: 6px;
   color: #beffff;
   color: @ColorPaletteTextCombobox;
-  padding-left: 8px;
+  padding: 0px 8px 0px 8px;
   min-height: 22px;
 }
 
