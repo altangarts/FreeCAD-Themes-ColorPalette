@@ -285,23 +285,27 @@ Gui--OverlayToolButton {
   min-width: 11px;
   padding: 2px 6px 3px 6px;
   margin: 0px 0px 2px 0px;
-  image: url(qss:images_classic/transparent.svg);
+  qproperty-icon: none;
+}
+
+Gui--OverlayToolButton {
+  image: url(qss:images_classic/close-black1.svg);
 }
 
 Gui--OverlayToolButton:hover {
-  image: url(qss:images_classic/close-white.svg);
   background-color: @ThemeAccentColor1;
   background-color: @ColorPaletteHover;
+  image: url(qss:images_classic/close-white.svg);
 }
 
 Gui--OverlayToolButton:pressed {
-  image: url(qss:images_classic/close-white.svg);
   background-color: @ThemeAccentColor1;
   border: 1px solid @ThemeAccentColor1;
+  image: url(qss:images_classic/close-white.svg);
 }
 
 Gui--OverlayToolButton[objectName="OBTN Float"] {
-  image: url(qss:images_classic/float-transparent.svg);
+  image: url(qss:images_classic/float-black1.svg);
 }
 
 Gui--OverlayToolButton[objectName="OBTN Float"]:hover {
@@ -309,7 +313,7 @@ Gui--OverlayToolButton[objectName="OBTN Float"]:hover {
 }
 
 Gui--OverlayToolButton[objectName="OBTN Overlay"] {
-  image: url(qss:images_classic/overlay-transparent.svg);
+  image: url(qss:images_classic/overlay-black1.svg);
 }
 
 Gui--OverlayToolButton[objectName="OBTN Overlay"]:hover {
@@ -1933,6 +1937,7 @@ QSint--ActionGroup QFrame[class="content"] QComboBox QAbstractItemView {
   padding: 1px;
 }
 
+QFrame[class="panel"] QListView,
 QSint--ActionGroup QFrame[class="content"] QListView,
 QSint--ActionGroup QFrame[class="content"] QTableView,
 QSint--ActionGroup QFrame[class="content"] QTreeView {
@@ -2650,7 +2655,7 @@ QTabBar::close-button {
   border: 0;
   margin: 0px 0px 2px 0px;
   padding: 5px;
-  image: url(qss:images_classic/close-black1.svg);
+  image: url(qss:images_classic/close-black2.svg);
 }
 
 QTabBar::close-button:selected {

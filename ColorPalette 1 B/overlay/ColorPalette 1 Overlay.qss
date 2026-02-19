@@ -28,6 +28,7 @@ Gui--PropertyEditor--PropertyEditor {
   qproperty-groupTextColor: @ColorPaletteTextHeaderOverlay;
   alternate-background-color: transparent;
   gridline-color: @ThemeAccentColor3;
+  gridline-color: @ColorPalettePropertyGridlineOverlay;
   color: #ffff69;
   color: @ColorPaletteTextPropertyEditor;
 }
@@ -123,7 +124,7 @@ QTabWidget QTreeView::item:focus {
 QTabWidget QTreeView QPushButton {
   background-color: @ThemeAccentColor1;
   border: 1px solid @ThemeAccentColor1;
-  margin: 0px 3px 1px 0px;
+  margin: 0px 2px 1px 0px;
   padding: 0px;
   color: #ffffff;
   border-top-left-radius: 0px;
@@ -132,8 +133,7 @@ QTabWidget QTreeView QPushButton {
   border-bottom-right-radius: 4px;
 }
 
-QTabWidget QTreeView QPushButton:hover,
-QTabWidget QDialog QPushButton:hover {
+QTabWidget QTreeView QPushButton:hover {
   background-color: @ThemeAccentColor1;
   background-color: @ColorPaletteHover;
   border: 1px solid @ThemeAccentColor1;
@@ -151,12 +151,42 @@ QTabWidget QDialog QPushButton {
   margin: 0px 0px 0px 0px;
 }
 
-QTabWidget QDialog QPushButton:disabled {
-  background-color: rgba(0,0,0,0.1);
+QTabWidget QPushButton {
+  background-color: rgba(250,250,250,0.15);
+  color: #eeeeee;
+  color: @ColorPaletteTextGeneralTop;
+  text-align: center;
+  border-width: 1px 1px 2px 1px;
+  border-style: solid;
+  border-top-color: rgba(0,0,0,0.2);
+  border-right-color: rgba(0,0,0,0.2);
+  border-bottom-color: rgba(0,0,0,0.6);
+  border-left-color: rgba(0,0,0,0.2);
+  border-radius: 4px;
+  padding: 3px 8px 6px 8px;
+  margin: 0px 0px 0px 0px;
+}
+
+QTabWidget QPushButton:disabled {
+  background-color: rgba(0,0,0,0.2);
   color: #bbbbbb;
   color: @ColorPaletteTextDisabled;
 }
 
+QTabWidget QPushButton:hover {
+  background-color: @ThemeAccentColor1;
+  background-color: @ColorPaletteHover;
+  color: #ffffff;
+  border-width: 1px 1px 2px 1px;
+  border-style: solid;
+  border-top-color: rgba(0,0,0,0.2);
+  border-right-color: rgba(0,0,0,0.2);
+  border-bottom-color: rgba(0,0,0,0.6);
+  border-left-color: rgba(0,0,0,0.2);
+}
+
+QTabWidget QPushButton:selected,
+QTabWidget QPushButton:pressed,
 QTabWidget QDialog QPushButton:selected,
 QTabWidget QDialog QPushButton:pressed {
   background-color: @ThemeAccentColor1;
@@ -680,31 +710,27 @@ Gui--OverlayToolButton {
   min-width: 11px;
   padding: 2px 6px 3px 6px;
   margin: 0px 0px 0px 0px;
-  image: url(qss:images_classic/transparent.svg);
-}
-
-Gui--OverlayToolButton:hover {
-  image: url(qss:images_classic/close-white.svg);
-  background-color: @ThemeAccentColor1;
-  background-color: @ColorPaletteHover;
-}
-
-Gui--OverlayToolButton:pressed {
-  image: url(qss:images_classic/close-white.svg);
-  background-color: @ThemeAccentColor1;
-  border: 1px solid @ThemeAccentColor1;
 }
 
 Gui--OverlayToolButton {
-  image: url(qss:images_classic/transparent.svg);
+  color: transparent;
+  image: url(qss:images_classic/toggle-hide.svg);
 }
 
 Gui--OverlayToolButton:hover {
-  image: url(qss:images_classic/transparent.svg);
+  background-color: @ThemeAccentColor1;
+  background-color: @ColorPaletteHover;
+  image: url(qss:images_classic/toggle-hide-white.svg);
+}
+
+Gui--OverlayToolButton:pressed {
+  background-color: @ThemeAccentColor1;
+  border: 1px solid @ThemeAccentColor1;
+  image: url(qss:images_classic/toggle-hide-white.svg);
 }
 
 Gui--OverlayToolButton[objectName="OBTN Transparent"] {
-  image: url(qss:images_classic/transparent.svg);
+  image: url(qss:images_classic/transparent-black1.svg);
 }
 
 Gui--OverlayToolButton[objectName="OBTN Transparent"]:hover {
@@ -712,7 +738,7 @@ Gui--OverlayToolButton[objectName="OBTN Transparent"]:hover {
 }
 
 Gui--OverlayToolButton[objectName="OBTN Overlay"] {
-  image: url(qss:images_classic/Transparent.svg);
+  image: url(qss:images_classic/overlay-black1.svg);
 }
 
 Gui--OverlayToolButton[objectName="OBTN Overlay"]:hover {
@@ -720,7 +746,7 @@ Gui--OverlayToolButton[objectName="OBTN Overlay"]:hover {
 }
 
 Gui--OverlayToolButton[objectName="OBTN AutoMode"] {
-  image: url(qss:images_classic/Transparent.svg);
+  image: url(qss:images_classic/mode-black1.svg);
 }
 
 Gui--OverlayToolButton[objectName="OBTN AutoMode"]:hover {
