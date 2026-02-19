@@ -3128,11 +3128,25 @@ QListView {
   selection-color: #ffffff;
 }
 
-QMainWindow QListView {
-  background-color: rgba(250,250,250,0.07);
-  border: 1px solid rgba(0,0,0,0.15);
+QWidget QListView {
+  background-color: transparent;
+  border: 1px solid transparent;
+  margin: 0px;
   padding: 5px 5px 5px 5px;
-  border-radius: 10px;
+  border-radius: 0px;
+  selection-background-color: @ThemeAccentColor1;
+  selection-color: #ffffff;
+}
+
+QDockWidget QListView {
+  background-color: qlineargradient(x1:0, y1:0.94, x2:0, y2:1, stop:0 rgba(250,250,250,0.07), stop:1 rgba(0,0,0,0.2));  
+  border: 1px solid rgba(0,0,0,0.15);
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  border-bottom-left-radius: 16px;
+  border-bottom-right-radius: 16px;
+  margin: 5px 0px 5px 0px;
+  padding: 5px 5px 5px 5px;
   selection-background-color: @ThemeAccentColor1;
   selection-color: #ffffff;
 }
