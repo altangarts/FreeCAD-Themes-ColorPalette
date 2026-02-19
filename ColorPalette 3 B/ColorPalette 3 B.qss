@@ -3117,7 +3117,7 @@ QDockWidget QListView {
   border-top-right-radius: 10px;
   border-bottom-left-radius: 16px;
   border-bottom-right-radius: 16px;
-  margin: 5px 0px 5px 0px;
+  margin: 0px;
   padding: 5px 5px 5px 5px;
   selection-background-color: @ThemeAccentColor1;
   selection-color: #ffffff;
