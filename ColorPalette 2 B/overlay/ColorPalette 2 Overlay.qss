@@ -318,8 +318,8 @@ Gui--TreePanel QTreeView::indicator:checked:disabled  {
 
 Gui--TreePanel QTreeView::item {
   border-radius: 0px;
-  margin: 1px 2px 2px 0px;
-  padding: 0px 0px 2px 0px;
+  margin: 1px 2px 1px 0px;
+  padding: 0px 0px 1px 0px;
 }
 
 #DocumentTreeItems::item {
@@ -334,8 +334,8 @@ Gui--TreePanel QTreeView::item {
   color: #ffff69;
   color: @ColorPaletteTextTreeEnd;
   border-radius: 4px;
-  margin: 1px 0px 0px 0px;  
-  padding: 0px 0px 3px 0px;
+  margin: 0px 0px 1px 0px;  
+  padding: 0px 0px 2px 0px;
 }
 
 #DocumentTreeItems::item:disabled {
