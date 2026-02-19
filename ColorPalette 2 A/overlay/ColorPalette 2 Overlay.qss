@@ -335,7 +335,7 @@ Gui--TreePanel QTreeView::item {
   color: @ColorPaletteTextTreeEnd;
   border-radius: 4px;
   margin: 1px 0px 0px 0px;  
-  padding: 2px 0px 3px 0px;
+  padding: 1px 0px 4px 0px;
 }
 
 #DocumentTreeItems::item:disabled {
