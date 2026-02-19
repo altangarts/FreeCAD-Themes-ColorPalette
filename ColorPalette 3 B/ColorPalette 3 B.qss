@@ -80,8 +80,6 @@ Resetting everything helps to unify styles across different operating systems
   outline: 0;
   selection-background-color: #101010;
   selection-color: #ffffff;
-  font-size: 11px;
-  font-size: @ColorPaletteFontSizeGeneral;
 }
 
 QToolBar * {
@@ -96,8 +94,7 @@ Gui--PropertyEditor--PropertyEditor {
   gridline-color: @ColorPalettePropertyGridline; 
   color: #ffff69;
   color: @ColorPaletteTextPropertyEditor;
-  font-size: 12px;
-  font-size: @ColorPaletteFontSizePropertyEditor;
+  font-size: 9pt;
 }
 
 Gui--PropertyEditor--PropertyEditor {
@@ -231,8 +228,8 @@ QDockWidget {
 }
 
 QDockWidget QFrame {
-  background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop: 0 @ThemeAccentColor2, stop: 0.475 @ThemeAccentColor3, stop: 1 @ThemeAccentColor3);
-  border: 1px solid transparent;
+  background-color: transparent;
+  border: none;
   margin: 0px 0px 0px 0px;
   padding: 0px 0px 0px 0px;
   border-radius: 10px;
@@ -273,7 +270,6 @@ QDockWidget::float-button:pressed {
 
 Gui--OverlayTitleBar {
   color: transparent;
-  font-size: 13px;
 }
 
 Gui--OverlayToolButton {
@@ -969,6 +965,19 @@ QTextEdit:focus {
   color: #ffffff;
 }
 
+QDockWidget QTextEdit,
+QDockWidget QTextEdit:hover,
+QDockWidget QTextEdit:focus {
+  background-color: qlineargradient(x1:0, y1:0.94, x2:0, y2:1, stop:0 rgba(250,250,250,0.07), stop:1 rgba(0,0,0,0.2));  
+  border: 1px solid rgba(0,0,0,0.15);
+  margin: 0px 0px 0px 0px;
+  padding: 5px 5px 10px 5px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  border-bottom-left-radius: 16px;
+  border-bottom-right-radius: 16px;
+}
+
 /* QPlainTextEdit ---------------------------------------------------------
 Python
 --------------------------------------------------------------------------- */
@@ -993,6 +1002,19 @@ QPlainTextEdit:focus {
   background-color: rgba(250,250,250,0.05);
   border: 1px solid @ThemeAccentColor1;
   color: #ffffff;
+}
+
+QDockWidget QPlainTextEdit,
+QDockWidget QPlainTextEdit:hover,
+QDockWidget QPlainTextEdit:focus {
+  background-color: qlineargradient(x1:0, y1:0.94, x2:0, y2:1, stop:0 rgba(250,250,250,0.07), stop:1 rgba(0,0,0,0.2));  
+  border: 1px solid rgba(0,0,0,0.15);
+  margin: 0px 0px 0px 0px;
+  padding: 5px 5px 10px 5px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  border-bottom-left-radius: 16px;
+  border-bottom-right-radius: 16px;
 }
 
 /* QSizeGrip --------------------------------------------------------------
@@ -2886,7 +2908,8 @@ QDockWidget QTabWidget QTreeView {
 
 Gui--TreePanel QTreeView::item {
   background-color: rgba(0,0,0,0.08);
-  margin: 1px 2px 2px 0px;
+  margin: 1px 2px 1px 0px;
+  padding: 0px 0px 1px 0px;
   border-radius: 4px;
 }
 
@@ -3077,13 +3100,13 @@ QListView {
   selection-color: #ffffff;
 }
 
-QWidget QListView {
-  background-color: transparent;
-  color: #eeeeee;
-  color: @ColorPaletteTextGeneralTop;
-  border: 0px solid rgba(0,0,0,0.1);
-  border-radius: 0px;
-  padding: 0px;
+QMainWindow QListView {
+  background-color: rgba(250,250,250,0.07);
+  border: 1px solid rgba(0,0,0,0.15);
+  padding: 5px 5px 5px 5px;
+  border-radius: 10px;
+  selection-background-color: @ThemeAccentColor1;
+  selection-color: #ffffff;
 }
 
 QDialog QWidget QListView {
