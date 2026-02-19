@@ -91,14 +91,12 @@ ColorPalette Themes, makes the interface and workspaces more user-focused. It si
 
 
    
-#### ✅ Font Colors - Font Size,
+#### ✅ Font Colors,
    1. Edit ➡ Preference ➡ Display ➡ UI ➡ Open Theme Editor ➡ User Parameters
 
 ---(If these variables are not visible, install using the "Theme Selection 1" directive)---
 
    - "ColorPaletteText..." 
-   - "ColorPaletteFontSize..."
-   - And "ColorPalettePropertyGridlineOverlay" (Property Gridline color, for Overlay)  
   
 
 ⤵️     
