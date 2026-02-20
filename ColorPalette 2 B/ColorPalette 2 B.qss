@@ -1219,11 +1219,6 @@ QAbstractSpinBox::down-arrow:disabled {
   image: url(qss:images_classic/arrow-down-disabled_dark.svg);
 }
 
-QAbstractSpinBox::down-arrow:hover,
-QAbstractSpinBox::down-arrow:off:hover {
-  image: url(qss:images_classic/arrow-down-white1.svg);
-}
-
 QAbstractSpinBox:hover {
   background-color: @ThemeAccentColor1;
   background-color: @ColorPaletteHover;
@@ -1600,7 +1595,7 @@ QToolBar QToolButton {
   border-radius: 4px;
   color: #eeeeee;
   color: @ColorPaletteTextGeneralTop;
-  min-width: 18px;
+  min-width: 24px;
   min-height: 24px;
   margin: 0px 0px 0px 0px;
   padding: 2px 3px 10px 4px;
@@ -1676,22 +1671,27 @@ QToolBar QToolButton > QMenu::icon {
 }
 
 QToolButton#qt_toolbar_ext_button {
-  background-repeat: none;
-  background-position: center center;
-  padding: 0px;
-  right: -2px;
+  background-position: left center;
+  background-repeat: no-repeat;
+  qproperty-icon: none;
+  min-width: 10px;
+  max-width: 10px;
+  padding: 0px 0px 7px 0px;
+  image:url(qss:images_classic/arrow-down-white2.svg);
 }
 
 QToolButton#qt_toolbar_ext_button:hover {
+  image:url(qss:images_classic/arrow-down-white2.svg);
 }
 
 QToolButton#qt_toolbar_ext_button:on {
+  image:url(qss:images_classic/arrow-up-white2.svg);
 }
 
 #WbTabBar #WbTabBarMore {      /* workbench tabbar menu buttton */
   background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop: 0 rgba(250,250,250,0.15), stop: 0.7 rgba(250,250,250,0.15), stop: 1 rgba(0,0,0,0.2));
-  padding: -2px 1px -1px 2px;
-  margin: 0px 0px 2px 0px;
+  padding: -2px -2px -1px -1px;
+  margin: 0px 1px 2px 1px;
 }
 
 QStatusBar QToolBar QToolButton:pressed,
@@ -1938,7 +1938,7 @@ QSint--ActionGroup QFrame[class="content"] QTreeView {
 
 QSint--ActionGroup QFrame[class="content"] QListView::item,
 QSint--ActionGroup QFrame[class="content"] QTableView::item {
-  background-color: rgba(0,0,0,0.05);
+  background-color: rgba(0,0,0,0.06);
   border: 1px solid transparent;
   margin: 1px 0px 1px 0px;
   padding: 2px;
@@ -1946,7 +1946,7 @@ QSint--ActionGroup QFrame[class="content"] QTableView::item {
 }
 
 QSint--ActionGroup QFrame[class="content"] QTreeView::item {
-  background-color: rgba(0,0,0,0.05);
+  background-color: rgba(0,0,0,0.06);
   border: 1px solid transparent;
   margin: 1px 1px 1px 0px;
   padding: 2px;
@@ -2442,7 +2442,7 @@ QTabBar::tab {
   color: #eeeeee;
   color: @ColorPaletteTextGeneralTop;
   margin: 5px 0px 0px 2px;
-  padding: 3px 4px 5px 6px;
+  padding: 2px 4px 5px 6px;
   min-width: 50px;
   border-width: 1px 1px 2px 1px;
   border-style: solid;
@@ -2453,7 +2453,7 @@ QTabBar::tab {
   border-radius: 4px;
 }
 
-QToolBar QTabBar::tab {
+QToolBar QTabBar::tab:top {
   color: #eeeeee;
   color: @ColorPaletteTextGeneralTop;
   margin: 2px 2px 5px 0px;
@@ -2463,6 +2463,8 @@ QToolBar QTabBar::tab {
 QToolBar QTabBar::tab:bottom {
   color: #eeeeee;
   color: @ColorPaletteTextGeneralBottom;
+  margin: 5px 2px 2px 0px;
+  padding: 3px 5px 5px 5px;
 }
 
 QToolBar QTabBar::tab:left {
@@ -2515,7 +2517,7 @@ QTabWidget QTabBar::tab:bottom {
   color: #eeeeee;
   color: @ColorPaletteTextGeneralBottom;
   margin: 5px 2px 3px 1px;
-  padding: 3px 3px 5px 6px;
+  padding: 2px 3px 5px 6px;
   min-width: 50px;
 }
 
@@ -2523,7 +2525,7 @@ QMdiArea QTabBar::tab {
   color: #eeeeee;
   color: @ColorPaletteTextGeneralBottom;
   margin: 2px 0px 3px 3px;
-  padding: 3px 0px 4px 4px;
+  padding: 2px 0px 4px 4px;
 }
 
 QDialog QTabBar::tab {
@@ -2531,7 +2533,7 @@ QDialog QTabBar::tab {
   color: #eeeeee;
   color: @ColorPaletteTextGeneralTop;
   margin: 0px 0px 0px 2px;
-  padding: 3px 10px 4px 10px;
+  padding: 2px 10px 4px 10px;
   min-width: 50px;
   border: 1px solid rgba(0,0,0,0.15);
   border-radius: 4px;
@@ -2547,8 +2549,13 @@ QToolBar QTabBar::tab:selected,
 QMdiArea QTabBar::tab:selected,
 QTabWidget QTabBar::tab:selected {
   background-color: @ThemeAccentColor1;
+  border-width: 1px 1px 2px 1px;
+  border-style: solid;
+  border-top-color: transparent;
+  border-right-color: transparent;
+  border-bottom-color: transparent;
+  border-left-color: transparent;
   color: #ffffff;
-  border: 1px solid transparent;
   font-weight: bold;
 }
 
@@ -2574,8 +2581,13 @@ QMdiArea QTabBar::tab:selected:hover,
 QTabWidget QTabBar::tab:selected:hover {
   background-color: @ThemeAccentColor1;
   background-color: @ColorPaletteHover;
+  border-width: 1px 1px 2px 1px;
+  border-style: solid;
+  border-top-color: transparent;
+  border-right-color: transparent;
+  border-bottom-color: transparent;
+  border-left-color: transparent;
   color: #ffffff;
-  border: 1px solid transparent;
   font-weight: bold;
 }
 
@@ -2654,8 +2666,8 @@ QTabBar QToolButton::down-arrow:disabled {
 
 QTabBar::close-button {
   border: 0;
-  margin: 0px 0px 2px 0px;
-  padding: 5px;
+  margin: 0px 0px 3px 0px;
+  padding: 4px;
   image: url(qss:images_classic/close-black2.svg);
 }
 

@@ -219,7 +219,7 @@ QTabWidget QTabBar::tab:bottom {
   border-bottom-color: rgba(0,0,0,0.6);
   border-left-color: rgba(0,0,0,0.2);
   border-radius: 4px;
-  padding: 3px 3px 6px 6px;
+  padding: 2px 3px 5px 6px;
   min-width: 50px;
   margin: 3px 2px 0px 1px;
 }
@@ -407,7 +407,12 @@ QTabWidget QDialog QTreeView::item:has-children {
 #DocumentTreeItems::item:has-children:open:selected:focus,
 #DocumentTreeItems::item:has-children:!has-siblings:open:selected:focus {
   background-color: @ThemeAccentColor1;
-  border: 1px solid @ThemeAccentColor1;
+  border-width: 1px 1px 2px 1px;
+  border-style: solid;
+  border-top-color: transparent;
+  border-right-color: transparent;
+  border-bottom-color: transparent;
+  border-left-color: transparent;
   color: #ffffff;
 }
 
@@ -489,7 +494,7 @@ QSint--ActionGroup QFrame[class="header"] QLabel {
 QSint--ActionGroup QFrame[class="content"] QListView,
 QSint--ActionGroup QFrame[class="content"] QTableView,
 QSint--ActionGroup QFrame[class="content"] QTreeView {
-  background-color: rgba(250,250,250,0.03);
+  background-color: rgba(250,250,250,0.06);
   border: 1px solid rgba(0,0,0,0.1);
   color: #ffff69;
   color: @ColorPaletteTextList;
@@ -502,7 +507,7 @@ QSint--ActionGroup QFrame[class="content"] QTreeView {
 
 QSint--ActionGroup QFrame[class="content"] QListView::item,
 QSint--ActionGroup QFrame[class="content"] QTableView::item {
-  background-color: rgba(0,0,0,0.05);
+  background-color: rgba(0,0,0,0.06);
   border: 1px solid transparent;
   margin: 1px 0px 1px 0px;
   padding: 2px;
@@ -510,7 +515,7 @@ QSint--ActionGroup QFrame[class="content"] QTableView::item {
 }
 
 QSint--ActionGroup QFrame[class="content"] QTreeView::item {
-  background-color: rgba(0,0,0,0.05);
+  background-color: rgba(0,0,0,0.06);
   border: 1px solid transparent;
   margin: 1px 1px 1px 0px;
   padding: 2px;
