@@ -87,6 +87,10 @@ QToolBar * {
   padding: 0px;
 }
 
+/* PropertyEditor ------------------------------------------------------------
+
+--------------------------------------------------------------------------- */
+
 Gui--PropertyEditor--PropertyEditor {
   qproperty-itemBackground: transparent;    
   alternate-background-color: transparent;
@@ -204,7 +208,8 @@ QMainWindow {
   background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop: 0 @ThemeAccentColor2, stop: 0.12 @ThemeAccentColor2, stop: 0.5 @ThemeAccentColor3, stop: 1 @ThemeAccentColor3); /* main background color */
 }
 
-QDialog {
+QDialog,
+QWidget#Dialog {
   background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop: 0 @ThemeAccentColor2, stop: 0.5 @ThemeAccentColor3, stop: 1 @ThemeAccentColor3);
 }
 
@@ -1463,7 +1468,8 @@ QStatusBar QPushButton:disabled {
 QDialog QListView QPushButton,
 QFrame[class="panel"] QPushButton,
 QGroupBox QPushButton,
-QDialog QPushButton {
+QDialog QPushButton,
+QWidget#Dialog QPushButton {
   background-color: rgba(250,250,250,0.1);
   border: 1px solid rgba(0,0,0,0.15);
   color: #eeeeee;
@@ -1472,6 +1478,11 @@ QDialog QPushButton {
   margin: 0px 0px 1px 0px;
   padding: 3px 10px 4px 10px;
   min-height: 15px;
+}
+
+QWidget#Dialog QPushButton {
+  padding: 3px 4px 4px 4px;
+  min-width: 60px;
 }
 
 QGroupBox QPushButton {
@@ -1489,7 +1500,8 @@ QGroupBox QTableView QPushButton:pressed {
 QDialog QListView QPushButton:disabled,
 QGroupBox QPushButton:disabled,
 QFrame[class="panel"] QPushButton:disabled,
-QDialog QPushButton:disabled {
+QDialog QPushButton:disabled,
+QWidget#Dialog QPushButton:disabled {
   background-color: rgba(0,0,0,0.1);
   border: 1px solid rgba(0,0,0,0.1);
   color: #bbbbbb;
@@ -1514,7 +1526,8 @@ QStatusBar QPushButton:hover {
 QGroupBox QPushButton:hover,
 QFrame[class="panel"] QPushButton:hover,
 QDialog QPushButton:hover,
-QTabWidget QDialog QPushButton:hover {
+QTabWidget QDialog QPushButton:hover,
+QWidget#Dialog QPushButton:hover {
   background-color: @ThemeAccentColor1;
   background-color: @ColorPaletteHover;
   border: 1px solid @ThemeAccentColor1;
@@ -1547,7 +1560,10 @@ QTabWidget QDialog QPushButton:selected,
 QTabWidget QDialog QPushButton:checked,
 QGroupBox QPushButton:pressed,
 QGroupBox QPushButton:selected,
-QGroupBox QPushButton:checked {
+QGroupBox QPushButton:checked,
+QWidget#Dialog QPushButton:pressed,
+QWidget#Dialog QPushButton:selected,
+QWidget#Dialog QPushButton:checked {
   background-color: @ThemeAccentColor1;
   border: 1px solid @ThemeAccentColor1;
   color: #ffffff;
@@ -1586,6 +1602,10 @@ QPushButton::menu-indicator:open {
 
 QDialogButtonBox QPushButton {
   min-width: 80px;
+}
+
+QMessageBox[objectName="macroGuideWalkthrough"] QDialogButtonBox QPushButton {
+  min-width: 20px;
 }
 
 /* QToolButton ------------------------------------------------------------
@@ -1676,25 +1696,23 @@ QDialog QToolBar:right {
 
 QDialog QToolButton,
 QDialog QToolButton:disabled {
-  background-color: transparent;
-  border: none;
+  background-color: rgba(250,250,250,0.1);
+  border: 1px solid rgba(0,0,0,0.15);
   border-radius: 4px;
   min-width: 18px;
   min-height: 18px;
   margin: 2px;
-  padding: 2px 1px 2px 2px;
+  padding: 4px;
 }
 
 QDialog QToolButton:hover,
 QDialog QToolButton:checked:hover { 
   background-color: @ThemeAccentColor1;
   background-color: @ColorPaletteHover;
-  border: none;
 }
 
 QDialog QToolButton:checked { 
   background-color: @ThemeAccentColor1;
-  border: none;
 }
 
 QToolButton#qt_toolbar_ext_button {
@@ -3543,15 +3561,9 @@ QComboBox:hover {
   color: #ffffff;
 }
 
-QDialog QComboBox QListView {
-  background-color: @ThemeAccentColor2;
-  border: 1px solid rgba(0,0,0,0.7);
-  padding: 0px 0px 0px 0px;
-  border-radius: 0px;
-}
-
 QComboBox QListView,
-QGroupBox QComboBox QListView {
+QGroupBox QComboBox QListView,
+QDialog QComboBox QListView {
   background-color: @ThemeAccentColor2;
   border: 1px solid rgba(0,0,0,0.7);
   padding: 1px;
