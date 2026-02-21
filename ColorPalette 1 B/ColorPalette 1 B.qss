@@ -1663,6 +1663,40 @@ QToolBar QToolButton > QMenu::icon {
   padding-right: 0px;
 }
 
+QDialog QToolBar:top,
+QDialog QToolBar:bottom,
+QDialog QToolBar:left,
+QDialog QToolBar:right {
+  background-color: transparent;
+  border: none;
+  border-radius: 0px;
+  margin: 0px;
+  padding: 0px;
+}
+
+QDialog QToolButton,
+QDialog QToolButton:disabled {
+  background-color: transparent;
+  border: none;
+  border-radius: 4px;
+  min-width: 18px;
+  min-height: 18px;
+  margin: 2px;
+  padding: 2px 1px 2px 2px;
+}
+
+QDialog QToolButton:hover,
+QDialog QToolButton:checked:hover { 
+  background-color: @ThemeAccentColor1;
+  background-color: @ColorPaletteHover;
+  border: none;
+}
+
+QDialog QToolButton:checked { 
+  background-color: @ThemeAccentColor1;
+  border: none;
+}
+
 QToolButton#qt_toolbar_ext_button {
   background-position: left center;
   background-repeat: no-repeat;
@@ -3510,9 +3544,9 @@ QComboBox:hover {
 }
 
 QDialog QComboBox QListView {
-  background-color: transparent;
+  background-color: @ThemeAccentColor2;
   border: 1px solid rgba(0,0,0,0.7);
-  padding: 0px 0px 0px -27px;
+  padding: 0px 0px 0px 0px;
   border-radius: 0px;
 }
 
@@ -3527,17 +3561,6 @@ QGroupBox QComboBox QListView {
 QGroupBox QComboBox QListView:hover,
 QGroupBox QComboBox QListView:focus {
   border: 1px solid rgba(0,0,0,0.7);
-}
-
-QDialog QComboBox::item {
-  background-color: rgba(0,0,0,0.01);
-  color: #eeeeee;
-  color: @ColorPaletteTextGeneralTop;
-}
-
-QDialog QComboBox::item:disabled {
-  background-color: rgba(0,0,0,0.1);
-  color: #eeeeee;
 }
 
 QComboBox::item,
