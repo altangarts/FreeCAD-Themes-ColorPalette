@@ -754,7 +754,7 @@ Gui--OverlayToolButton {
   border-radius: 4px;
   min-height: 11px;
   min-width: 11px;
-  padding: 2px 6px 3px 6px;
+  padding: 1px 6px 3px 6px;
   margin: 0px 0px 1px 0px;
 }
 
