@@ -1472,6 +1472,10 @@ QStatusBar QPushButton {
   border-radius: 4px;
 }
 
+QStatusBar QToolBar QPushButton {
+  background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop: 0 rgba(250,250,250,0.15), stop: 0.7 rgba(250,250,250,0.15), stop: 1 rgba(0,0,0,0.2));
+}
+
 QTabWidget QDialog QPushButton {
   color: #eeeeee;
   color: @ColorPaletteTextGeneralBottom;

@@ -1391,8 +1391,7 @@ QProgressBar::chunk:disabled {
 /* QPushButton ------------------------------------------------------------
 
 --------------------------------------------------------------------------- */
-QPushButton,
-QStatusBar QToolBar QPushButton {
+QPushButton {
   background-color: rgba(250,250,250,0.15);
   color: #eeeeee;
   color: @ColorPaletteTextGeneralBottom;
@@ -1455,6 +1454,17 @@ QStatusBar QPushButton {
   border-radius: 4px;
 }
 
+QStatusBar QToolBar QPushButton {
+  background-color: rgba(250,250,250,0.15);
+  border-width: 1px 1px 2px 1px;
+  border-style: solid;
+  border-top-color: rgba(0,0,0,0.2);
+  border-right-color: rgba(0,0,0,0.2);
+  border-bottom-color: rgba(0,0,0,0.6);
+  border-left-color: rgba(0,0,0,0.2);
+  border-radius: 4px;
+}
+
 QTabWidget QDialog QPushButton {
   color: #eeeeee;
   color: @ColorPaletteTextGeneralBottom;
@@ -1491,12 +1501,6 @@ QGroupBox QTableView QPushButton:pressed {
   background-color: transparent;
   border: 1px solid transparent;
   margin: 0px 0px 3px 0px;
-}
-
-QStatusBar QToolBar QPushButton {
-  padding: 4px 10px 5px 10px;
-  margin: 1px 0px 0px 0px;
-  min-width: 60px;
 }
 
 QDialog QListView QPushButton:disabled,
