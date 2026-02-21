@@ -146,7 +146,7 @@ QTabWidget QDialog QPushButton {
   color: @ColorPaletteTextGeneralBottom;
   text-align: center;
   border-radius: 4px;
-  padding: 3px 8px 6px 8px;
+  padding: 3px 8px 4px 8px;
   margin: 0px 0px 0px 0px;
 }
 

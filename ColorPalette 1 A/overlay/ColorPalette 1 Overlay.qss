@@ -79,7 +79,7 @@ QTabWidget QDialog QTreeView::item:has-children:open {
 QTabWidget QTreeView::item:has-children:!has-siblings:open,
 QTabWidget QTreeView::item:has-children:open {
   background-color: rgba(0,0,0,0.15);
-  background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop: 0 @ColorPaletteOverlayHeader3, stop: 0.8 @ColorPaletteOverlayHeader3, stop: 1 rgba(0,0,0,0.9));
+  background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop: 0 @ColorPaletteOverlayHeader3, stop: 0.85 @ColorPaletteOverlayHeader3, stop: 1 rgba(0,0,0,0.9));
   margin-top: 0px;
 }
 
@@ -147,7 +147,7 @@ QTabWidget QDialog QPushButton {
   color: @ColorPaletteTextGeneralBottom;
   text-align: center;
   border-radius: 4px;
-  padding: 3px 8px 6px 8px;
+  padding: 3px 8px 4px 8px;
   margin: 0px 0px 0px 0px;
 }
 
