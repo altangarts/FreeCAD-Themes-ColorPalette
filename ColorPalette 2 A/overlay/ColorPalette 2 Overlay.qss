@@ -82,6 +82,7 @@ QTabWidget QDialog QTreeView {
   selection-color: #ffffff;
 }
 
+QTabWidget QDialog QTreeView::item:first,
 QTabWidget QDialog QTreeView::item,
 QTabWidget QDialog QTreeView::item:has-children,
 QTabWidget QDialog QTreeView::item:has-children:!has-siblings:open,
