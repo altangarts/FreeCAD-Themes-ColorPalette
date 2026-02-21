@@ -132,10 +132,20 @@ QTabWidget QTreeView::item:last {
 }
 
 QTabWidget QTreeView::item:hover,
+QTabWidget QDialog QTreeView::item:hover,
+QTabWidget QDialog QTreeView::item:has-children:hover,
 QTabWidget QDialog QTreeView::item:has-children:!has-siblings:open:hover,
 QTabWidget QDialog QTreeView::item:has-children:open:hover {
   background-color: @ThemeAccentColor1;
   background-color: @ColorPaletteHover;
+  color: #ffffff;
+}
+
+QTabWidget QDialog QTreeView::item:selected,
+QTabWidget QDialog QTreeView::item:has-children:selected,
+QTabWidget QDialog QTreeView::item:has-children:!has-siblings:open:selected,
+QTabWidget QDialog QTreeView::item:has-children:open:selected {
+  background-color: @ThemeAccentColor1;
   color: #ffffff;
 }
 
