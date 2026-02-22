@@ -14,8 +14,8 @@
     <name>ColorPalette 1 A</name>
     <description>2D buttons and Color-Palette background</description>
     <tag>Your Color</tag>
-    <type>Theme</type>
     <tag>Colorful</tag>
+    <type>Theme</type>
     <subdirectory>./ColorPalette 1 A/</subdirectory>
     <file>ColorPalette 1 A.qss</file>
     <file>ColorPalette 1 Overlay.qss</file>
@@ -23,9 +23,7 @@
   <preferencepack>
     <name>ColorPalette 1 B</name>
     <description>2D buttons and Color-Palette background</description>
-    <tag>Your Color</tag>
     <type>Theme</type>
-    <tag>Colorful</tag>
     <subdirectory>./ColorPalette 1 B/</subdirectory>
     <file>ColorPalette 1 B.qss</file>
     <file>ColorPalette 1 Overlay.qss</file>
@@ -33,9 +31,7 @@
   <preferencepack>
     <name>ColorPalette 2 A</name>
     <description>3D buttons and Color-Palette background</description>
-    <tag>Your Color</tag>
     <type>Theme</type>
-    <tag>Colorful</tag>
     <subdirectory>./ColorPalette 2 A/</subdirectory>
     <file>ColorPalette 2 A.qss</file>
     <file>ColorPalette 2 Overlay.qss</file>
@@ -43,9 +39,7 @@
   <preferencepack>
     <name>ColorPalette 2 B</name>
     <description>3D buttons and Color-Palette background</description>
-    <tag>Your Color</tag>
     <type>Theme</type>
-    <tag>Colorful</tag>
     <subdirectory>./ColorPalette 2 B/</subdirectory>
     <file>ColorPalette 2 B.qss</file>
     <file>ColorPalette 2 Overlay.qss</file>
@@ -53,9 +47,7 @@
   <preferencepack>
     <name>ColorPalette 3 A</name>
     <description>3D buttons and Color-Palette background</description>
-    <tag>Your Color</tag>
     <type>Theme</type>
-    <tag>Colorful</tag>
     <subdirectory>./ColorPalette 3 A/</subdirectory>
     <file>ColorPalette 3 A.qss</file>
     <file>ColorPalette 3 Overlay.qss</file>
@@ -63,9 +55,7 @@
   <preferencepack>
     <name>ColorPalette 3 B</name>
     <description>3D buttons and Color-Palette background</description>
-    <tag>Your Color</tag>
     <type>Theme</type>
-    <tag>Colorful</tag>
     <subdirectory>./ColorPalette 3 B/</subdirectory>
     <file>ColorPalette 3 B.qss</file>
     <file>ColorPalette 3 Overlay.qss</file>
