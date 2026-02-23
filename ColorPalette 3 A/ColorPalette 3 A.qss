@@ -1064,6 +1064,7 @@ QToolBar:bottom {
   background-color: qlineargradient(x1:0, y1:0.3, x2:0, y2:1, stop:0 rgba(250,250,250,0.1), stop:1 rgba(0,0,0,0.2));
   border: 1px solid rgba(0,0,0,0.2);
   spacing: 0px;
+  padding: 0px;
   border-radius: 4px;
 }
 
@@ -1596,19 +1597,19 @@ QMessageBox[objectName="macroGuideWalkthrough"] QDialogButtonBox QPushButton {
 --------------------------------------------------------------------------- */
 QToolBar QToolButton {
   background-color: transparent;
-  border: 1px solid transparent;
+  border: none;
   border-radius: 4px;
   color: #eeeeee;
   color: @ColorPaletteTextGeneralTop;
   min-width: 24px;
   min-height: 24px;
-  margin: 1px 0px 0px 0px;
-  padding: 2px 4px 8px 4px;
+  margin: 2px 0px 0px 1px;
+  padding: 1px 4px 10px 4px;
 }
 
 QToolBar QToolButton:disabled {
-  margin: 1px 0px 0px 0px;
-  padding: 2px 4px 8px 4px;
+  margin: 2px 0px 0px 1px;
+  padding: 1px 4px 10px 4px;
 }
 
 QStatusBar QToolBar QToolButton {
@@ -1631,7 +1632,7 @@ QToolBar QToolButton:hover,
 QToolBar QToolButton:checked:hover {  
   background-color: @ThemeAccentColor1;
   background-color: qlineargradient(x1:0, y1:0.3, x2:0, y2:1, stop:0 @ColorPaletteHover1, stop:1 @ColorPaletteHover2);
-  border: 1px solid transparent;
+  border: none;
   color: #ffffff;
 }
 
@@ -1640,7 +1641,7 @@ QToolBar QToolButton:selected,
 QToolBar QToolButton:checked {  
   background-color: @ThemeAccentColor1;
   background-color: qlineargradient(x1:0, y1:0.3, x2:0, y2:1, stop:0 @ThemeAccentColor1, stop:1 @ColorPaletteHover2);
-  border: 1px solid transparent;
+  border: none;
   color: #ffffff;
 }
 
