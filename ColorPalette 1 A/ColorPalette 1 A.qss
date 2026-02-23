@@ -2389,7 +2389,6 @@ QSlider::handle:vertical:disabled {
 QDockWidget QTabWidget QLineEdit {
   background-color: @ThemeAccentColor1;
   color: #ffffff;
-  margin-right: -14px;
   border-top-left-radius: 0px;
   border-top-right-radius: 4px;
   border-bottom-left-radius: 0px;
@@ -2473,6 +2472,14 @@ QSint--ActionGroup QFrame[class="content"] QDialog QDialog QLineEdit:selected {
   color: #ffffff;
   border-radius: 6px;
   margin-right: 0px;
+}
+
+QLineEdit QToolButton {
+  padding: -5px;
+}
+
+QSint--ActionGroup QFrame[class="content"] QLineEdit QToolButton {
+  padding: -15px -15px 0px -15px;
 }
 
 /* QTabWiget --------------------------------------------------------------
