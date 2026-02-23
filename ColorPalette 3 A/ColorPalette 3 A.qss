@@ -1603,12 +1603,12 @@ QToolBar QToolButton {
   min-width: 24px;
   min-height: 24px;
   margin: 1px 0px 0px 0px;
-  padding: 2px 3px 8px 4px;
+  padding: 2px 4px 8px 4px;
 }
 
 QToolBar QToolButton:disabled {
   margin: 1px 0px 0px 0px;
-  padding: 2px 3px 8px 4px;
+  padding: 2px 4px 8px 4px;
 }
 
 QStatusBar QToolBar QToolButton {
@@ -2989,8 +2989,9 @@ QTabWidget QTreeView::indicator:unchecked:disabled {
   margin-left: 2px;
 }
 
+QDockWidget QTreeView,
 Gui--TreePanel QTreeView,
-QTabWidget QTreeView {
+QDockWidget QTabWidget QTreeView {
   background-color: qlineargradient(x1:0, y1:0.94, x2:0, y2:1, stop:0 rgba(250,250,250,0.07), stop:1 rgba(0,0,0,0.2));  
   border: 1px solid rgba(0,0,0,0.15);
   margin: 0px 0px 0px 0px;
@@ -3003,14 +3004,10 @@ QTabWidget QTreeView {
   selection-color: #ffffff;
 }
 
-QDockWidget QTabWidget QTreeView {
-  padding: 4px 2px 20px 4px;
-}
-
 Gui--TreePanel QTreeView::item {
   background-color: rgba(0,0,0,0.08);
   margin: 1px 2px 1px 0px;
-  padding: 0px 0px 1px 0px;
+  padding: 1px 0px 2px 0px;
   border-radius: 4px;
 }
 
@@ -3074,8 +3071,8 @@ QDockWidget QTabWidget QTreeView::branch {
 }
 
 #DocumentTreeItems::item {
-  background-color: rgba(0,0,0,0.05);
-  border: 1px solid rgba(0,0,0,0.05);
+  background-color: rgba(0,0,0,0.06);
+  border: 1px solid transparent;
   border-radius: 4px;
   color: #ffff69;
   color: @ColorPaletteTextTreeEnd;
