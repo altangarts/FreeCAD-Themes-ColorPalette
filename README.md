@@ -179,7 +179,7 @@ Sample
 ![Ekran görüntüsü 2026-01-30 010135](https://github.com/user-attachments/assets/f66aa18f-565d-4d76-8b1b-44ca1734aa2b)
 
 
-#### Accent color 1 : #680000. (Selection)
+#### Accent color 1 : #500000. (Selection)
 #### Accent color 2 : #463c2e. (Background-Top)
 #### Accent color 3 : #7d6f4f. (Background-Bottom)
 
