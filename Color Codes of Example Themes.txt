@@ -23,7 +23,7 @@
 
 4. Gradient Sand - DarkRed:
 
-        background-top: #463c2e, background-bottom: #7d6f4f. - selection: #680000.
+        background-top: #463c2e, background-bottom: #7d6f4f. - selection: #500000.
 
 
 

@@ -82,11 +82,6 @@ Resetting everything helps to unify styles across different operating systems
   selection-color: #ffffff;
 }
 
-QToolBar * {
-  margin: 0px;
-  padding: 0px;
-}
-
 /* PropertyEditor ------------------------------------------------------------
 
 --------------------------------------------------------------------------- */
@@ -1079,11 +1074,29 @@ QToolBar:right {
 }
 
 QMenuBar QToolBar,
-QStatusBar QToolBar {
+QStatusBar QToolBar,
+QToolBar#Workbench {
   background-color: transparent;
   border: 1px solid transparent;
   margin: 0px;
   padding: 0px;
+  border-radius: 0px;
+}
+
+QToolBar#Workbench:top {
+  background-color: @ThemeAccentColor2;
+  border: 1px solid transparent;
+  margin: 0px;
+  padding: 0px;
+  border-radius: 0px;
+}
+
+QToolBar#Workbench:bottom {
+  background-color: @ThemeAccentColor3;
+  border: 1px solid transparent;
+  margin: 0px;
+  padding: 0px;
+  border-radius: 0px;
 }
 
 QToolBar::handle:horizontal {
@@ -1740,7 +1753,7 @@ QToolButton#qt_toolbar_ext_button:on {
 #WbTabBar #WbTabBarMore {      /* workbench tabbar menu buttton */
   background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop: 0 rgba(250,250,250,0.15), stop: 0.7 rgba(250,250,250,0.15), stop: 1 rgba(0,0,0,0.2));
   padding: -2px -2px -1px -1px;
-  margin: 0px 1px 2px 1px;
+  margin: 0px 1px 0px 1px;
 }
 
 QStatusBar QToolBar QToolButton:pressed,
@@ -2526,14 +2539,14 @@ QTabBar::tab {
 QToolBar QTabBar::tab:top {
   color: #eeeeee;
   color: @ColorPaletteTextGeneralTop;
-  margin: 2px 2px 5px 0px;
+  margin: 2px 2px 2px 0px;
   padding: 3px 5px 5px 5px;
 }
 
 QToolBar QTabBar::tab:bottom {
   color: #eeeeee;
   color: @ColorPaletteTextGeneralBottom;
-  margin: 5px 2px 2px 0px;
+  margin: 2px 2px 2px 0px;
   padding: 3px 5px 5px 5px;
 }
 
@@ -2548,7 +2561,7 @@ QToolBar QTabBar::tab:left {
   border-bottom-color: rgba(0,0,0,0.2);
   border-left-color: rgba(250,250,250,0.3);
   border-radius: 4px;
-  margin: 2px 5px 0px 2px;
+  margin: 2px 2px 0px 2px;
   padding: 0px 0px 4px 0px;
   min-height: 5px;
   min-width: 24px;
@@ -2571,7 +2584,7 @@ QToolBar QTabBar::tab:right {
   border-bottom-color: rgba(0,0,0,0.2);
   border-left-color: rgba(0,0,0,0.6);
   border-radius: 4px;
-  margin: 2px 2px 0px 5px;
+  margin: 2px 2px 0px 2px;
   padding: 4px 0px 0px 0px;
   min-height: 5px;
   min-width: 24px;
@@ -3074,10 +3087,6 @@ Gui--TreePanel QTreeView::item:has-children:!has-siblings:open:hover {
   color: #ffffff;
 }
 
-Gui--TreePanel QTreeView::item:has-children:!has-siblings:open {
-  background-color: rgba(0,0,0,0.08);
-}
-
 QDockWidget QTabWidget QTreeView::item:has-children:!has-siblings:open,
 QDockWidget QTabWidget QTreeView::item:has-children:open {
   background-color: rgba(0,0,0,0.15);
@@ -3125,15 +3134,10 @@ QDockWidget QTabWidget QTreeView::branch {
 }
 
 #DocumentTreeItems::item {
-  background-color: rgba(0,0,0,0.06);
-  border: 1px solid transparent;
+  border: none;
   border-radius: 4px;
   color: #ffff69;
   color: @ColorPaletteTextTreeEnd;
-}
-
-#DocumentTreeItems::item:disabled {
-  background-color: rgba(0,0,0,0.15);
 }
 
 #DocumentTreeItems::item:has-children {
@@ -3161,7 +3165,7 @@ QDockWidget QTabWidget QTreeView::branch {
 #DocumentTreeItems::item:has-children:open:selected,
 #DocumentTreeItems::item:has-children:open:selected:focus {
   background-color: @ThemeAccentColor1;
-  border: 0px solid @ThemeAccentColor1;
+  border: none;
   color: #ffffff;
 }
 
@@ -3169,7 +3173,15 @@ QDockWidget QTabWidget QTreeView::branch {
 #DocumentTreeItems::item:has-children:hover,
 #DocumentTreeItems::item:has-children:open:hover,
 #DocumentTreeItems::item:has-children:!has-siblings:open:hover {
+  background-color: rgba(0,0,0,0.08);
   color: #ffffff;
+}
+
+#DocumentTreeItems::item:disabled,
+#DocumentTreeItems::item:has-children:disabled,
+#DocumentTreeItems::item:has-children:open:disabled,
+#DocumentTreeItems::item:has-children:!has-siblings:open:disabled {
+  background-color: rgba(0,0,0,0.15);
 }
 
 QColumnView {
