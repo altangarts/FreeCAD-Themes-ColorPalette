@@ -239,7 +239,6 @@ QTabWidget QTabBar::tab:bottom:selected {
   background-color: @ThemeAccentColor1;
   border: 1px solid transparent;
   color: #ffffff;
-  font-weight: bold;
 }
 
 QTabWidget QTabBar::tab:bottom:hover {
@@ -254,7 +253,6 @@ QTabWidget QTabBar::tab:bottom:selected:hover {
   background-color: @ColorPaletteHover;
   border: 1px solid transparent;
   color: #ffffff;
-  font-weight: bold;
 }
 
 QTabWidget QTreeView,

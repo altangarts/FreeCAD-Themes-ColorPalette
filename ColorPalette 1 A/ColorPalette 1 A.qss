@@ -2649,7 +2649,6 @@ QTabWidget QTabBar::tab:selected {
   border-bottom-color: transparent;
   border-left-color: transparent;
   color: #ffffff;
-  font-weight: bold;
 }
 
 QTabBar::tab:hover,
@@ -2674,7 +2673,6 @@ QTabWidget QTabBar::tab:selected:hover {
   border-bottom-color: transparent;
   border-left-color: transparent;
   color: #ffffff;
-  font-weight: bold;
 }
 
 QTabBar QToolButton {
@@ -3761,6 +3759,11 @@ QStatusBar Gui--WorkbenchComboBox QAbstractItemView {
   border: 1px solid rgba(0,0,0,0.7);
   padding: 1px;
   border-radius: 0px;
+}
+
+Gui--WorkbenchComboBox::drop-down {
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
 }
 
 /* QHeaderView ------------------------------------------------------------
