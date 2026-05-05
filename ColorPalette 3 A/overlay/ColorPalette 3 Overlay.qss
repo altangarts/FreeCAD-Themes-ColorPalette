@@ -343,7 +343,7 @@ Gui--TreePanel QTreeView::indicator:unchecked {
 
 Gui--TreePanel QTreeView::indicator:disabled,
 Gui--TreePanel QTreeView::indicator:unchecked:disabled {
-  background-color: rgba(0,0,0,0.5);
+  background-color: rgba(0,0,0,0.2);
   image: none;
   border: none;
   border-radius: 6px;
@@ -382,9 +382,6 @@ Gui--TreePanel QTreeView::item {
   color: @ColorPaletteTextTreeEnd;
 }
 
-#DocumentTreeItems:disabled {
-}
-
 #DocumentTreeItems::item:has-children:!has-siblings:open,
 QTabWidget QDialog QTreeView::item:has-children:!has-siblings:open {
   color: #abff7d;
@@ -401,6 +398,11 @@ QTabWidget QDialog QTreeView::item:has-children:open {
 QTabWidget QDialog QTreeView::item:has-children {
   color: #beffff;
   color: @ColorPaletteTextTreeClosed;
+}
+
+#DocumentTreeItems::item:disabled {
+  color: #bbbbbb;
+  color: @ColorPaletteTextDisabled;
 }
 
 #DocumentTreeItems::item:selected,

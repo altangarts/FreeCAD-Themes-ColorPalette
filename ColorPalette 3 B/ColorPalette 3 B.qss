@@ -1599,9 +1599,12 @@ QToolBar QToolButton:disabled {
 }
 
 QStatusBar QToolButton {
+  background-color: qlineargradient(x1:0, y1:0.3, x2:0, y2:1, stop:0 rgba(250,250,250,0.15), stop:1 rgba(0,0,0,0.2));
+  border: 1px solid rgba(0,0,0,0.2);
   max-height: 24px;
   margin: 1px 0px 0px 0px;
   padding: 0px 0px 0px 1px;
+  border-radius: 4px;
 }
 
 QStatusBar QToolButton:disabled {
@@ -1612,7 +1615,8 @@ QStatusBar QToolButton:disabled {
   padding: 0px 0px 0px 1px;
 }
 
-QToolBar QToolButton:hover {  
+QToolBar QToolButton:hover,
+QStatusBar QToolButton:hover {  
   background-color: @ThemeAccentColor1;
   background-color: qlineargradient(x1:0, y1:0.3, x2:0, y2:1, stop:0 @ColorPaletteHover1, stop:1 @ColorPaletteHover2);
   border: 1px solid rgba(0,0,0,0.2);
@@ -1623,11 +1627,11 @@ QStatusBar QToolBar QToolButton:hover,
 #WbTabBar #WbTabBarMore:hover {  
   background-color: @ThemeAccentColor1;
   background-color: qlineargradient(x1:0, y1:0.3, x2:0, y2:1, stop:0 @ColorPaletteHover1, stop:1 @ColorPaletteHover2);
-  border: 1px solid rgba(0,0,0,0.2);
   color: #ffffff;
 }
 
-QToolBar QToolButton:checked:hover {  
+QToolBar QToolButton:checked:hover,
+QStatusBar QToolButton:checked:hover {  
   background-color: @ThemeAccentColor1;
   background-color: @ColorPaletteHover;
   color: #ffffff;
@@ -1635,7 +1639,9 @@ QToolBar QToolButton:checked:hover {
 
 QToolBar QToolButton:pressed,
 QToolBar QToolButton:selected,
-QToolBar QToolButton:checked {  
+QToolBar QToolButton:checked,
+QStatusBar QToolButton:pressed,
+QStatusBar QToolButton:selected {  
   background-color: @ThemeAccentColor1;
   border: 1px solid transparent;
   color: #ffffff;
@@ -2887,6 +2893,10 @@ QTabWidget QTreeView::branch:open:has-children:!has-siblings {
   padding: 1px;
 }
 
+#DocumentTreeItems::indicator:disabled {
+  background-color: rgba(0,0,0,0.2);
+}
+
 QTreeView::indicator,
 QListView::indicator,
 QTableView::indicator,
@@ -3091,6 +3101,11 @@ QDockWidget QTabWidget QTreeView::branch {
   color: @ColorPaletteTextTreeOpen;
 }
 
+#DocumentTreeItems::item:disabled {
+  color: #bbbbbb;
+  color: @ColorPaletteTextDisabled;
+}
+
 #DocumentTreeItems::item:focus,
 #DocumentTreeItems::item:selected,
 #DocumentTreeItems::item:selected:focus,
@@ -3111,12 +3126,6 @@ QDockWidget QTabWidget QTreeView::branch {
 #DocumentTreeItems::item:has-children:!has-siblings:open:hover {
   background-color: rgba(0,0,0,0.08);
   color: #ffffff;
-}
-
-#DocumentTreeItems::item:disabled,
-#DocumentTreeItems::item:has-children:disabled,
-#DocumentTreeItems::item:has-children:open:disabled,
-#DocumentTreeItems::item:has-children:!has-siblings:open:disabled {
 }
 
 QColumnView {
