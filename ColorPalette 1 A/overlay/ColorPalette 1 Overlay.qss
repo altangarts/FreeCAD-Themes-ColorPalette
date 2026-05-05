@@ -351,7 +351,7 @@ Gui--TreePanel QTreeView::indicator:unchecked {
 
 Gui--TreePanel QTreeView::indicator:disabled,
 Gui--TreePanel QTreeView::indicator:unchecked:disabled {
-  background-color: rgba(0,0,0,0.1);
+  background-color: rgba(0,0,0,0.5);
   image: none;
   border: none;
   border-radius: 6px;
@@ -396,8 +396,6 @@ Gui--TreePanel QTreeView::item {
 }
 
 #DocumentTreeItems:disabled {
-  background-color: rgba(0,0,0,0.05);
-  background-color: @ColorPaletteOverlayHeader1; 
 }
 
 #DocumentTreeItems::item:has-children:!has-siblings:open,

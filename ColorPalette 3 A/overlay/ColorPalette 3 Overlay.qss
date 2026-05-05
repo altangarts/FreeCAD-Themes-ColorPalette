@@ -343,7 +343,7 @@ Gui--TreePanel QTreeView::indicator:unchecked {
 
 Gui--TreePanel QTreeView::indicator:disabled,
 Gui--TreePanel QTreeView::indicator:unchecked:disabled {
-  background-color: rgba(0,0,0,0.3);
+  background-color: rgba(0,0,0,0.5);
   image: none;
   border: none;
   border-radius: 6px;
@@ -383,8 +383,6 @@ Gui--TreePanel QTreeView::item {
 }
 
 #DocumentTreeItems:disabled {
-  background-color: qlineargradient(x1:0, y1:0.3, x2:0, y2:1, stop:0 rgba(250,250,250,0.1), stop:1 rgba(0,0,0,0.35));
-  background-color: qlineargradient(x1:0, y1:0.3, x2:0, y2:1, stop:0 @ColorPaletteOverlayContent, stop:1 @ColorPaletteOverlayContent2);
 }
 
 #DocumentTreeItems::item:has-children:!has-siblings:open,

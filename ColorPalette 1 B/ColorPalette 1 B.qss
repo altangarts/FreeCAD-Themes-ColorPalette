@@ -3166,7 +3166,6 @@ QDockWidget QTabWidget QTreeView::branch {
 #DocumentTreeItems::item:has-children:disabled,
 #DocumentTreeItems::item:has-children:open:disabled,
 #DocumentTreeItems::item:has-children:!has-siblings:open:disabled {
-  background-color: rgba(0,0,0,0.15);
 }
 
 QColumnView {
