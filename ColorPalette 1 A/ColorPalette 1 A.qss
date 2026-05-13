@@ -1895,7 +1895,7 @@ QSint--ActionGroup {
 }
 
 QSint--ActionGroup QFrame,
-QSint--ActionGroup QFrame[class="content"] QDialog {
+QSint--ActionGroup QFrame[class="content"] > QDialog {
   background-color: transparent;
   border: 1px solid transparent;
 }
