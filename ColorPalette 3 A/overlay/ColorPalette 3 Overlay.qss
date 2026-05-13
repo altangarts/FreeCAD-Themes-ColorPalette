@@ -440,6 +440,12 @@ QTabWidget QDialog QTreeView::item:has-children {
   color: #ffffff;
 }
 
+QFrame[class="panel"] {
+  background-color: transparent;
+  border: none;
+  border-radius: 0px;
+}
+
 Gui--TaskView--TaskPanel { 
   background-color: transparent;
   margin: 0px;
