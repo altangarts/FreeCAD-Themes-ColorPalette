@@ -72,25 +72,7 @@ ColorPalette Themes, makes the interface and workspaces more user-focused. It si
 ![Ekran görüntüsü 2026-01-29 1902491](https://github.com/user-attachments/assets/19c2478b-6eb5-4195-8d5c-ae1ded03c14e)
 
    
-#### ✅ Graphic View(Viewport) Colors,
-1. Edit ➡ Preference ➡ Display ➡ IU ➡ Colors ➡ Background color
-
-   - Simple color  
-   - Radial Gradient color  
-   - Linear Gradient color
-   
-2. Linear Gradient color position:
-
-
-   - Top    = "Accent color 2"  
-   - Middle = "Accent color 3"  
-   - Bottom = "Accent color 3"
-
-⤵️
-![Ekran görüntüsü 2026-01-29 190346](https://github.com/user-attachments/assets/8ac0182d-340b-4824-98c7-eea09697811c)
-
-
-   
+ 
 #### ✅ Font Colors,
    1. Edit ➡ Preference ➡ Display ➡ UI ➡ Open Theme Editor ➡ User Parameters
 
