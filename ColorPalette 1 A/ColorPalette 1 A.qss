@@ -200,15 +200,17 @@ Gui--PropertyEditor--PropertyEditor > QWidget > QWidget QLabel {
 Main window
 ==================================================================================================*/
 QMainWindow {
-  background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop: 0 @ThemeAccentColor2, stop: 0.12 @ThemeAccentColor2, stop: 0.5 @ThemeAccentColor3, stop: 1 @ThemeAccentColor3); /* main background color */
+  background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop: 0 @ThemeAccentColor2, stop: 0.5 @ThemeAccentColor3, stop: 1 @ThemeAccentColor3);
 }
 
 QDialog,
-QWidget#Dialog {
+QWidget#Dialog,
+QWidget#StartView {
   background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop: 0 @ThemeAccentColor2, stop: 0.5 @ThemeAccentColor3, stop: 1 @ThemeAccentColor3);
 }
 
 QMdiArea {
+  background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop: 0 @ThemeAccentColor2, stop: 0.5 @ThemeAccentColor3, stop: 1 @ThemeAccentColor3);
   background-image: none;
   background-position: center center;
   background-repeat: no-repeat;
@@ -230,8 +232,6 @@ QDockWidget {
 QDockWidget QFrame {
   background-color: transparent;
   border: none;
-  margin: 0px 1px 0px 1px;
-  padding: 0px 0px 0px 0px;
   border-radius: 10px;
 }
 
@@ -354,14 +354,13 @@ QColorDialog QLabel {
 --------------------------------------------------------------------------- */
 QMainWindow::separator:horizontal {
   height: 5px;
-  margin: -1px;
+  margin: 0px;
   padding: 2px;
 }
 
 QMainWindow::separator:vertical {
-  background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop: 0 @ThemeAccentColor2, stop: 0.485 @ThemeAccentColor3, stop: 1 @ThemeAccentColor3);
   width: 5px;
-  margin: -1px;
+  margin-bottom: 28px;
   padding: 2px;
 }
 
@@ -395,7 +394,7 @@ QToolTip {
 
 --------------------------------------------------------------------------- */
 QStatusBar {
-  background-color: @ThemeAccentColor3;
+  background-color: transparent;
   border: none;
   color: #eeeeee;
   color: @ColorPaletteTextGeneralBottom;
@@ -615,7 +614,7 @@ QRadioButton::indicator:checked:disabled {
 
 --------------------------------------------------------------------------- */
 QMenuBar {
-  background-color: @ThemeAccentColor2;
+  background-color: transparent;
   spacing: 0px;
 }
 
@@ -1011,8 +1010,11 @@ QTabWidget QDialog QPlainTextEdit:focus {
 
 QDockWidget QPlainTextEdit,
 QDockWidget QPlainTextEdit:hover,
-QDockWidget QPlainTextEdit:focus {
-  background-color: rgba(250,250,250,0.07);
+QDockWidget QPlainTextEdit:focus,
+QMainWindow QTextEdit,
+QMainWindow QTextEdit:hover,
+QMainWindow QTextEdit:focus {
+  background-color: rgba(250,250,250,0.1);
   border-width: 1px 1px 2px 1px;
   border-style: solid;
   border-top-color: rgba(0,0,0,0.15);
@@ -1069,8 +1071,7 @@ QToolBar:top,
 QToolBar:bottom,
 QToolBar:left,
 QToolBar:right {
-  background: transparent;
-  background-color: rgba(250,250,250,0.12);
+  background-color: rgba(250,250,250,0.1);
   border-width: 1px 1px 2px 1px;
   border-style: solid;
   border-top-color: rgba(0,0,0,0.2);
@@ -1092,7 +1093,7 @@ QToolBar#Workbench {
 }
 
 QToolBar#Workbench:top {
-  background-color: @ThemeAccentColor2;
+  background-color: transparent;
   border: none;
   margin: 0px;
   padding: 0px;
@@ -1100,7 +1101,7 @@ QToolBar#Workbench:top {
 }
 
 QToolBar#Workbench:bottom {
-  background-color: @ThemeAccentColor3;
+  background-color: transparent;
   border: none;
   margin: 0px;
   padding: 0px;
@@ -1321,7 +1322,7 @@ QGraphicsView {
   background-color: transparent;
   border-style: none;
   color: @ColorPaletteTextGeneralTop;
-  margin: -1px;
+  margin: -1px -1px 1px -1px;
 }
 
 QGraphicsView:disabled {
@@ -1865,7 +1866,7 @@ Tasks panel (custom FreeCAD class)
 ==================================================================================================*/
 /* Action group */
 QFrame[class="panel"] {
-  background-color: rgba(250,250,250,0.07);
+  background-color: rgba(250,250,250,0.1);
   border-width: 1px 1px 2px 1px;
   border-style: solid;
   border-top-color: rgba(0,0,0,0.2);
@@ -2165,7 +2166,7 @@ QSint--ActionGroup QFrame[class="content"] QDialog QPushButton {
 
 QSint--ActionGroup QToolButton#settingsButton,
 QSint--ActionGroup QToolButton#filterButton {
-  background-color: rgba(250,250,250,0.05);
+  background-color: rgba(250,250,250,0.08);
   border: 1px solid rgba(0,0,0,0.15);
   color: #beffff;
   color: @ColorPaletteTextCombobox;
@@ -2224,7 +2225,7 @@ QSint--ActionGroup QFrame[class="content"] QToolButton {
   color: #eeeeee;
   color: @ColorPaletteTextGeneralTop;
   text-align: center;
-  background-color: rgba(250,250,250,0.05);
+  background-color: rgba(250,250,250,0.08);
   border: 1px solid rgba(0,0,0,0.15);
   padding: 1px 0px 1px 0px;
   margin: 3px 0px 3px 0px;
@@ -3092,7 +3093,7 @@ QTabWidget QTreeView::indicator:unchecked:disabled {
 QDockWidget QTreeView,
 Gui--TreePanel QTreeView,
 QDockWidget QTabWidget QTreeView {
-  background-color: rgba(250,250,250,0.07);
+  background-color: rgba(250,250,250,0.1);
   border-width: 1px 1px 2px 1px;
   border-style: solid;
   border-top-color: rgba(0,0,0,0.15);
@@ -3315,7 +3316,7 @@ QWidget QListView {
 }
 
 QDockWidget QListView {
-  background-color: rgba(250,250,250,0.07);
+  background-color: rgba(250,250,250,0.1);
   border-width: 1px 1px 2px 1px;
   border-style: solid;
   border-top-color: rgba(0,0,0,0.15);
@@ -3719,8 +3720,16 @@ QComboBox::down-arrow:disabled {
   image: url(qss:images_classic/arrow-down-disabled_dark.svg);
 }
 
+QToolBar#Workbench {
+  background-color: @ThemeAccentColor2;
+}
+
+QMenuBar QToolBar#Workbench {
+  background-color: transparent;
+}
+
 QToolBar Gui--WorkbenchComboBox {
-  background-color: rgba(250,250,250,0.15);
+  background-color: rgba(250,250,250,0.1);
   border-width: 1px 1px 2px 1px;  
   border-style: solid;
   border-top-color: rgba(0,0,0,0.2);
@@ -3730,7 +3739,7 @@ QToolBar Gui--WorkbenchComboBox {
   color: #eeeeee;
   color: @ColorPaletteTextGeneralTop;
   border-radius: 4px;
-  padding: 8px 10px 10px 10px;
+  padding: 8px 10px 11px 10px;
   margin: 2px 1px 0px 1px;
   font-weight: bold;
 }
@@ -4171,9 +4180,6 @@ QMdiSubWindow {
 }
 
 QMdiSubWindow:hover {
-  background-color: @ThemeAccentColor1;
-  background-color: @ColorPaletteHover;
-  border: 2px solid @ThemeAccentColor1;
 }
 
 /*==================================================================================================

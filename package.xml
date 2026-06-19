@@ -8,46 +8,46 @@
  <license file="LICENSE">LGPL-2.1-or-later</license>
  <url type="repository" branch="main">https://github.com/altangarts/FreeCAD-Themes-ColorPalette</url>
  <icon>resources/icons/ColorPaletteTheme.svg</icon>
-
-<content>
+ <content>
+  <workbench>
+    <classname>ColorPaletteWorkbench</classname>
+    <description>ColorPalette dock color applicator</description>
+  </workbench>
   <preferencepack>
     <description>2D buttons and Color-Palette background</description>
     <tag>Your Color</tag>
     <tag>Colorful</tag>
     <type>Theme</type>
     <name>ColorPalette 1 A</name>
-    <file>ColorPalette 1 A.qss</file>
-    <file>ColorPalette 1 Overlay.qss</file>
+    <file>ColorPalette 1 A/ColorPalette 1 A.qss</file>
+    <file>ColorPalette 1 A/overlay/ColorPalette 1 Overlay.qss</file>
   </preferencepack>
   <preferencepack>
     <type>Theme</type>
     <name>ColorPalette 1 B</name>
-    <file>ColorPalette 1 B.qss</file>
-    <file>ColorPalette 1 Overlay.qss</file>
+    <file>ColorPalette 1 B/ColorPalette 1 B.qss</file>
   </preferencepack>
   <preferencepack>
     <type>Theme</type>
     <name>ColorPalette 2 A</name>
-    <file>ColorPalette 2 A.qss</file>
-    <file>ColorPalette 2 Overlay.qss</file>
+    <file>ColorPalette 2 A/ColorPalette 2 A.qss</file>
+    <file>ColorPalette 2 A/overlay/ColorPalette 2 Overlay.qss</file>
   </preferencepack>
   <preferencepack>
     <type>Theme</type>
     <name>ColorPalette 2 B</name>
-    <file>ColorPalette 2 B.qss</file>
-    <file>ColorPalette 2 Overlay.qss</file>
+    <file>ColorPalette 2 B/ColorPalette 2 B.qss</file>
   </preferencepack>
   <preferencepack>
     <type>Theme</type>
     <name>ColorPalette 3 A</name>
-    <file>ColorPalette 3 A.qss</file>
-    <file>ColorPalette 3 Overlay.qss</file>
+    <file>ColorPalette 3 A/ColorPalette 3 A.qss</file>
+    <file>ColorPalette 3 A/overlay/ColorPalette 3 Overlay.qss</file>
   </preferencepack>
   <preferencepack>
     <type>Theme</type>
     <name>ColorPalette 3 B</name>
-    <file>ColorPalette 3 B.qss</file>
-    <file>ColorPalette 3 Overlay.qss</file>
+    <file>ColorPalette 3 B/ColorPalette 3 B.qss</file>
   </preferencepack>
-</content>
+ </content>
 </package>
