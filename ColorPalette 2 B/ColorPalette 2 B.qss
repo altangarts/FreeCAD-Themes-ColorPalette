@@ -3753,7 +3753,7 @@ QToolBar Gui--WorkbenchComboBox {
   color: #eeeeee;
   color: @ColorPaletteTextGeneralTop;
   border-radius: 4px;
-  padding: 6px 10px 10px 10px;
+  padding: 6px 10px 12px 10px;
   margin: 0px;
   font-weight: bold;
 }
