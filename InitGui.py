@@ -25,7 +25,7 @@ try:
         tb = mw.findChild(QtWidgets.QToolBar, "Workbench")
         if not tb:
             _retry_count[0] += 1
-            if _retry_count[0] < 5:
+            if _retry_count[0] < 10:
                 QtCore.QTimer.singleShot(500, _fix_workbench_toolbar)
             return
         if tb.layout():
