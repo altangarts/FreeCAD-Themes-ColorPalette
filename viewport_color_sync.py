@@ -27,7 +27,6 @@ def apply3DViewportColor():
         val = mw_match.group(1).strip()
         stops = re.findall(r'stop\s*:\s*([\d.]+)\s+(#[0-9a-fA-F]{3,8})', val)
         result = [(float(pos), QtGui.QColor(color)) for pos, color in stops]
-        # Duplicate pozisyonları temizle — sadece benzersiz pozisyonları tut
         seen = set()
         unique = []
         for pos, color in result:
@@ -57,10 +56,7 @@ def apply3DViewportColor():
 
     base_stops = parseMainWindowStops(app.styleSheet())
     if not base_stops or len(base_stops) < 2:
-        print("Gradyan stop'ları parse edilemedi")
         return
-
-    print(f"Parse edilen stop'lar (unique): {[(p, c.name()) for p, c in base_stops]}")
 
     def syncViewportColor():
         h = mw.height()
@@ -74,7 +70,6 @@ def apply3DViewportColor():
         top_pos = max(0.0, min(1.0, top_y / h))
         bot_pos = max(0.0, min(1.0, bot_y / h))
 
-        # 3 nokta: üst, orta, alt
         raw_mid = top_pos + (bot_pos - top_pos) * 0.5
         mid_pos = max(top_pos, min(bot_pos, raw_mid + 0.0532))
 
@@ -85,8 +80,7 @@ def apply3DViewportColor():
         p = FreeCAD.ParamGet("User parameter:BaseApp/Preferences/View")
         p.SetBool("Simple", False)
         p.SetBool("Gradient", True)
-        p.SetBool("RadialGradient", False)  # radyal gradyan her zaman kapalı tutulur
-        # Color2=üst, Color4=orta, Color3=alt
+        p.SetBool("RadialGradient", False)
         p.SetUnsigned("BackgroundColor2", colorToFreeCAD(c_top))
         p.SetUnsigned("BackgroundColor4", colorToFreeCAD(c_mid))
         p.SetUnsigned("BackgroundColor3", colorToFreeCAD(c_bot))
@@ -119,22 +113,9 @@ def apply3DViewportColor():
     mw.__dict__["_viewport_color_filter"] = ef
 
     syncViewportColor()
-    print("3D viewport gradyan uygulandı")
 
 
 def lockColorPreferences():
-    """
-    Düzenle -> Tercihler -> Görüntüle -> Renkler sayfasındaki gradyan renk
-    seçicilerini (üst/orta/alt), "Radyal gradyan" ve "Tek renk (Simple)"
-    seçeneklerini kullanıcı tarafından değiştirilemez hale getirir.
-    Sadece "Doğrusal gradyan" (radioButtonGradient) seçili ve değiştirilebilir
-    bırakılır.
-
-    Tercihler diyaloğu her açıldığında çalışan global bir event filter ile
-    ilgili widget'ları objectName üzerinden bulup kilitler. Bu yaklaşım
-    FreeCAD'in resmi DlgSettingsViewColor.ui dosyasındaki sabit widget
-    isimlerine dayanır (FreeCAD sürümü değişirse bu isimler de değişebilir).
-    """
     import PySide6.QtWidgets as QtWidgets
     import PySide6.QtCore as QtCore
 
@@ -146,19 +127,17 @@ def lockColorPreferences():
     if not app:
         return
 
-    # Kilitlenecek gradyan renk kontrolleri
     LOCKED_WIDGET_NAMES = (
-        "backgroundColorFrom",   # üst gradyan rengi
-        "backgroundColorTo",     # alt gradyan rengi
-        "backgroundColorMid",    # orta gradyan rengi
-        "checkMidColor",         # "orta renk kullan" onay kutusu
+        "backgroundColorFrom",
+        "backgroundColorTo",
+        "backgroundColorMid",
+        "checkMidColor",
     )
 
     def applyLock():
         radial_btn = None
         simple_btn = None
         linear_btn = None
-        locked_count = 0
 
         for w in app.allWidgets():
             name = w.objectName()
@@ -171,10 +150,7 @@ def lockColorPreferences():
             elif name in LOCKED_WIDGET_NAMES:
                 if w.isEnabled():
                     w.setEnabled(False)
-                    locked_count += 1
 
-        # Açıksa önce doğrusal gradyana geçir, sonra hem radyal hem
-        # tek renk (simple) seçeneklerini tamamen devre dışı bırak
         if (radial_btn is not None or simple_btn is not None) and linear_btn is not None:
             was_radial_or_simple = (radial_btn is not None and radial_btn.isChecked()) or \
                                     (simple_btn is not None and simple_btn.isChecked())
@@ -184,18 +160,14 @@ def lockColorPreferences():
         if radial_btn is not None:
             radial_btn.setChecked(False)
             radial_btn.setEnabled(False)
-            locked_count += 1
 
         if simple_btn is not None:
             simple_btn.setChecked(False)
             simple_btn.setEnabled(False)
-            locked_count += 1
 
     class PreferencesDialogWatcher(QtCore.QObject):
         def eventFilter(self, obj, event):
             if event.type() == QtCore.QEvent.Show and isinstance(obj, QtWidgets.QDialog):
-                # Sayfa widget'ları diyalog açılır açılmaz mevcut olmayabilir,
-                # bu yüzden iki kez (anında + kısa gecikmeyle) deneniyor.
                 QtCore.QTimer.singleShot(0, applyLock)
                 QtCore.QTimer.singleShot(200, applyLock)
             return False
@@ -207,8 +179,6 @@ def lockColorPreferences():
     watcher = PreferencesDialogWatcher(app)
     app.installEventFilter(watcher)
     mw.__dict__["_pref_dialog_watcher"] = watcher
-
-    print("Tercihler diyalog izleyicisi kuruldu (gradyan renkleri + radyal gradyan kilidi aktif)")
 
 
 mw = FreeCADGui.getMainWindow()

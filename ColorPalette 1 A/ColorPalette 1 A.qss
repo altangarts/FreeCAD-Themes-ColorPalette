@@ -582,32 +582,32 @@ QRadioButton::indicator {
   border-image: none;
   width: 14px;
   height: 14px;
-  image:url(qss:images_classic/Radio-unchecked-lightgray.svg);
+  image:url(qss:images_classic/radio-unchecked-lightgray.svg);
 }
 
 QRadioButton::indicator:unchecked:hover {
-  image:url(qss:images_classic/Radio-unchecked-black.svg);
+  image:url(qss:images_classic/radio-unchecked-black.svg);
 }
 
 QRadioButton::indicator:unchecked:disabled {
   border-image: none;
   width: 14px;
   height: 14px;
-  image:url(qss:images_classic/Radio-unchecked-darkgray.svg);
+  image:url(qss:images_classic/radio-unchecked-darkgray.svg);
 }
 
 QRadioButton::indicator:checked {
   border-image: none;
   width: 14px;
   height: 14px;
-  image:url(qss:images_classic/Radio-unchecked-white.svg);
+  image:url(qss:images_classic/radio-unchecked-white.svg);
 }
 
 QRadioButton::indicator:checked:disabled {
   border-image: none;
   width: 14px;
   height: 14px;
-  image:url(qss:images_classic/Radio-checked-darkgray.svg);
+  image:url(qss:images_classic/radio-checked-darkgray.svg);
 }
 
 /* QMenuBar ---------------------------------------------------------------
@@ -1060,7 +1060,8 @@ QToolBar[orientation="2"] {
   padding: 1px;
 }
 
-QToolBar {
+QToolBar,
+QToolBar#Workbench {
   background-color: @ThemeAccentColor2;
   border: 1px solid #151515;
   spacing: 0px;
@@ -1083,8 +1084,7 @@ QToolBar:right {
 }
 
 QMenuBar QToolBar,
-QStatusBar QToolBar,
-QToolBar#Workbench {
+QStatusBar QToolBar {
   background-color: transparent;
   border: none;
   margin: 0px;
@@ -1108,40 +1108,49 @@ QToolBar#Workbench:bottom {
   border-radius: 0px;
 }
 
+QToolBar#Workbench:left,
+QToolBar#Workbench:right{
+  background-color: transparent;
+  border: 1px solid transparent;
+  margin: 0px;
+  padding: 0px;
+  border-radius: 0px;
+}
+
 QToolBar::handle:horizontal {
   width: 10px;
   padding: 0px;
   margin-left: 3px;
-  image: url(qss:images_classic/Hmovetoolbar-black.svg);
+  image: url(qss:images_classic/hmovetoolbar-black.svg);
 }
 
 QMenuBar QToolBar::handle:horizontal {
   width: 10px;
   padding: 5px;
   margin-bottom: 0px;
-  image: url(qss:images_classic/Hmovetoolbar-black.svg);
+  image: url(qss:images_classic/hmovetoolbar-black.svg);
 }
 
 QStatusBar QToolBar::handle:horizontal {
   width: 10px;
   padding: 4px;
-  image: url(qss:images_classic/Hmovetoolbar-black.svg);
+  image: url(qss:images_classic/hmovetoolbar-black.svg);
 }
 
 QToolBar::handle:vertical {
   height: 10px;
   padding: 0px;
   margin-top: 3px;
-  image: url(qss:images_classic/Vmovetoolbar-black.svg);
+  image: url(qss:images_classic/vmovetoolbar-black.svg);
 }
 
 QMenuBar QToolBar::handle:horizontal:hover,
 QToolBar::handle:horizontal:hover {
-  image: url(qss:images_classic/Hmovetoolbar-white.svg);
+  image: url(qss:images_classic/hmovetoolbar-white.svg);
 }
 
 QToolBar::handle:vertical:hover {
-  image: url(qss:images_classic/Vmovetoolbar-white.svg);
+  image: url(qss:images_classic/vmovetoolbar-white.svg);
 }
 
 QToolBar::separator:vertical {
@@ -1272,6 +1281,14 @@ QLabel {
   border-radius: 4px;
   color: #eeeeee;
   color: @ColorPaletteTextGeneralTop;  
+}
+
+QWidget#StartView QLabel {
+  color: @ColorPaletteTextGeneralBottom;
+}
+
+QWidget#StartView QPushButton QLabel {
+  color: #eeeeee;
 }
 
 QLabel:disabled {
@@ -1425,25 +1442,18 @@ QPushButton:disabled {
   color: @ColorPaletteTextDisabled;
 }
 
-QPushButton:checked {
-  border: 1px solid @ThemeAccentColor1;
-}
-
-QPushButton:checked:disabled {
-  color: #bbbbbb;
-  color: @ColorPaletteTextDisabled;
-}
-
-QPushButton:checked:hover,
+QPushButton:pressed,
+QPushButton:selected,
+QPushButton:checked,
 QPushButton:checked:selected {
-  border: 2px solid @ThemeAccentColor1;
+  background-color: @ThemeAccentColor1;  
+  color: @ColorPaletteTextGeneralTop;
 }
 
 QPushButton:hover,
-QPushButton:pressed,
-QPushButton:selected {
-  background-color: rgba(250,250,250,0.15);
-  border: 2px solid @ThemeAccentColor1;
+QPushButton:checked:hover {
+  background-color: @ColorPaletteHover; 
+  color: @ColorPaletteTextGeneralTop;
 }
 
 QToolBar QPushButton {
@@ -2788,8 +2798,8 @@ QTabBar QToolButton::down-arrow:disabled {
 
 QTabBar::close-button {
   border: 0;
-  margin: 0px 0px 3px 0px;
-  padding: 0px 0px 0px 4px;
+  margin: 0px 2px 3px 0px;
+  padding: 0px 0px 0px 3px;
   image: url(qss:images_classic/close-black2.svg);
 }
 
@@ -3305,6 +3315,10 @@ QListView {
   selection-color: #ffffff;
 }
 
+QWidget#StartView QListView {
+  color: #eeeeee;
+}
+
 QWidget QListView {
   background-color: transparent;
   border: 1px solid transparent;
@@ -3722,10 +3736,12 @@ QComboBox::down-arrow:disabled {
 
 QToolBar#Workbench {
   background-color: @ThemeAccentColor2;
+  spacing: 0px;
 }
 
 QMenuBar QToolBar#Workbench {
   background-color: transparent;
+  border: none;
 }
 
 QToolBar Gui--WorkbenchComboBox {
@@ -3739,12 +3755,14 @@ QToolBar Gui--WorkbenchComboBox {
   color: #eeeeee;
   color: @ColorPaletteTextGeneralTop;
   border-radius: 4px;
-  padding: 8px 10px 11px 10px;
-  margin: 2px 1px 0px 1px;
+  padding: 9px 10px 10px 10px;
+  margin-top: 2px;
+  margin-right: 1px;
   font-weight: bold;
 }
 
-QToolBar Gui--WorkbenchComboBox:hover {
+QToolBar Gui--WorkbenchComboBox:hover,
+QToolBar Gui--WorkbenchComboBox:on {
   background-color: @ThemeAccentColor1;
   background-color: @ColorPaletteHover;
   border-width: 1px 1px 2px 1px;  
@@ -4336,8 +4354,8 @@ QWidget#thumbnailWidget[state="pressed"] {
 }
 
 #CreateNewRow > QPushButton:hover {
-  background-color: rgba(250,250,250,0.2);
-  border: 2px solid @ThemeAccentColor1;
+  background-color: @ColorPaletteHover; 
+  color: @ColorPaletteTextGeneralTop;
 }
 
 QPushButton[objectName="buttonIFCPropertiesDelete"] {
