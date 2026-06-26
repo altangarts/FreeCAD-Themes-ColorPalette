@@ -225,8 +225,8 @@ Gui--NavigationIndicatorGui--BlenderNavigationStyle {
 --------------------------------------------------------------------------- */
 QDockWidget {
   background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop: 0 @ThemeAccentColor2, stop: 0.5 @ThemeAccentColor3, stop: 1 @ThemeAccentColor3);
-  titlebar-close-icon: none;
-  titlebar-normal-icon: none;
+  titlebar-close-icon: url(qss:images_classic/transparent.svg);
+  titlebar-normal-icon: url(qss:images_classic/transparent.svg);
 }
 
 QDockWidget QFrame {
@@ -353,15 +353,13 @@ QColorDialog QLabel {
 
 --------------------------------------------------------------------------- */
 QMainWindow::separator:horizontal {
-  height: 5px;
-  margin: 0px;
-  padding: 2px;
+  height: 6px;
+  padding: 0px;
 }
 
 QMainWindow::separator:vertical {
-  width: 5px;
-  margin-bottom: 28px;
-  padding: 2px;
+  width: 6px;
+  padding: 0px;
 }
 
 QMainWindow::separator:vertical {
@@ -1120,13 +1118,11 @@ QMenuBar QToolBar::handle:horizontal {
   width: 10px;
   padding: 5px;
   margin-bottom: 0px;
-  image: url(qss:images_classic/hmovetoolbar-black.svg);
 }
 
 QStatusBar QToolBar::handle:horizontal {
   width: 10px;
   padding: 4px;
-  image: url(qss:images_classic/hmovetoolbar-black.svg);
 }
 
 QToolBar::handle:vertical {
@@ -1835,7 +1831,8 @@ QCommandLinkButton:disabled {
 Tasks panel (custom FreeCAD class)
 ==================================================================================================*/
 /* Action group */
-QFrame[class="panel"] {
+#taskPanelOuter,
+#taskPanelInner {
   background-color: rgba(250,250,250,0.1);
   border-width: 1px 1px 2px 1px;
   border-style: solid;
@@ -2504,7 +2501,8 @@ QTabWidget::pane:bottom,
 QTabWidget::pane:left,
 QTabWidget::pane:right {
   top: 0px;
-  border-top: 0px solid transparent;
+  border: 0px solid transparent;
+  background-color: transparent;
 }
 
 /* QTabBar ----------------------------------------------------------------

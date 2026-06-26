@@ -708,18 +708,18 @@ QSint--ActionGroup QFrame[class="content"] QDialog QDialog QTextEdit:focus {
   border-radius: 6px;
 }
 
-QTabWidget QTextEdit,
-QTabWidget QTextEdit:hover,
-QTabWidget QTextEdit:focus,
-QTabWidget QPlainTextEdit,
-QTabWidget QPlainTextEdit:hover,
-QTabWidget QPlainTextEdit:focus {
-  background-color: @ColorPaletteOverlayContent;
+Gui--OverlayTabWidget::pane QTextEdit,
+Gui--OverlayTabWidget::pane QTextEdit:hover,
+Gui--OverlayTabWidget::pane QTextEdit:focus,
+Gui--OverlayTabWidget::pane QPlainTextEdit,
+Gui--OverlayTabWidget::pane QPlainTextEdit:hover,
+Gui--OverlayTabWidget::pane QPlainTextEdit:focus {
+  background-color: qlineargradient(x1:0, y1:0.94, x2:0, y2:1, stop:0 rgba(250,250,250,0.1), stop:1 rgba(0,0,0,0.2));  
   border: 1px solid rgba(0,0,0,0.15);
   margin: 0px 0px 0px 10px;
   padding: 5px 5px 5px 5px;
-  border-top-left-radius: 6px;
-  border-top-right-radius: 6px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
 }
@@ -754,6 +754,7 @@ Gui--OverlayToolButton:pressed {
 Gui--OverlayToolButton[objectName="OBTN Transparent"] {
   image: url(qss:images_classic/transparent-black1.svg);
   min-width: 14px;
+  padding: 2px 4px 4px 4px;
 }
 
 Gui--OverlayToolButton[objectName="OBTN Transparent"]:hover {

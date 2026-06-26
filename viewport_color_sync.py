@@ -58,20 +58,43 @@ def apply3DViewportColor():
     if not base_stops or len(base_stops) < 2:
         return
 
+    def isGradientModeActive():
+        try:
+            p = FreeCAD.ParamGet("User parameter:BaseApp/Preferences/View")
+            is_simple   = p.GetBool("Simple", False)
+            is_radial   = p.GetBool("RadialGradient", False)
+            is_gradient = p.GetBool("Gradient", True)
+            if is_simple or is_radial:
+                return False
+            return is_gradient
+        except Exception:
+            return False
+
     def syncViewportColor():
+        if not isGradientModeActive():
+            return
+
         h = mw.height()
         if h == 0:
             return
 
-        mdi_pos = mdi.mapTo(mw, QtCore.QPoint(0, 0))
-        top_y = mdi_pos.y()
-        bot_y = top_y + mdi.height()
+        active_sub = mdi.activeSubWindow()
+        if active_sub:
+            vp = active_sub.widget() if active_sub.widget() else active_sub
+            gp_top = vp.mapToGlobal(QtCore.QPoint(0, 0))
+            gp_bot = vp.mapToGlobal(QtCore.QPoint(0, vp.height()))
+            top_y = mw.mapFromGlobal(gp_top).y()
+            bot_y = mw.mapFromGlobal(gp_bot).y()
+        else:
+            mdi_pos = mdi.mapTo(mw, QtCore.QPoint(0, 0))
+            top_y = mdi_pos.y()
+            bot_y = top_y + mdi.height()
+
+        mid_y = top_y + (bot_y - top_y) * 0.5
 
         top_pos = max(0.0, min(1.0, top_y / h))
         bot_pos = max(0.0, min(1.0, bot_y / h))
-
-        raw_mid = top_pos + (bot_pos - top_pos) * 0.5
-        mid_pos = max(top_pos, min(bot_pos, raw_mid + 0.0532))
+        mid_pos = max(0.0, min(1.0, mid_y / h))
 
         c_top = interpolateColor(base_stops, top_pos)
         c_mid = interpolateColor(base_stops, mid_pos)
@@ -85,6 +108,8 @@ def apply3DViewportColor():
         p.SetUnsigned("BackgroundColor4", colorToFreeCAD(c_mid))
         p.SetUnsigned("BackgroundColor3", colorToFreeCAD(c_bot))
         FreeCADGui.updateGui()
+
+    mw.__dict__["_sync_viewport_color_fn"] = syncViewportColor
 
     class ViewportEventFilter(QtCore.QObject):
         def __init__(self, mw):
@@ -110,6 +135,7 @@ def apply3DViewportColor():
     ef = ViewportEventFilter(mw)
     mw.installEventFilter(ef)
     mdi.installEventFilter(ef)
+    mdi.subWindowActivated.connect(lambda _: syncViewportColor())
     mw.__dict__["_viewport_color_filter"] = ef
 
     syncViewportColor()
@@ -118,6 +144,7 @@ def apply3DViewportColor():
 def lockColorPreferences():
     import PySide6.QtWidgets as QtWidgets
     import PySide6.QtCore as QtCore
+    import FreeCAD
 
     mw = FreeCADGui.getMainWindow()
     if not mw:
@@ -127,12 +154,30 @@ def lockColorPreferences():
     if not app:
         return
 
-    LOCKED_WIDGET_NAMES = (
+    COLOR_WIDGET_NAMES = (
         "backgroundColorFrom",
         "backgroundColorTo",
         "backgroundColorMid",
         "checkMidColor",
     )
+
+    _connected_buttons = mw.__dict__.setdefault("_radio_btn_connected", set())
+
+    def findSwapButton():
+        for w in app.allWidgets():
+            if w.objectName() == "SwitchGradientColors":
+                return w
+        return None
+
+    def setColorWidgets(enabled):
+        for w in app.allWidgets():
+            if w.objectName() in COLOR_WIDGET_NAMES:
+                w.setEnabled(enabled)
+
+    def setSwapButton(enabled):
+        btn = findSwapButton()
+        if btn is not None:
+            btn.setEnabled(enabled)
 
     def applyLock():
         radial_btn = None
@@ -147,23 +192,72 @@ def lockColorPreferences():
                 simple_btn = w
             elif name == "radioButtonGradient":
                 linear_btn = w
-            elif name in LOCKED_WIDGET_NAMES:
-                if w.isEnabled():
-                    w.setEnabled(False)
 
-        if (radial_btn is not None or simple_btn is not None) and linear_btn is not None:
-            was_radial_or_simple = (radial_btn is not None and radial_btn.isChecked()) or \
-                                    (simple_btn is not None and simple_btn.isChecked())
-            if was_radial_or_simple:
-                linear_btn.setChecked(True)
+        gradient_active = linear_btn is not None and linear_btn.isChecked()
+        setColorWidgets(not gradient_active)
+        setSwapButton(not gradient_active)
+
+        _connectRadioSignals(radial_btn, simple_btn, linear_btn)
+
+    def _connectRadioSignals(radial_btn, simple_btn, linear_btn):
+        sync_fn = mw.__dict__.get("_sync_viewport_color_fn")
+        if sync_fn is None:
+            return
+
+        def onGradientToggled(checked):
+            if checked:
+                try:
+                    p = FreeCAD.ParamGet("User parameter:BaseApp/Preferences/View")
+                    p.SetBool("Simple", False)
+                    p.SetBool("Gradient", True)
+                    p.SetBool("RadialGradient", False)
+                except Exception:
+                    pass
+                setColorWidgets(False)
+                setSwapButton(False)
+                sync_fn()
+
+        def onRadialToggled(checked):
+            if checked:
+                try:
+                    p = FreeCAD.ParamGet("User parameter:BaseApp/Preferences/View")
+                    p.SetBool("Simple", False)
+                    p.SetBool("Gradient", False)
+                    p.SetBool("RadialGradient", True)
+                except Exception:
+                    pass
+                setColorWidgets(True)
+                setSwapButton(True)
+
+        def onSimpleToggled(checked):
+            if checked:
+                try:
+                    p = FreeCAD.ParamGet("User parameter:BaseApp/Preferences/View")
+                    p.SetBool("Simple", True)
+                    p.SetBool("Gradient", False)
+                    p.SetBool("RadialGradient", False)
+                except Exception:
+                    pass
+                setColorWidgets(True)
+                setSwapButton(True)
+
+        if linear_btn is not None:
+            btn_id = id(linear_btn)
+            if btn_id not in _connected_buttons:
+                linear_btn.toggled.connect(onGradientToggled)
+                _connected_buttons.add(btn_id)
 
         if radial_btn is not None:
-            radial_btn.setChecked(False)
-            radial_btn.setEnabled(False)
+            btn_id = id(radial_btn)
+            if btn_id not in _connected_buttons:
+                radial_btn.toggled.connect(onRadialToggled)
+                _connected_buttons.add(btn_id)
 
         if simple_btn is not None:
-            simple_btn.setChecked(False)
-            simple_btn.setEnabled(False)
+            btn_id = id(simple_btn)
+            if btn_id not in _connected_buttons:
+                simple_btn.toggled.connect(onSimpleToggled)
+                _connected_buttons.add(btn_id)
 
     class PreferencesDialogWatcher(QtCore.QObject):
         def eventFilter(self, obj, event):
