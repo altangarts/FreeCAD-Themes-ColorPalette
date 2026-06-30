@@ -33,6 +33,9 @@ Gui--PropertyEditor--PropertyEditor {
   color: @ColorPaletteTextPropertyEditor;
 }
 
+QTabWidget#propertyTab::pane {
+}
+
 Gui--OverlayTabWidget::pane {
   background-color: transparent;
   margin: 0px;
@@ -97,7 +100,7 @@ QTabWidget QTreeView::item:has-children:!has-siblings:open,
 QTabWidget QTreeView::item:has-children:open {
   background-color: rgba(0,0,0,0.15);
   background-color: qlineargradient(x1:0, y1:0.3, x2:0, y2:1, stop:0 @ColorPaletteOverlayContent, stop:1 @ColorPaletteOverlayHeader1);
-  margin-top: 0px;
+  margin-top: 1px;
 }
 
 QTabWidget QTreeView::item:has-children:!has-siblings:open:hover,

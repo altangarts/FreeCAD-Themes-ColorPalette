@@ -33,6 +33,9 @@ Gui--PropertyEditor--PropertyEditor {
   color: @ColorPaletteTextPropertyEditor;
 }
 
+QTabWidget#propertyTab::pane {
+}
+
 Gui--OverlayTabWidget::pane {
   background-color: transparent;
   margin: 0px;
