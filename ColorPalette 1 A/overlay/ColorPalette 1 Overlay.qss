@@ -23,7 +23,7 @@ Gui--OverlaySplitterHandle {
 } */
 
 Gui--PropertyEditor--PropertyEditor {
-  qproperty-itemBackground: @ThemeAccentColor3;
+  qproperty-itemBackground: transparent;
   qproperty-groupTextColor: #f5c5f5;
   qproperty-groupTextColor: @ColorPaletteTextHeaderOverlay;
   alternate-background-color: transparent;
@@ -34,11 +34,16 @@ Gui--PropertyEditor--PropertyEditor {
 }
 
 QTabWidget#propertyTab::pane {
+  background-color: @ThemeAccentColor3;
+  border: none;
+  margin: 0px;
+  padding: 0px;
+  border-radius: 5px;
 }
 
 Gui--OverlayTabWidget::pane {
   background-color: transparent;
-  margin: 0px;
+  margin: 1px;
   border: none;
 }
 
@@ -281,6 +286,11 @@ Gui--TreePanel QTreeView {
   margin-left: 0px;
 }
 
+QTabWidget QTreeView {
+  margin: 0px 0px 0px 0px;
+  padding: 1px 1px -1px 2px;
+}
+
 Gui--TreePanel QTreeView::item,
 Gui--TreePanel QTreeView::item:hover,
 Gui--TreePanel QTreeView::item:focus,
@@ -379,7 +389,7 @@ Gui--TreePanel QTreeView::indicator:checked:disabled  {
 Gui--TreePanel QTreeView::item {
   border-radius: 0px;
   margin: 1px 2px 0px 0px;
-  padding: 2px 0px 2px 0px;
+  padding: 1px 0px 2px 0px;
 }
 
 #DocumentTreeItems::item {
@@ -395,7 +405,7 @@ Gui--TreePanel QTreeView::item {
   color: @ColorPaletteTextTreeEnd;
   border-radius: 4px;
   margin: 1px 0px 0px 0px;
-  padding: 2px 0px 3px 0px;
+  padding: 2px 0px 2px 0px;
 }
 
 #DocumentTreeItems::item:has-children:!has-siblings:open,
