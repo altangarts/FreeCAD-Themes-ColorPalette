@@ -77,7 +77,7 @@ def _bootstrap_global_task_watcher():
                 try:
                     from PySide6 import QtWidgets, QtCore
                 except ImportError:
-                    from PySide2 import QtWidgets, QtCore
+                    from PySide2 import QtCore
                 if event.type() in (QtCore.QEvent.Show, QtCore.QEvent.DynamicPropertyChange):
                     if isinstance(obj, QtWidgets.QFrame) and obj.property("class") == "panel":
                         self._debounce_timer.start()
@@ -207,6 +207,12 @@ def _bootstrap_property_editor_anchoring():
                 from PySide2 import QtWidgets, QtCore
             if state["anchoring"]:
                 return
+                
+            has_visible_trees = any(tree and tree.isVisible() for tree in trees)
+            content_h = _content_height()
+            
+            is_empty = (content_h == 0 or not has_visible_trees)
+
             if not _is_strictly_overlay(dock_widget):
                 if original_layout and original_layout.indexOf(tab) == -1:
                     original_layout.addWidget(tab)
@@ -232,14 +238,17 @@ def _bootstrap_property_editor_anchoring():
             if splitter_handle:
                 splitter_handle.setEnabled(False)
 
-            tab_bar_h = tab.tabBar().sizeHint().height() if tab.tabBar().isVisible() else 0
-            desired_h = tab_bar_h + _content_height()
+            if is_empty:
+                desired_h = 0
+            else:
+                tab_bar_h = tab.tabBar().sizeHint().height() if tab.tabBar().isVisible() else 0
+                desired_h = tab_bar_h + content_h
             
             state["anchoring"] = True
             try:
                 if splitter and splitter_idx != -1:
                     total = sum(splitter.sizes())
-                    target_h = max(min(desired_h, total), 10)
+                    target_h = max(min(desired_h, total), 0 if is_empty else 10)
                     sizes = splitter.sizes()
                     if sizes[splitter_idx] != target_h:
                         new_sizes = list(sizes)
@@ -257,7 +266,7 @@ def _bootstrap_property_editor_anchoring():
                                 consumed += share
                         splitter.setSizes(new_sizes)
                 else:
-                    target_h = max(min(desired_h, container.rect().height()), 10)
+                    target_h = max(min(desired_h, container.rect().height()), 0 if is_empty else 10)
 
                 full_rect = container.rect()
                 target_y = int(round(max(full_rect.height() - target_h, 0)))
@@ -292,6 +301,27 @@ def _bootstrap_property_editor_anchoring():
             tree.collapsed.connect(lambda *a: layout_tab_widget())
 
         tab.currentChanged.connect(lambda *a: layout_tab_widget())
+
+        class GlobalSelectionWatcher(QtCore.QObject):
+            def eventFilter(self, obj, event):
+                try:
+                    from PySide6 import QtCore
+                except ImportError:
+                    from PySide2 import QtCore
+                if event.type() in (QtCore.QEvent.Hide, QtCore.QEvent.Show, QtCore.QEvent.ChildAdded, QtCore.QEvent.ChildRemoved):
+                    if obj in trees or obj == tab:
+                        layout_tab_widget()
+                return False
+
+        app = QtWidgets.QApplication.instance()
+        if app:
+            if hasattr(app, "_tabBarVisibilityWatcher"):
+                try: app.removeEventFilter(app._tabBarVisibilityWatcher)
+                except: pass
+            watcher = GlobalSelectionWatcher(app)
+            app.installEventFilter(watcher)
+            app._tabBarVisibilityWatcher = watcher
+
         layout_tab_widget()
         container.update()
 
