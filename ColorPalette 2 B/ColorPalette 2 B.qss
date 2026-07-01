@@ -3204,7 +3204,8 @@ QDockWidget QTabWidget QTreeView::branch {
   color: @ColorPaletteTextTreeOpen;
 }
 
-#DocumentTreeItems::item:disabled {
+#DocumentTreeItems::item:disabled,
+#DocumentTreeItems::item:has-children:open:disabled {
   color: #bbbbbb;
   color: @ColorPaletteTextDisabled;
 }

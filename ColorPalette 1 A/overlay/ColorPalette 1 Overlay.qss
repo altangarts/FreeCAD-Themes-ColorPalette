@@ -416,7 +416,8 @@ QTabWidget QDialog QTreeView::item:has-children {
   color: @ColorPaletteTextTreeClosed;
 }
 
-#DocumentTreeItems::item:disabled {
+#DocumentTreeItems::item:disabled,
+#DocumentTreeItems::item:has-children:open:disabled {
   color: #bbbbbb;
   color: @ColorPaletteTextDisabled;
 }
