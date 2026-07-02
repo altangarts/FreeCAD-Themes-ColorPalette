@@ -38,7 +38,7 @@ QTabWidget#propertyTab::pane {
   border: none;
   margin: 0px;
   padding: 0px;
-  border-radius: 5px;
+  border-radius: 6px;
 }
 
 Gui--OverlayTabWidget::pane {
@@ -235,6 +235,29 @@ QTabWidget QDialog QPushButton:pressed {
   color: #ffffff;
 }
 
+QPushButton#propertyEditorToggleButton {
+  background-color: @ColorPaletteOverlayContent1;
+  color: @ColorPaletteTextGeneralBottom;
+  text-align: center;
+  padding: 2px 5px 4px -10px;
+  margin: 2px 2px 0px 1px;
+}
+
+QPushButton#propertyEditorToggleButton:hover {
+  background-color: @ColorPaletteHover;
+  color: #ffffff;
+}
+
+QPushButton#propertyEditorToggleButton[collapsed="false"] {
+  qproperty-icon: url(qss:images_classic/check-mark-yes.svg);
+  qproperty-iconSize: 13px 13px;
+}
+
+QPushButton#propertyEditorToggleButton[collapsed="true"] {
+  qproperty-icon: url(qss:images_classic/check-mark-no1.svg);
+  qproperty-iconSize: 13px 13px;
+}
+
 QTabWidget QTabBar::tab:bottom {
   background-color: rgba(250,250,250,0.15);
   background-color: @ColorPaletteOverlayContent1;
@@ -249,7 +272,7 @@ QTabWidget QTabBar::tab:bottom {
   border-radius: 4px;
   padding: 2px 3px 4px 6px;
   min-width: 50px;
-  margin: 3px 2px 0px 1px;
+  margin: 0px 2px 0px 1px;
 }
 
 QTabWidget QTabBar::tab:bottom:selected {
@@ -288,7 +311,7 @@ Gui--TreePanel QTreeView {
 
 QTabWidget QTreeView {
   margin: 0px 0px 0px 0px;
-  padding: 1px 1px -1px 2px;
+  padding: 2px 1px 2px 2px;
 }
 
 Gui--TreePanel QTreeView::item,

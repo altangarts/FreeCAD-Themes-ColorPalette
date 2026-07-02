@@ -1578,6 +1578,29 @@ QWidget#Dialog QPushButton:checked {
   color: #ffffff;
 }
 
+QPushButton#propertyEditorToggleButton {
+  background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop: 0 rgba(250,250,250,0.15), stop: 0.65 rgba(250,250,250,0.15), stop: 1 @ColorPaletteOverlayitemEnd);
+  color: @ColorPaletteTextGeneralBottom;
+  text-align: center;
+  padding: 2px 5px 5px -10px;
+  margin: 0px 2px 0px 1px;
+}
+
+QPushButton#propertyEditorToggleButton:hover {
+  background-color: @ColorPaletteHover;
+  color: #ffffff;
+}
+
+QPushButton#propertyEditorToggleButton[collapsed="false"] {
+  qproperty-icon: url(qss:images_classic/check-mark-yes.svg);
+  qproperty-iconSize: 13px 13px;
+}
+
+QPushButton#propertyEditorToggleButton[collapsed="true"] {
+  qproperty-icon: url(qss:images_classic/check-mark-no1.svg);
+  qproperty-iconSize: 13px 13px;
+}
+
 QPushButton::menu-indicator {
   subcontrol-origin: padding;
   subcontrol-position: right center;
@@ -2623,7 +2646,7 @@ QToolBar QTabBar::tab:right:hover {
 QTabWidget QTabBar::tab:bottom {
   color: #eeeeee;
   color: @ColorPaletteTextGeneralBottom;
-  margin: 5px 2px 3px 1px;
+  margin: 2px 2px 2px 1px;
   padding: 2px 3px 5px 6px;
   min-width: 50px;
 }
@@ -3114,6 +3137,10 @@ QDockWidget QTabWidget QTreeView {
   border-right-color: rgba(0,0,0,0.2);
   selection-background-color: transparent;
   selection-color: #ffffff;
+}
+
+QDockWidget QTabWidget QTreeView {
+  background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop: 0 @ColorPalettePropertyGridline, stop: 0.965 @ColorPalettePropertyGridline, stop: 1 rgba(0,0,0,0.2));
 }
 
 Gui--TreePanel QTreeView {
