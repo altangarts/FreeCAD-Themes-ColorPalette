@@ -235,7 +235,7 @@ QPushButton#propertyEditorToggleButton {
   background-color: qlineargradient(x1:0, y1:0.3, x2:0, y2:1, stop:0 @ColorPaletteOverlayContent1, stop:1 @ColorPaletteOverlayitemEnd);
   color: @ColorPaletteTextGeneralBottom;
   text-align: center;
-  padding: 2px 5px 5px -10px;
+  padding: 2px 5px 5px 0px;
   margin: 2px 2px 0px 1px;
 }
 

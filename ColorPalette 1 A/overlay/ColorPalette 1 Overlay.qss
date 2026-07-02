@@ -239,7 +239,7 @@ QPushButton#propertyEditorToggleButton {
   background-color: @ColorPaletteOverlayContent1;
   color: @ColorPaletteTextGeneralBottom;
   text-align: center;
-  padding: 2px 5px 4px -10px;
+  padding: 2px 5px 4px 0px;
   margin: 2px 2px 0px 1px;
 }
 
