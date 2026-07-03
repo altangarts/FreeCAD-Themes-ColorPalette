@@ -86,7 +86,9 @@ def _bootstrap_property_editor_anchoring():
             return total
 
         dock_widget = _find_dock_widget(container)
-        state = {"anchoring": False, "in_active_mode": False, "collapsed": False}
+        
+        state = {"anchoring": False, "in_active_mode": False, "collapsed": False, "current_mode": None}
+        
         splitter = container.parent() if isinstance(container.parent(), QtWidgets.QSplitter) else None
         splitter_idx = splitter.indexOf(container) if splitter else -1
         original_splitter_sizes = list(splitter.sizes()) if splitter else None
@@ -126,10 +128,18 @@ def _bootstrap_property_editor_anchoring():
             panel_state = _get_panel_state(dock_widget)
 
             if panel_state == "floating":
+                if state["current_mode"] == "floating":
+                    return 
+                    
+                state["current_mode"] = "floating"
+
                 btn.setVisible(False)
                 tab.setVisible(True)
                 tab.setMinimumHeight(0)
                 tab.setMaximumHeight(16777215)
+                
+                tab.setSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
+                
                 if original_layout and original_layout.indexOf(tab) == -1:
                     original_layout.addWidget(tab)
                 
@@ -156,6 +166,7 @@ def _bootstrap_property_editor_anchoring():
                     state["in_active_mode"] = False
                 return
 
+            state["current_mode"] = panel_state
             state["in_active_mode"] = True
             btn.setVisible(True)
             
