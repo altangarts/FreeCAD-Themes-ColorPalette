@@ -86,9 +86,7 @@ def _bootstrap_property_editor_anchoring():
             return total
 
         dock_widget = _find_dock_widget(container)
-        
-        state = {"anchoring": False, "in_active_mode": False, "collapsed": False, "current_mode": None}
-        
+        state = {"anchoring": False, "in_active_mode": False, "collapsed": False}
         splitter = container.parent() if isinstance(container.parent(), QtWidgets.QSplitter) else None
         splitter_idx = splitter.indexOf(container) if splitter else -1
         original_splitter_sizes = list(splitter.sizes()) if splitter else None
@@ -127,46 +125,6 @@ def _bootstrap_property_editor_anchoring():
                 
             panel_state = _get_panel_state(dock_widget)
 
-            if panel_state == "floating":
-                if state["current_mode"] == "floating":
-                    return 
-                    
-                state["current_mode"] = "floating"
-
-                btn.setVisible(False)
-                tab.setVisible(True)
-                tab.setMinimumHeight(0)
-                tab.setMaximumHeight(16777215)
-                
-                tab.setSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
-                
-                if original_layout and original_layout.indexOf(tab) == -1:
-                    original_layout.addWidget(tab)
-                
-                if splitter:
-                    for i in range(1, splitter.count()):
-                        h = splitter.handle(i)
-                        if h:
-                            h.setEnabled(True)
-                            h.setAttribute(QtCore.Qt.WA_TransparentForMouseEvents, False)
-                            std_cursor = QtCore.Qt.SplitVCursor if splitter.orientation() == QtCore.Qt.Vertical else QtCore.Qt.SplitHCursor
-                            h.setCursor(std_cursor)
-                            if hasattr(h, "_cosmeticFilter"):
-                                try: h.removeEventFilter(h._cosmeticFilter)
-                                except: pass
-                                del h._cosmeticFilter
-                    if original_handle_width is not None:
-                        splitter.setHandleWidth(original_handle_width)
-
-                if state["in_active_mode"]:
-                    if splitter and splitter_idx != -1 and original_splitter_sizes:
-                        state["anchoring"] = True
-                        try: splitter.setSizes(original_splitter_sizes)
-                        finally: state["anchoring"] = False
-                    state["in_active_mode"] = False
-                return
-
-            state["current_mode"] = panel_state
             state["in_active_mode"] = True
             btn.setVisible(True)
             
