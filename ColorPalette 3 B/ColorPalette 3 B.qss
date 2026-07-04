@@ -1036,10 +1036,9 @@ QStackedWidget {
 /* QToolBar ---------------------------------------------------------------
 
 --------------------------------------------------------------------------- */
-QToolBar,
-QToolBar#Workbench {
+QToolBar {
   background-color: @ThemeAccentColor2;
-  border: 1px solid #151515;
+  border: none;
   spacing: 0px;
   padding: 0px;
 }
@@ -1073,6 +1072,12 @@ QStatusBar QToolBar {
   margin: 0px;
   padding: 0px;
   border-radius: 0px;
+}
+
+QMenuBar QToolBar#Workbench,
+QToolBar#Workbench {
+  background-color: transparent;
+  border: none;
 }
 
 QToolBar#Workbench:top {
@@ -1125,14 +1130,14 @@ QToolBar::handle:vertical {
   image: url(qss:images_classic/vmovetoolbar-black.svg);
 }
 
-QMenuBar QToolBar::handle:horizontal:hover,
+/* QMenuBar QToolBar::handle:horizontal:hover,
 QToolBar::handle:horizontal:hover {
   image: url(qss:images_classic/hmovetoolbar-white.svg);
 }
 
 QToolBar::handle:vertical:hover {
   image: url(qss:images_classic/vmovetoolbar-white.svg);
-}
+} */
 
 QToolBar::separator:vertical {
   height: 0px;
@@ -1624,12 +1629,12 @@ QToolBar QToolButton {
   color: @ColorPaletteTextGeneralTop;
   min-width: 24px;
   min-height: 24px;
-  margin: 0px 0px 0px 0px;
+  margin: 2px 0px 0px 0px;
   padding: 2px 4px 11px 5px;
 }
 
 QToolBar QToolButton:disabled {
-  margin: 0px 0px 0px 0px;
+  margin: 2px 0px 0px 0px;
   padding: 2px 4px 11px 5px;
 }
 
@@ -3667,32 +3672,22 @@ QComboBox::down-arrow:disabled {
   image: url(qss:images_classic/arrow-down-disabled_dark.svg);
 }
 
-QToolBar#Workbench {
-  background-color: @ThemeAccentColor2;
-  spacing: 0px;
-}
-
-QMenuBar QToolBar#Workbench {
+QToolBar Gui--WorkbenchComboBox {
   background-color: transparent;
   border: none;
-}
-
-QToolBar Gui--WorkbenchComboBox {
-  background-color: qlineargradient(x1:0, y1:0.3, x2:0, y2:1, stop:0 rgba(250,250,250,0.15), stop:1 rgba(0,0,0,0.2));
-  border-left: 1px solid rgba(0,0,0,0.25);
-  color: #eeeeee;
-  color: @ColorPaletteTextGeneralTop;
-  border-radius: 4px;
-  padding: 6px 10px 12px 10px;
-  margin: 0px;
+  color: #ffffff;
+  border-radius: 0px;
+  padding: 9px 40px 10px 10px;
+  margin-top: 2px;
   font-weight: bold;
+  font-size: 10pt;
 }
 
 QToolBar Gui--WorkbenchComboBox:hover,
 QToolBar Gui--WorkbenchComboBox:on {
-  background-color: @ThemeAccentColor1;
-  background-color: qlineargradient(x1:0, y1:0.3, x2:0, y2:1, stop:0 @ColorPaletteHover1, stop:1 @ColorPaletteHover2);
-  border: 1px solid rgba(0,0,0,0.2);
+  background-color: transparent;
+  border: none;
+  color: #ffff69;
   font-weight: bold;
 }
 
@@ -3718,9 +3713,14 @@ QStatusBar Gui--WorkbenchComboBox QAbstractItemView {
   border-radius: 0px;
 }
 
-Gui--WorkbenchComboBox::drop-down {
-  border-top-right-radius: 4px;
-  border-bottom-right-radius: 4px;
+Gui--WorkbenchComboBox::drop-down,
+Gui--WorkbenchComboBox::down-arrow,
+Gui--WorkbenchComboBox::down-arrow:on,
+Gui--WorkbenchComboBox::down-arrow:hover,
+Gui--WorkbenchComboBox::down-arrow:disabled {
+  background-color: transparent;
+  border: none;
+  image: none;
 }
 
 /* QHeaderView ------------------------------------------------------------
