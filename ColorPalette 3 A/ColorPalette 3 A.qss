@@ -1587,6 +1587,14 @@ QPushButton#propertyEditorToggleButton {
 
 QPushButton#propertyEditorToggleButton:hover {
   background-color: @ColorPaletteHover;
+  background-color: qlineargradient(x1:0, y1:0.3, x2:0, y2:1, stop:0 @ColorPaletteHover1, stop:1 @ColorPaletteHover2);
+  border: 1px solid rgba(0,0,0,0.2);
+  color: #ffffff;
+}
+
+QPushButton#propertyEditorToggleButton:pressed {
+  background-color: @ThemeAccentColor1;
+  border: 1px solid @ThemeAccentColor1;
   color: #ffffff;
 }
 
