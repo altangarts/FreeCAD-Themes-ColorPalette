@@ -1,0 +1,497 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="120"
+   height="40"
+   viewBox="0 0 120 40"
+   version="1.1"
+   id="svg64"
+   sodipodi:docname="blueprint.svg"
+   inkscape:version="1.4.4 (dcaf3e7, 2026-05-05)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview64"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="21.419443"
+     inkscape:cx="54.926732"
+     inkscape:cy="18.371159"
+     inkscape:window-width="3840"
+     inkscape:window-height="2036"
+     inkscape:window-x="-12"
+     inkscape:window-y="-12"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg64" />
+  <defs
+     id="defs4">
+    <linearGradient
+       id="paper"
+       x1="0"
+       y1="0"
+       x2="0"
+       y2="1">
+      <stop
+         offset="0%"
+         stop-color="#2f6db9"
+         id="stop1" />
+      <stop
+         offset="100%"
+         stop-color="#17488b"
+         id="stop2" />
+    </linearGradient>
+    <radialGradient
+       id="light"
+       cx="50%"
+       cy="40%"
+       r="70%">
+      <stop
+         offset="0%"
+         stop-color="#5e96df"
+         stop-opacity="0.30"
+         id="stop3" />
+      <stop
+         offset="100%"
+         stop-color="#5e96df"
+         stop-opacity="0"
+         id="stop4" />
+    </radialGradient>
+  </defs>
+  <rect
+     width="120"
+     height="40"
+     rx="6"
+     ry="6"
+     fill="url(#paper)"
+     id="rect4" />
+  <path
+     d="M15 0v40 M30 0v40 M45 0v40 M60 0v40 M75 0v40 M90 0v40 M105 0v40 M0 15h120 M0 30h120"
+     fill="none"
+     stroke="white"
+     stroke-opacity="0.22"
+     stroke-width="0.60"
+     id="path4" />
+  <rect
+     x="1"
+     y="1"
+     width="118"
+     height="38"
+     rx="5"
+     ry="5"
+     fill="none"
+     stroke="white"
+     stroke-opacity="0.80"
+     stroke-width="0.90"
+     id="rect5" />
+  <line
+     x1="13"
+     y1="1"
+     x2="13"
+     y2="39"
+     stroke="white"
+     stroke-width="0.45"
+     stroke-opacity="0.55"
+     id="line5" />
+  <line
+     x1="1"
+     y1="10"
+     x2="13"
+     y2="10"
+     stroke="white"
+     stroke-width="0.40"
+     stroke-opacity="0.45"
+     id="line6" />
+  <line
+     x1="1"
+     y1="29"
+     x2="13"
+     y2="29"
+     stroke="white"
+     stroke-width="0.40"
+     stroke-opacity="0.45"
+     id="line7" />
+  <line
+     x1="1"
+     y1="34"
+     x2="13"
+     y2="34"
+     stroke="white"
+     stroke-width="0.40"
+     stroke-opacity="0.45"
+     id="line8" />
+  <line
+     x1="57"
+     y1="20"
+     x2="76"
+     y2="17"
+     stroke="white"
+     stroke-width="0.45"
+     stroke-opacity="0.55"
+     stroke-dasharray="1.5 1"
+     id="line9" />
+  <line
+     x1="57"
+     y1="20"
+     x2="67"
+     y2="29"
+     stroke="white"
+     stroke-width="0.45"
+     stroke-opacity="0.55"
+     stroke-dasharray="1.5 1"
+     id="line10" />
+  <g
+     opacity="0.90"
+     id="g64">
+    <g
+       transform="translate(57, 20)"
+       id="g23">
+      <circle
+         r="6.8"
+         fill="none"
+         stroke="white"
+         stroke-width="0.90"
+         id="circle10" />
+      <circle
+         r="2.6"
+         fill="none"
+         stroke="white"
+         stroke-width="0.75"
+         id="circle11" />
+      <g
+         stroke="white"
+         stroke-width="0.95"
+         stroke-linecap="round"
+         id="g22">
+        <line
+           y1="-7.2"
+           y2="-9.2"
+           id="line11" />
+        <line
+           y1="-7.2"
+           y2="-9.2"
+           transform="rotate(30)"
+           id="line12" />
+        <line
+           y1="-7.2"
+           y2="-9.2"
+           transform="rotate(60)"
+           id="line13" />
+        <line
+           y1="-7.2"
+           y2="-9.2"
+           transform="rotate(90)"
+           id="line14" />
+        <line
+           y1="-7.2"
+           y2="-9.2"
+           transform="rotate(120)"
+           id="line15" />
+        <line
+           y1="-7.2"
+           y2="-9.2"
+           transform="rotate(150)"
+           id="line16" />
+        <line
+           y1="-7.2"
+           y2="-9.2"
+           transform="rotate(180)"
+           id="line17" />
+        <line
+           y1="-7.2"
+           y2="-9.2"
+           transform="rotate(210)"
+           id="line18" />
+        <line
+           y1="-7.2"
+           y2="-9.2"
+           transform="rotate(240)"
+           id="line19" />
+        <line
+           y1="-7.2"
+           y2="-9.2"
+           transform="rotate(270)"
+           id="line20" />
+        <line
+           y1="-7.2"
+           y2="-9.2"
+           transform="rotate(300)"
+           id="line21" />
+        <line
+           y1="-7.2"
+           y2="-9.2"
+           transform="rotate(330)"
+           id="line22" />
+      </g>
+    </g>
+    <g
+       transform="translate(76, 17) scale(0.95)"
+       id="g36">
+      <circle
+         r="6.8"
+         fill="none"
+         stroke="white"
+         stroke-width="0.90"
+         id="circle23" />
+      <circle
+         r="2.6"
+         fill="none"
+         stroke="white"
+         stroke-width="0.75"
+         id="circle24" />
+      <g
+         stroke="white"
+         stroke-width="0.95"
+         stroke-linecap="round"
+         id="g35">
+        <line
+           y1="-7.2"
+           y2="-9.2"
+           id="line24" />
+        <line
+           y1="-7.2"
+           y2="-9.2"
+           transform="rotate(30)"
+           id="line25" />
+        <line
+           y1="-7.2"
+           y2="-9.2"
+           transform="rotate(60)"
+           id="line26" />
+        <line
+           y1="-7.2"
+           y2="-9.2"
+           transform="rotate(90)"
+           id="line27" />
+        <line
+           y1="-7.2"
+           y2="-9.2"
+           transform="rotate(120)"
+           id="line28" />
+        <line
+           y1="-7.2"
+           y2="-9.2"
+           transform="rotate(150)"
+           id="line29" />
+        <line
+           y1="-7.2"
+           y2="-9.2"
+           transform="rotate(180)"
+           id="line30" />
+        <line
+           y1="-7.2"
+           y2="-9.2"
+           transform="rotate(210)"
+           id="line31" />
+        <line
+           y1="-7.2"
+           y2="-9.2"
+           transform="rotate(240)"
+           id="line32" />
+        <line
+           y1="-7.2"
+           y2="-9.2"
+           transform="rotate(270)"
+           id="line33" />
+        <line
+           y1="-7.2"
+           y2="-9.2"
+           transform="rotate(300)"
+           id="line34" />
+        <line
+           y1="-7.2"
+           y2="-9.2"
+           transform="rotate(330)"
+           id="line35" />
+      </g>
+    </g>
+    <g
+       transform="translate(67, 29)"
+       id="g45">
+      <circle
+         r="4.4"
+         fill="none"
+         stroke="white"
+         stroke-width="0.55"
+         id="circle36" />
+      <circle
+         r="1.5"
+         fill="none"
+         stroke="white"
+         stroke-width="0.45"
+         id="circle37" />
+      <g
+         stroke="white"
+         stroke-width="0.60"
+         stroke-linecap="round"
+         id="g44">
+        <line
+           y1="-4.8"
+           y2="-6.2"
+           id="line37" />
+        <line
+           y1="-4.8"
+           y2="-6.2"
+           transform="rotate(45)"
+           id="line38" />
+        <line
+           y1="-4.8"
+           y2="-6.2"
+           transform="rotate(90)"
+           id="line39" />
+        <line
+           y1="-4.8"
+           y2="-6.2"
+           transform="rotate(135)"
+           id="line40" />
+        <line
+           y1="-4.8"
+           y2="-6.2"
+           transform="rotate(180)"
+           id="line41" />
+        <line
+           y1="-4.8"
+           y2="-6.2"
+           transform="rotate(225)"
+           id="line42" />
+        <line
+           y1="-4.8"
+           y2="-6.2"
+           transform="rotate(270)"
+           id="line43" />
+        <line
+           y1="-4.8"
+           y2="-6.2"
+           transform="rotate(315)"
+           id="line44" />
+      </g>
+    </g>
+    <g
+       transform="translate(46, 13)"
+       id="g54">
+      <circle
+         r="4.4"
+         fill="none"
+         stroke="white"
+         stroke-width="0.55"
+         id="circle45" />
+      <circle
+         r="1.5"
+         fill="none"
+         stroke="white"
+         stroke-width="0.45"
+         id="circle46" />
+      <g
+         stroke="white"
+         stroke-width="0.60"
+         stroke-linecap="round"
+         id="g53">
+        <line
+           y1="-4.8"
+           y2="-6.2"
+           id="line46" />
+        <line
+           y1="-4.8"
+           y2="-6.2"
+           transform="rotate(45)"
+           id="line47" />
+        <line
+           y1="-4.8"
+           y2="-6.2"
+           transform="rotate(90)"
+           id="line48" />
+        <line
+           y1="-4.8"
+           y2="-6.2"
+           transform="rotate(135)"
+           id="line49" />
+        <line
+           y1="-4.8"
+           y2="-6.2"
+           transform="rotate(180)"
+           id="line50" />
+        <line
+           y1="-4.8"
+           y2="-6.2"
+           transform="rotate(225)"
+           id="line51" />
+        <line
+           y1="-4.8"
+           y2="-6.2"
+           transform="rotate(270)"
+           id="line52" />
+        <line
+           y1="-4.8"
+           y2="-6.2"
+           transform="rotate(315)"
+           id="line53" />
+      </g>
+    </g>
+    <g
+       transform="translate(86, 26) scale(1.05)"
+       id="g63">
+      <circle
+         r="4.4"
+         fill="none"
+         stroke="white"
+         stroke-width="0.55"
+         id="circle54" />
+      <circle
+         r="1.5"
+         fill="none"
+         stroke="white"
+         stroke-width="0.45"
+         id="circle55" />
+      <g
+         stroke="white"
+         stroke-width="0.60"
+         stroke-linecap="round"
+         id="g62">
+        <line
+           y1="-4.8"
+           y2="-6.2"
+           id="line55" />
+        <line
+           y1="-4.8"
+           y2="-6.2"
+           transform="rotate(45)"
+           id="line56" />
+        <line
+           y1="-4.8"
+           y2="-6.2"
+           transform="rotate(90)"
+           id="line57" />
+        <line
+           y1="-4.8"
+           y2="-6.2"
+           transform="rotate(135)"
+           id="line58" />
+        <line
+           y1="-4.8"
+           y2="-6.2"
+           transform="rotate(180)"
+           id="line59" />
+        <line
+           y1="-4.8"
+           y2="-6.2"
+           transform="rotate(225)"
+           id="line60" />
+        <line
+           y1="-4.8"
+           y2="-6.2"
+           transform="rotate(270)"
+           id="line61" />
+        <line
+           y1="-4.8"
+           y2="-6.2"
+           transform="rotate(315)"
+           id="line62" />
+      </g>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,497 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Gui::Dialog::DlgSettingsColorPaletteGrid</class>
+ <widget class="QWidget" name="Gui::Dialog::DlgSettingsColorPaletteGrid">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>420</width>
+    <height>420</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Grid</string>
+  </property>
+  <layout class="QVBoxLayout">
+   <item>
+    <widget class="QGroupBox" name="groupBox_general">
+     <property name="title">
+      <string>ColorPalette Grid</string>
+     </property>
+     <layout class="QGridLayout" name="gridLayout_general">
+      <item row="0" column="0">
+       <widget class="QLabel" name="label_color">
+        <property name="text">
+         <string>Grid color</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="Gui::PrefColorButton" name="colorButton_gridColor">
+        <property name="toolTip">
+         <string>The color used for the adaptive 3D view grid</string>
+        </property>
+        <property name="color" stdset="0">
+         <color>
+          <red>204</red>
+          <green>204</green>
+          <blue>204</blue>
+         </color>
+        </property>
+        <property name="prefEntry" stdset="0">
+         <cstring>Color</cstring>
+        </property>
+        <property name="prefPath" stdset="0">
+         <cstring>Mod/ColorPaletteGrid</cstring>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="2">
+       <spacer name="horizontalSpacer_1">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+       </spacer>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="label_lineWidth">
+        <property name="text">
+         <string>Grid line width</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="Gui::PrefDoubleSpinBox" name="doubleSpinBox_lineWidth">
+        <property name="minimumSize">
+         <size>
+          <width>90</width>
+          <height>0</height>
+         </size>
+        </property>
+        <property name="toolTip">
+         <string>Line width (in pixels) used to draw the Grid (the grid cell lines)</string>
+        </property>
+        <property name="decimals">
+         <number>1</number>
+        </property>
+        <property name="minimum">
+         <double>0.100000000000000</double>
+        </property>
+        <property name="maximum">
+         <double>10.000000000000000</double>
+        </property>
+        <property name="singleStep">
+         <double>0.100000000000000</double>
+        </property>
+        <property name="value">
+         <double>1.000000000000000</double>
+        </property>
+        <property name="prefEntry" stdset="0">
+         <cstring>LineWidth</cstring>
+        </property>
+        <property name="prefPath" stdset="0">
+         <cstring>Mod/ColorPaletteGrid</cstring>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="0">
+       <widget class="QLabel" name="label_axisLineWidth">
+        <property name="text">
+         <string>XYZ Grid line width</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="1">
+       <widget class="Gui::PrefDoubleSpinBox" name="doubleSpinBox_axisLineWidth">
+        <property name="minimumSize">
+         <size>
+          <width>90</width>
+          <height>0</height>
+         </size>
+        </property>
+        <property name="toolTip">
+         <string>Line width (in pixels) used to draw the XYZ Grid (the X, Y and Z axis lines),
+independent of the Grid line width above.</string>
+        </property>
+        <property name="decimals">
+         <number>1</number>
+        </property>
+        <property name="minimum">
+         <double>0.100000000000000</double>
+        </property>
+        <property name="maximum">
+         <double>10.000000000000000</double>
+        </property>
+        <property name="singleStep">
+         <double>0.100000000000000</double>
+        </property>
+        <property name="value">
+         <double>1.500000000000000</double>
+        </property>
+        <property name="prefEntry" stdset="0">
+         <cstring>AxisLineWidth</cstring>
+        </property>
+        <property name="prefPath" stdset="0">
+         <cstring>Mod/ColorPaletteGrid</cstring>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="0">
+       <widget class="QLabel" name="label_divisions">
+        <property name="text">
+         <string>Grid spacing (divisions)</string>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="1">
+       <widget class="Gui::PrefSpinBox" name="spinBox_divisions">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>90</width>
+          <height>0</height>
+         </size>
+        </property>
+        <property name="toolTip">
+         <string>How many cells the grid is divided into across its radius.
+Higher values give a finer (more closely spaced) grid; lower values give a coarser grid.</string>
+        </property>
+        <property name="minimum">
+         <number>4</number>
+        </property>
+        <property name="maximum">
+         <number>100</number>
+        </property>
+        <property name="value">
+         <number>30</number>
+        </property>
+        <property name="prefEntry" stdset="0">
+         <cstring>Divisions</cstring>
+        </property>
+        <property name="prefPath" stdset="0">
+         <cstring>Mod/ColorPaletteGrid</cstring>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="0">
+       <widget class="QLabel" name="label_sizeMultiplier">
+        <property name="text">
+         <string>Overall grid size multiplier</string>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="1">
+       <widget class="Gui::PrefDoubleSpinBox" name="doubleSpinBox_sizeMultiplier">
+        <property name="minimumSize">
+         <size>
+          <width>90</width>
+          <height>0</height>
+         </size>
+        </property>
+        <property name="toolTip">
+         <string>Multiplier applied to the bounding box of all visible objects to determine
+the overall grid radius. Higher values draw a larger (wider) grid.</string>
+        </property>
+        <property name="decimals">
+         <number>1</number>
+        </property>
+        <property name="minimum">
+         <double>1.000000000000000</double>
+        </property>
+        <property name="maximum">
+         <double>1000.000000000000000</double>
+        </property>
+        <property name="singleStep">
+         <double>0.100000000000000</double>
+        </property>
+        <property name="value">
+         <double>20.000000000000000</double>
+        </property>
+        <property name="prefEntry" stdset="0">
+         <cstring>SizeMultiplier</cstring>
+        </property>
+        <property name="prefPath" stdset="0">
+         <cstring>Mod/ColorPaletteGrid</cstring>
+        </property>
+       </widget>
+      </item>
+      <item row="5" column="0">
+       <widget class="QLabel" name="label_useFixedSpacingMm">
+        <property name="text">
+         <string>Fixed grid spacing (mm)</string>
+        </property>
+       </widget>
+      </item>
+      <item row="5" column="1">
+       <widget class="Gui::PrefCheckBox" name="checkBox_useFixedSpacingMm">
+        <property name="toolTip">
+         <string>When enabled, the grid cell size is set directly in millimeters below,
+instead of being derived automatically from the "Grid spacing (divisions)" value.</string>
+        </property>
+        <property name="text">
+         <string>Use fixed spacing instead of divisions</string>
+        </property>
+        <property name="checked">
+         <bool>true</bool>
+        </property>
+        <property name="prefEntry" stdset="0">
+         <cstring>UseFixedSpacingMm</cstring>
+        </property>
+        <property name="prefPath" stdset="0">
+         <cstring>Mod/ColorPaletteGrid</cstring>
+        </property>
+       </widget>
+      </item>
+      <item row="6" column="0">
+       <widget class="QLabel" name="label_spacingMm">
+        <property name="text">
+         <string>Grid spacing value (mm)</string>
+        </property>
+       </widget>
+      </item>
+      <item row="6" column="1">
+       <widget class="Gui::PrefDoubleSpinBox" name="doubleSpinBox_spacingMm">
+        <property name="enabled">
+         <bool>true</bool>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>90</width>
+          <height>0</height>
+         </size>
+        </property>
+        <property name="toolTip">
+         <string>Exact distance (in millimeters) between grid lines. Only used when
+"Use fixed spacing instead of divisions" above is checked.</string>
+        </property>
+        <property name="decimals">
+         <number>2</number>
+        </property>
+        <property name="minimum">
+         <double>0.010000000000000</double>
+        </property>
+        <property name="maximum">
+         <double>100000.000000000000000</double>
+        </property>
+        <property name="singleStep">
+         <double>1.000000000000000</double>
+        </property>
+        <property name="value">
+         <double>50.000000000000000</double>
+        </property>
+        <property name="prefEntry" stdset="0">
+         <cstring>SpacingMm</cstring>
+        </property>
+        <property name="prefPath" stdset="0">
+         <cstring>Mod/ColorPaletteGrid</cstring>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <widget class="QGroupBox" name="groupBox_axes">
+     <property name="title">
+      <string>Axis Colors</string>
+     </property>
+     <layout class="QGridLayout" name="gridLayout_axes">
+      <item row="0" column="0">
+       <widget class="QLabel" name="label_axisXColor">
+        <property name="text">
+         <string>X axis color</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="Gui::PrefColorButton" name="colorButton_axisXColor">
+        <property name="toolTip">
+         <string>The color used for the X axis line</string>
+        </property>
+        <property name="color" stdset="0">
+         <color>
+          <red>204</red>
+          <green>51</green>
+          <blue>51</blue>
+         </color>
+        </property>
+        <property name="prefEntry" stdset="0">
+         <cstring>AxisXColor</cstring>
+        </property>
+        <property name="prefPath" stdset="0">
+         <cstring>Mod/ColorPaletteGrid</cstring>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="2">
+       <widget class="Gui::PrefCheckBox" name="checkBox_showAxisX">
+        <property name="toolTip">
+         <string>Show or hide the X axis line in the 3D view grid</string>
+        </property>
+        <property name="text">
+         <string>Show</string>
+        </property>
+        <property name="checked">
+         <bool>true</bool>
+        </property>
+        <property name="prefEntry" stdset="0">
+         <cstring>ShowAxisX</cstring>
+        </property>
+        <property name="prefPath" stdset="0">
+         <cstring>Mod/ColorPaletteGrid</cstring>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="3">
+       <spacer name="horizontalSpacer_2">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+       </spacer>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="label_axisYColor">
+        <property name="text">
+         <string>Y axis color</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="Gui::PrefColorButton" name="colorButton_axisYColor">
+        <property name="toolTip">
+         <string>The color used for the Y axis line</string>
+        </property>
+        <property name="color" stdset="0">
+         <color>
+          <red>102</red>
+          <green>179</green>
+          <blue>51</blue>
+         </color>
+        </property>
+        <property name="prefEntry" stdset="0">
+         <cstring>AxisYColor</cstring>
+        </property>
+        <property name="prefPath" stdset="0">
+         <cstring>Mod/ColorPaletteGrid</cstring>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="2">
+       <widget class="Gui::PrefCheckBox" name="checkBox_showAxisY">
+        <property name="toolTip">
+         <string>Show or hide the Y axis line in the 3D view grid</string>
+        </property>
+        <property name="text">
+         <string>Show</string>
+        </property>
+        <property name="checked">
+         <bool>true</bool>
+        </property>
+        <property name="prefEntry" stdset="0">
+         <cstring>ShowAxisY</cstring>
+        </property>
+        <property name="prefPath" stdset="0">
+         <cstring>Mod/ColorPaletteGrid</cstring>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="0">
+       <widget class="QLabel" name="label_axisZColor">
+        <property name="text">
+         <string>Z axis color</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="1">
+       <widget class="Gui::PrefColorButton" name="colorButton_axisZColor">
+        <property name="toolTip">
+         <string>The color used for the Z axis line</string>
+        </property>
+        <property name="color" stdset="0">
+         <color>
+          <red>51</red>
+          <green>102</green>
+          <blue>204</blue>
+         </color>
+        </property>
+        <property name="prefEntry" stdset="0">
+         <cstring>AxisZColor</cstring>
+        </property>
+        <property name="prefPath" stdset="0">
+         <cstring>Mod/ColorPaletteGrid</cstring>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="2">
+       <widget class="Gui::PrefCheckBox" name="checkBox_showAxisZ">
+        <property name="toolTip">
+         <string>Show or hide the Z axis line in the 3D view grid</string>
+        </property>
+        <property name="text">
+         <string>Show</string>
+        </property>
+        <property name="checked">
+         <bool>true</bool>
+        </property>
+        <property name="prefEntry" stdset="0">
+         <cstring>ShowAxisZ</cstring>
+        </property>
+        <property name="prefPath" stdset="0">
+         <cstring>Mod/ColorPaletteGrid</cstring>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <spacer name="verticalSpacer_1">
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+    </spacer>
+   </item>
+  </layout>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <customwidgets>
+  <customwidget>
+   <class>Gui::ColorButton</class>
+   <extends>QPushButton</extends>
+   <header>Gui/Widgets.h</header>
+  </customwidget>
+  <customwidget>
+   <class>Gui::PrefColorButton</class>
+   <extends>Gui::ColorButton</extends>
+   <header>Gui/PrefWidgets.h</header>
+  </customwidget>
+  <customwidget>
+   <class>Gui::PrefSpinBox</class>
+   <extends>QSpinBox</extends>
+   <header>Gui/PrefWidgets.h</header>
+  </customwidget>
+  <customwidget>
+   <class>Gui::PrefDoubleSpinBox</class>
+   <extends>QDoubleSpinBox</extends>
+   <header>Gui/PrefWidgets.h</header>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>checkBox_useFixedSpacingMm</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>spinBox_divisions</receiver>
+   <slot>setDisabled(bool)</slot>
+  </connection>
+  <connection>
+   <sender>checkBox_useFixedSpacingMm</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>doubleSpinBox_spacingMm</receiver>
+   <slot>setEnabled(bool)</slot>
+  </connection>
+ </connections>
+</ui>
