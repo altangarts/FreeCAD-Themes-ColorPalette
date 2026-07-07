@@ -21,6 +21,11 @@ def _bootstrap_global_fixer():
                     return 0
                 return super().styleHint(hint, option, widget, returnData)
 
+            def drawPrimitive(self, element, option, painter, widget=None):
+                if element == QtWidgets.QStyle.PE_FrameStatusBarItem:
+                    return
+                super().drawPrimitive(element, option, painter, widget)
+
         current_style = app.style()
         if not isinstance(current_style, NoUnderlineStyle):
             proxy_style = NoUnderlineStyle(current_style)
