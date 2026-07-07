@@ -2589,6 +2589,11 @@ QTabBar::tab {
   border-radius: 4px;
 }
 
+QTabBar::tab:bottom {
+  color: #eeeeee;
+  color: @ColorPaletteTextGeneralBottom;
+}
+
 QToolBar QTabBar::tab:top {
   color: #eeeeee;
   color: @ColorPaletteTextGeneralTop;
@@ -4240,7 +4245,9 @@ QTreeView::item#groupsTreeView:closed:has-children:has-siblings:hover,
 QTreeView::branch#groupsTreeView:closed:has-children:!has-siblings:hover,
 QTreeView::item#groupsTreeView:closed:has-children:!has-siblings:hover,
 QTreeView::branch#groupsTreeView:open:has-children:has-siblings:hover,
-QTreeView::item#groupsTreeView:open:has-children:has-siblings:hover {
+QTreeView::item#groupsTreeView:open:has-children:has-siblings:hover,
+QTreeView::branch#groupsTreeView:open:has-children:!has-siblings:hover,
+QTreeView::item#groupsTreeView:open:has-children:!has-siblings:hover {
   background-color: @ThemeAccentColor1;
   background-color: @ColorPaletteHover;
   color: #ffffff;

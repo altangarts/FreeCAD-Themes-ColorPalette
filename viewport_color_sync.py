@@ -81,15 +81,21 @@ def apply3DViewportColor():
             return
 
         active_sub = mdi.activeSubWindow()
-        if active_sub and active_sub.widget():
+        has_active_doc = FreeCADGui.ActiveDocument is not None
+
+        if active_sub and active_sub.widget() and not (
+            has_active_doc and active_sub.widget().objectName() == "StartView"
+        ):
             vp = active_sub.widget()
             top_y = mdi.mapTo(mw, QtCore.QPoint(0, 0)).y() + vp.y()
             vp_h = vp.height()
         else:
             sv = mw.findChild(QtWidgets.QWidget, "StartView")
-            if sv and sv.isVisible():
+            if sv and sv.isVisible() and not has_active_doc:
                 top_y = sv.mapTo(mw, QtCore.QPoint(0, 0)).y()
                 vp_h = sv.height()
+            elif has_active_doc:
+                return
             else:
                 top_y = mdi.mapTo(mw, QtCore.QPoint(0, 0)).y()
                 vp_h = mdi.height()
@@ -99,8 +105,11 @@ def apply3DViewportColor():
             return
 
         current_dims = (h, top_y, vp_h)
-        if current_dims == mw.__dict__.get("_last_dims_track"):
-            return
+        last_dims = mw.__dict__.get("_last_dims_track")
+        if last_dims:
+            lh, lty, lvh = last_dims
+            if abs(h - lh) < 2 and abs(top_y - lty) < 2 and abs(vp_h - lvh) < 2:
+                return
 
         base_stops = parseMainWindowStops()
         if not base_stops or len(base_stops) < 2:
@@ -129,16 +138,25 @@ def apply3DViewportColor():
 
     mw.__dict__["_sync_viewport_color_fn"] = syncViewportColor
 
+    def scheduleSyncViewportColor():
+        t = mw.__dict__.get("_viewport_color_debounce")
+        if t is None:
+            t = QtCore.QTimer(mw)
+            t.setSingleShot(True)
+            t.timeout.connect(syncViewportColor)
+            mw.__dict__["_viewport_color_debounce"] = t
+        t.start(16)
+
     class ViewportResizeFilter(QtCore.QObject):
         def eventFilter(self, obj, event):
             if event.type() == QtCore.QEvent.Resize:
-                syncViewportColor()
+                scheduleSyncViewportColor()
             return False
 
-    for k in ("_viewport_color_timer", "_viewport_color_filter"):
+    for k in ("_viewport_color_filter", "_viewport_color_debounce"):
         if old := mw.__dict__.get(k):
             try:
-                if k == "_viewport_color_timer": old.stop()
+                if k == "_viewport_color_debounce": old.stop()
                 else:
                     mw.removeEventFilter(old)
                     mdi.removeEventFilter(old)
@@ -148,8 +166,25 @@ def apply3DViewportColor():
     ef = ViewportResizeFilter(mw)
     mw.installEventFilter(ef)
     mdi.installEventFilter(ef)
-    mdi.subWindowActivated.connect(lambda _: syncViewportColor())
-    
+
+    # apply3DViewportColor() birden fazla kez cagrilirsa (ornegin tema
+    # yeniden yuklenirse) subWindowActivated'a her seferinde yeni bir lambda
+    # baglanip eskisi hic kopmuyordu; bu da her sekme degisiminde
+    # syncViewportColor()'un katlanarak (N kere) calismasina yol acabilirdi.
+    # Onceki baglantiyi soker, sadece bir tane aktif tutariz.
+    old_conn = mw.__dict__.get("_viewport_subwindow_conn")
+    if old_conn:
+        try:
+            mdi.subWindowActivated.disconnect(old_conn)
+        except Exception:
+            pass
+
+    def _on_subwindow_activated(_):
+        syncViewportColor()
+
+    mdi.subWindowActivated.connect(_on_subwindow_activated)
+    mw.__dict__["_viewport_subwindow_conn"] = _on_subwindow_activated
+
     sv = mw.findChild(QtWidgets.QWidget, "StartView")
     if sv:
         sv.installEventFilter(ef)

@@ -117,7 +117,14 @@ def _create_color_palette_grid(view, coin, doc_name=None):
     grid_sep.addChild(draw_style)
 
     NUM_BANDS = 10
-    SEGS_PER_LINE = 24
+    MAX_SEGS_PER_LINE = 24
+    MIN_SEGS_PER_LINE = 4
+    # Toplam uretilen cizgi parcasi sayisini sabit bir butce icinde tutmak
+    # icin, cell_count buyudukce cizgi basina segment sayisini dusuruyoruz.
+    # Aksi halde spacing kucultuldugunde (cell_count -> 700 tavanina
+    # carptiginda) rebuild() saf Python dongusunde onbinlerce nokta
+    # hesaplayip gozle gorulur bir donme/takilma yaratabiliyordu.
+    LINE_SEGMENT_BUDGET = 16000
 
     band_mats, band_coords, band_lines = [], [], []
     for _ in range(NUM_BANDS):
@@ -179,10 +186,6 @@ def _create_color_palette_grid(view, coin, doc_name=None):
     fade_start_ratio = 0.55
     fade_end_ratio = 1.0
 
-    _SEG_FRACTIONS = tuple(
-        (s / SEGS_PER_LINE, (s + 1) / SEGS_PER_LINE) for s in range(SEGS_PER_LINE)
-    )
-
     state = {
         "half_size": None, "step": None, "color": None, "line_width": None,
         "axis_x_color": None, "axis_y_color": None, "axis_z_color": None,
@@ -226,6 +229,13 @@ def _create_color_palette_grid(view, coin, doc_name=None):
             step = half_size / cell_count
         half_size = cell_count * step
 
+        approx_line_count = max(2 * cell_count + 1, 1)
+        segs_per_line = max(MIN_SEGS_PER_LINE,
+                             min(MAX_SEGS_PER_LINE, LINE_SEGMENT_BUDGET // approx_line_count))
+        _seg_fractions = tuple(
+            (s / segs_per_line, (s + 1) / segs_per_line) for s in range(segs_per_line)
+        )
+
         if (state["half_size"] == half_size and state["step"] == step
                 and state["color"] == base_color and state["line_width"] == line_width
                 and state["axis_x_color"] == axis_x_color
@@ -263,7 +273,7 @@ def _create_color_palette_grid(view, coin, doc_name=None):
         def _add_faded_line(x0, y0, x1, y1, band_points):
             dx = x1 - x0
             dy = y1 - y0
-            for t0, t1 in _SEG_FRACTIONS:
+            for t0, t1 in _seg_fractions:
                 xa = x0 + dx * t0
                 ya = y0 + dy * t0
                 xb = x0 + dx * t1
@@ -438,6 +448,23 @@ class _GridDocumentObserver:
     def slotChangedObject(self, obj, prop):
         pass
 
+    def slotDeletedDocument(self, doc):
+        # Bellek sizintisini onlemek icin: dokuman kapatildiginda ona ait
+        # rebuild closure'unu (ve dolayisiyla tum Coin node referanslarini)
+        # kayit defterinden siliyoruz. Aksi halde bu dict, kapatilan her
+        # dokuman icin sahne grafigini sonsuza dek bellekte tutardi.
+        try:
+            doc_name = doc.Name
+        except Exception:
+            doc_name = None
+
+        if doc_name and doc_name in _grid_rebuild_registry:
+            _grid_rebuild_registry.pop(doc_name, None)
+            _dbg("observer: doc=%s kapandi, rebuild kaydi temizlendi (kalan keys=%s)" % (
+                doc_name, list(_grid_rebuild_registry.keys())))
+
+        _view_switch_node_cache.clear()
+
 
 def _ensure_grid_document_observer():
     global _grid_doc_observer
@@ -485,16 +512,11 @@ def _refresh_active_grid():
         _dbg("refresh: ActiveView has no getSceneGraph -> abort")
         return
 
-    sg = Gui.ActiveDocument.ActiveView.getSceneGraph()
-    search = coin.SoSearchAction()
-    search.setName("ColorPaletteGridSwitch")
-    search.apply(sg)
-    path = search.getPath()
-    if not path:
+    switch_node = _find_grid_switch_node(Gui, coin)
+    if not switch_node:
         _dbg("refresh: no ColorPaletteGridSwitch node found in this view's scenegraph -> abort")
         return
 
-    switch_node = path.getTail()
     _dbg("refresh: found switch_node, whichChild=%s" % switch_node.whichChild.getValue())
 
     if switch_node.whichChild.getValue() == coin.SO_SWITCH_NONE:
@@ -541,19 +563,37 @@ def _is_sketch_object(obj):
     return type_id.startswith("Sketcher::")
 
 
-def _find_grid_switch_node(Gui, coin):
+_view_switch_node_cache = {}
+
+
+def _find_grid_switch_node(Gui, coin, use_cache=True):
     if not Gui.ActiveDocument or not Gui.ActiveDocument.ActiveView:
         return None
-        
+
     if not hasattr(Gui.ActiveDocument.ActiveView, "getSceneGraph"):
         return None
-        
-    sg = Gui.ActiveDocument.ActiveView.getSceneGraph()
+
+    view = Gui.ActiveDocument.ActiveView
+    view_key = id(view)
+
+    # Her tick'te tum sahne grafigini SoSearchAction ile taramak yerine,
+    # bulunan node'u view basina cache'liyoruz. View degistiginde/dokuman
+    # kapandiginda cache disaridan temizleniyor (bkz. _grid_view_state ve
+    # _GridDocumentObserver.slotDeletedDocument).
+    if use_cache and view_key in _view_switch_node_cache:
+        return _view_switch_node_cache[view_key]
+
+    sg = view.getSceneGraph()
     search = coin.SoSearchAction()
     search.setName("ColorPaletteGridSwitch")
     search.apply(sg)
     path = search.getPath()
-    return path.getTail() if path else None
+    node = path.getTail() if path else None
+
+    if node is not None:
+        _view_switch_node_cache[view_key] = node
+
+    return node
 
 
 def _check_sketch_edit_state():
@@ -574,9 +614,19 @@ def _check_sketch_edit_state():
     edited_obj = edit_info[0] if edit_info else None
     is_editing_sketch = _is_sketch_object(edited_obj)
 
+    entering_edit = is_editing_sketch and not _grid_sketch_edit_state["hidden_for_edit"]
+    exiting_edit = not is_editing_sketch and _grid_sketch_edit_state["hidden_for_edit"]
+
+    if not entering_edit and not exiting_edit:
+        # Durum degismedi: pahali SoSearchAction taramasini atla. Bu fonksiyon
+        # 250ms'lik bir zamanlayicidan surekli cagrildigi icin, sadece gercek
+        # bir gecis (sketch duzenlemeye girme/cikma) oldugunda arama yapmak
+        # gereksiz sahne grafigi taramalarini buyuk olcude azaltir.
+        return
+
     switch_node = _find_grid_switch_node(Gui, coin)
 
-    if is_editing_sketch and not _grid_sketch_edit_state["hidden_for_edit"]:
+    if entering_edit:
         was_visible = bool(
             switch_node is not None
             and switch_node.whichChild.getValue() != coin.SO_SWITCH_NONE
@@ -755,13 +805,8 @@ def toggle_3d_grid(checked=None):
     doc_name_now = _active_doc_name(Gui)
     _dbg("toggle: called for doc=%s, is_grid_closed=%s" % (doc_name_now, is_grid_closed))
 
-    sg = Gui.ActiveDocument.ActiveView.getSceneGraph()
-    search = coin.SoSearchAction()
-    search.setName("ColorPaletteGridSwitch")
-    search.apply(sg)
-    path = search.getPath()
-
-    switch_node = path.getTail() if path else None
+    view = Gui.ActiveDocument.ActiveView
+    switch_node = _find_grid_switch_node(Gui, coin)
     _dbg("toggle: existing switch_node found in this view's scenegraph? %s" % (switch_node is not None))
 
     if is_grid_closed:
@@ -772,10 +817,10 @@ def toggle_3d_grid(checked=None):
     if not switch_node:
         try:
             _dbg("toggle: creating NEW grid switch node for doc=%s" % doc_name_now)
-            switch_node = _create_color_palette_grid(
-                Gui.ActiveDocument.ActiveView, coin, doc_name_now
-            )
+            sg = view.getSceneGraph()
+            switch_node = _create_color_palette_grid(view, coin, doc_name_now)
             sg.insertChild(switch_node, 0)
+            _view_switch_node_cache[id(view)] = switch_node
         except Exception as e:
             _dbg("toggle: EXCEPTION during grid creation: %r" % e)
             return

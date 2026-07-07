@@ -31,6 +31,7 @@ def _bootstrap_global_fixer():
 
                 self._toolbar_pixmap_cache = {}   # id(obj) -> ((W,H), QPixmap)
                 self._toolbar_combo_cache = {}    # id(obj) -> combo | False
+                self._toolbar_combo_miss_count = {}  # id(obj) -> denenme sayaci
                 self._view_pixmap_cache = {}      # id(obj) -> ((W,H), QPixmap)
 
             def _forget_on_destroy(self, obj, *caches):
@@ -44,6 +45,18 @@ def _bootstrap_global_fixer():
                     obj.destroyed.connect(_cleanup)
                 except Exception:
                     pass
+
+            # Combo bulunamadiginda sonsuza dek "False" olarak cache'lememek
+            # icin: her basarisiz denemede sayaci artiriyoruz ve belirli
+            # araliklarla tekrar denemeye izin veriyoruz. Boylece combo
+            # toolbar'a sonradan eklenirse yakalanabilir, ama yine de her
+            # paint cagrisinda pahali bir findChild taramasi yapilmaz.
+            _COMBO_RETRY_EVERY = 30
+
+            def _should_retry_combo(self, key):
+                n = self._toolbar_combo_miss_count.get(key, 0) + 1
+                self._toolbar_combo_miss_count[key] = n
+                return (n % self._COMBO_RETRY_EVERY) == 1
 
             def eventFilter(self, obj, event):
                 etype = event.type()
@@ -99,14 +112,16 @@ def _bootstrap_global_fixer():
                 key = id(obj)
 
                 combo = self._toolbar_combo_cache.get(key)
-                if combo is None:
+                need_lookup = combo is None or (combo is False and self._should_retry_combo(key))
+                if need_lookup:
                     combo = obj.findChild(QtWidgets.QWidget, "Gui--WorkbenchComboBox")
                     if not combo:
                         combos = obj.findChildren(QtWidgets.QComboBox)
                         combo = combos[0] if combos else False
                     self._toolbar_combo_cache[key] = combo
                     self._forget_on_destroy(obj, self._toolbar_combo_cache,
-                                             self._toolbar_pixmap_cache)
+                                             self._toolbar_pixmap_cache,
+                                             self._toolbar_combo_miss_count)
 
                     if combo:
                         combo.setIconSize(QtCore.QSize(21, 21))
