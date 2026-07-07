@@ -15,6 +15,17 @@ def _bootstrap_global_fixer():
             QtCore.QTimer.singleShot(200, _setup)
             return
 
+        class NoUnderlineStyle(QtWidgets.QProxyStyle):
+            def styleHint(self, hint, option=None, widget=None, returnData=None):
+                if hint == QtWidgets.QStyle.SH_UnderlineShortcut:
+                    return 0
+                return super().styleHint(hint, option, widget, returnData)
+
+        current_style = app.style()
+        if not isinstance(current_style, NoUnderlineStyle):
+            proxy_style = NoUnderlineStyle(current_style)
+            app.setStyle(proxy_style)
+
         if hasattr(app, "_globalFreeCADFixer"):
             try:
                 app.removeEventFilter(app._globalFreeCADFixer)
@@ -46,11 +57,6 @@ def _bootstrap_global_fixer():
                 except Exception:
                     pass
 
-            # Combo bulunamadiginda sonsuza dek "False" olarak cache'lememek
-            # icin: her basarisiz denemede sayaci artiriyoruz ve belirli
-            # araliklarla tekrar denemeye izin veriyoruz. Boylece combo
-            # toolbar'a sonradan eklenirse yakalanabilir, ama yine de her
-            # paint cagrisinda pahali bir findChild taramasi yapilmaz.
             _COMBO_RETRY_EVERY = 30
 
             def _should_retry_combo(self, key):
@@ -77,7 +83,6 @@ def _bootstrap_global_fixer():
 
                 return False
 
-            # ---------------- Workbench açılır menü (dropdown) arka planı ----------------
 
             def draw_blueprint_view(self, obj):
                 W, H = obj.width(), obj.height()
@@ -106,7 +111,6 @@ def _bootstrap_global_fixer():
                 painter.drawPixmap(0, 0, pix)
                 painter.end()
 
-            # ---------------- Araç çubuğu (workbench dişlili) arka planı ----------------
 
             def paint_toolbar_blueprint(self, obj):
                 key = id(obj)
@@ -180,7 +184,6 @@ def _bootstrap_global_fixer():
                 painter.end()
                 return True
 
-            # ---------------- Paylaşılan (ortak) çizim mantığı ----------------
 
             def _render_blueprint(self, painter, W, H, offset_x, offset_y, draw_gears, rounded,
                                    left_offset=0):
@@ -253,7 +256,6 @@ def _bootstrap_global_fixer():
                     p.restore()
                 p.restore()
 
-            # ---------------- Görev paneli isimlendirmesi ----------------
 
             def refresh_task_panels(self):
                 import FreeCADGui
