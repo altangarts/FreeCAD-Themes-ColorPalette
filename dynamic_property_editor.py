@@ -27,6 +27,13 @@ def _bootstrap_property_editor_anchoring():
         trees = [t for t in [mw.findChild(QtWidgets.QTreeView, "propertyEditorView"),
                              mw.findChild(QtWidgets.QTreeView, "propertyEditorData")] if t]
         original_layout = container.layout()
+
+        original_vscroll_policies = {t: t.verticalScrollBarPolicy() for t in trees}
+
+        proxy_scrollbar = QtWidgets.QScrollBar(QtCore.Qt.Vertical, container)
+        proxy_scrollbar.setObjectName("propertyEditorProxyScrollBar")
+        proxy_scrollbar.hide()
+        container._proxyScrollBar = proxy_scrollbar
         
         def _find_dock_widget(widget):
             p = widget.parent()
@@ -94,11 +101,66 @@ def _bootstrap_property_editor_anchoring():
             return row_h * min_rows + extra
 
         dock_widget = _find_dock_widget(container)
-        state = {"anchoring": False, "in_active_mode": False, "collapsed": False, "layout_scheduled": False}
+        state = {"anchoring": False, "in_active_mode": False, "collapsed": False, "layout_scheduled": False,
+                 "proxy_bound_tree": None, "proxy_bound_conn": None, "proxy_sync_lock": False,
+                 "needs_proxy_scroll": False, "proxy_w": 0}
         splitter = container.parent() if isinstance(container.parent(), QtWidgets.QSplitter) else None
         splitter_idx = splitter.indexOf(container) if splitter else -1
         above_idx = splitter_idx - 1 if (splitter and splitter_idx > 0) else None
         original_handle_width = splitter.handleWidth() if splitter else None
+
+        def _bind_proxy_scrollbar(tree):
+            if state.get("proxy_bound_tree") is tree:
+                return
+
+            prev = state.get("proxy_bound_conn")
+            if prev:
+                prev_vbar, sync_from_real, sync_to_real = prev
+                try:
+                    prev_vbar.rangeChanged.disconnect(sync_from_real)
+                    prev_vbar.valueChanged.disconnect(sync_from_real)
+                except Exception:
+                    pass
+                try:
+                    proxy_scrollbar.valueChanged.disconnect(sync_to_real)
+                except Exception:
+                    pass
+            state["proxy_bound_tree"] = None
+            state["proxy_bound_conn"] = None
+
+            if not tree:
+                return
+            vbar = tree.verticalScrollBar()
+            if not vbar:
+                return
+
+            def _sync_from_real(_=None):
+                if state.get("proxy_sync_lock"):
+                    return
+                state["proxy_sync_lock"] = True
+                try:
+                    proxy_scrollbar.setRange(vbar.minimum(), vbar.maximum())
+                    proxy_scrollbar.setPageStep(vbar.pageStep())
+                    proxy_scrollbar.setSingleStep(vbar.singleStep())
+                    proxy_scrollbar.setValue(vbar.value())
+                finally:
+                    state["proxy_sync_lock"] = False
+
+            def _sync_to_real(v):
+                if state.get("proxy_sync_lock"):
+                    return
+                state["proxy_sync_lock"] = True
+                try:
+                    vbar.setValue(v)
+                finally:
+                    state["proxy_sync_lock"] = False
+
+            vbar.rangeChanged.connect(_sync_from_real)
+            vbar.valueChanged.connect(_sync_from_real)
+            proxy_scrollbar.valueChanged.connect(_sync_to_real)
+            state["proxy_bound_tree"] = tree
+            state["proxy_bound_conn"] = (vbar, _sync_from_real, _sync_to_real)
+            _sync_from_real()
 
         def update_button_text(target_button):
             source_text = "Property View"
@@ -223,6 +285,24 @@ def _bootstrap_property_editor_anchoring():
                     if original_handle_width is not None:
                         splitter.setHandleWidth(original_handle_width)
 
+            proxy_w = (proxy_scrollbar.sizeHint().width()
+                       or QtWidgets.QApplication.style().pixelMetric(QtWidgets.QStyle.PM_ScrollBarExtent)
+                       or 16)
+            active_tree = next((t for t in trees if t and t.isVisible()), None)
+
+            if panel_state == "overlay":
+                for t in trees:
+                    if t:
+                        t.setVerticalScrollBarPolicy(QtCore.Qt.ScrollBarAlwaysOff)
+            else:
+                for t in trees:
+                    if t and t in original_vscroll_policies:
+                        t.setVerticalScrollBarPolicy(original_vscroll_policies[t])
+                _bind_proxy_scrollbar(None)
+                proxy_scrollbar.setVisible(False)
+                state["needs_proxy_scroll"] = False
+                state["proxy_w"] = 0
+
             has_visible_trees = any(tree and tree.isVisible() for tree in trees)
             content_h = _content_height()
             is_empty = (content_h == 0 or not has_visible_trees)
@@ -231,6 +311,7 @@ def _bootstrap_property_editor_anchoring():
             tab.setVisible(True)
 
             if btn.property("is_collapsed"):
+                desired_tab_h = 0
                 desired_total_h = btn_h
             else:
                 if is_empty:
@@ -289,6 +370,21 @@ def _bootstrap_property_editor_anchoring():
             finally:
                 state["anchoring"] = False
 
+            if panel_state == "overlay":
+                needs_proxy_scroll = False
+                if not btn.property("is_collapsed") and not is_empty:
+                    available_tab_h = max(target_total_h - btn_h, 0)
+                    needs_proxy_scroll = desired_tab_h > available_tab_h + 1 
+
+                if needs_proxy_scroll:
+                    _bind_proxy_scrollbar(active_tree)
+                else:
+                    _bind_proxy_scrollbar(None)
+
+                proxy_scrollbar.setVisible(needs_proxy_scroll)
+                state["needs_proxy_scroll"] = needs_proxy_scroll
+                state["proxy_w"] = proxy_w if needs_proxy_scroll else 0
+
             def _apply_geometry():
                 if state["anchoring"]:
                     return
@@ -299,13 +395,21 @@ def _bootstrap_property_editor_anchoring():
                     target_btn_w = full_rect.width()
                     btn_container.setGeometry(tab_x, full_rect.height() - btn_h, target_btn_w, btn_h)
 
+                    proxy_w = state.get("proxy_w", 0)
+                    tab_w = max(full_rect.width() - proxy_w, 0)
+
                     if not btn.property("is_collapsed"):
                         target_tab_h = max(full_rect.height() - btn_h, 0)
                         tab.setFixedHeight(target_tab_h)
-                        tab.setGeometry(tab_x, 0, full_rect.width(), target_tab_h)
+                        tab.setGeometry(tab_x, 0, tab_w, target_tab_h)
                     else:
+                        target_tab_h = 0
                         tab.setFixedHeight(0)
-                        tab.setGeometry(tab_x, 0, full_rect.width(), 0)
+                        tab.setGeometry(tab_x, 0, tab_w, 0)
+
+                    if state.get("needs_proxy_scroll"):
+                        proxy_scrollbar.setGeometry(tab_x + tab_w, 0, proxy_w, target_tab_h)
+                        proxy_scrollbar.raise_()
                 finally:
                     state["anchoring"] = False
 
