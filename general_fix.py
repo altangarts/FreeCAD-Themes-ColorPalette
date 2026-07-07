@@ -15,21 +15,64 @@ def _bootstrap_global_fixer():
             QtCore.QTimer.singleShot(200, _setup)
             return
 
-        class NoUnderlineStyle(QtWidgets.QProxyStyle):
+        class MenuNoUnderlineStyle(QtWidgets.QProxyStyle):
+            """Sadece menübar ve menülere uygulanır; alt çizgiyi kapatır."""
             def styleHint(self, hint, option=None, widget=None, returnData=None):
                 if hint == QtWidgets.QStyle.SH_UnderlineShortcut:
                     return 0
                 return super().styleHint(hint, option, widget, returnData)
 
+        class StatusBarNoFrameStyle(QtWidgets.QProxyStyle):
+            """Sadece status bar'a uygulanır; öğe çerçevelerini (dikey çizgileri) çizmez."""
             def drawPrimitive(self, element, option, painter, widget=None):
                 if element == QtWidgets.QStyle.PE_FrameStatusBarItem:
                     return
                 super().drawPrimitive(element, option, painter, widget)
 
-        current_style = app.style()
-        if not isinstance(current_style, NoUnderlineStyle):
-            proxy_style = NoUnderlineStyle(current_style)
-            app.setStyle(proxy_style)
+        def _style_menu_recursive(menu, proxy):
+            menu.setStyle(proxy)
+            for act in menu.actions():
+                sub = act.menu()
+                if sub:
+                    _style_menu_recursive(sub, proxy)
+
+        def _apply_scoped_styles():
+            import FreeCADGui
+
+            mw = FreeCADGui.getMainWindow()
+            if not mw:
+                QtCore.QTimer.singleShot(500, _apply_scoped_styles)
+                return
+
+            menu_proxy = getattr(app, "_menuNoUnderlineProxy", None)
+            if menu_proxy is None:
+                menu_proxy = MenuNoUnderlineStyle(mw.style())
+                app._menuNoUnderlineProxy = menu_proxy
+
+            menubar = mw.menuBar()
+            if menubar and not isinstance(menubar.style(), MenuNoUnderlineStyle):
+                menubar.setStyle(menu_proxy)
+
+            if menubar:
+                for action in menubar.actions():
+                    menu = action.menu()
+                    if menu and not isinstance(menu.style(), MenuNoUnderlineStyle):
+                        _style_menu_recursive(menu, menu_proxy)
+
+            status_proxy = getattr(app, "_statusBarNoFrameProxy", None)
+            if status_proxy is None:
+                status_proxy = StatusBarNoFrameStyle(mw.style())
+                app._statusBarNoFrameProxy = status_proxy
+
+            status_bar = mw.statusBar() if hasattr(mw, "statusBar") else None
+            if status_bar and not isinstance(status_bar.style(), StatusBarNoFrameStyle):
+                status_bar.setStyle(status_proxy)
+
+            # Workbench değişince menüler yeniden oluşturulabiliyor;
+            # bu yüzden periyodik olarak tekrar uygula (hafif, sadece isinstance kontrolü yapıyor).
+            QtCore.QTimer.singleShot(2000, _apply_scoped_styles)
+
+        _apply_scoped_styles()
 
         if hasattr(app, "_globalFreeCADFixer"):
             try:
@@ -138,7 +181,18 @@ def _bootstrap_global_fixer():
                         view = combo.view()
                         if view:
                             view.viewport().setProperty("is_workbench_view", True)
-                            view.setStyleSheet("background-color: transparent;")
+                            palette = view.palette()
+                            palette.setColor(QtGui.QPalette.Base, QtCore.Qt.transparent)
+                            palette.setColor(QtGui.QPalette.Window, QtCore.Qt.transparent)
+                            view.setPalette(palette)
+                            view.setAutoFillBackground(False)
+                            viewport = view.viewport()
+                            if viewport:
+                                vp_palette = viewport.palette()
+                                vp_palette.setColor(QtGui.QPalette.Base, QtCore.Qt.transparent)
+                                vp_palette.setColor(QtGui.QPalette.Window, QtCore.Qt.transparent)
+                                viewport.setPalette(vp_palette)
+                                viewport.setAutoFillBackground(False)
 
                 if not combo:
                     return False
