@@ -1,7 +1,8 @@
 Gui--OverlayTitleBar,
 Gui--OverlaySplitterHandle {
   background-color: transparent;
-  color: transparent;
+  color: @ColorPaletteTextGeneralTop;
+  font-weight: bold;
   border: none;
   spacing: 0px;
   padding: 0px;
@@ -236,7 +237,7 @@ QPushButton#gridToggleButton {
   background-color: qlineargradient(x1:0, y1:0.3, x2:0, y2:1, stop:0 @ColorPaletteOverlayContent1, stop:1 @ColorPaletteOverlayitemEnd);
   color: @ColorPaletteTextGeneralBottom;
   text-align: center;
-  padding: 2px 10px 5px 10px;
+  padding: 2px 10px 4px 10px;
   margin: 2px 2px 0px 0px;
 }
 
@@ -274,7 +275,7 @@ QTabWidget QTabBar::tab:bottom {
   color: #eeeeee;
   color: @ColorPaletteTextGeneralBottom;
   border-radius: 4px;
-  padding: 2px 3px 5px 6px;
+  padding: 1px 3px 4px 6px;
   min-width: 50px;
   margin: 0px 2px 0px 1px;
 }
@@ -789,6 +790,7 @@ Gui--OverlayToolButton {
 }
 
 Gui--OverlayToolButton:hover {
+  background-color: @ThemeAccentColor1;
   background-color: qlineargradient(x1:0, y1:0.3, x2:0, y2:1, stop:0 @ColorPaletteHover1, stop:1 @ColorPaletteHover2);
   border: 1px solid rgba(0,0,0,0.15);
   image: url(qss:images_classic/toggle-hide-white.svg);

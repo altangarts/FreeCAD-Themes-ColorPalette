@@ -274,7 +274,8 @@ QDockWidget::float-button:pressed {
 }
 
 Gui--OverlayTitleBar {
-  color: transparent;
+  color: @ColorPaletteTextGeneralTop;
+  font-weight: bold;
 }
 
 Gui--OverlayToolButton {
@@ -293,6 +294,7 @@ Gui--OverlayToolButton {
 }
 
 Gui--OverlayToolButton:hover {
+  background-color: @ThemeAccentColor1;
   background-color: qlineargradient(x1:0, y1:0.3, x2:0, y2:1, stop:0 @ColorPaletteHover1, stop:1 @ColorPaletteHover2);
   image: url(qss:images_classic/close-white1.svg);
 }
@@ -621,8 +623,8 @@ QMenuBar::item {
   border-radius: 4px;
   color: #eeeeee;
   color: @ColorPaletteTextGeneralTop;
-  padding: 2px 6px 4px 6px;
-  margin: 3px 0px 1px 0px;
+  padding: 0px 6px 2px 6px;
+  margin: 2px 0px 1px 0px;
 }
 
 QMenuBar::item:hover {
@@ -1584,7 +1586,7 @@ QPushButton#gridToggleButton {
   background-color: qlineargradient(x1:0, y1:0.3, x2:0, y2:1, stop:0 rgba(250,250,250,0.2), stop:1 rgba(0,0,0,0.2));
   color: @ColorPaletteTextGeneralBottom;
   text-align: center;
-  padding: 2px 10px 5px 10px;
+  padding: 2px 10px 4px 10px;
   margin: 0px 2px 0px 0px;
 }
 
@@ -1671,12 +1673,12 @@ QToolBar QToolButton {
   color: @ColorPaletteTextGeneralTop;
   min-width: 24px;
   min-height: 24px;
-  margin: 1px 0px 0px 1px;
+  margin: 1px 1px 0px 0px;
   padding: 1px 4px 9px 4px;
 }
 
 QToolBar QToolButton:disabled {
-  margin: 1px 0px 0px 1px;
+  margin: 1px 1px 0px 0px;
   padding: 1px 4px 9px 4px;
 }
 
@@ -2575,8 +2577,8 @@ QTabBar::tab {
   border-radius: 4px;
   color: #eeeeee;
   color: @ColorPaletteTextGeneralTop;
-  margin: 5px 0px 0px 2px;
-  padding: 2px 4px 5px 6px;
+  margin: 3px 0px 0px 2px;
+  padding: 1px 6px 4px 6px;
   min-width: 50px;
 }
 
@@ -2639,7 +2641,7 @@ QTabWidget QTabBar::tab:bottom {
   color: #eeeeee;
   color: @ColorPaletteTextGeneralBottom;
   margin: 2px 2px 2px 1px;
-  padding: 2px 3px 5px 6px;
+  padding: 1px 3px 4px 6px;
   min-width: 50px;
 }
 
@@ -2647,7 +2649,7 @@ QMdiArea QTabBar::tab {
   color: #eeeeee;
   color: @ColorPaletteTextGeneralBottom;
   margin: 2px 0px 3px 3px;
-  padding: 2px 0px 4px 4px;
+  padding: 2px 3px 3px 3px;
 }
 
 QDialog QTabBar::tab {
@@ -2792,9 +2794,9 @@ QTabBar QToolButton::down-arrow:disabled {
 }
 
 QTabBar::close-button {
-  border: 0;
-  margin: 0px 2px 3px 0px;
-  padding: 0px 0px 0px 3px;
+  border: none;
+  margin: 0px 0px 4px 0px;
+  padding: 0px;
   image: url(qss:images_classic/close-black2.svg);
 }
 
