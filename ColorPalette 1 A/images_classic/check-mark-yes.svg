@@ -8,7 +8,7 @@
    version="1.1"
    id="svg1"
    xml:space="preserve"
-   sodipodi:docname="check-mark-green.svg"
+   sodipodi:docname="check-mark-yes.svg"
    inkscape:version="1.4.4 (dcaf3e7, 2026-05-05)"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
@@ -25,7 +25,7 @@
      inkscape:document-units="mm"
      inkscape:zoom="68.386475"
      inkscape:cx="12.933844"
-     inkscape:cy="12.685257"
+     inkscape:cy="12.69988"
      inkscape:window-width="3840"
      inkscape:window-height="2036"
      inkscape:window-x="-12"
@@ -52,6 +52,6 @@
          y="74.802681"
          ry="0"
          rx="0" /><path
-         style="fill:none;stroke:#ffffff;stroke-width:0.485081;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
-         d="m 44.084608,76.315193 0.707406,1.270074 1.070284,-2.161554"
+         style="fill:none;stroke:#ffffff;stroke-width:0.412885;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+         d="m 44.271554,76.414995 0.604613,1.076595 0.914763,-1.832268"
          id="path4-1-0" /></g></g></svg>
