@@ -119,11 +119,6 @@ def _create_color_palette_grid(view, coin, doc_name=None):
     NUM_BANDS = 10
     MAX_SEGS_PER_LINE = 24
     MIN_SEGS_PER_LINE = 4
-    # Toplam uretilen cizgi parcasi sayisini sabit bir butce icinde tutmak
-    # icin, cell_count buyudukce cizgi basina segment sayisini dusuruyoruz.
-    # Aksi halde spacing kucultuldugunde (cell_count -> 700 tavanina
-    # carptiginda) rebuild() saf Python dongusunde onbinlerce nokta
-    # hesaplayip gozle gorulur bir donme/takilma yaratabiliyordu.
     LINE_SEGMENT_BUDGET = 16000
 
     band_mats, band_coords, band_lines = [], [], []
@@ -449,10 +444,6 @@ class _GridDocumentObserver:
         pass
 
     def slotDeletedDocument(self, doc):
-        # Bellek sizintisini onlemek icin: dokuman kapatildiginda ona ait
-        # rebuild closure'unu (ve dolayisiyla tum Coin node referanslarini)
-        # kayit defterinden siliyoruz. Aksi halde bu dict, kapatilan her
-        # dokuman icin sahne grafigini sonsuza dek bellekte tutardi.
         try:
             doc_name = doc.Name
         except Exception:
@@ -576,10 +567,6 @@ def _find_grid_switch_node(Gui, coin, use_cache=True):
     view = Gui.ActiveDocument.ActiveView
     view_key = id(view)
 
-    # Her tick'te tum sahne grafigini SoSearchAction ile taramak yerine,
-    # bulunan node'u view basina cache'liyoruz. View degistiginde/dokuman
-    # kapandiginda cache disaridan temizleniyor (bkz. _grid_view_state ve
-    # _GridDocumentObserver.slotDeletedDocument).
     if use_cache and view_key in _view_switch_node_cache:
         return _view_switch_node_cache[view_key]
 
@@ -618,10 +605,6 @@ def _check_sketch_edit_state():
     exiting_edit = not is_editing_sketch and _grid_sketch_edit_state["hidden_for_edit"]
 
     if not entering_edit and not exiting_edit:
-        # Durum degismedi: pahali SoSearchAction taramasini atla. Bu fonksiyon
-        # 250ms'lik bir zamanlayicidan surekli cagrildigi icin, sadece gercek
-        # bir gecis (sketch duzenlemeye girme/cikma) oldugunda arama yapmak
-        # gereksiz sahne grafigi taramalarini buyuk olcude azaltir.
         return
 
     switch_node = _find_grid_switch_node(Gui, coin)
@@ -662,8 +645,8 @@ def _check_active_view_changed():
     try:
         import FreeCADGui as Gui
         import FreeCAD
-    except ImportError:
-        return
+        from pivy import coin
+    except ImportError: return
 
     if not Gui.ActiveDocument or not hasattr(Gui.ActiveDocument, "ActiveView") or not Gui.ActiveDocument.ActiveView:
         if _grid_view_state["last_view_id"] is not None:
@@ -675,21 +658,25 @@ def _check_active_view_changed():
 
     if current_view_id != _grid_view_state["last_view_id"]:
         _grid_view_state["last_view_id"] = current_view_id
-        
-        if hasattr(current_view, "getSceneGraph"):
-            state_grp = FreeCAD.ParamGet("User parameter:BaseApp/Preferences/Mod/ColorPaletteState")
-            is_grid_closed = state_grp.GetBool("GridCollapsed", True)
+
+    if hasattr(current_view, "getSceneGraph"):
+        state_grp = FreeCAD.ParamGet("User parameter:BaseApp/Preferences/Mod/ColorPaletteState")
+        if not state_grp.GetBool("GridCollapsed", True):
+            view_key = id(current_view)
+            sg = current_view.getSceneGraph()
             
-            if not is_grid_closed:
-                try:
-                    from PySide6 import QtCore
-                except ImportError:
-                    try:
-                        from PySide2 import QtCore
-                    except ImportError:
-                        return
-                
-                QtCore.QTimer.singleShot(100, toggle_3d_grid)
+            switch_node = _view_switch_node_cache.get(view_key)
+            
+            if switch_node:
+                if sg.findChild(switch_node) == -1:
+                    _view_switch_node_cache.pop(view_key, None)
+                    toggle_3d_grid()
+                    if hasattr(current_view, "redraw"):
+                        current_view.redraw()
+            else:
+                toggle_3d_grid()
+                if hasattr(current_view, "redraw"):
+                    current_view.redraw()
 
 
 def _grid_watcher_tick():
