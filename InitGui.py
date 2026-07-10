@@ -50,14 +50,13 @@ if _is_colorpalette_theme_active():
     try:
         import importlib.util
         _spec_fix = importlib.util.spec_from_file_location(
-            "color_palette_general_fix",
-            os.path.join(_mod_dir, "general_fix.py")
+            "color_palette_workbench_combobox",
+            os.path.join(_mod_dir, "workbench_combobox.py")
         )
         _mod_fix = importlib.util.module_from_spec(_spec_fix)
         _spec_fix.loader.exec_module(_mod_fix)
     except Exception as e:
-        FreeCAD.Console.PrintError(f"ColorPalette: general_fix yuklenemedi - {str(e)}\n")
+        FreeCAD.Console.PrintError(f"ColorPalette: workbench_combobox yuklenemedi - {str(e)}\n")
 
 else:
-    # İsteğe bağlı olarak, geliştirme aşamasında temanın aktif olmadığını görmek için log bırakabilirsiniz.
     FreeCAD.Console.PrintMessage("ColorPalette temasi aktif degil, eklenti modulleri baslatilmadi.\n")

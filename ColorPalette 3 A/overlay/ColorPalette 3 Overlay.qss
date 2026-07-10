@@ -787,6 +787,7 @@ Gui--OverlayToolButton {
 Gui--OverlayToolButton {
   color: transparent;
   image: url(qss:images_classic/toggle-hide.svg);
+  qproperty-icon: none;
 }
 
 Gui--OverlayToolButton:hover {
