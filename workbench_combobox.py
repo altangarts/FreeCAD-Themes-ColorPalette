@@ -96,7 +96,7 @@ def _bootstrap_global_fixer():
                 except Exception:
                     pass
 
-            _COMBO_RETRY_EVERY = 30
+            _COMBO_RETRY_EVERY = 5
 
             def _should_retry_combo(self, key):
                 n = self._toolbar_combo_miss_count.get(key, 0) + 1
@@ -324,6 +324,13 @@ def _bootstrap_global_fixer():
             if tb.layout():
                 tb.layout().setSpacing(0)
                 tb.layout().setContentsMargins(0, 0, 0, 0)
+
+            def _kick_repaint(remaining=30):
+                tb.update()
+                if remaining > 0:
+                    QtCore.QTimer.singleShot(200, lambda: _kick_repaint(remaining - 1))
+
+            _kick_repaint()
 
         _fix()
 
