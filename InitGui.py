@@ -58,5 +58,31 @@ if _is_colorpalette_theme_active():
     except Exception as e:
         FreeCAD.Console.PrintError(f"ColorPalette: workbench_combobox yuklenemedi - {str(e)}\n")
 
+
+    try:
+        def _apply_task_panel_style_fix():
+            try:
+                import FreeCADGui as Gui
+                from PySide6 import QtCore
+
+                mw = Gui.getMainWindow()
+                targets = mw.findChildren(object, "Tasks")
+
+                for w in targets:
+                    w.setAttribute(QtCore.Qt.WA_StyledBackground, True)
+                    w.style().unpolish(w)
+                    w.style().polish(w)
+                    w.update()
+
+                if not targets:
+                    FreeCAD.Console.PrintError("ColorPalette: Task paneli (Tasks) bulunamadi, WA_StyledBackground uygulanamadi.\n")
+            except Exception as e:
+                FreeCAD.Console.PrintError(f"ColorPalette: task_panel_style_fix calisirken hata - {str(e)}\n")
+
+        from PySide6 import QtCore
+        QtCore.QTimer.singleShot(0, _apply_task_panel_style_fix)
+    except Exception as e:
+        FreeCAD.Console.PrintError(f"ColorPalette: task_panel_style_fix kurulamadi - {str(e)}\n")
+
 else:
     FreeCAD.Console.PrintMessage("ColorPalette temasi aktif degil, eklenti modulleri baslatilmadi.\n")

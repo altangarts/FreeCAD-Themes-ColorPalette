@@ -1963,8 +1963,17 @@ Gui--TaskView--TaskView#Tasks {
   border-right-color: rgba(0,0,0,0.2);
 }
 
+QDockWidget#Tasks {
+  background: transparent;
+}
+
 QDockWidget QGroupBox {
   background-color: rgba(250,250,250,0.04);
+}
+
+QDockWidget QPushButton {
+  color: #eeeeee;
+  color: @ColorPaletteTextGeneralTop;
 }
 
 QSint--ActionGroup {
@@ -2092,9 +2101,9 @@ QSint--ActionGroup QComboBox QAbstractItemView {
 }
 
 QFrame[class="panel"] QListView,
-QSint--ActionGroup QListView,
-QSint--ActionGroup QTableView,
-QSint--ActionGroup QTreeView {
+QFrame[class="panel"] QListView,
+QFrame[class="panel"] QTableView,
+QFrame[class="panel"] QTreeView {
   background-color: rgba(250,250,250,0.06);
   border: 1px solid rgba(0,0,0,0.1);
   color: #ffff69;
@@ -2106,8 +2115,8 @@ QSint--ActionGroup QTreeView {
   border-radius: 8px;
 }
 
-QSint--ActionGroup QListView::item,
-QSint--ActionGroup QTableView::item {
+QFrame[class="panel"] QListView::item,
+QFrame[class="panel"] QTableView::item {
   background-color: rgba(0,0,0,0.06);
   border: 1px solid transparent;
   margin: 1px 0px 1px 0px;
@@ -2115,7 +2124,7 @@ QSint--ActionGroup QTableView::item {
   border-radius: 6px;
 }
 
-QSint--ActionGroup QTreeView::item {
+QFrame[class="panel"] QTreeView::item {
   background-color: rgba(0,0,0,0.06);
   border: 1px solid transparent;
   margin: 1px 1px 1px 0px;
@@ -2123,32 +2132,32 @@ QSint--ActionGroup QTreeView::item {
   border-radius: 4px;
 }
 
-QSint--ActionGroup QTreeView::item:has-children:open {
+QFrame[class="panel"] QTreeView::item:has-children:open {
   background-color: rgba(0,0,0,0.15);
   border: 1px solid rgba(0,0,0,0.1);
   color: #f5c5f5;
   color: @ColorPaletteTextHeaderOverlay;
 }
 
-QSint--ActionGroup QTreeView::item:hover,
-QSint--ActionGroup QListView::item:hover,
-QSint--ActionGroup QTableView::item:hover,
-QSint--ActionGroup QTreeView::item:has-children:open:hover {
+QFrame[class="panel"] QTreeView::item:hover,
+QFrame[class="panel"] QListView::item:hover,
+QFrame[class="panel"] QTableView::item:hover,
+QFrame[class="panel"] QTreeView::item:has-children:open:hover {
   color: #ffffff;
   background-color: @ThemeAccentColor1;
   background-color: @ColorPaletteHover;
 }
 
-QSint--ActionGroup QTreeView::item:selected,
-QSint--ActionGroup QListView::item:selected,
-QSint--ActionGroup QTableView::item:selected {
+QFrame[class="panel"] QTreeView::item:selected,
+QFrame[class="panel"] QListView::item:selected,
+QFrame[class="panel"] QTableView::item:selected {
   color: #ffffff;
   background-color: @ThemeAccentColor1;
 }
 
-QSint--ActionGroup QTreeView::item:focus,
-QSint--ActionGroup QListView::item:focus,
-QSint--ActionGroup QTableView::item:focus {
+QFrame[class="panel"] QTreeView::item:focus,
+QFrame[class="panel"] QListView::item:focus,
+QFrame[class="panel"] QTableView::item:focus {
   border: 1px solid @ThemeAccentColor1;
 }
 
