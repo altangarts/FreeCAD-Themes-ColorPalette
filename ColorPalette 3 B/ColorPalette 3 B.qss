@@ -1443,7 +1443,8 @@ QPushButton:checked:hover {
 QToolBar QPushButton {
   color: #eeeeee;
   color: @ColorPaletteTextGeneralTop;
-  padding: 10px 5px 12px 5px;
+  padding: 10px 5px 14px 5px;
+  margin: 2px 0px 0px 0px;
 }
 
 QStatusBar QPushButton {
