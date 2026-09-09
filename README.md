@@ -162,7 +162,7 @@ Sample
 
 
 #### Accent color 1 : #500000. (Selection)
-#### Accent color 2 : #463c2e. (Background-Top)
+#### Accent color 2 : #3c3328. (Background-Top)
 #### Accent color 3 : #7d6f4f. (Background-Bottom)
 
 ⤵️
