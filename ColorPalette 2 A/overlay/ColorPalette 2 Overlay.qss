@@ -92,13 +92,14 @@ QTabWidget QDialog QTreeView {
 }
 
 QTabWidget QDialog QTreeView::item:first,
+QTabWidget QDialog QTreeView::item:last,
 QTabWidget QDialog QTreeView::item,
 QTabWidget QDialog QTreeView::item:has-children,
 QTabWidget QDialog QTreeView::item:has-children:!has-siblings:open,
 QTabWidget QDialog QTreeView::item:has-children:open {
   background-color: rgba(0,0,0,0.05);
   margin: 1px 0px 1px 1px;
-  padding: 1px 0px 1px 2px;
+  padding: 2px;
   border-radius: 4px;
 }
 
@@ -580,9 +581,9 @@ QSint--ActionGroup QFrame[class="header"] QLabel {
   height: 10px;
 }
 
-QSint--ActionGroup QListView,
-QSint--ActionGroup QTableView,
-QSint--ActionGroup QTreeView {
+QFrame[class="panel"] QListView,
+QFrame[class="panel"] QTableView,
+QFrame[class="panel"] QTreeView {
   background-color: rgba(250,250,250,0.08);
   border: 1px solid rgba(0,0,0,0.1);
   color: #ffff69;
@@ -594,8 +595,8 @@ QSint--ActionGroup QTreeView {
   border-radius: 8px;
 }
 
-QSint--ActionGroup QListView::item,
-QSint--ActionGroup QTableView::item {
+QFrame[class="panel"] QListView::item,
+QFrame[class="panel"] QTableView::item {
   background-color: rgba(0,0,0,0.06);
   border: 1px solid transparent;
   margin: 1px 0px 1px 0px;
@@ -603,7 +604,7 @@ QSint--ActionGroup QTableView::item {
   border-radius: 6px;
 }
 
-QSint--ActionGroup QTreeView::item {
+QFrame[class="panel"] QTreeView::item {
   background-color: rgba(0,0,0,0.06);
   border: 1px solid transparent;
   margin: 1px 1px 1px 0px;
@@ -611,36 +612,36 @@ QSint--ActionGroup QTreeView::item {
   border-radius: 4px;
 }
 
-QSint--ActionGroup QTreeView::item:has-children:open {
+QFrame[class="panel"] QTreeView::item:has-children:open {
   background-color: rgba(0,0,0,0.15);
   border: 1px solid rgba(0,0,0,0.1);
   color: #f5c5f5;
   color: @ColorPaletteTextHeaderOverlay;
 }
 
-QSint--ActionGroup QTreeView::item:hover,
-QSint--ActionGroup QListView::item:hover,
-QSint--ActionGroup QTableView::item:hover,
-QSint--ActionGroup QTreeView::item:has-children:open:hover {
+QFrame[class="panel"] QTreeView::item:hover,
+QFrame[class="panel"] QListView::item:hover,
+QFrame[class="panel"] QTableView::item:hover,
+QFrame[class="panel"] QTreeView::item:has-children:open:hover {
   color: #ffffff;
   background-color: @ThemeAccentColor1;
   background-color: @ColorPaletteHover;
 }
 
-QSint--ActionGroup QTreeView::item:selected,
-QSint--ActionGroup QListView::item:selected,
-QSint--ActionGroup QTableView::item:selected {
+QFrame[class="panel"] QTreeView::item:selected,
+QFrame[class="panel"] QListView::item:selected,
+QFrame[class="panel"] QTableView::item:selected {
   color: #ffffff;
   background-color: @ThemeAccentColor1;
 }
 
-QSint--ActionGroup QTreeView::item:focus,
-QSint--ActionGroup QListView::item:focus,
-QSint--ActionGroup QTableView::item:focus {
+QFrame[class="panel"] QTreeView::item:focus,
+QFrame[class="panel"] QListView::item:focus,
+QFrame[class="panel"] QTableView::item:focus {
   border: 1px solid @ThemeAccentColor1;
 }
 
-QSint--ActionGroup QToolButton#filterButton QListWidget {
+QFrame[class="panel"] QToolButton#filterButton QListWidget {
   background-color: transparent;
   color: #eeeeee;
   color: @ColorPaletteTextGeneralTop;
@@ -648,7 +649,7 @@ QSint--ActionGroup QToolButton#filterButton QListWidget {
   border: none;
 }
 
-QSint--ActionGroup QToolButton#filterButton QListWidget::item {
+QFrame[class="panel"] QToolButton#filterButton QListWidget::item {
   background-color: transparent;
   border: 1px solid transparent;
   color: #eeeeee;
@@ -658,13 +659,13 @@ QSint--ActionGroup QToolButton#filterButton QListWidget::item {
   border-radius: 4px;
 }
 
-QSint--ActionGroup QToolButton#filterButton QListWidget::item:hover {
+QFrame[class="panel"] QToolButton#filterButton QListWidget::item:hover {
   color: #ffffff;
   background-color: @ThemeAccentColor1;
   background-color: @ColorPaletteHover;
 }
 
-QSint--ActionGroup QComboBox QAbstractItemView {
+QFrame[class="panel"] QComboBox QAbstractItemView {
   background-color: @ThemeAccentColor2;
   border: 1px solid #151515;
   border-radius: 0px;
@@ -672,8 +673,8 @@ QSint--ActionGroup QComboBox QAbstractItemView {
   padding: 1px;
 }
 
-QSint--ActionGroup QTreeView::indicator,
-QSint--ActionGroup QListView::indicator {
+QFrame[class="panel"] QTreeView::indicator,
+QFrame[class="panel"] QListView::indicator {
   background-color: rgba(0,0,0,0.5);
   border: 0px solid transparent;
   border-radius: 8px;
@@ -683,8 +684,8 @@ QSint--ActionGroup QListView::indicator {
   margin: 3px 4px 4px 4px;
 }
 
-QSint--ActionGroup QTreeView::indicator:disabled,
-QSint--ActionGroup QListView::indicator:disabled {
+QFrame[class="panel"] QTreeView::indicator:disabled,
+QFrame[class="panel"] QListView::indicator:disabled {
   border-radius: 8px;
   height: 12px;
   width: 12px;
@@ -692,30 +693,30 @@ QSint--ActionGroup QListView::indicator:disabled {
   margin: 3px 4px 4px 4px;
 }
 
-QSint--ActionGroup QTreeView::indicator:checked,
-QSint--ActionGroup QTreeView::indicator:checked {
+QFrame[class="panel"] QTreeView::indicator:checked,
+QFrame[class="panel"] QTreeView::indicator:checked {
   image: url(qss:images_classic/check-mark-blue.svg);
 }
 
-QSint--ActionGroup QTreeView::indicator:checked:hover,
-QSint--ActionGroup QTreeView::indicator:checked:pressed,
-QSint--ActionGroup QToolButton#filterButton QListWidget::indicator:checked:hover {
+QFrame[class="panel"] QTreeView::indicator:checked:hover,
+QFrame[class="panel"] QTreeView::indicator:checked:pressed,
+QFrame[class="panel"] QToolButton#filterButton QListWidget::indicator:checked:hover {
   image: url(qss:images_classic/check-mark-white.svg);
 }
 
-QSint--ActionGroup QTreeView::indicator:unchecked,
-QSint--ActionGroup QListView::indicator:unchecked {
+QFrame[class="panel"] QTreeView::indicator:unchecked,
+QFrame[class="panel"] QListView::indicator:unchecked {
   border-image: none;
 }
 
-QSint--ActionGroup QHeaderView {
+QFrame[class="panel"] QHeaderView {
   background-color: transparent;
   border: none;
   margin: 0px;
   padding: 0px;
 }
 
-QSint--ActionGroup QHeaderView::section::horizontal {
+QFrame[class="panel"] QHeaderView::section::horizontal {
   background-color: rgba(0,0,0,0.3);
   padding: 4px 0px 1px 5px;
   margin: 0px 1px 3px 0px;
@@ -805,9 +806,9 @@ QTabWidget QPlainTextEdit:focus {
   padding: 5px 5px 5px 5px;
 }
 
-QSint--ActionGroup QDialog QTextEdit,
-QSint--ActionGroup QDialog QTextEdit:hover,
-QSint--ActionGroup QDialog QTextEdit:focus {
+QFrame[class="panel"] QDialog QTextEdit,
+QFrame[class="panel"] QDialog QTextEdit:hover,
+QFrame[class="panel"] QDialog QTextEdit:focus {
   background-color: rgba(250,250,250,0.05);
   border: 1px solid rgba(0,0,0,0.15);
   color: #eeeeee;
@@ -816,7 +817,7 @@ QSint--ActionGroup QDialog QTextEdit:focus {
   padding: 5px;
 }
 
-QSint--ActionGroup QDialog QTextEdit:focus {
+QFrame[class="panel"] QDialog QTextEdit:focus {
   border: 1px solid @ThemeAccentColor1;
 }
 

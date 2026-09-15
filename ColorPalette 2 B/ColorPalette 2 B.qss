@@ -1088,9 +1088,13 @@ QStatusBar QToolBar {
   border-radius: 0px;
 }
 
-QMenuBar QToolBar#Workbench,
-QToolBar#Workbench {
+QMenuBar QToolBar#Workbench {
   background-color: transparent;
+  border: none;
+}
+
+QToolBar#Workbench {
+  background-color: @ThemeAccentColor2;
   border: none;
 }
 
@@ -1193,7 +1197,7 @@ QAbstractSpinBox:up-button {
   width: 18px;
   border-top: 0px solid transparent;
   border-right: 0px solid transparent;
-  border-bottom: 0px solid rgba(0,0,0,0.01);  
+  border-bottom: 0px solid transparent;  
   border-left: 1px solid rgba(0,0,0,0.25);
   border-top-right-radius: 6px;
   margin: 1px 1px 0px 0px;
@@ -1244,6 +1248,10 @@ QAbstractSpinBox::down-arrow:off:hover {
 
 QAbstractSpinBox::down-arrow:disabled {
   image: url(qss:images_classic/arrow-down-disabled_dark.svg);
+}
+
+QAbstractSpinBox::down-arrow:hover {
+  image: url(qss:images_classic/arrow-down-white1.svg);
 }
 
 QAbstractSpinBox:hover {
@@ -1644,6 +1652,7 @@ QPushButton::menu-indicator {
 QStatusBar QPushButton::menu-indicator {
   right: 2px;
   bottom: 5px;
+  margin-left: 4px;
 }
 
 QPushButton::menu-indicator:hover {
@@ -1652,6 +1661,7 @@ QPushButton::menu-indicator:hover {
   padding: 0px;
   width: 10px;
   height: 10px;
+  margin-left: 6px;
 }
 
 QPushButton::menu-indicator:open {
@@ -1660,6 +1670,13 @@ QPushButton::menu-indicator:open {
   padding: 0px;
   width: 10px;
   height: 10px;
+  margin-left: 6px;
+}
+
+Gui--DimensionWidget {
+  width: 160px;
+  min-width: 160px;
+  max-width: 160px;
 }
 
 QDialogButtonBox QPushButton {
@@ -2099,6 +2116,8 @@ QFrame[class="panel"] QTreeView::item:has-children:open {
   border: 1px solid rgba(0,0,0,0.1);
   color: #f5c5f5;
   color: @ColorPaletteTextHeaderOverlay;
+  margin: 1px 1px 1px 0px;
+  padding: 2px;
 }
 
 QFrame[class="panel"] QTreeView::item:hover,
@@ -3651,6 +3670,7 @@ QTabWidget QDialog QTreeView::item:has-children:open {
   background-color: rgba(0,0,0,0.05);
   color: #eeeeee;
   color: @ColorPaletteTextDarkenList;
+  padding: 2px;
 }
 
 QDialog QTreeView::item:has-children,
@@ -3658,6 +3678,7 @@ QTabWidget QDialog QTreeView::item:has-children {
   background-color: rgba(0,0,0,0.05);
   color: #eeeeee;
   color: @ColorPaletteTextDarkenList;
+  padding: 2px;
 }
 
 QDialog QTreeView::item:hover,

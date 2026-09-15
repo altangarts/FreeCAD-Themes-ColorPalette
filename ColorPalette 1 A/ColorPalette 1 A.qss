@@ -1096,9 +1096,13 @@ QStatusBar QToolBar {
   border-radius: 0px;
 }
 
-QMenuBar QToolBar#Workbench,
-QToolBar#Workbench {
+QMenuBar QToolBar#Workbench {
   background-color: transparent;
+  border: none;
+}
+
+QToolBar#Workbench {
+  background-color: @ThemeAccentColor2;
   border: none;
 }
 
@@ -1664,6 +1668,7 @@ QPushButton::menu-indicator {
 QStatusBar QPushButton::menu-indicator {
   right: 2px;
   bottom: 5px;
+  margin-left: 4px;
 }
 
 QPushButton::menu-indicator:hover {
@@ -1672,6 +1677,7 @@ QPushButton::menu-indicator:hover {
   padding: 0px;
   width: 10px;
   height: 10px;
+  margin-left: 6px;
 }
 
 QPushButton::menu-indicator:open {
@@ -1680,6 +1686,13 @@ QPushButton::menu-indicator:open {
   padding: 0px;
   width: 10px;
   height: 10px;
+  margin-left: 6px;
+}
+
+Gui--DimensionWidget {
+  width: 160px;
+  min-width: 160px;
+  max-width: 160px;
 }
 
 QDialogButtonBox QPushButton {
@@ -2112,6 +2125,8 @@ QFrame[class="panel"] QTreeView::item:has-children:open {
   border: 1px solid rgba(0,0,0,0.1);
   color: #f5c5f5;
   color: @ColorPaletteTextHeaderOverlay;
+  margin: 1px 1px 1px 0px;
+  padding: 2px;
 }
 
 QFrame[class="panel"] QTreeView::item:hover,
@@ -3657,6 +3672,7 @@ QTabWidget QDialog QTreeView::item:has-children:open {
   background-color: rgba(0,0,0,0.05);
   color: #eeeeee;
   color: @ColorPaletteTextDarkenList;
+  padding: 2px;
 }
 
 QDialog QTreeView::item:has-children,
@@ -3664,6 +3680,7 @@ QTabWidget QDialog QTreeView::item:has-children {
   background-color: rgba(0,0,0,0.05);
   color: #eeeeee;
   color: @ColorPaletteTextDarkenList;
+  padding: 2px;
 }
 
 QDialog QTreeView::item:hover,

@@ -34,6 +34,8 @@ def _bootstrap_global_fixer():
                 if sub:
                     _style_menu_recursive(sub, proxy)
 
+        _STYLE_REFRESH_MS = 5000
+
         def _apply_scoped_styles():
             import FreeCADGui
 
@@ -66,23 +68,45 @@ def _bootstrap_global_fixer():
             if status_bar and not isinstance(status_bar.style(), StatusBarNoFrameStyle):
                 status_bar.setStyle(status_proxy)
 
-            QtCore.QTimer.singleShot(2000, _apply_scoped_styles)
+            QtCore.QTimer.singleShot(_STYLE_REFRESH_MS, _apply_scoped_styles)
 
         _apply_scoped_styles()
 
         if hasattr(app, "_globalFreeCADFixer"):
+            old_fixer = app._globalFreeCADFixer
             try:
-                app.removeEventFilter(app._globalFreeCADFixer)
+                app.removeEventFilter(old_fixer)
             except Exception:
                 pass
 
+            for w in (getattr(old_fixer, "_filtered_toolbar", None),
+                      getattr(old_fixer, "_filtered_viewport", None)):
+                if w is not None:
+                    try:
+                        w.removeEventFilter(old_fixer)
+                    except Exception:
+                        pass
+
         class GlobalFreeCADFixer(QtCore.QObject):
+
+            TOOLBAR_OBJECT_NAME = "Workbench"
+            COMBO_OBJECT_NAME = "Gui--WorkbenchComboBox"
+            COMBO_CLASS_NAMES = ("Gui::WorkbenchComboBox", "WorkbenchComboBox")
+            VIEW_PROPERTY = "is_workbench_combo_view"
+
             def __init__(self):
                 super().__init__()
                 self._toolbar_pixmap_cache = {}   # id(obj) -> ((W,H), QPixmap)
                 self._toolbar_combo_cache = {}    # id(obj) -> combo | False
                 self._toolbar_combo_miss_count = {}  # id(obj) -> denenme sayaci
                 self._view_pixmap_cache = {}      # id(obj) -> ((W,H), QPixmap)
+
+                # Filtre artik app-wide degil; sadece dogru toolbar ve
+                # combo viewport'una kuruluyor. Referanslari burada
+                # tutuyoruz ki eklenti yeniden yuklenince temizce sokebilelim.
+                self._filtered_toolbar = None
+                self._filtered_viewport = None
+                self._cached_main_window = None
 
             def _forget_on_destroy(self, obj, *caches):
                 key = id(obj)
@@ -103,21 +127,91 @@ def _bootstrap_global_fixer():
                 self._toolbar_combo_miss_count[key] = n
                 return (n % self._COMBO_RETRY_EVERY) == 1
 
+            def _main_window(self):
+                mw = self._cached_main_window
+                if mw is not None:
+                    try:
+                        if mw.objectName() or True:  # C++ nesnesi hala yasiyor mu
+                            return mw
+                    except RuntimeError:
+                        self._cached_main_window = None
+
+                try:
+                    import FreeCADGui
+                    mw = FreeCADGui.getMainWindow()
+                except Exception:
+                    mw = None
+                self._cached_main_window = mw
+                return mw
+
+            def _is_workbench_toolbar(self, obj):
+
+                if obj.objectName() != self.TOOLBAR_OBJECT_NAME:
+                    return False
+                mw = self._main_window()
+                if mw is None:
+                    return False
+                try:
+                    return obj.window() is mw
+                except Exception:
+                    return False
+
+            def _find_workbench_combo(self, toolbar):
+
+                combo = toolbar.findChild(QtWidgets.QComboBox, self.COMBO_OBJECT_NAME)
+                if combo is not None:
+                    return combo
+
+                for c in toolbar.findChildren(QtWidgets.QComboBox):
+                    try:
+                        cls = c.metaObject().className()
+                    except Exception:
+                        continue
+                    if cls in self.COMBO_CLASS_NAMES:
+                        return c
+                return None
+
+            def attach_to_toolbar(self, toolbar):
+
+                if self._filtered_toolbar is toolbar:
+                    return
+                if self._filtered_toolbar is not None:
+                    try:
+                        self._filtered_toolbar.removeEventFilter(self)
+                    except Exception:
+                        pass
+                toolbar.installEventFilter(self)
+                self._filtered_toolbar = toolbar
+
+            def attach_to_viewport(self, viewport):
+
+                if self._filtered_viewport is viewport:
+                    return
+                if self._filtered_viewport is not None:
+                    try:
+                        self._filtered_viewport.removeEventFilter(self)
+                    except Exception:
+                        pass
+                viewport.installEventFilter(self)
+                self._filtered_viewport = viewport
+
             def eventFilter(self, obj, event):
-                etype = event.type()
+                if event.type() != QtCore.QEvent.Paint:
+                    return False
 
-                if etype == QtCore.QEvent.Paint:
-                    if isinstance(obj, QtWidgets.QToolBar):
-                        if self.paint_toolbar_blueprint(obj):
-                            return True
+                if isinstance(obj, QtWidgets.QToolBar):
+                    if not self._is_workbench_toolbar(obj):
                         return False
+                    if self.paint_toolbar_blueprint(obj):
+                        return True
+                    return False
 
-                    if isinstance(obj, QtWidgets.QWidget) and obj.property("is_workbench_view"):
-                        self.draw_blueprint_view(obj)
-                        return False
+                if isinstance(obj, QtWidgets.QWidget) and \
+                        obj.property(self.VIEW_PROPERTY) is True:
+                    self.draw_blueprint_view(obj)
+                    return False
 
                 return False
-
 
             def draw_blueprint_view(self, obj):
                 W, H = obj.width(), obj.height()
@@ -146,17 +240,14 @@ def _bootstrap_global_fixer():
                 painter.drawPixmap(0, 0, pix)
                 painter.end()
 
-
             def paint_toolbar_blueprint(self, obj):
                 key = id(obj)
 
                 combo = self._toolbar_combo_cache.get(key)
                 need_lookup = combo is None or (combo is False and self._should_retry_combo(key))
                 if need_lookup:
-                    combo = obj.findChild(QtWidgets.QWidget, "Gui--WorkbenchComboBox")
-                    if not combo:
-                        combos = obj.findChildren(QtWidgets.QComboBox)
-                        combo = combos[0] if combos else False
+                    found = self._find_workbench_combo(obj)
+                    combo = found if found is not None else False
                     self._toolbar_combo_cache[key] = combo
                     self._forget_on_destroy(obj, self._toolbar_combo_cache,
                                              self._toolbar_pixmap_cache,
@@ -167,7 +258,6 @@ def _bootstrap_global_fixer():
                         combo.setMinimumWidth(170)
                         view = combo.view()
                         if view:
-                            view.viewport().setProperty("is_workbench_view", True)
                             palette = view.palette()
                             palette.setColor(QtGui.QPalette.Base, QtCore.Qt.transparent)
                             palette.setColor(QtGui.QPalette.Window, QtCore.Qt.transparent)
@@ -175,11 +265,14 @@ def _bootstrap_global_fixer():
                             view.setAutoFillBackground(False)
                             viewport = view.viewport()
                             if viewport:
+                                viewport.setProperty(self.VIEW_PROPERTY, True)
                                 vp_palette = viewport.palette()
                                 vp_palette.setColor(QtGui.QPalette.Base, QtCore.Qt.transparent)
                                 vp_palette.setColor(QtGui.QPalette.Window, QtCore.Qt.transparent)
                                 viewport.setPalette(vp_palette)
                                 viewport.setAutoFillBackground(False)
+                                # app-wide filtre yerine sadece bu viewport'a kur
+                                self.attach_to_viewport(viewport)
 
                 if not combo:
                     return False
@@ -229,7 +322,6 @@ def _bootstrap_global_fixer():
                 painter.drawPixmap(0, 0, pix)
                 painter.end()
                 return True
-
 
             def _render_blueprint(self, painter, W, H, offset_x, offset_y, draw_gears, rounded,
                                    left_offset=0):
@@ -304,7 +396,6 @@ def _bootstrap_global_fixer():
 
 
         fixer = GlobalFreeCADFixer()
-        app.installEventFilter(fixer)
         app._globalFreeCADFixer = fixer
 
         def _fix():
@@ -325,8 +416,13 @@ def _bootstrap_global_fixer():
                 tb.layout().setSpacing(0)
                 tb.layout().setContentsMargins(0, 0, 0, 0)
 
+            fixer.attach_to_toolbar(tb)
+
             def _kick_repaint(remaining=30):
-                tb.update()
+                try:
+                    tb.update()
+                except RuntimeError:
+                    return
                 if remaining > 0:
                     QtCore.QTimer.singleShot(200, lambda: _kick_repaint(remaining - 1))
 
