@@ -279,7 +279,7 @@ Gui--OverlayTitleBar {
 }
 
 Gui--OverlayToolButton {
-  background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop: 0 rgba(250,250,250,0.15), stop: 0.7 rgba(250,250,250,0.15), stop: 1 rgba(0,0,0,0.2));
+  background-color: qlineargradient(x1:0, y1:0.3, x2:0, y2:1, stop:0 rgba(250,250,250,0.2), stop:1 rgba(0,0,0,0.1));
   border-width: 1px 1px 2px 1px;
   border-style: solid;
   border-top-color: rgba(250,250,250,0.4);
@@ -300,7 +300,7 @@ Gui--OverlayToolButton {
 
 Gui--OverlayToolButton:hover {
   background-color: @ThemeAccentColor1;
-  background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop: 0 @ColorPaletteHover, stop: 0.7 @ColorPaletteHover, stop: 1 @ColorPaletteHover2);
+  background-color: qlineargradient(x1:0, y1:0.3, x2:0, y2:1, stop:0 @ColorPaletteHover1, stop:1 @ColorPaletteHover2);
   image: url(qss:images_classic/close-white1.svg);
 }
 
@@ -1072,7 +1072,7 @@ QToolBar {
 
 QToolBar:top,
 QToolBar:bottom {
-  background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop: 0 rgba(250,250,250,0.1), stop: 0.8 rgba(250,250,250,0.1), stop: 1 rgba(0,0,0,0.2));
+  background-color: qlineargradient(x1:0, y1:0.3, x2:0, y2:1, stop:0 rgba(250,250,250,0.2), stop:1 rgba(0,0,0,0.1));
   border-width: 1px 1px 2px 1px;  
   border-style: solid;
   border-top-color: rgba(250,250,250,0.4);
@@ -1106,12 +1106,13 @@ QStatusBar QToolBar {
   border-radius: 0px;
 }
 
+QToolBar#Workbench,
 QMenuBar QToolBar#Workbench {
   background-color: transparent;
   border: none;
 }
 
-QToolBar#Workbench {
+QToolBar#Workbench[floating="true"] {
   background-color: @ThemeAccentColor2;
   border: none;
 }
@@ -1441,7 +1442,7 @@ QProgressBar::chunk:disabled {
 
 --------------------------------------------------------------------------- */
 QPushButton {
-  background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop: 0 rgba(250,250,250,0.15), stop: 0.7 rgba(250,250,250,0.15), stop: 1 rgba(0,0,0,0.2));
+  background-color: qlineargradient(x1:0, y1:0.3, x2:0, y2:1, stop:0 rgba(250,250,250,0.2), stop:1 rgba(0,0,0,0.1));
   color: #eeeeee;
   color: @ColorPaletteTextGeneralBottom;
   text-align: center;
@@ -1458,7 +1459,7 @@ QPushButton {
 }
 
 QPushButton:disabled {
-  background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop: 0 rgba(0,0,0,0.05), stop: 0.7 rgba(0,0,0,0.05), stop: 1 rgba(0,0,0,0.35));
+  background-color: qlineargradient(x1:0, y1:0.3, x2:0, y2:1, stop:0 rgba(250,250,250,0.1), stop:1 rgba(0,0,0,0.35));
   color: #bbbbbb;
   color: @ColorPaletteTextDisabled;
 }
@@ -1473,7 +1474,7 @@ QPushButton:checked:selected {
 
 QPushButton:hover,
 QPushButton:checked:hover {
-  background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop: 0 @ColorPaletteHover, stop: 0.8 @ColorPaletteHover, stop: 1 @ColorPaletteHover2); 
+  background-color: qlineargradient(x1:0, y1:0.3, x2:0, y2:1, stop:0 @ColorPaletteHover1, stop:1 @ColorPaletteHover2); 
   color: @ColorPaletteTextGeneralTop;
 }
 
@@ -1488,12 +1489,12 @@ QToolBar QPushButton {
 
 QToolBar QPushButton:hover {
   background-color: @ThemeAccentColor1;
-  background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop: 0 @ColorPaletteHover, stop: 0.8 @ColorPaletteHover, stop: 1 @ColorPaletteHover2);
+  background-color: qlineargradient(x1:0, y1:0.3, x2:0, y2:1, stop:0 @ColorPaletteHover1, stop:1 @ColorPaletteHover2);
   border: 1px solid transparent;
 }
 
 QStatusBar QPushButton {
-  background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop: 0 rgba(250,250,250,0.15), stop: 0.75 rgba(250,250,250,0.15), stop: 1 rgba(0,0,0,0.2));
+  background-color: qlineargradient(x1:0, y1:0.3, x2:0, y2:1, stop:0 rgba(250,250,250,0.2), stop:1 rgba(0,0,0,0.1));
   color: #eeeeee;
   color: @ColorPaletteTextGeneralBottom;
   border-width: 1px 1px 2px 1px;
@@ -1510,7 +1511,7 @@ QStatusBar QPushButton {
 }
 
 QStatusBar QToolBar QPushButton {
-  background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop: 0 rgba(250,250,250,0.15), stop: 0.75 rgba(250,250,250,0.15), stop: 1 rgba(0,0,0,0.2));
+  background-color: qlineargradient(x1:0, y1:0.3, x2:0, y2:1, stop:0 rgba(250,250,250,0.2), stop:1 rgba(0,0,0,0.1));
 }
 
 QTabWidget QDialog QPushButton {
@@ -1520,7 +1521,7 @@ QTabWidget QDialog QPushButton {
 
 QDockWidget QPushButton:disabled,
 QStatusBar QPushButton:disabled {
-  background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop: 0 rgba(0,0,0,0.1), stop: 0.75 rgba(0,0,0,0.1), stop: 1 rgba(0,0,0,0.35));
+  background-color: qlineargradient(x1:0, y1:0.3, x2:0, y2:1, stop:0 rgba(250,250,250,0.1), stop:1 rgba(0,0,0,0.35));
   color: #bbbbbb;
   color: @ColorPaletteTextDisabled;
 }
@@ -1585,7 +1586,7 @@ QDockWidget QPushButton:hover,
 QStatusBar QPushButton:hover,
 QStatusBar QToolBar QPushButton:hover {
   background-color: @ThemeAccentColor1;
-  background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop: 0 @ColorPaletteHover, stop: 0.75 @ColorPaletteHover, stop: 1 @ColorPaletteHover2);
+  background-color: qlineargradient(x1:0, y1:0.3, x2:0, y2:1, stop:0 @ColorPaletteHover1, stop:1 @ColorPaletteHover2);
   border-width: 1px 1px 2px 1px;
   border-style: solid;
   border-top-color: rgba(250,250,250,0.4);
@@ -1637,7 +1638,7 @@ QWidget#Dialog QPushButton:checked {
 
 QPushButton#propertyEditorToggleButton,
 QPushButton#gridToggleButton {
-  background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop: 0 rgba(250,250,250,0.15), stop: 0.65 rgba(250,250,250,0.15), stop: 1 @ColorPaletteOverlayitemEnd);
+  background-color: qlineargradient(x1:0, y1:0.3, x2:0, y2:1, stop:0 rgba(250,250,250,0.2), stop:1 rgba(0,0,0,0.1));
   color: @ColorPaletteTextGeneralBottom;
   text-align: center;
   padding: 2px 10px 4px 10px;
@@ -1647,7 +1648,7 @@ QPushButton#gridToggleButton {
 QPushButton#propertyEditorToggleButton:hover,
 QPushButton#gridToggleButton:hover {
   background-color: @ColorPaletteHover;
-  background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop: 0 @ColorPaletteHover, stop: 0.75 @ColorPaletteHover, stop: 1 @ColorPaletteHover2);
+  background-color: qlineargradient(x1:0, y1:0.3, x2:0, y2:1, stop:0 @ColorPaletteHover1, stop:1 @ColorPaletteHover2);
   border-width: 1px 1px 2px 1px;
   border-style: solid;
   border-top-color: rgba(250,250,250,0.4);
@@ -1746,7 +1747,7 @@ QToolBar QToolButton:disabled {
 
 QStatusBar QToolBar QToolButton,
 QStatusBar QToolButton {
-  background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop: 0 rgba(250,250,250,0.15), stop: 0.7 rgba(250,250,250,0.15), stop: 1 rgba(0,0,0,0.2));
+  background-color: qlineargradient(x1:0, y1:0.3, x2:0, y2:1, stop:0 rgba(250,250,250,0.2), stop:1 rgba(0,0,0,0.2));
   border-width: 1px 1px 2px 1px;  
   border-style: solid;
   border-top-color: rgba(250,250,250,0.4);
@@ -1780,7 +1781,7 @@ QToolBar QToolButton:checked:hover,
 QStatusBar QToolButton:hover,
 QStatusBar QToolButton:checked:hover {
   background-color: @ThemeAccentColor1;
-  background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop: 0 @ColorPaletteHover, stop: 0.8 @ColorPaletteHover, stop: 1 @ColorPaletteHover2);
+  background-color: qlineargradient(x1:0, y1:0.3, x2:0, y2:1, stop:0 @ColorPaletteHover1, stop:1 @ColorPaletteHover2);
   color: #ffffff;
 }
 
@@ -1790,14 +1791,14 @@ QToolBar QToolButton:checked,
 QStatusBar QToolButton:pressed,
 QStatusBar QToolButton:selected {
   background-color: @ThemeAccentColor1;
-  background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop: 0 @ThemeAccentColor1, stop: 0.8 @ThemeAccentColor1, stop: 1 @ColorPaletteHover2);
+  background-color: qlineargradient(x1:0, y1:0.3, x2:0, y2:1, stop:0 @ColorPaletteHover, stop:1 @ColorPaletteHover2);
   color: #ffffff;
 }
 
 QStatusBar QToolBar QToolButton:hover,
 #WbTabBar #WbTabBarMore:hover {
   background-color: @ThemeAccentColor1;
-  background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop: 0 @ColorPaletteHover, stop: 0.7 @ColorPaletteHover, stop: 1 @ColorPaletteHover2);
+  background-color: qlineargradient(x1:0, y1:0.3, x2:0, y2:1, stop:0 @ColorPaletteHover1, stop:1 @ColorPaletteHover2);
   color: #ffffff;
   border-width: 1px 1px 2px 1px;
   border-style: solid;
@@ -1870,7 +1871,7 @@ QToolButton#qt_toolbar_ext_button:on {
 }
 
 #WbTabBar #WbTabBarMore {      /* workbench tabbar menu buttton */
-  background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop: 0 rgba(250,250,250,0.15), stop: 0.7 rgba(250,250,250,0.15), stop: 1 rgba(0,0,0,0.2));
+  background-color: qlineargradient(x1:0, y1:0.3, x2:0, y2:1, stop:0 rgba(250,250,250,0.2), stop:1 rgba(0,0,0,0.2));
   border-width: 1px 1px 2px 1px;  
   border-style: solid;
   border-top-color: rgba(250,250,250,0.4);
@@ -1964,7 +1965,7 @@ QCommandLinkButton:disabled {
 Tasks panel (custom FreeCAD class)
 ==================================================================================================*/
 Gui--TaskView--TaskView#Tasks {
-  background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop: 0 rgba(250,250,250,0.1), stop: 0.98 rgba(250,250,250,0.1), stop: 1 rgba(0,0,0,0.2));
+  background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop: 0 rgba(250,250,250,0.1), stop: 0.965 rgba(250,250,250,0.1), stop: 1 rgba(0,0,0,0.2));
   margin: 0px 0px 0px 0px;
   padding: 0px 3px 10px 3px;
   border-radius: 10px;
@@ -1981,7 +1982,7 @@ QDockWidget#Tasks {
 }
 
 QDockWidget QGroupBox {
-  background-color: rgba(250,250,250,0.04);
+  background-color: rgba(250,250,250,0.08);
 }
 
 QDockWidget QPushButton {
@@ -2012,7 +2013,7 @@ QSint--ActionGroup QFrame[width="1"] {
 
 /* Panel header */
 QSint--ActionGroup QFrame[class="header"] {
-  background-color: rgba(0,0,0,0.15);
+  background-color: rgba(0,0,0,0.3);
   border: 1px solid rgba(0,0,0,0.1);
   border-radius: 6px;
   margin: 0px;
@@ -2064,7 +2065,7 @@ QSint--ActionGroup QFrame[class="header"] QLabel[fold="true"]:hover {
 }
 
 QSint--ActionGroup QFrame[class="content"] {
-  background-color: rgba(250,250,250,0.04);
+  background-color: rgba(0,0,0,0.1);
   border: 1px solid rgba(0,0,0,0.1);
   margin: 0px 0px 0px 0px;
   padding: 0px;
@@ -2117,7 +2118,7 @@ QFrame[class="panel"] QListView,
 QFrame[class="panel"] QListView,
 QFrame[class="panel"] QTableView,
 QFrame[class="panel"] QTreeView {
-  background-color: rgba(250,250,250,0.06);
+  background-color: rgba(250,250,250,0.1);
   border: 1px solid rgba(0,0,0,0.1);
   color: #ffff69;
   color: @ColorPaletteTextList;
@@ -2659,7 +2660,7 @@ QTabWidget::tab-bar {
 }
 
 QTabBar::tab {
-  background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop: 0 rgba(250,250,250,0.15), stop: 0.75 rgba(250,250,250,0.15), stop: 1 rgba(0,0,0,0.2));
+  background-color: qlineargradient(x1:0, y1:0.3, x2:0, y2:1, stop:0 rgba(250,250,250,0.2), stop:1 rgba(0,0,0,0.2));
   color: #eeeeee;
   color: @ColorPaletteTextGeneralTop;
   margin: 3px 0px 0px 2px;
@@ -2694,7 +2695,7 @@ QToolBar QTabBar::tab:bottom {
 }
 
 QToolBar QTabBar::tab:left {
-  background-color: qlineargradient(x1:0, y1:0, x2:1, y2:0, stop: 0 rgba(250,250,250,0.15), stop: 0.7 rgba(250,250,250,0.15), stop: 1 rgba(0,0,0,0.2));
+  background-color: qlineargradient(x1:0.3, y1:0, x2:1, y2:0, stop:0 rgba(250,250,250,0.1), stop:1 rgba(0,0,0,0.2));
   color: #eeeeee;
   color: @ColorPaletteTextGeneralBottom;
   border-width: 1px 2px 1px 1px;
@@ -2712,12 +2713,12 @@ QToolBar QTabBar::tab:left {
 
 QToolBar QTabBar::tab:left:hover {
   background-color: @ThemeAccentColor1;
-  background-color: qlineargradient(x1:0, y1:0, x2:1, y2:0, stop: 0 @ColorPaletteHover, stop: 0.7 @ColorPaletteHover, stop: 1 @ColorPaletteHover2);
+  background-color: qlineargradient(x1:0, y1:0.3, x2:0, y2:1, stop:0 @ColorPaletteHover1, stop:1 @ColorPaletteHover2);
   color: #ffffff;
 }
 
 QToolBar QTabBar::tab:right {
-  background-color: qlineargradient(x1:0, y1:0, x2:1, y2:0, stop: 0 rgba(0,0,0,0.2), stop: 0.3 rgba(250,250,250,0.15), stop: 1 rgba(250,250,250,0.15));
+  background-color: qlineargradient(x1:0, y1:0, x2:1, y2:0, stop:0 rgba(0,0,0,0.2), stop:0.7 rgba(250,250,250,0.1), stop:1 rgba(250,250,250,0.1));
   color: #eeeeee;
   color: @ColorPaletteTextGeneralBottom;
   border-width: 1px 1px 1px 2px;
@@ -2735,7 +2736,7 @@ QToolBar QTabBar::tab:right {
 
 QToolBar QTabBar::tab:right:hover {
   background-color: @ThemeAccentColor1;
-  background-color: qlineargradient(x1:0, y1:0, x2:1, y2:0, stop: 0 @ColorPaletteHover2, stop: 0.3 @ColorPaletteHover, stop: 1 @ColorPaletteHover);
+  background-color: qlineargradient(x1:0, y1:0, x2:1, y2:0, stop: 0 @ColorPaletteHover, stop: 0.7 @ColorPaletteHover1, stop: 1 @ColorPaletteHover1);
   color: #ffffff;
 }
 
@@ -2789,7 +2790,7 @@ QToolBar QTabBar::tab:hover,
 QMdiArea QTabBar::tab:hover,
 QTabWidget QTabBar::tab:hover {
   background-color: @ThemeAccentColor1;
-  background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop: 0 @ColorPaletteHover, stop: 0.75 @ColorPaletteHover, stop: 1 @ColorPaletteHover2);
+  background-color: qlineargradient(x1:0, y1:0.3, x2:0, y2:1, stop:0 @ColorPaletteHover1, stop:1 @ColorPaletteHover2);
   color: #ffffff;
 }
 
@@ -3874,7 +3875,7 @@ QToolBar Gui--WorkbenchComboBox:on {
 
 QMenuBar Gui--WorkbenchComboBox,
 QStatusBar Gui--WorkbenchComboBox {
-  background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop: 0 rgba(250,250,250,0.15), stop: 0.8 rgba(250,250,250,0.15), stop: 1 rgba(0,0,0,0.2));
+  background-color: qlineargradient(x1:0, y1:0.3, x2:0, y2:1, stop:0 rgba(250,250,250,0.15), stop:1 rgba(0,0,0,0.2));
   border-width: 1px 1px 2px 1px;  
   border-style: solid;
   border-top-color: rgba(250,250,250,0.4);
@@ -3892,7 +3893,7 @@ QStatusBar Gui--WorkbenchComboBox {
 QMenuBar Gui--WorkbenchComboBox:hover,
 QStatusBar Gui--WorkbenchComboBox:hover {
   background-color: @ThemeAccentColor1;
-  background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop: 0 @ColorPaletteHover, stop: 0.8 @ColorPaletteHover, stop: 1 @ColorPaletteHover2);
+  background-color: qlineargradient(x1:0, y1:0.3, x2:0, y2:1, stop:0 @ColorPaletteHover1, stop:1 @ColorPaletteHover2);
   border-width: 1px 1px 2px 1px;  
   border-style: solid;
   border-top-color: rgba(250,250,250,0.4);
@@ -4458,7 +4459,7 @@ QWidget#thumbnailWidget[state="pressed"] {
 }
 
 #CreateNewRow > QPushButton:hover {
-  background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop: 0 @ColorPaletteHover, stop: 0.8 @ColorPaletteHover, stop: 1 @ColorPaletteHover2); 
+  background-color: qlineargradient(x1:0, y1:0.3, x2:0, y2:1, stop:0 @ColorPaletteHover1, stop:1 @ColorPaletteHover2); 
   color: @ColorPaletteTextGeneralTop;
 }
 

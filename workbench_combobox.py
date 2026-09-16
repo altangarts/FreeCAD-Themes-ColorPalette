@@ -101,9 +101,6 @@ def _bootstrap_global_fixer():
                 self._toolbar_combo_miss_count = {}  # id(obj) -> denenme sayaci
                 self._view_pixmap_cache = {}      # id(obj) -> ((W,H), QPixmap)
 
-                # Filtre artik app-wide degil; sadece dogru toolbar ve
-                # combo viewport'una kuruluyor. Referanslari burada
-                # tutuyoruz ki eklenti yeniden yuklenince temizce sokebilelim.
                 self._filtered_toolbar = None
                 self._filtered_viewport = None
                 self._cached_main_window = None
@@ -335,20 +332,23 @@ def _bootstrap_global_fixer():
                 else:
                     rect = QtCore.QRectF(0, 0, W, H)
 
-                grad = QtGui.QLinearGradient(0, offset_y, 0, H)
-                grad.setColorAt(0.0, QtGui.QColor("#1d5eb4"))
-                grad.setColorAt(1.0, QtGui.QColor("#133d73"))
-                painter.fillRect(rect, grad)
+                if rounded:
+                    grad = QtGui.QLinearGradient(0, offset_y, 0, H)
+                    grad.setColorAt(0.0, QtGui.QColor("#1d5eb4"))
+                    grad.setColorAt(1.0, QtGui.QColor("#133d73"))
+                    painter.fillRect(rect, grad)
+                else:
+                    painter.fillRect(rect, QtGui.QColor("#133d73"))
 
                 thin_lines = []
                 thick_lines = []
                 for i, x in enumerate(range(15, W, 15)):
-                    target = thick_lines if (rounded and (i + 1) % 4 == 0) else thin_lines
+                    target = thick_lines if (i + 1) % 4 == 0 else thin_lines
                     target.append(QtCore.QLineF(x, offset_y, x, H))
 
                 start_y = 15 + offset_y if rounded else 15
                 for i, y in enumerate(range(start_y, H, 15)):
-                    target = thick_lines if (rounded and (i + 1) % 2 == 0) else thin_lines
+                    target = thick_lines if (i + 1) % 2 == 0 else thin_lines
                     target.append(QtCore.QLineF(0, y, W, y))
 
                 if thin_lines:
@@ -367,8 +367,12 @@ def _bootstrap_global_fixer():
                 painter.setClipping(False)
                 painter.setBrush(QtCore.Qt.NoBrush)
                 if rounded:
-                    painter.setPen(QtGui.QPen(QtGui.QColor(255, 255, 255, 100), 0.8))
+                    painter.setPen(QtGui.QPen(QtGui.QColor(250, 250, 250, 200), 1.0))
                     painter.drawRoundedRect(rect, 4, 4)
+
+                    inner_rect = rect.adjusted(1, 1, -1, -1)
+                    painter.setPen(QtGui.QPen(QtGui.QColor(24, 24, 24, 255), 2.0))
+                    painter.drawRoundedRect(inner_rect, 3, 3)
                 else:
                     painter.setPen(QtGui.QPen(QtGui.QColor(0, 0, 0, 50), 1.0))
                     painter.drawLine(QtCore.QLineF(0, 0, W - 1, 0))

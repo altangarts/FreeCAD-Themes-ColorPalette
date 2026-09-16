@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 <package format="1" xmlns="https://wiki.freecad.org/Package_Metadata">
  <name>ColorPalette Theme</name>
- <version>2.3.5</version>
- <date>2026.09.15</date>
+ <version>2.3.6</version>
+ <date>2026.09.16</date>
  <description>Choose your colors with the "ColorPalette" Theme and increase the focus on objects and texts(FreeCAD v1.1.0 ≥)</description>
  <maintainer email="">altangarts</maintainer>
  <license file="LICENSE">LGPL-2.1-or-later</license>
@@ -39,18 +39,6 @@
     <name>ColorPalette 2 B</name>
     <file>ColorPalette 2 B/ColorPalette 2 B.qss</file>
     <file>ColorPalette 2 B/overlay/ColorPalette 2 Overlay.qss</file>
-  </preferencepack>
-  <preferencepack>
-    <type>Theme</type>
-    <name>ColorPalette 3 A</name>
-    <file>ColorPalette 3 A/ColorPalette 3 A.qss</file>
-    <file>ColorPalette 3 A/overlay/ColorPalette 3 Overlay.qss</file>
-  </preferencepack>
-  <preferencepack>
-    <type>Theme</type>
-    <name>ColorPalette 3 B</name>
-    <file>ColorPalette 3 B/ColorPalette 3 B.qss</file>
-    <file>ColorPalette 3 B/overlay/ColorPalette 3 Overlay.qss</file>
   </preferencepack>
  </content>
 </package>

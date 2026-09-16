@@ -106,13 +106,13 @@ QTabWidget QDialog QTreeView::item:has-children:open {
 QTabWidget QTreeView::item:has-children:!has-siblings:open,
 QTabWidget QTreeView::item:has-children:open {
   background-color: rgba(0,0,0,0.15);
-  background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop: 0 @ColorPaletteOverlayHeader, stop: 0.85 @ColorPaletteOverlayHeader, stop: 0.9 #151515, stop: 1 #151515);
+  background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop: 0 @ColorPaletteOverlayHeader, stop: 0.85 @ColorPaletteOverlayHeader, stop: 0.9 #151515, stop: 1 #101010);
   margin-top: 1px;
 }
 
 QTabWidget QTreeView::item:has-children:!has-siblings:open:hover,
 QTabWidget QTreeView::item:has-children:open:hover {
-  background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop: 0 @ColorPaletteHover, stop: 0.85 @ColorPaletteHover, stop: 0.9 #151515, stop: 1 #151515);
+  background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop: 0 @ColorPaletteHover, stop: 0.85 @ColorPaletteHover, stop: 0.9 #151515, stop: 1 #101010);
   color: #ffffff;
 }
 
