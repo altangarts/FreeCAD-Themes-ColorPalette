@@ -73,14 +73,12 @@ ColorPalette Themes, makes the interface and workspaces more user-focused. It si
 
    
  
-#### ✅ Font Colors,
-   1. Edit ➡ Preference ➡ Display ➡ UI ➡ Open Theme Editor ➡ User Parameters
+#### ✅ Font Colors and ready-made theme color combinations
+   1. Edit ➡ Preference ➡ Display ➡ ColorPalette ➡ Theme Colors
 
----(If these variables are not visible, install using the "Theme Selection 1" directive)---
+<img width="1585" height="1624" alt="Ekran görüntüsü 2026-09-17 221047" src="https://github.com/user-attachments/assets/b64e9f43-db24-445f-a8bf-c1b34d5372fc" />
 
-   - "ColorPaletteText..." 
   
-
 ⤵️     
 ![Ekran görüntüsü 2026-01-29 190924](https://github.com/user-attachments/assets/59c464fa-9a18-46e5-9def-f57ae3d343b2)
 
