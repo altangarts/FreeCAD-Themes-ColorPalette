@@ -17,7 +17,7 @@ _THEME_PRESETS = [
     ("Middle-Gray",        "#AA5500", "#414140", "#414140"),
     ("Dark-Gray",          "#55007F", "#212120", "#212120"),
     ("Dark Pale-Green",    "#AA5500", "#2d3234", "#2d3234"),
-    ("Dark-Turkuaz",       "#AA5500", "#172028", "#172028"),
+    ("Darker Pale-Blue",   "#AA5500", "#172028", "#172028"),
     ("FreeCAD Gradyan",    "#00557F", "#2C2C57", "#777788"),
     ("Sand Gradyan",       "#500000", "#3C3328", "#7D6F4F"),
     ("Soft-Green Gradyan", "#AA5500", "#253a3c", "#777775"),
