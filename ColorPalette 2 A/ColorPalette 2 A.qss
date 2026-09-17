@@ -1086,7 +1086,7 @@ QToolBar:bottom {
 
 QToolBar:left,
 QToolBar:right {
-  background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop: 0 rgba(250,250,250,0.1), stop: 0.985 rgba(250,250,250,0.1), stop: 1 rgba(0,0,0,0.2));
+  background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop: 0 rgba(250,250,250,0.1), stop: 0.97 rgba(250,250,250,0.1), stop: 1 rgba(0,0,0,0.2));
   border-width: 1px 1px 2px 1px;  
   border-style: solid;
   border-top-color: rgba(250,250,250,0.4);
@@ -3218,7 +3218,8 @@ QTabWidget QTreeView::indicator:unchecked:disabled {
 
 QDockWidget QTreeView,
 Gui--TreePanel QTreeView,
-QDockWidget QTabWidget QTreeView {
+QDockWidget QTabWidget QTreeView,
+QDockWidget > QDialog {
   background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop: 0 rgba(250,250,250,0.1), stop: 0.965 rgba(250,250,250,0.1), stop: 1 rgba(0,0,0,0.2));
   margin: 0px 0px 0px 0px;
   padding: 4px 3px 10px 4px;

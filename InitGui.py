@@ -1,13 +1,6 @@
 import os
 import FreeCAD
 
-
-def _is_colorpalette_theme_active():
-    param = FreeCAD.ParamGet("User parameter:BaseApp/Preferences/MainWindow")
-    current_theme = param.GetString("StyleSheet", "").lower()
-    return "colorpalette" in current_theme or "color-palette" in current_theme
-
-
 def _load_module(mod_dir, module_name, file_name, error_label):
     import importlib.util
     try:
@@ -21,10 +14,18 @@ def _load_module(mod_dir, module_name, file_name, error_label):
         FreeCAD.Console.PrintError(f"ColorPalette: {error_label} yuklenemedi - {str(e)}\n")
         return None
 
+_mod_dir = os.path.join(FreeCAD.getUserAppDataDir(), "Mod", "Color-Palette-Theme")
+
+# Tercihler sayfasının her koşulda (tema aktif olmasa bile) menüde görünmesi için önce yüklenir:
+_load_module(_mod_dir, "colorpalette_theme_presets", "colorpalette_theme_presets.py", "colorpalette_theme_presets")
+
+# Tema aktifse diğer görsel düzeltme modüllerini yükle
+def _is_colorpalette_theme_active():
+    param = FreeCAD.ParamGet("User parameter:BaseApp/Preferences/MainWindow")
+    current_theme = param.GetString("StyleSheet", "").lower()
+    return "colorpalette" in current_theme or "color-palette" in current_theme
 
 if _is_colorpalette_theme_active():
-    _mod_dir = os.path.join(FreeCAD.getUserAppDataDir(), "Mod", "Color-Palette-Theme")
-
     _load_module(_mod_dir, "color_palette_theme_sync", "viewport_color_sync.py", "viewport_color_sync")
     _load_module(_mod_dir, "color_palette_dynamic_editor", "dynamic_property_editor.py", "dynamic_property_editor")
     _load_module(_mod_dir, "colorpalette_grid", "colorpalette_grid.py", "colorpalette_grid")
@@ -195,6 +196,5 @@ if _is_colorpalette_theme_active():
 
     except Exception as e:
         FreeCAD.Console.PrintError(f"ColorPalette: DialogAndTaskTreeFixer kurulamadi - {str(e)}\n")
-
 else:
-    FreeCAD.Console.PrintMessage("ColorPalette temasi aktif degil, eklenti modulleri baslatilmadi.\n")
+    FreeCAD.Console.PrintMessage("ColorPalette temasi aktif degil, sadece preset tercihler sayfasi yüklendi.\n")

@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>DlgSettingsColorPaletteTheme</class>
+ <widget class="QWidget" name="DlgSettingsColorPaletteTheme">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>620</width>
+    <height>520</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Theme Colors</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <item>
+    <widget class="QGroupBox" name="groupBox_themePresets">
+     <property name="title">
+      <string>Theme Colors</string>
+     </property>
+     <layout class="QGridLayout" name="gridLayout">
+      <!-- Header Labels -->
+      <item row="0" column="1" colspan="2">
+       <widget class="QLabel" name="label_header_c1">
+        <property name="font">
+         <font>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="text">
+         <string>Accent color 1</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="3" colspan="2">
+       <widget class="QLabel" name="label_header_c2">
+        <property name="font">
+         <font>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="text">
+         <string>Accent color 2</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="5" colspan="2">
+       <widget class="QLabel" name="label_header_c3">
+        <property name="font">
+         <font>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="text">
+         <string>Accent color 3</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+
+      <!-- Row 00 -->
+      <item row="1" column="0"><widget class="QRadioButton" name="radioButton_00"/></item>
+      <item row="1" column="1"><widget class="QLabel" name="label_r00_c1"/></item>
+      <item row="1" column="2"><widget class="QLabel" name="label_r00_t1"/></item>
+      <item row="1" column="3"><widget class="QLabel" name="label_r00_c2"/></item>
+      <item row="1" column="4"><widget class="QLabel" name="label_r00_t2"/></item>
+      <item row="1" column="5"><widget class="QLabel" name="label_r00_c3"/></item>
+      <item row="1" column="6"><widget class="QLabel" name="label_r00_t3"/></item>
+
+      <!-- Row 01 -->
+      <item row="2" column="0"><widget class="QRadioButton" name="radioButton_01"/></item>
+      <item row="2" column="1"><widget class="QLabel" name="label_r01_c1"/></item>
+      <item row="2" column="2"><widget class="QLabel" name="label_r01_t1"/></item>
+      <item row="2" column="3"><widget class="QLabel" name="label_r01_c2"/></item>
+      <item row="2" column="4"><widget class="QLabel" name="label_r01_t2"/></item>
+      <item row="2" column="5"><widget class="QLabel" name="label_r01_c3"/></item>
+      <item row="2" column="6"><widget class="QLabel" name="label_r01_t3"/></item>
+
+      <!-- Row 02 -->
+      <item row="3" column="0"><widget class="QRadioButton" name="radioButton_02"/></item>
+      <item row="3" column="1"><widget class="QLabel" name="label_r02_c1"/></item>
+      <item row="3" column="2"><widget class="QLabel" name="label_r02_t1"/></item>
+      <item row="3" column="3"><widget class="QLabel" name="label_r02_c2"/></item>
+      <item row="3" column="4"><widget class="QLabel" name="label_r02_t2"/></item>
+      <item row="3" column="5"><widget class="QLabel" name="label_r02_c3"/></item>
+      <item row="3" column="6"><widget class="QLabel" name="label_r02_t3"/></item>
+
+      <!-- Row 03 -->
+      <item row="4" column="0"><widget class="QRadioButton" name="radioButton_03"/></item>
+      <item row="4" column="1"><widget class="QLabel" name="label_r03_c1"/></item>
+      <item row="4" column="2"><widget class="QLabel" name="label_r03_t1"/></item>
+      <item row="4" column="3"><widget class="QLabel" name="label_r03_c2"/></item>
+      <item row="4" column="4"><widget class="QLabel" name="label_r03_t2"/></item>
+      <item row="4" column="5"><widget class="QLabel" name="label_r03_c3"/></item>
+      <item row="4" column="6"><widget class="QLabel" name="label_r03_t3"/></item>
+
+      <!-- Row 04 -->
+      <item row="5" column="0"><widget class="QRadioButton" name="radioButton_04"/></item>
+      <item row="5" column="1"><widget class="QLabel" name="label_r04_c1"/></item>
+      <item row="5" column="2"><widget class="QLabel" name="label_r04_t1"/></item>
+      <item row="5" column="3"><widget class="QLabel" name="label_r04_c2"/></item>
+      <item row="5" column="4"><widget class="QLabel" name="label_r04_t2"/></item>
+      <item row="5" column="5"><widget class="QLabel" name="label_r04_c3"/></item>
+      <item row="5" column="6"><widget class="QLabel" name="label_r04_t3"/></item>
+
+      <!-- Row 05 -->
+      <item row="6" column="0"><widget class="QRadioButton" name="radioButton_05"/></item>
+      <item row="6" column="1"><widget class="QLabel" name="label_r05_c1"/></item>
+      <item row="6" column="2"><widget class="QLabel" name="label_r05_t1"/></item>
+      <item row="6" column="3"><widget class="QLabel" name="label_r05_c2"/></item>
+      <item row="6" column="4"><widget class="QLabel" name="label_r05_t2"/></item>
+      <item row="6" column="5"><widget class="QLabel" name="label_r05_c3"/></item>
+      <item row="6" column="6"><widget class="QLabel" name="label_r05_t3"/></item>
+
+      <!-- Row 06 -->
+      <item row="7" column="0"><widget class="QRadioButton" name="radioButton_06"/></item>
+      <item row="7" column="1"><widget class="QLabel" name="label_r06_c1"/></item>
+      <item row="7" column="2"><widget class="QLabel" name="label_r06_t1"/></item>
+      <item row="7" column="3"><widget class="QLabel" name="label_r06_c2"/></item>
+      <item row="7" column="4"><widget class="QLabel" name="label_r06_t2"/></item>
+      <item row="7" column="5"><widget class="QLabel" name="label_r06_c3"/></item>
+      <item row="7" column="6"><widget class="QLabel" name="label_r06_t3"/></item>
+
+      <!-- Row 07 -->
+      <item row="8" column="0"><widget class="QRadioButton" name="radioButton_07"/></item>
+      <item row="8" column="1"><widget class="QLabel" name="label_r07_c1"/></item>
+      <item row="8" column="2"><widget class="QLabel" name="label_r07_t1"/></item>
+      <item row="8" column="3"><widget class="QLabel" name="label_r07_c2"/></item>
+      <item row="8" column="4"><widget class="QLabel" name="label_r07_t2"/></item>
+      <item row="8" column="5"><widget class="QLabel" name="label_r07_c3"/></item>
+      <item row="8" column="6"><widget class="QLabel" name="label_r07_t3"/></item>
+
+      <!-- Row 08 -->
+      <item row="9" column="0"><widget class="QRadioButton" name="radioButton_08"/></item>
+      <item row="9" column="1"><widget class="QLabel" name="label_r08_c1"/></item>
+      <item row="9" column="2"><widget class="QLabel" name="label_r08_t1"/></item>
+      <item row="9" column="3"><widget class="QLabel" name="label_r08_c2"/></item>
+      <item row="9" column="4"><widget class="QLabel" name="label_r08_t2"/></item>
+      <item row="9" column="5"><widget class="QLabel" name="label_r08_c3"/></item>
+      <item row="9" column="6"><widget class="QLabel" name="label_r08_t3"/></item>
+
+      <!-- Row 09 -->
+      <item row="10" column="0"><widget class="QRadioButton" name="radioButton_09"/></item>
+      <item row="10" column="1"><widget class="QLabel" name="label_r09_c1"/></item>
+      <item row="10" column="2"><widget class="QLabel" name="label_r09_t1"/></item>
+      <item row="10" column="3"><widget class="QLabel" name="label_r09_c2"/></item>
+      <item row="10" column="4"><widget class="QLabel" name="label_r09_t2"/></item>
+      <item row="10" column="5"><widget class="QLabel" name="label_r09_c3"/></item>
+      <item row="10" column="6"><widget class="QLabel" name="label_r09_t3"/></item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <spacer name="verticalSpacer">
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>20</width>
+       <height>20</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
