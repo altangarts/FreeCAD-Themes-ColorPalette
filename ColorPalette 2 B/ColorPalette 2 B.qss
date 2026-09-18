@@ -982,7 +982,7 @@ Python
 --------------------------------------------------------------------------- */
 QPlainTextEdit,
 QTabWidget QDialog QPlainTextEdit,
-QSint--ActionGroup QDialog QTextEdit {
+QFrame[class="panel"] QDialog QTextEdit {
   background-color: rgba(250,250,250,0.05);
   border: 1px solid rgba(0,0,0,0.15);
   color: #eeeeee;
@@ -1001,8 +1001,8 @@ QPlainTextEdit:hover,
 QPlainTextEdit:focus,
 QTabWidget QDialog QPlainTextEdit:hover,
 QTabWidget QDialog QPlainTextEdit:focus,
-QSint--ActionGroup QDialog QTextEdit:hover,
-QSint--ActionGroup QDialog QTextEdit:focus {
+QFrame[class="panel"] QDialog QTextEdit:hover,
+QFrame[class="panel"] QDialog QTextEdit:focus {
   background-color: rgba(250,250,250,0.05);
   border: 1px solid @ThemeAccentColor1;
   color: #ffffff;
@@ -2503,9 +2503,10 @@ QDockWidget QTabWidget QLineEdit:focus {
 }
 
 QLineEdit,
+QDialog QLineEdit,
 QWidget QLineEdit,
 QTabWidget QDialog QLineEdit,
-QSint--ActionGroup QDialog QLineEdit {
+QFrame[class="panel"] QLineEdit {
   background-color: rgba(250,250,250,0.05);
   border: 1px solid rgba(0,0,0,0.15);
   color: #eeeeee;
@@ -2515,13 +2516,13 @@ QSint--ActionGroup QDialog QLineEdit {
   min-height: 18px;
 }
 
-QDialog QGroupBox QLineEdit,
-QSint--ActionGroup QLineEdit {
+QDialog QLineEdit,
+QFrame[class="panel"] QLineEdit {
   color: #ffff69;
   color: @ColorPaletteTextSpinBox;
 }
 
-QDialog QColorDialog QLineEdit {
+QColorDialog QLineEdit {
   color: #eeeeee;
   color: @ColorPaletteTextGeneralTop;
 }
@@ -2533,8 +2534,8 @@ QLineEdit:disabled {
 }
 
 QLineEdit:hover,
-QDialog QGroupBox QLineEdit:hover,
-QSint--ActionGroup QLineEdit:hover {
+QDialog QLineEdit:hover,
+QFrame[class="panel"] QLineEdit:hover {
   background-color: @ThemeAccentColor1;
   background-color: @ColorPaletteHover;
   color: #ffffff;
@@ -2551,17 +2552,13 @@ QLineEdit:focus {
 
 QTableView QLineEdit:focus,
 QTableView QLineEdit:selected,
+QTreeView QLineEdit:focus,
 QDialog QLineEdit:focus,
 QDialog QLineEdit:selected,
 QTabWidget QDialog QLineEdit:focus,
 QTabWidget QDialog QLineEdit:selected,
-QTreeView QLineEdit:focus,
-QDialog QGroupBox QLineEdit:focus,
-QDialog QGroupBox QLineEdit:selected,
-QSint--ActionGroup QLineEdit:focus,
-QSint--ActionGroup QLineEdit:selected,
-QSint--ActionGroup QDialog QLineEdit:focus,
-QSint--ActionGroup QDialog QLineEdit:selected {
+QFrame[class="panel"] QLineEdit:focus,
+QFrame[class="panel"] QLineEdit:selected {
   background-color: @ThemeAccentColor1;
   color: #ffffff;
   border-radius: 6px;
@@ -2572,7 +2569,7 @@ QLineEdit QToolButton {
   padding: -5px;
 }
 
-QSint--ActionGroup QLineEdit QToolButton {
+QFrame[class="panel"] QLineEdit QToolButton {
   padding: -15px -15px 0px -15px;
 }
 
@@ -2723,7 +2720,7 @@ QMdiArea QTabBar::tab {
 }
 
 QDialog QTabBar::tab,
-QSint--ActionGroup QTabBar::tab {
+QFrame[class="panel"] QTabBar::tab {
   background-color: rgba(250,250,250,0.15);
   color: #eeeeee;
   color: @ColorPaletteTextGeneralTop;
@@ -2735,9 +2732,13 @@ QSint--ActionGroup QTabBar::tab {
 }
 
 QDialog QGroupBox QTabBar::tab,
-QSint--ActionGroup QTabBar::tab {
+QFrame[class="panel"] QTabBar::tab {
   color: #eeeeee;
   color: @ColorPaletteTextGeneralBottom;
+}
+
+QFrame[class="panel"] QTabBar::tab:hover {
+  background-color: @ColorPaletteHover;
 }
 
 QTabBar::tab:selected,
@@ -3436,7 +3437,7 @@ QDockWidget QListView {
 }
 
 QDialog QWidget QListView,
-QSint--ActionGroup QDialog QTreeView {
+QFrame[class="panel"] QDialog QTreeView {
   background-color: rgba(250,250,250,0.05);
   color: #eeeeee;
   color: @ColorPaletteTextGeneralTop;
