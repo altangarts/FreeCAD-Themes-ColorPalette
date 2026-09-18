@@ -2680,7 +2680,8 @@ QMdiArea QTabBar::tab {
   padding: 2px 3px 2px 3px;
 }
 
-QDialog QTabBar::tab {
+QDialog QTabBar::tab,
+QSint--ActionGroup QTabBar::tab {
   background-color: rgba(250,250,250,0.15);
   color: #eeeeee;
   color: @ColorPaletteTextGeneralTop;
@@ -2691,7 +2692,8 @@ QDialog QTabBar::tab {
   border-radius: 4px;
 }
 
-QDialog QGroupBox QTabBar::tab {
+QDialog QGroupBox QTabBar::tab,
+QSint--ActionGroup QTabBar::tab {
   color: #eeeeee;
   color: @ColorPaletteTextGeneralBottom;
 }
