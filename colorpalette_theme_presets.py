@@ -112,7 +112,7 @@ def _update_swatch_appearance(swatch, swatch_hex):
     )
     swatch.setToolTip("Click to select color")
 
-def _apply_font_color(key, hex_value):
+def _apply_font_color_param(key, hex_value):
     normalized = _normalize_hex(hex_value)
     _get_font_params_group().SetString(key, normalized)
     return normalized
@@ -174,7 +174,7 @@ def _refresh_open_theme_editor():
         if apply_btn:
             apply_btn.click()
 
-def _apply_selected_theme_preset(selected_idx):
+def _apply_selected_theme_preset_params(selected_idx):
     if 0 <= selected_idx < len(_THEME_PRESETS):
         name, c1_hex, c2_hex, c3_hex = _THEME_PRESETS[selected_idx]
         
@@ -195,8 +195,6 @@ def _apply_selected_theme_preset(selected_idx):
         p_theme.SetUnsigned("ThemeAccentColor1", c1_val)
         p_theme.SetUnsigned("ThemeAccentColor2", c2_val)
         p_theme.SetUnsigned("ThemeAccentColor3", c3_val)
-
-        _force_reload_stylesheet()
 
 def _build_font_colors_group(widget):
     if widget.findChild(QtWidgets.QGroupBox, "groupBox_fontColors") is not None:
@@ -249,8 +247,7 @@ def _build_font_colors_group(widget):
                     if chosen.isValid():
                         hex_val = chosen.name().upper()
                         sw.setProperty("hex_value", hex_val)
-                        normalized = _apply_font_color(k, hex_val)
-                        _update_swatch_appearance(sw, normalized)
+                        _update_swatch_appearance(sw, hex_val)
                         if hasattr(widget, "_cpUncheckPresets"):
                             widget._cpUncheckPresets()
             return _open_dialog
@@ -284,8 +281,7 @@ def _build_font_colors_group(widget):
                     target_hex = def_hex
                     
                 sw.setProperty("hex_value", target_hex)
-                normalized = _apply_font_color(k, target_hex)
-                _update_swatch_appearance(sw, normalized)
+                _update_swatch_appearance(sw, target_hex)
             
             if hasattr(widget, "_cpUncheckPresets"):
                 widget._cpUncheckPresets()
@@ -316,203 +312,191 @@ def _build_font_colors_group(widget):
         except Exception:
             pass
 
-def _bootstrap_dialog_hook():
-    def _init_dialog(widget):
-        widget._cpPendingChange = False
+def _has_user_made_changes(widget):
+    current_preset = -1
+    for i in range(len(_THEME_PRESETS)):
+        idx_str = f"{i:02d}"
+        rb = widget.findChild(QtWidgets.QRadioButton, f"radioButton_{idx_str}")
+        if rb and rb.isChecked():
+            current_preset = i
+            break
+    
+    if current_preset != getattr(widget, "_initial_preset", -1):
+        return True
 
-        p_theme = FreeCAD.ParamGet(_THEME_PARAM_PATH)
-        c1_curr = _int_to_rgb(p_theme.GetUnsigned("ThemeAccentColor1", 0))
-        c2_curr = _int_to_rgb(p_theme.GetUnsigned("ThemeAccentColor2", 0))
-        c3_curr = _int_to_rgb(p_theme.GetUnsigned("ThemeAccentColor3", 0))
+    initial_fonts = getattr(widget, "_initial_fonts", {})
+    for key, label, default_hex in _FONT_COLOR_PARAMS:
+        swatch = widget.findChild(QtWidgets.QLabel, f"swatch_{key}")
+        if swatch:
+            current_hex = _normalize_hex(swatch.property("hex_value"))
+            if current_hex != initial_fonts.get(key, ""):
+                return True
 
-        matched_idx = -1
-        for i, (name, c1_hex, c2_hex, c3_hex) in enumerate(_THEME_PRESETS):
-            if (_hex_to_rgb(c1_hex) == c1_curr and 
-                _hex_to_rgb(c2_hex) == c2_curr and 
-                _hex_to_rgb(c3_hex) == c3_curr):
-                matched_idx = i
-                break
+    return False
 
-        def swatch_css(hex_val):
-            return f"background-color: {hex_val}; border: 1px solid #555; border-radius: 3px;"
+def _init_dialog(widget):
+    if getattr(widget, "_cpInitialized", False):
+        return
+    widget._cpInitialized = True
+    widget._internal_updating = True
 
-        btn_group = widget.findChild(QtWidgets.QButtonGroup, "cpPresetButtonGroup")
-        if not btn_group:
-            btn_group = QtWidgets.QButtonGroup(widget)
-            btn_group.setObjectName("cpPresetButtonGroup")
+    p_theme = FreeCAD.ParamGet(_THEME_PARAM_PATH)
+    c1_curr = _int_to_rgb(p_theme.GetUnsigned("ThemeAccentColor1", 0))
+    c2_curr = _int_to_rgb(p_theme.GetUnsigned("ThemeAccentColor2", 0))
+    c3_curr = _int_to_rgb(p_theme.GetUnsigned("ThemeAccentColor3", 0))
 
-        btn_group.setExclusive(False)
+    matched_idx = -1
+    for i, (name, c1_hex, c2_hex, c3_hex) in enumerate(_THEME_PRESETS):
+        if (_hex_to_rgb(c1_hex) == c1_curr and 
+            _hex_to_rgb(c2_hex) == c2_curr and 
+            _hex_to_rgb(c3_hex) == c3_curr):
+            matched_idx = i
+            break
 
-        for i, (name, c1, c2, c3) in enumerate(_THEME_PRESETS):
-            idx_str = f"{i:02d}"
-            rb = widget.findChild(QtWidgets.QRadioButton, f"radioButton_{idx_str}")
-            if rb:
-                if btn_group.id(rb) == -1:
-                    btn_group.addButton(rb, i)
-                rb.setText(name)
-                rb.setFixedWidth(240)
-                rb.setChecked(i == matched_idx)
-                if not getattr(rb, "_cpDirtyHooked", False):
-                    rb._cpDirtyHooked = True
-                    rb.clicked.connect(lambda checked=False, w=widget: setattr(w, "_cpPendingChange", True))
+    def swatch_css(hex_val):
+        return f"background-color: {hex_val}; border: 1px solid #555; border-radius: 3px;"
 
-            colors = [c1, c2, c3]
-            for c_idx, hex_code in enumerate(colors, start=1):
-                lbl_box = widget.findChild(QtWidgets.QLabel, f"label_r{idx_str}_c{c_idx}")
-                if lbl_box:
-                    lbl_box.setStyleSheet(swatch_css(hex_code))
-                    lbl_box.setFixedSize(24, 16)
-                    lbl_box.setText("")
-                
-                lbl_txt = widget.findChild(QtWidgets.QLabel, f"label_r{idx_str}_t{c_idx}")
-                if lbl_txt:
-                    lbl_txt.setText(hex_code)
-                    lbl_txt.setStyleSheet("color: #ccc; font-family: monospace; font-size: 11px;")
-
-        btn_group.setExclusive(True)
-
-        def _uncheck_presets_on_custom_change():
-            if getattr(widget, "_internal_updating", False):
-                return
-            widget._cpPendingChange = True
-            btn_group.setExclusive(False)
-            for i in range(len(_THEME_PRESETS)):
-                rb = widget.findChild(QtWidgets.QRadioButton, f"radioButton_{i:02d}")
-                if rb:
-                    rb.setChecked(False)
-            btn_group.setExclusive(True)
-            p = FreeCAD.ParamGet(_PARAM_PATH)
-            p.SetInt("SelectedPreset", -1)
-
-        widget._cpUncheckPresets = _uncheck_presets_on_custom_change
-
-        for child in widget.findChildren(QtWidgets.QWidget):
-            if getattr(child, "_cpSignalHooked", False):
-                continue
+    for i, (name, c1, c2, c3) in enumerate(_THEME_PRESETS):
+        idx_str = f"{i:02d}"
+        rb = widget.findChild(QtWidgets.QRadioButton, f"radioButton_{idx_str}")
+        if rb:
+            rb.setText(name)
+            rb.setFixedWidth(240)
             
-            child_name = child.objectName()
-            if child_name.startswith("radioButton_") or child_name.startswith("swatch_"):
-                continue
+            rb.blockSignals(True)
+            rb.setChecked(i == matched_idx)
+            rb.blockSignals(False)
 
-            child._cpSignalHooked = True
-            for sig_name in ("colorChanged", "changed", "colorPicked", "textEdited", "valueChanged"):
-                if hasattr(child, sig_name):
-                    try:
-                        getattr(child, sig_name).connect(lambda *a: _uncheck_presets_on_custom_change())
-                    except Exception:
-                        pass
+        colors = [c1, c2, c3]
+        for c_idx, hex_code in enumerate(colors, start=1):
+            lbl_box = widget.findChild(QtWidgets.QLabel, f"label_r{idx_str}_c{c_idx}")
+            if lbl_box:
+                lbl_box.setStyleSheet(swatch_css(hex_code))
+                lbl_box.setFixedSize(24, 16)
+                lbl_box.setText("")
             
-            if isinstance(child, (QtWidgets.QPushButton, QtWidgets.QToolButton)) and not isinstance(child, QtWidgets.QRadioButton):
-                try:
-                    child.clicked.connect(lambda *a: _uncheck_presets_on_custom_change())
-                except Exception:
-                    pass
+            lbl_txt = widget.findChild(QtWidgets.QLabel, f"label_r{idx_str}_t{c_idx}")
+            if lbl_txt:
+                lbl_txt.setText(hex_code)
+                lbl_txt.setStyleSheet("color: #ccc; font-family: monospace; font-size: 11px;")
 
-    def _save_dialog(widget):
-        for key, label, default_hex in _FONT_COLOR_PARAMS:
-            swatch = widget.findChild(QtWidgets.QLabel, f"swatch_{key}")
-            if swatch:
-                text_val = swatch.property("hex_value")
-                if text_val:
-                    _apply_font_color(key, text_val)
-
-        any_checked = False
+    def _uncheck_presets_on_custom_change():
+        if getattr(widget, "_internal_updating", False):
+            return
         for i in range(len(_THEME_PRESETS)):
-            idx_str = f"{i:02d}"
-            rb = widget.findChild(QtWidgets.QRadioButton, f"radioButton_{idx_str}")
-            if rb and rb.isChecked():
-                widget._internal_updating = True
-                _apply_selected_theme_preset(i)
-                widget._internal_updating = False
-                any_checked = True
-                break
+            rb = widget.findChild(QtWidgets.QRadioButton, f"radioButton_{i:02d}")
+            if rb:
+                rb.blockSignals(True)
+                rb.setChecked(False)
+                rb.blockSignals(False)
+        p = FreeCAD.ParamGet(_PARAM_PATH)
+        p.SetInt("SelectedPreset", -1)
+
+    widget._cpUncheckPresets = _uncheck_presets_on_custom_change
+
+    widget._initial_preset = matched_idx
+    grp = _get_font_params_group()
+    widget._initial_fonts = {}
+    for key, label, default_hex in _FONT_COLOR_PARAMS:
+        widget._initial_fonts[key] = _normalize_hex(grp.GetString(key, default_hex))
+
+    widget._internal_updating = False
+
+def _save_dialog(widget):
+    if not _has_user_made_changes(widget):
+        return
+
+    for key, label, default_hex in _FONT_COLOR_PARAMS:
+        swatch = widget.findChild(QtWidgets.QLabel, f"swatch_{key}")
+        if swatch:
+            text_val = swatch.property("hex_value")
+            if text_val:
+                _apply_font_color_param(key, text_val)
+
+    current_preset = -1
+    for i in range(len(_THEME_PRESETS)):
+        idx_str = f"{i:02d}"
+        rb = widget.findChild(QtWidgets.QRadioButton, f"radioButton_{idx_str}")
+        if rb and rb.isChecked():
+            current_preset = i
+            break
+    
+    if current_preset != -1:
+        _apply_selected_theme_preset_params(current_preset)
+    else:
+        p = FreeCAD.ParamGet(_PARAM_PATH)
+        p.SetInt("SelectedPreset", -1)
+
+    _force_reload_stylesheet()
+    _refresh_open_theme_editor()
+
+    widget._initial_preset = current_preset
+    widget._initial_fonts = {}
+    for key, label, default_hex in _FONT_COLOR_PARAMS:
+        swatch = widget.findChild(QtWidgets.QLabel, f"swatch_{key}")
+        if swatch:
+            widget._initial_fonts[key] = _normalize_hex(swatch.property("hex_value"))
+
+def _hook_widget(widget):
+    try:
+        if widget.findChild(QtWidgets.QGroupBox, "groupBox_themePresets") is None:
+            return
+
+        _init_dialog(widget)
+        _build_font_colors_group(widget)
+
+        button_box = None
+        p = widget.parentWidget()
+        while p:
+            if isinstance(p, QtWidgets.QDialog):
+                button_box = p.findChild(QtWidgets.QDialogButtonBox)
+                if button_box:
+                    break
+            p = p.parentWidget()
         
-        if not any_checked:
-            p = FreeCAD.ParamGet(_PARAM_PATH)
-            p.SetInt("SelectedPreset", -1)
-            _force_reload_stylesheet()
+        if not button_box:
+            app = QtWidgets.QApplication.instance()
+            if app:
+                for top in app.topLevelWidgets():
+                    if isinstance(top, QtWidgets.QDialog):
+                        box = top.findChild(QtWidgets.QDialogButtonBox)
+                        if box and top.isAncestorOf(widget):
+                            button_box = box
+                            break
 
-        _refresh_open_theme_editor()
-        widget._cpPendingChange = False
+        if button_box and not getattr(button_box, "_cpApplyHooked", False):
+            button_box._cpApplyHooked = True
+            def _on_button_clicked(button):
+                try:
+                    role = button_box.buttonRole(button)
+                    if role in (QtWidgets.QDialogButtonBox.ApplyRole, QtWidgets.QDialogButtonBox.AcceptRole):
+                        _save_dialog(widget)
+                except RuntimeError:
+                    pass
+            button_box.clicked.connect(_on_button_clicked)
+    except RuntimeError:
+        pass
 
-    def _hook_widget(widget):
-        try:
-            if getattr(widget, "_cpHooked", False):
-                return
-            if widget.findChild(QtWidgets.QGroupBox, "groupBox_themePresets") is None:
-                return
-
-            widget._cpHooked = True
-            _init_dialog(widget)
-            _build_font_colors_group(widget)
-
-            parent_dlg = widget.window()
-            if parent_dlg:
-                def _iter_view_texts(view):
-                    model = view.model()
-                    if model is None:
-                        return
-                    try:
-                        for row in range(model.rowCount()):
-                            idx = model.index(row, 0)
-                            text = model.data(idx, QtCore.Qt.DisplayRole)
-                            if text is not None:
-                                yield str(text).strip()
-                    except Exception:
-                        return
-
-                category_view = None
-                for view in parent_dlg.findChildren(QtWidgets.QAbstractItemView):
-                    texts = list(_iter_view_texts(view))
-                    if category_view is None and "ColorPalette" in texts:
-                        category_view = view
-
-                def _current_category_text():
-                    try:
-                        idx = category_view.currentIndex()
-                        if not idx.isValid():
-                            return None
-                        model = category_view.model()
-                        text = model.data(idx, QtCore.Qt.DisplayRole)
-                        return str(text).strip() if text is not None else None
-                    except RuntimeError:
-                        return None
-
-                button_box = parent_dlg.findChild(QtWidgets.QDialogButtonBox)
-                if button_box and not getattr(button_box, "_cpApplyHooked", False):
-                    button_box._cpApplyHooked = True
-                    def _on_button_clicked(button):
-                        role = button_box.buttonRole(button)
-                        if role in (QtWidgets.QDialogButtonBox.ApplyRole, QtWidgets.QDialogButtonBox.AcceptRole):
-                            try:
-                                current_text = _current_category_text() if category_view is not None else None
-                                if current_text is not None:
-                                    on_colorpalette = (current_text == "ColorPalette")
-                                else:
-                                    on_colorpalette = getattr(widget, "_cpPendingChange", False)
-                                if on_colorpalette:
-                                    _save_dialog(widget)
-                            except RuntimeError:
-                                pass
-                    button_box.clicked.connect(_on_button_clicked)
-        except RuntimeError:
-            pass
-
+def _bootstrap_dialog_hook():
     def _install_watcher():
         app = QtWidgets.QApplication.instance()
         if not app:
             QtCore.QTimer.singleShot(500, _install_watcher)
             return
 
+        for w in app.topLevelWidgets():
+            for qbox in w.findChildren(QtWidgets.QGroupBox, "groupBox_themePresets"):
+                page = qbox.parentWidget()
+                while page and page.parentWidget() and not isinstance(page.parentWidget(), QtWidgets.QStackedWidget) and not isinstance(page.parentWidget(), QtWidgets.QDialog):
+                    page = page.parentWidget()
+                if page:
+                    _hook_widget(page)
+
         class ColorPaletteWatcher(QtCore.QObject):
             def eventFilter(self, obj, event):
-                if event.type() == QtCore.QEvent.Show and isinstance(obj, QtWidgets.QWidget):
-                    if not getattr(obj, "_cpHooked", False):
-                        class_name = obj.metaObject().className()
-                        obj_name = obj.objectName()
-                        if "Preference" in class_name or "Dlg" in class_name or "Page" in class_name or "ColorPalette" in obj_name:
-                            if obj.findChild(QtWidgets.QGroupBox, "groupBox_themePresets") is not None:
-                                QtCore.QTimer.singleShot(50, lambda o=obj: _hook_widget(o))
+                if event.type() in (QtCore.QEvent.Show, QtCore.QEvent.WindowActivate, QtCore.QEvent.Paint) and isinstance(obj, QtWidgets.QWidget):
+                    if obj.findChild(QtWidgets.QGroupBox, "groupBox_themePresets") is not None:
+                        _hook_widget(obj)
                 return False
 
         if not hasattr(app, "_colorPaletteWatcher"):
@@ -520,7 +504,7 @@ def _bootstrap_dialog_hook():
             app.installEventFilter(watcher)
             app._colorPaletteWatcher = watcher
 
-    QtCore.QTimer.singleShot(1000, _install_watcher)
+    QtCore.QTimer.singleShot(200, _install_watcher)
 
 def _register_colorpalette_page():
     try:
