@@ -79,7 +79,8 @@ ColorPalette Themes, makes the interface and workspaces more user-focused. It si
        - You can change the texts colors by clicking on the color boxes. You can also select one of the preset theme color combinations. To use your own theme color, adjust the "Accent colors" options.
 
 ⤵️
-<img width="1582" height="1624" alt="Ekran görüntüsü 2026-09-18 141353" src="https://github.com/user-attachments/assets/63048d35-d4cd-40fa-bc19-ed0c4d310920" />
+![Ekran görüntüsü 2026-09-18 1413532](https://github.com/user-attachments/assets/db69b25c-4030-44a2-b5d5-b5a1651718cb)
+
 
 
 #### ✅ Light Colors and Settings,
