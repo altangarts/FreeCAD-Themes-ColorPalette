@@ -2133,16 +2133,16 @@ QFrame[class="panel"] QListView::item,
 QFrame[class="panel"] QTableView::item {
   background-color: rgba(0,0,0,0.06);
   border: 1px solid transparent;
-  margin: 1px 0px 1px 0px;
-  padding: 2px;
+  margin: 0px 0px 1px 0px;
+  padding: 0px;
   border-radius: 6px;
 }
 
 QFrame[class="panel"] QTreeView::item {
   background-color: rgba(0,0,0,0.06);
   border: 1px solid transparent;
-  margin: 1px 1px 1px 0px;
-  padding: 2px;
+  margin: 0px 1px 1px 0px;
+  padding: 1px;
   border-radius: 4px;
 }
 
@@ -2316,8 +2316,8 @@ QSint--ActionGroup QToolButton#filterButton QListWidget::item {
   border: 1px solid transparent;
   color: #eeeeee;
   color: @ColorPaletteTextGeneralTop;
-  padding: 2px;
-  margin: 1px 0px 1px 4px;
+  padding: 1px;
+  margin: 0px 0px 1px 4px;
   border-radius: 4px;
 }
 
@@ -3507,8 +3507,8 @@ QDialog QListView QLabel {
 QListView::item {
   background-color: rgba(0,0,0,0.05);
   border: 1px solid transparent;
-  margin: 1px 0px 1px 0px;
-  padding: 2px 0px 2px 2px;
+  margin: 0px 0px 1px 0px;
+  padding: 1px 0px 1px 2px;
   border-radius: 4px;
 }
 
@@ -3604,7 +3604,7 @@ QTableView::item:selected {
   background-color: rgba(0,0,0,0.06);
   border: 0px solid rgba(0,0,0,0.1);
   margin: 0px 0px 1px 0px;
-  padding: 2px;
+  padding: 1px;
   border-radius: 4px;
 }
 
@@ -3681,14 +3681,10 @@ QDialog QTreeView::item,
 QTabWidget QDialog QTreeView::item {
   background-color: rgba(0,0,0,0.05);
   margin: 1px 1px 1px 0px;
-  padding: 2px 0px 2px 2px;
+  padding: 1px 0px 1px 2px;
   border-radius: 3px;
   color: #eeeeee;
   color: @ColorPaletteTextDarkenList;
-}
-
-QTabWidget QDialog QTreeView::item {
-  padding: 2px;
 }
 
 QDialog QTreeView::item:first,

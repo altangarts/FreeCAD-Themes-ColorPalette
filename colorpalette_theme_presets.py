@@ -80,6 +80,38 @@ def _find_ui_file():
 def _get_font_params_group():
     return FreeCAD.ParamGet(_THEME_PARAM_PATH).GetGroup(_FONT_PARAM_GROUP_NAME)
 
+def _get_accent3_hex():
+    p = FreeCAD.ParamGet(_PARAM_PATH)
+    hex_val = p.GetString("AccentColor3_Hex", "")
+    if hex_val:
+        return _normalize_hex(hex_val)
+    
+    p_theme = FreeCAD.ParamGet(_THEME_PARAM_PATH)
+    val = p_theme.GetUnsigned("ThemeAccentColor3", 0)
+    if val != 0:
+        r, g, b = _int_to_rgb(val)
+        return f"#{r:02X}{g:02X}{b:02X}"
+    return "#727270"
+
+def _update_swatch_appearance(swatch, swatch_hex):
+    accent3_hex = _get_accent3_hex()
+    obj_name = swatch.objectName() or "swatch"
+    swatch.setStyleSheet(
+        f"QLabel#{obj_name} {{\n"
+        f"    background-color: {swatch_hex};\n"
+        f"    border: 1px solid #555;\n"
+        f"    border-radius: 3px;\n"
+        f"}}\n"
+        f"QToolTip {{\n"
+        f"    background-color: {accent3_hex};\n"
+        f"    color: {swatch_hex};\n"
+        f"    border: 1px solid #555;\n"
+        f"    padding: 4px;\n"
+        f"    font-weight: bold;\n"
+        f"}}"
+    )
+    swatch.setToolTip("Click to select color")
+
 def _apply_font_color(key, hex_value):
     normalized = _normalize_hex(hex_value)
     _get_font_params_group().SetString(key, normalized)
@@ -165,7 +197,6 @@ def _apply_selected_theme_preset(selected_idx):
         p_theme.SetUnsigned("ThemeAccentColor3", c3_val)
 
         _force_reload_stylesheet()
-        FreeCAD.Console.PrintMessage(f"Theme Colors: '{name}' uygulandı.\n")
 
 def _build_font_colors_group(widget):
     if widget.findChild(QtWidgets.QGroupBox, "groupBox_fontColors") is not None:
@@ -177,9 +208,13 @@ def _build_font_colors_group(widget):
 
     group_box = QtWidgets.QGroupBox("Fonts Colors")
     group_box.setObjectName("groupBox_fontColors")
-    form = QtWidgets.QFormLayout(group_box)
+    
+    main_layout = QtWidgets.QVBoxLayout(group_box)
+    form = QtWidgets.QFormLayout()
+    main_layout.addLayout(form)
 
     grp = _get_font_params_group()
+    swatch_refs = []
 
     for key, label, default_hex in _FONT_COLOR_PARAMS:
         current_hex = _normalize_hex(grp.GetString(key, default_hex))
@@ -192,12 +227,10 @@ def _build_font_colors_group(widget):
         swatch.setObjectName(f"swatch_{key}")
         swatch.setFixedSize(20, 20)
         swatch.setCursor(QtCore.Qt.PointingHandCursor)
-        swatch.setToolTip("Renk seçmek için tıklayın")
-        swatch.setStyleSheet(
-            f"background-color: {current_hex}; border: 1px solid #555; border-radius: 3px;"
-        )
-        # Hex verisini doğrudan swatch label'ının property'sinde saklıyoruz
         swatch.setProperty("hex_value", current_hex)
+        _update_swatch_appearance(swatch, current_hex)
+        
+        swatch_refs.append((key, swatch, default_hex))
 
         def _make_color_dialog_handler(k=key, sw=swatch):
             def _open_dialog(event):
@@ -211,15 +244,13 @@ def _build_font_colors_group(widget):
                             from PySide.QtGui import QColor
                     
                     current_color = QColor(sw.property("hex_value"))
-                    chosen = QtWidgets.QColorDialog.getColor(current_color, widget, "Renk Seç")
+                    chosen = QtWidgets.QColorDialog.getColor(current_color, widget, "Select Color")
                     
                     if chosen.isValid():
                         hex_val = chosen.name().upper()
                         sw.setProperty("hex_value", hex_val)
                         normalized = _apply_font_color(k, hex_val)
-                        sw.setStyleSheet(
-                            f"background-color: {normalized}; border: 1px solid #555; border-radius: 3px;"
-                        )
+                        _update_swatch_appearance(sw, normalized)
                         if hasattr(widget, "_cpUncheckPresets"):
                             widget._cpUncheckPresets()
             return _open_dialog
@@ -230,6 +261,39 @@ def _build_font_colors_group(widget):
         row_layout.addStretch(1)
 
         form.addRow(label, row)
+
+    btn_layout = QtWidgets.QHBoxLayout()
+    btn_white = QtWidgets.QPushButton("All fonts White")
+    btn_black = QtWidgets.QPushButton("All fonts Black")
+    btn_default = QtWidgets.QPushButton("Default Colors")
+
+    btn_layout.addWidget(btn_white)
+    btn_layout.addWidget(btn_black)
+    btn_layout.addWidget(btn_default)
+    
+    main_layout.addLayout(btn_layout)
+
+    def make_batch_handler(mode):
+        def handler():
+            for k, sw, def_hex in swatch_refs:
+                if mode == "white":
+                    target_hex = "#FFFFFF"
+                elif mode == "black":
+                    target_hex = "#000000"
+                else:
+                    target_hex = def_hex
+                    
+                sw.setProperty("hex_value", target_hex)
+                normalized = _apply_font_color(k, target_hex)
+                _update_swatch_appearance(sw, normalized)
+            
+            if hasattr(widget, "_cpUncheckPresets"):
+                widget._cpUncheckPresets()
+        return handler
+
+    btn_white.clicked.connect(make_batch_handler("white"))
+    btn_black.clicked.connect(make_batch_handler("black"))
+    btn_default.clicked.connect(make_batch_handler("default"))
 
     added = False
     try:
@@ -254,6 +318,8 @@ def _build_font_colors_group(widget):
 
 def _bootstrap_dialog_hook():
     def _init_dialog(widget):
+        widget._cpPendingChange = False
+
         p_theme = FreeCAD.ParamGet(_THEME_PARAM_PATH)
         c1_curr = _int_to_rgb(p_theme.GetUnsigned("ThemeAccentColor1", 0))
         c2_curr = _int_to_rgb(p_theme.GetUnsigned("ThemeAccentColor2", 0))
@@ -286,6 +352,9 @@ def _bootstrap_dialog_hook():
                 rb.setText(name)
                 rb.setFixedWidth(240)
                 rb.setChecked(i == matched_idx)
+                if not getattr(rb, "_cpDirtyHooked", False):
+                    rb._cpDirtyHooked = True
+                    rb.clicked.connect(lambda checked=False, w=widget: setattr(w, "_cpPendingChange", True))
 
             colors = [c1, c2, c3]
             for c_idx, hex_code in enumerate(colors, start=1):
@@ -305,6 +374,7 @@ def _bootstrap_dialog_hook():
         def _uncheck_presets_on_custom_change():
             if getattr(widget, "_internal_updating", False):
                 return
+            widget._cpPendingChange = True
             btn_group.setExclusive(False)
             for i in range(len(_THEME_PRESETS)):
                 rb = widget.findChild(QtWidgets.QRadioButton, f"radioButton_{i:02d}")
@@ -363,6 +433,7 @@ def _bootstrap_dialog_hook():
             _force_reload_stylesheet()
 
         _refresh_open_theme_editor()
+        widget._cpPendingChange = False
 
     def _hook_widget(widget):
         try:
@@ -377,6 +448,36 @@ def _bootstrap_dialog_hook():
 
             parent_dlg = widget.window()
             if parent_dlg:
+                def _iter_view_texts(view):
+                    model = view.model()
+                    if model is None:
+                        return
+                    try:
+                        for row in range(model.rowCount()):
+                            idx = model.index(row, 0)
+                            text = model.data(idx, QtCore.Qt.DisplayRole)
+                            if text is not None:
+                                yield str(text).strip()
+                    except Exception:
+                        return
+
+                category_view = None
+                for view in parent_dlg.findChildren(QtWidgets.QAbstractItemView):
+                    texts = list(_iter_view_texts(view))
+                    if category_view is None and "ColorPalette" in texts:
+                        category_view = view
+
+                def _current_category_text():
+                    try:
+                        idx = category_view.currentIndex()
+                        if not idx.isValid():
+                            return None
+                        model = category_view.model()
+                        text = model.data(idx, QtCore.Qt.DisplayRole)
+                        return str(text).strip() if text is not None else None
+                    except RuntimeError:
+                        return None
+
                 button_box = parent_dlg.findChild(QtWidgets.QDialogButtonBox)
                 if button_box and not getattr(button_box, "_cpApplyHooked", False):
                     button_box._cpApplyHooked = True
@@ -384,7 +485,13 @@ def _bootstrap_dialog_hook():
                         role = button_box.buttonRole(button)
                         if role in (QtWidgets.QDialogButtonBox.ApplyRole, QtWidgets.QDialogButtonBox.AcceptRole):
                             try:
-                                _save_dialog(widget)
+                                current_text = _current_category_text() if category_view is not None else None
+                                if current_text is not None:
+                                    on_colorpalette = (current_text == "ColorPalette")
+                                else:
+                                    on_colorpalette = getattr(widget, "_cpPendingChange", False)
+                                if on_colorpalette:
+                                    _save_dialog(widget)
                             except RuntimeError:
                                 pass
                     button_box.clicked.connect(_on_button_clicked)
@@ -403,7 +510,6 @@ def _bootstrap_dialog_hook():
                     if not getattr(obj, "_cpHooked", False):
                         class_name = obj.metaObject().className()
                         obj_name = obj.objectName()
-                        # Tercihler penceresi veya ilişkili widget'lar dışındaki bağımsız arayüz elemanlarında arama yapmayı engelliyoruz (Performans İyileştirmesi)
                         if "Preference" in class_name or "Dlg" in class_name or "Page" in class_name or "ColorPalette" in obj_name:
                             if obj.findChild(QtWidgets.QGroupBox, "groupBox_themePresets") is not None:
                                 QtCore.QTimer.singleShot(50, lambda o=obj: _hook_widget(o))
@@ -424,7 +530,6 @@ def _register_colorpalette_page():
 
     ui_path = _find_ui_file()
     if not ui_path:
-        FreeCAD.Console.PrintError("ColorPalette: preferences-colorpalettetheme.ui dosyası dizinde bulunamadı!\n")
         return
 
     try:
@@ -435,8 +540,8 @@ def _register_colorpalette_page():
 
     try:
         Gui.addPreferencePage(ui_path, QT_TRANSLATE_NOOP("QObject", "ColorPalette"))
-    except Exception as e:
-        FreeCAD.Console.PrintError(f"ColorPalette: Sayfa eklenemedi: {e}\n")
+    except Exception:
+        pass
 
 if __name__ == "__main__" or __name__ == "colorpalette_theme_presets":
     _register_colorpalette_page()
