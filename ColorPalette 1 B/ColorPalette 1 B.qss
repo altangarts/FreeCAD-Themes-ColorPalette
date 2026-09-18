@@ -1293,6 +1293,7 @@ QWidget#StartView QLabel {
 
 QWidget#StartView QPushButton QLabel {
   color: #eeeeee;
+  color: @ColorPaletteTextDarkenList;
 }
 
 QLabel:disabled {
@@ -3359,6 +3360,7 @@ QListView {
 
 QWidget#StartView QListView {
   color: #eeeeee;
+  color: @ColorPaletteTextDarkenList;
 }
 
 QWidget QListView {
@@ -4362,4 +4364,5 @@ QPushButton[objectName="buttonIFCPropertiesDelete"] {
 QGroupBox[objectName="matOpsGrpBox"] QPushButton {
   min-width: 235px;
   color: #ffffff;
+  color: @ColorPaletteTextDarkenList;
 }
