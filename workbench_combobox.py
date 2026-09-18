@@ -34,7 +34,7 @@ def _bootstrap_global_fixer():
                 if sub:
                     _style_menu_recursive(sub, proxy)
 
-        _STYLE_REFRESH_MS = 5000
+        _STYLE_REFRESH_MS = 15000
 
         def _apply_scoped_styles():
             import FreeCADGui

@@ -1,6 +1,25 @@
 import FreeCADGui
 import FreeCAD
 
+
+def _register_with_global_filter(list_name, callback, retries_left=20):
+    try:
+        from PySide6 import QtCore, QtWidgets
+    except ImportError:
+        from PySide2 import QtCore, QtWidgets
+
+    app = QtWidgets.QApplication.instance()
+    gfilter = getattr(app, "_cp_global_filter", None) if app else None
+    if gfilter is not None:
+        getattr(gfilter, list_name).append(callback)
+        return
+    if retries_left <= 0:
+        return
+    QtCore.QTimer.singleShot(
+        300, lambda: _register_with_global_filter(list_name, callback, retries_left - 1)
+    )
+
+
 def apply3DViewportColor():
     try:
         from PySide6 import QtWidgets, QtCore, QtGui
@@ -167,11 +186,6 @@ def apply3DViewportColor():
     mw.installEventFilter(ef)
     mdi.installEventFilter(ef)
 
-    # apply3DViewportColor() birden fazla kez cagrilirsa (ornegin tema
-    # yeniden yuklenirse) subWindowActivated'a her seferinde yeni bir lambda
-    # baglanip eskisi hic kopmuyordu; bu da her sekme degisiminde
-    # syncViewportColor()'un katlanarak (N kere) calismasina yol acabilirdi.
-    # Onceki baglantiyi soker, sadece bir tane aktif tutariz.
     old_conn = mw.__dict__.get("_viewport_subwindow_conn")
     if old_conn:
         try:
@@ -244,23 +258,19 @@ def lockColorPreferences():
             if rb_simple: rb_simple.toggled.connect(make_toggle_handler(True, False, False))
             linear_btn.setProperty("locked_connected", True)
 
-    class PreferencesDialogWatcher(QtCore.QObject):
-        def eventFilter(self, obj, event):
-            if isinstance(obj, QtWidgets.QDialog) and event.type() in (QtCore.QEvent.Show, QtCore.QEvent.Hide):
-                QtCore.QTimer.singleShot(30, applyLock)
-                QtCore.QTimer.singleShot(150, applyLock)
-                if event.type() == QtCore.QEvent.Hide:
-                    sync_fn = mw.__dict__.get("_sync_viewport_color_fn")
-                    if sync_fn: QtCore.QTimer.singleShot(50, sync_fn)
-            return False
+    def _on_any_dialog_show(dialog):
+        QtCore.QTimer.singleShot(30, applyLock)
+        QtCore.QTimer.singleShot(150, applyLock)
 
-    if old_watcher := mw.__dict__.get("_pref_dialog_watcher"):
-        try: app.removeEventFilter(old_watcher)
-        except Exception: pass
+    def _on_any_dialog_hide(dialog):
+        sync_fn = mw.__dict__.get("_sync_viewport_color_fn")
+        if sync_fn:
+            QtCore.QTimer.singleShot(50, sync_fn)
 
-    watcher = PreferencesDialogWatcher(app)
-    app.installEventFilter(watcher)
-    mw.__dict__["_pref_dialog_watcher"] = watcher
+    if not mw.__dict__.get("_cp_pref_watcher_registered"):
+        mw.__dict__["_cp_pref_watcher_registered"] = True
+        _register_with_global_filter("any_dialog_show_callbacks", _on_any_dialog_show)
+        _register_with_global_filter("any_dialog_hide_callbacks", _on_any_dialog_hide)
 
 mw = FreeCADGui.getMainWindow()
 if mw:

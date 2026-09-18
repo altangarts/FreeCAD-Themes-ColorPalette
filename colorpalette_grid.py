@@ -3,6 +3,24 @@ import math
 import FreeCAD
 
 
+def _register_with_global_filter(list_name, callback, retries_left=20):
+    try:
+        from PySide6 import QtCore, QtWidgets
+    except ImportError:
+        from PySide2 import QtCore, QtWidgets
+
+    app = QtWidgets.QApplication.instance()
+    gfilter = getattr(app, "_cp_global_filter", None) if app else None
+    if gfilter is not None:
+        getattr(gfilter, list_name).append(callback)
+        return
+    if retries_left <= 0:
+        return
+    QtCore.QTimer.singleShot(
+        300, lambda: _register_with_global_filter(list_name, callback, retries_left - 1)
+    )
+
+
 def _nice_step(raw_value):
     if raw_value <= 0:
         raw_value = 1e-6
@@ -700,7 +718,7 @@ def _ensure_sketch_edit_watcher():
             return
 
         timer = QtCore.QTimer(app)
-        timer.setInterval(250)
+        timer.setInterval(400)
         timer.timeout.connect(_grid_watcher_tick)
         timer.start()
         app._gridSketchEditWatcher = timer
@@ -714,17 +732,6 @@ def _bootstrap_grid_prefs_dialog_hook():
         from PySide6 import QtCore, QtWidgets
     except ImportError:
         from PySide2 import QtCore, QtWidgets
-
-    _SHOW_EVENT = QtCore.QEvent.Show
-
-    def _is_pref_dialog(widget):
-        obj_name = widget.objectName() if hasattr(widget, "objectName") else ""
-        if obj_name in ("Gui::Dialog::DlgPreferencesImp", "DlgPreferencesImp"):
-            return True
-        if hasattr(widget, "inherits") and widget.inherits("QDialog"):
-            title = (widget.windowTitle() or "").lower() if hasattr(widget, "windowTitle") else ""
-            return "preferences" in title or "tercihler" in title or "ayarlar" in title
-        return False
 
     def _hook_apply_button(dialog):
         button_box = dialog.findChild(QtWidgets.QDialogButtonBox)
@@ -748,24 +755,11 @@ def _bootstrap_grid_prefs_dialog_hook():
 
         button_box.clicked.connect(_on_button_clicked)
 
+    def _on_pref_dialog_shown(dialog):
+        QtCore.QTimer.singleShot(0, lambda o=dialog: _hook_apply_button(o))
+
     def _install_watcher():
-        app = QtWidgets.QApplication.instance()
-        if not app:
-            QtCore.QTimer.singleShot(500, _install_watcher)
-            return
-
-        if hasattr(app, "_gridPrefsDialogHookWatcher"):
-            return
-
-        class GridPrefsDialogHookWatcher(QtCore.QObject):
-            def eventFilter(self, obj, event):
-                if event.type() == _SHOW_EVENT and _is_pref_dialog(obj):
-                    QtCore.QTimer.singleShot(0, lambda o=obj: _hook_apply_button(o))
-                return False
-
-        watcher = GridPrefsDialogHookWatcher(app)
-        app.installEventFilter(watcher)
-        app._gridPrefsDialogHookWatcher = watcher
+        _register_with_global_filter("pref_dialog_show_callbacks", _on_pref_dialog_shown)
 
     QtCore.QTimer.singleShot(2000, _install_watcher)
 

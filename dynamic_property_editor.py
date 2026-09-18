@@ -1,6 +1,25 @@
 import os
 import FreeCAD
 
+
+def _register_with_global_filter(list_name, callback, retries_left=20):
+    try:
+        from PySide6 import QtCore, QtWidgets
+    except ImportError:
+        from PySide2 import QtCore, QtWidgets
+
+    app = QtWidgets.QApplication.instance()
+    gfilter = getattr(app, "_cp_global_filter", None) if app else None
+    if gfilter is not None:
+        getattr(gfilter, list_name).append(callback)
+        return
+    if retries_left <= 0:
+        return
+    QtCore.QTimer.singleShot(
+        300, lambda: _register_with_global_filter(list_name, callback, retries_left - 1)
+    )
+
+
 def _bootstrap_property_editor_anchoring():
     try:
         from PySide6 import QtCore, QtWidgets, QtGui
@@ -60,18 +79,31 @@ def _bootstrap_property_editor_anchoring():
                     return "docked"
             return "floating"
 
-        def _tree_height(tree, model, parent, current_h=0, max_height=1500):
+        def _tree_height(tree, model, parent, current_h=0, max_height=1200):
             h = current_h
-            for i in range(model.rowCount(parent)):
+            row_count = model.rowCount(parent)
+            for i in range(row_count):
                 if h > max_height:
                     break
                 idx = model.index(i, 0, parent)
-                h += tree.rowHeight(idx)
+                try:
+                    h += tree.rowHeight(idx)
+                except Exception:
+                    h += 20
                 if tree.isExpanded(idx):
                     h = _tree_height(tree, model, idx, h, max_height)
             return h
 
+        _height_cache = {"height": 0, "dirty": True}
+
+        def _mark_height_dirty(*a):
+            _height_cache["dirty"] = True
+            _schedule_layout()
+
         def _content_height():
+            if not _height_cache["dirty"]:
+                return _height_cache["height"]
+
             total = 0
             for tree in trees:
                 if not tree or not tree.isVisible():
@@ -79,6 +111,9 @@ def _bootstrap_property_editor_anchoring():
                 model = tree.model()
                 if model:
                     total = max(total, _tree_height(tree, model, QtCore.QModelIndex()))
+            
+            _height_cache["height"] = total
+            _height_cache["dirty"] = False
             return total
 
         MIN_ABOVE_PANEL_ROWS = 8
@@ -175,7 +210,6 @@ def _bootstrap_property_editor_anchoring():
                     break
             target_button.setText(translated_text)
 
-        # --- BUTON SATIRI KONTEYNERİ ---
         btn_container = container.findChild(QtWidgets.QWidget, "propertyEditorBtnContainer")
         if not btn_container:
             btn_container = QtWidgets.QWidget(container)
@@ -424,7 +458,7 @@ def _bootstrap_property_editor_anchoring():
                 state["layout_scheduled"] = False
                 layout_tab_widget()
                 
-            QtCore.QTimer.singleShot(50, _do_layout)
+            QtCore.QTimer.singleShot(100, _do_layout)
 
         def toggle_collapsed():
             new_state = not btn.property("is_collapsed")
@@ -456,13 +490,14 @@ def _bootstrap_property_editor_anchoring():
         for tree in trees:
             model = tree.model()
             if model:
-                model.rowsInserted.connect(lambda *a: _schedule_layout())
-                model.rowsRemoved.connect(lambda *a: _schedule_layout())
-                model.modelReset.connect(lambda *a: _schedule_layout())
-            tree.expanded.connect(lambda *a: _schedule_layout())
-            tree.collapsed.connect(lambda *a: _schedule_layout())
+                model.rowsInserted.connect(_mark_height_dirty)
+                model.rowsRemoved.connect(_mark_height_dirty)
+                model.modelReset.connect(_mark_height_dirty)
+            tree.expanded.connect(_mark_height_dirty)
+            tree.collapsed.connect(_mark_height_dirty)
 
-        tab.currentChanged.connect(lambda *a: _schedule_layout())
+        # Sekme (View/Data) değişimlerinde önbelleği geçersiz kılarak yüksekliği yeniden hesaplatır
+        tab.currentChanged.connect(_mark_height_dirty)
 
         class GlobalSelectionWatcher(QtCore.QObject):
             _WATCHED_EVENTS = (
@@ -513,8 +548,6 @@ def _bootstrap_lock_tree_property_view_mode():
     except ImportError:
         from PySide2 import QtCore, QtWidgets
 
-    _SHOW_EVENT = QtCore.QEvent.Show
-
     def _lock_combo_in_dialog(dialog):
         combo = dialog.findChild(QtWidgets.QComboBox, "treeMode")
         if combo:
@@ -532,37 +565,10 @@ def _bootstrap_lock_tree_property_view_mode():
             label.setEnabled(False)
 
     def _install_preferences_watcher():
-        app = QtWidgets.QApplication.instance()
-        if not app:
-            QtCore.QTimer.singleShot(500, _install_preferences_watcher)
-            return
-
-        if hasattr(app, "_treeModeLockWatcher"):
-            return
-
-        class PreferencesLockWatcher(QtCore.QObject):
-            def eventFilter(self, obj, event):
-                if event.type() != _SHOW_EVENT:
-                    return False
-
-                obj_name = obj.objectName() if hasattr(obj, "objectName") else ""
-                if obj_name in ("Gui::Dialog::DlgPreferencesImp", "DlgPreferencesImp"):
-                    is_pref_dialog = True
-                elif hasattr(obj, "inherits") and obj.inherits("QDialog"):
-                    title = (obj.windowTitle() or "").lower() if hasattr(obj, "windowTitle") else ""
-                    is_pref_dialog = (
-                        "preferences" in title or "tercihler" in title or "ayarlar" in title
-                    )
-                else:
-                    is_pref_dialog = False
-
-                if is_pref_dialog:
-                    QtCore.QTimer.singleShot(100, lambda: _lock_combo_in_dialog(obj))
-                return False
-
-        watcher = PreferencesLockWatcher(app)
-        app.installEventFilter(watcher)
-        app._treeModeLockWatcher = watcher
+        _register_with_global_filter(
+            "pref_dialog_show_callbacks",
+            lambda dialog: QtCore.QTimer.singleShot(100, lambda: _lock_combo_in_dialog(dialog)),
+        )
 
     def _setup():
         _enforce_combined_tree_property_mode()
