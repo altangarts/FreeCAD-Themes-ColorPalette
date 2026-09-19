@@ -81,6 +81,12 @@ ColorPalette Themes, makes the interface and workspaces more user-focused. It si
 ⤵️
 ![Ekran görüntüsü 2026-09-18 1413532](https://github.com/user-attachments/assets/db69b25c-4030-44a2-b5d5-b5a1651718cb)
 
+#### ✅ Property Editor and Grid options and settings
+   1. Menubar ➡ ColorPalette Tab
+
+       - You can use the property editor with the option to open it by double-clicking a surface, or with the standard single-click option. You can toggle the grid on and off and access its settings in the preferences.
+     
+![Ekran görüntüsü 2026-09-19 134949](https://github.com/user-attachments/assets/cde1b0fd-6cd0-4769-bf3f-d4254aaaa283)
 
 
 #### ✅ Light Colors and Settings,
