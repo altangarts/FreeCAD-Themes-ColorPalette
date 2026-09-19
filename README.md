@@ -84,7 +84,9 @@ ColorPalette Themes, makes the interface and workspaces more user-focused. It si
 #### ✅ Property Editor and Grid options and settings
    1. Menubar ➡ ColorPalette Tab
 
-       - You can use the property editor with the option to open it by double-clicking a surface, or with the standard single-click option. You can toggle the grid on and off and access its settings in the preferences.
+       - You can use the Property Editor with the option to open it by double-clicking a surface, or with the standard single-click option. You can toggle the grid on and off and access its settings in the preferences.
+
+In FreeCAD, a single click selects the surface, a double-click selects the part, and a third click selects the part's assembly structure.
 
 ⤵️     
 ![Ekran görüntüsü 2026-09-19 134949](https://github.com/user-attachments/assets/cde1b0fd-6cd0-4769-bf3f-d4254aaaa283)
