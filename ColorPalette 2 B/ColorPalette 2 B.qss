@@ -631,6 +631,7 @@ QMenuBar::item {
   color: @ColorPaletteTextGeneralTop;
   padding: 0px 6px 2px 6px;
   margin: 2px 0px 1px 0px;
+  font-weight: normal;
 }
 
 QMenuBar::item:hover {
@@ -1601,47 +1602,6 @@ QWidget#Dialog QPushButton:checked {
   background-color: @ThemeAccentColor1;
   border: 1px solid @ThemeAccentColor1;
   color: #ffffff;
-}
-
-QPushButton#propertyEditorToggleButton,
-QPushButton#gridToggleButton {
-  background-color: qlineargradient(x1:0, y1:0.3, x2:0, y2:1, stop:0 rgba(250,250,250,0.2), stop:1 rgba(0,0,0,0.1));
-  color: @ColorPaletteTextGeneralBottom;
-  text-align: center;
-  padding: 2px 10px 4px 10px;
-  margin: 0px 2px 0px 0px;
-}
-
-QPushButton#propertyEditorToggleButton:hover,
-QPushButton#gridToggleButton:hover {
-  background-color: @ColorPaletteHover;
-  background-color: qlineargradient(x1:0, y1:0.3, x2:0, y2:1, stop:0 @ColorPaletteHover1, stop:1 @ColorPaletteHover2);
-  border-width: 1px 1px 2px 1px;
-  border-style: solid;
-  border-top-color: rgba(250,250,250,0.4);
-  border-right-color: rgba(0,0,0,0.2);
-  border-bottom-color: #181818;
-  border-left-color: rgba(0,0,0,0.2);
-  color: #ffffff;
-}
-
-QPushButton#propertyEditorToggleButton:pressed,
-QPushButton#gridToggleButton:pressed {
-  background-color: @ThemeAccentColor1;
-  border: 1px solid @ThemeAccentColor1;
-  color: #ffffff;
-}
-
-QPushButton#propertyEditorToggleButton[collapsed="false"],
-QPushButton#gridToggleButton[collapsed="false"] {
-  qproperty-icon: url(qss:images_classic/check-mark-yes.svg);
-  qproperty-iconSize: 13px 13px;
-}
-
-QPushButton#propertyEditorToggleButton[collapsed="true"],
-QPushButton#gridToggleButton[collapsed="true"] {
-  qproperty-icon: url(qss:images_classic/check-mark-no1.svg);
-  qproperty-iconSize: 13px 13px;
 }
 
 QPushButton::menu-indicator {

@@ -58,6 +58,18 @@ def _cp_bootstrap():
         except ImportError:
             Gui = None
 
+        _TREE_TYPES = (QtWidgets.QTreeView, QtWidgets.QListView)
+        _EPHEMERAL_WINDOW_TYPES = (QtCore.Qt.Popup, QtCore.Qt.ToolTip)
+        _P_POLISHED = "_cpTreePolished"   # Qt dinamik property: wrapper GC olsa da kaybolmaz
+        _P_HOOKED = "_cpTreeHooked"
+
+        def _is_ephemeral(widget):
+            """Menü / tooltip gibi kısa ömürlü pencereler ağaç barındırmaz; taramayı tetiklemesin."""
+            try:
+                return widget.isWindow() and widget.windowType() in _EPHEMERAL_WINDOW_TYPES
+            except Exception:
+                return False
+
         def _refresh_tree_lightweight(tree):
             try:
                 if tree and tree.isVisible() and hasattr(tree, 'doItemsLayout'):
@@ -66,22 +78,35 @@ def _cp_bootstrap():
             except Exception:
                 pass
 
-        def _fix_tree(tree):
+        def _fix_tree(tree, on_show=False):
             if not tree or not hasattr(tree, 'model'):
                 return
 
-            try:
-                tree.style().unpolish(tree)
-                tree.style().polish(tree)
-            except Exception:
-                pass
+            # unpolish/polish pahalıdır (stylesheet yeniden değerlendirilir):
+            # ağaç başına yalnızca ilk karşılaşmada yapılır.
+            if not tree.property(_P_POLISHED):
+                tree.setProperty(_P_POLISHED, True)
+                try:
+                    tree.style().unpolish(tree)
+                    tree.style().polish(tree)
+                except Exception:
+                    pass
+                _refresh_tree_lightweight(tree)
+            elif on_show:
+                # Zaten hazır ağaç yeniden gösterildi: sadece hafif, debounce'lu yenileme
+                timer = getattr(tree, "_cp_refresh_timer", None)
+                if timer is not None:
+                    timer.start()
+                else:
+                    _refresh_tree_lightweight(tree)
 
-            _refresh_tree_lightweight(tree)
+            if tree.property(_P_HOOKED):
+                return
 
             try:
                 model = tree.model()
-                if model and not getattr(tree, "_cp_hooked", False):
-                    tree._cp_hooked = True
+                if model:
+                    tree.setProperty(_P_HOOKED, True)
 
                     refresh_timer = QtCore.QTimer(tree)
                     refresh_timer.setSingleShot(True)
@@ -109,12 +134,17 @@ def _cp_bootstrap():
             if not mw:
                 return
             try:
-                for tree in mw.findChildren((QtWidgets.QTreeView, QtWidgets.QListView)):
-                    _fix_tree(tree)
+                # Sadece henüz hazırlanmamış ağaçlar işlenir (diğerleri için ucuz property kontrolü)
+                for tree in mw.findChildren(_TREE_TYPES):
+                    if not tree.property(_P_HOOKED):
+                        _fix_tree(tree)
 
+                # mw zaten yukarıda tarandı; tekrar taranmasın
                 for top in QtWidgets.QApplication.topLevelWidgets():
-                    if top.isVisible():
-                        for tree in top.findChildren((QtWidgets.QTreeView, QtWidgets.QListView)):
+                    if top is mw or not top.isVisible() or _is_ephemeral(top):
+                        continue
+                    for tree in top.findChildren(_TREE_TYPES):
+                        if not tree.property(_P_HOOKED):
                             _fix_tree(tree)
             except Exception:
                 pass
@@ -125,7 +155,10 @@ def _cp_bootstrap():
         _scan_timer.timeout.connect(_scan_and_fix_all)
 
         def _trigger_debounced_scan():
-            _scan_timer.start()
+            # start() her çağrıda zamanlayıcıyı sıfırlar; olay sağanağında (bir dialog
+            # açılırken yüzlerce Show olayı) gereksiz iş olmasın diye çalışıyorsa dokunma.
+            if not _scan_timer.isActive():
+                _scan_timer.start()
 
         _WATCHED_EVENTS = frozenset((QtCore.QEvent.Show, QtCore.QEvent.Hide, QtCore.QEvent.ChildAdded))
 
@@ -142,10 +175,11 @@ def _cp_bootstrap():
                     return False
 
                 if ev_type == QtCore.QEvent.Show:
-                    if isinstance(obj, (QtWidgets.QTreeView, QtWidgets.QListView)):
-                        _fix_tree(obj)
-                    elif isinstance(obj, (QtWidgets.QWidget, QtWidgets.QDialog)):
-                        _trigger_debounced_scan()
+                    if isinstance(obj, _TREE_TYPES):
+                        _fix_tree(obj, on_show=True)
+                    elif isinstance(obj, QtWidgets.QWidget):  # QDialog da QWidget'tır
+                        if not _is_ephemeral(obj):
+                            _trigger_debounced_scan()
 
                     if isinstance(obj, QtWidgets.QDialog):
                         for cb in list(self.any_dialog_show_callbacks):
@@ -170,9 +204,9 @@ def _cp_bootstrap():
 
                 else:  # ChildAdded
                     child = event.child()
-                    if isinstance(child, (QtWidgets.QTreeView, QtWidgets.QListView)):
+                    if isinstance(child, _TREE_TYPES):
                         _fix_tree(child)
-                    elif isinstance(child, QtWidgets.QWidget):
+                    elif isinstance(child, QtWidgets.QWidget) and not _is_ephemeral(child):
                         _trigger_debounced_scan()
 
                 return False
@@ -250,7 +284,6 @@ def _cp_bootstrap():
 
             def _initial_tree_scan():
                 app = QtWidgets.QApplication.instance()
-                gfilter = getattr(app, "_cp_global_filter", None) if app else None
                 timer = getattr(app, "_cp_scan_timer_ref", None) if app else None
                 if timer:
                     timer.start()

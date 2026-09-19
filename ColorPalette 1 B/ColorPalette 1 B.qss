@@ -1597,46 +1597,6 @@ QWidget#Dialog QPushButton:checked {
   color: #ffffff;
 }
 
-QPushButton#propertyEditorToggleButton,
-QPushButton#gridToggleButton {
-  background-color: rgba(250,250,250,0.15);
-  color: @ColorPaletteTextGeneralBottom;
-  text-align: center;
-  padding: 2px 10px 3px 10px;
-  margin: 0px 2px 0px 0px;
-}
-
-QPushButton#propertyEditorToggleButton:hover,
-QPushButton#gridToggleButton:hover {
-  background-color: @ColorPaletteHover;
-  border-width: 1px 1px 2px 1px;
-  border-style: solid;
-  border-top-color: rgba(0,0,0,0.2);
-  border-right-color: rgba(0,0,0,0.2);
-  border-bottom-color: #181818;
-  border-left-color: rgba(0,0,0,0.2);
-  color: #ffffff;
-}
-
-QPushButton#propertyEditorToggleButton:pressed,
-QPushButton#gridToggleButton:pressed {
-  background-color: @ThemeAccentColor1;
-  border: 1px solid @ThemeAccentColor1;
-  color: #ffffff;
-}
-
-QPushButton#propertyEditorToggleButton[collapsed="false"],
-QPushButton#gridToggleButton[collapsed="false"] {
-  qproperty-icon: url(qss:images_classic/check-mark-yes.svg);
-  qproperty-iconSize: 13px 13px;
-}
-
-QPushButton#propertyEditorToggleButton[collapsed="true"],
-QPushButton#gridToggleButton[collapsed="true"] {
-  qproperty-icon: url(qss:images_classic/check-mark-no1.svg);
-  qproperty-iconSize: 13px 13px;
-}
-
 QPushButton::menu-indicator {
   subcontrol-origin: padding;
   subcontrol-position: right center;
