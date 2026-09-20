@@ -1639,9 +1639,9 @@ QPushButton::menu-indicator:open {
 }
 
 Gui--DimensionWidget {
-  width: 160px;
-  min-width: 160px;
-  max-width: 160px;
+  width: 175px;
+  min-width: 175px;
+  max-width: 175px;
 }
 
 QDialogButtonBox QPushButton {
@@ -1677,6 +1677,7 @@ QToolBar QToolButton:disabled {
   padding: 2px 4px 11px 5px;
 }
 
+QStatusBar QToolBar QToolButton,
 QStatusBar QToolButton {
   background-color: qlineargradient(x1:0, y1:0.3, x2:0, y2:1, stop:0 rgba(250,250,250,0.2), stop:1 rgba(0,0,0,0.2));
   border-width: 1px 1px 2px 1px;  
@@ -1689,8 +1690,9 @@ QStatusBar QToolButton {
   color: #eeeeee;
   color: @ColorPaletteTextGeneralTop;
   margin: 1px 0px 0px 0px;
-  padding: -1px 1px 0px 1px;
+  padding: -1px 0px 0px 1px;
   max-height: 24px;
+  min-width: 20px;
 }
 
 QStatusBar QToolButton:disabled {
@@ -1740,9 +1742,8 @@ QToolBar QToolButton:checked,
 QStatusBar QToolButton:pressed,
 QStatusBar QToolButton:selected {  
   background-color: @ThemeAccentColor1;
-  border: 1px solid transparent;
+  border: 1px solid @ThemeAccentColor1;
   color: #ffffff;
-  margin-bottom: 1px;
 }
 
 QToolBar QToolButton > QMenu::item {
