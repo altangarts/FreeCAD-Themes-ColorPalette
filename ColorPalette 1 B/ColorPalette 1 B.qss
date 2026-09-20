@@ -3151,12 +3151,18 @@ Gui--TreePanel QTreeView::item:has-children:!has-siblings:open:hover {
 QDockWidget QTabWidget QTreeView::item:has-children:!has-siblings:open,
 QDockWidget QTabWidget QTreeView::item:has-children:open {
   background-color: rgba(0,0,0,0.15);
-  background-color: @ColorPaletteOverlayitemEnd;
+  background-color: @ColorPalettePropertyitemHeader;
 }
 
 QDockWidget QTabWidget QTreeView::item {
   background-color: rgba(0,0,0,0.08);
   background-color: @ColorPalettePropertyitem;
+  margin: 1px 2px 2px 0px;
+}
+
+QDockWidget QTabWidget QTreeView::item:alternate {
+  background-color: rgba(0,0,0,0.1);
+  background-color: @ColorPalettePropertyitem1;
   margin: 1px 2px 2px 0px;
 }
 

@@ -106,7 +106,7 @@ QTabWidget QDialog QTreeView::item:has-children:open {
 QTabWidget QTreeView::item:has-children:!has-siblings:open,
 QTabWidget QTreeView::item:has-children:open {
   background-color: rgba(0,0,0,0.15);
-  background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop: 0 @ColorPaletteOverlayHeader, stop: 0.85 @ColorPaletteOverlayHeader, stop: 0.9 #151515, stop: 1 #101010);
+  background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop: 0 @ColorPaletteOverlayHeader2, stop: 0.85 @ColorPaletteOverlayHeader2, stop: 0.9 #151515, stop: 1 #101010);
   margin-top: 1px;
 }
 
@@ -124,6 +124,11 @@ QTabWidget QTreeView::item {
   padding: 0px 0px 2px 0px;
   color: #ffff69;
   color: @ColorPaletteTextTreeEnd;
+}
+
+QDockWidget QTabWidget QTreeView::item:alternate {
+  background-color: rgba(0,0,0,0.1);
+  background-color: @ColorPaletteOverlayContent2;
 }
 
 QTabWidget QTreeView::item:first {
@@ -248,7 +253,6 @@ QTabWidget QDialog QPushButton:pressed {
 
 QTabWidget QTabBar::tab:bottom {
   background-color: rgba(250,250,250,0.15);
-  background-color: @ColorPaletteOverlayContent1;
   border-width: 1px 1px 2px 1px;
   border-style: solid;
   border-top-color: rgba(0,0,0,0.2);
@@ -515,7 +519,7 @@ QSint--ActionGroup QFrame[class="content"] {
 
 QSint--ActionGroup QFrame[class="header"] {
   background-color: rgba(0,0,0,0.15);
-  background-color: @ColorPaletteOverlayHeader;
+  background-color: @ColorPaletteOverlayHeader2;
   border-width: 1px 1px 2px 1px;
   border-style: solid;
   border-top-color: rgba(0,0,0,0.2);
