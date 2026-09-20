@@ -1704,7 +1704,9 @@ QStatusBar QToolButton:disabled {
 }
 
 QToolBar QToolButton:hover,
-QStatusBar QToolButton:hover {  
+QToolBar QToolButton:checked:hover,
+QStatusBar QToolButton:hover,
+QStatusBar QToolButton:checked:hover {  
   background-color: @ThemeAccentColor1;
   background-color: qlineargradient(x1:0, y1:0.3, x2:0, y2:1, stop:0 @ColorPaletteHover1, stop:1 @ColorPaletteHover2);
   color: #ffffff;
@@ -1727,13 +1729,6 @@ QStatusBar QToolBar QToolButton:hover,
   border-right-color: rgba(0,0,0,0.2);
   border-bottom-color: #181818;
   border-left-color: rgba(0,0,0,0.2);
-}
-
-QToolBar QToolButton:checked:hover,
-QStatusBar QToolButton:checked:hover {  
-  background-color: @ThemeAccentColor1;
-  background-color: @ColorPaletteHover;
-  color: #ffffff;
 }
 
 QToolBar QToolButton:pressed,
