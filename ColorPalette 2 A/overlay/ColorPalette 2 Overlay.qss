@@ -145,7 +145,8 @@ QTabWidget QTreeView::item:hover,
 QTabWidget QDialog QTreeView::item:hover,
 QTabWidget QDialog QTreeView::item:has-children:hover,
 QTabWidget QDialog QTreeView::item:has-children:!has-siblings:open:hover,
-QTabWidget QDialog QTreeView::item:has-children:open:hover {
+QTabWidget QDialog QTreeView::item:has-children:open:hover,
+QDockWidget QTabWidget QTreeView::item:alternate:hover {
   background-color: @ThemeAccentColor1;
   background-color: @ColorPaletteHover;
   color: #ffffff;

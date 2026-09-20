@@ -3245,7 +3245,8 @@ QDockWidget QTabWidget QTreeView::item:focus {
 QDockWidget QTabWidget QTreeView::item:hover,
 QDockWidget QTabWidget QTreeView::item:has-children:hover,
 QDockWidget QTabWidget QTreeView::item:has-children:open:hover,
-QDockWidget QTabWidget QTreeView::item:has-children:!has-siblings:open:hover {
+QDockWidget QTabWidget QTreeView::item:has-children:!has-siblings:open:hover,
+QDockWidget QTabWidget QTreeView::item:alternate:hover {
   background-color: @ThemeAccentColor1;
   background-color: @ColorPaletteHover;
   color: #ffffff;
