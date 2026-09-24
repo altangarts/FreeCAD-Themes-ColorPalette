@@ -2638,6 +2638,10 @@ QMdiArea QTabBar::tab {
   color: @ColorPaletteTextGeneralBottom;
   margin: 2px 0px 3px 3px;
   padding: 2px 3px 2px 3px;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 12px;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 12px;
 }
 
 QDialog QTabBar::tab,
@@ -2805,8 +2809,8 @@ QTabBar QToolButton::down-arrow:disabled {
 
 QTabBar::close-button {
   border: none;
-  margin: 0px 0px 4px 0px;
-  padding: 0px;
+  margin: 0px 0px 2px 0px;
+  padding-right: 4px;
   image: url(qss:images_classic/close-black2.svg);
 }
 
