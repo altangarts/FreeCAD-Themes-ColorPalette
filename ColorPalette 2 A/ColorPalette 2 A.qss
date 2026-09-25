@@ -2122,7 +2122,10 @@ QFrame[class="panel"] QTreeView::item:has-children:open {
 QFrame[class="panel"] QTreeView::item:hover,
 QFrame[class="panel"] QListView::item:hover,
 QFrame[class="panel"] QTableView::item:hover,
-QFrame[class="panel"] QTreeView::item:has-children:open:hover {
+QFrame[class="panel"] QTreeView::item:has-children:open:hover,
+QFrame[class="panel"] QTreeView::item:selected:hover,
+QFrame[class="panel"] QListView::item:selected:hover,
+QFrame[class="panel"] QTableView::item:selected:hover {
   color: #ffffff;
   background-color: @ThemeAccentColor1;
   background-color: @ColorPaletteHover;
@@ -2133,6 +2136,7 @@ QFrame[class="panel"] QListView::item:selected,
 QFrame[class="panel"] QTableView::item:selected {
   color: #ffffff;
   background-color: @ThemeAccentColor1;
+  border: 1px solid @ThemeAccentColor1;
 }
 
 QFrame[class="panel"] QTreeView::item:focus,
