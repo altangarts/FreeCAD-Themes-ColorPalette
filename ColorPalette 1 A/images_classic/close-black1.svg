@@ -9,7 +9,7 @@
    id="svg1"
    xml:space="preserve"
    sodipodi:docname="close-black1.svg"
-   inkscape:version="1.4.3 (0d15f75, 2025-12-25)"
+   inkscape:version="1.4.4 (dcaf3e7, 2026-05-05)"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
@@ -25,7 +25,7 @@
      inkscape:document-units="mm"
      inkscape:zoom="88.940287"
      inkscape:cx="7.0215649"
-     inkscape:cy="7.1733522"
+     inkscape:cy="7.1789739"
      inkscape:window-width="2556"
      inkscape:window-height="2041"
      inkscape:window-x="0"
@@ -51,6 +51,6 @@
        inkscape:locked="false" /></sodipodi:namedview><defs
      id="defs1" /><path
      id="path5"
-     style="fill:#151515;fill-opacity:0.796078;stroke:#151515;stroke-width:0.5;stroke-linecap:round;stroke-linejoin:bevel;stroke-dasharray:none;stroke-opacity:0.80000001;paint-order:markers fill stroke"
+     style="fill:#101010;fill-opacity:0.80000001;stroke:#101010;stroke-width:0.5;stroke-linecap:round;stroke-linejoin:bevel;stroke-dasharray:none;stroke-opacity:1;paint-order:markers fill stroke"
      d="M 0.49679867,3.2991001 3.3050498,0.49977352 m -2.80825114,0 2.80230124,2.79337688"
      sodipodi:nodetypes="cccc" /></svg>
