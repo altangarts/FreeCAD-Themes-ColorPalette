@@ -105,7 +105,6 @@ Gui--PropertyEditor--PropertyEditor {
   qproperty-groupTextColor: #f5c5f5;
   qproperty-groupTextColor: @ColorPaletteTextHeader;
   qproperty-groupBackground: transparent;
-/* qproperty-groupBackground: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop: 0 @ColorPaletteOverlayitemEnd, stop: 0.9 @ColorPaletteOverlayitemEnd, stop: 1 @ColorPalettePropertyGridline); */
 }
 
 Gui--PropertyEditor--PropertyEditor QLineEdit:read-only,
