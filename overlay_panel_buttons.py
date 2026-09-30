@@ -1,6 +1,11 @@
 # -*- coding: utf-8 -*-
 
+import time
+
 _SIDES = ("left", "right", "top", "bottom")
+_RETRY_SECONDS = 2.0   # overlay bulunamazsa yeniden arama aralığı
+_POLL_MS = 1000        # yedek yoklama; asıl tetikleme olay tabanlı
+_DOCK_TTL = 2.0        # dock var mı sonucunun geçerlilik süresi
 _HIDDEN_THICKNESS = 30
 
 _DEFAULT_SIZE = 24
@@ -98,6 +103,7 @@ def install():
             self._gap = _DEFAULT_GAP
             self._hover_icon = QtGui.QIcon()
             self._normal_icon = None  # hover sırasında saklanan normal ikon
+            self._placed = False
 
             self.setObjectName(object_name)
             self.setText(text)
@@ -154,12 +160,12 @@ def install():
         def hideEvent(self, event):
             # Tıklayınca panel açılıp buton gizlenirse leaveEvent gelmeyebilir
             self._restore_normal()
+            self._placed = False
             super().hideEvent(event)
 
         # -------------------------------------------------------------------
         def sizeHint(self):
             hint = super().sizeHint()
-            # QSS width/height/min-*/max-* hiçbir şey vermediyse varsayılan boyut
             if hint.width() <= 0 or hint.height() <= 0:
                 return QtCore.QSize(_DEFAULT_SIZE, _DEFAULT_SIZE)
             return hint
@@ -193,17 +199,24 @@ def install():
             side = self.property("cpOverlaySide")
 
             if side == "left":
-                self.move(x0 + margin, y0 + margin)
+                tx, ty = x0 + margin, y0 + margin
             elif side == "right":
-                self.move(x0 + max(0, w - bw - margin), y0 + margin)
+                tx, ty = x0 + max(0, w - bw - margin), y0 + margin
             elif side == "top":
-                # sol butonun (varsa) yanına yerleşir
                 left_w = buttons["left"].width() if "left" in buttons else bw
-                self.move(x0 + margin + left_w + gap, y0 + margin)
+                tx, ty = x0 + margin + left_w + gap, y0 + margin
             elif side == "bottom":
-                self.move(x0 + margin, y0 + max(0, h - bh - margin))
+                tx, ty = x0 + margin, y0 + max(0, h - bh - margin)
+            else:
+                return
 
-            self.raise_()
+            target = QtCore.QPoint(tx, ty)
+            moved = self.pos() != target
+            if moved:
+                self.move(target)
+            if moved or not self._placed:
+                self.raise_()
+                self._placed = True
 
     buttons = {
         "left": _OverlayButton(
@@ -225,22 +238,60 @@ def install():
     }
 
     class _OverlayMonitor(QtCore.QObject):
+        _MW_EVENTS = (
+            QtCore.QEvent.Resize,
+            QtCore.QEvent.Show,
+            QtCore.QEvent.LayoutRequest,
+        )
+        _OVERLAY_EVENTS = (
+            QtCore.QEvent.Resize,
+            QtCore.QEvent.Show,
+            QtCore.QEvent.Hide,
+            QtCore.QEvent.ChildAdded,
+            QtCore.QEvent.ChildRemoved,
+        )
+        _DOCK_EVENTS = (
+            QtCore.QEvent.Show,
+            QtCore.QEvent.Hide,
+            QtCore.QEvent.ChildAdded,
+            QtCore.QEvent.ChildRemoved,
+        )
+
         def __init__(self):
             super().__init__(mw)
-            self._last_qss = None
+            self._cache = {}       # side -> overlay widget
+            self._retry_at = {}    # side -> monotonic zaman (bulunamadıysa)
+            self._docks_at = {}    # side -> (zaman, dock var mı)
+            self._scheduled = False
+            mw.installEventFilter(self)
+            # Yedek yoklama: olay kaçarsa (ör. overlay geç oluşursa) yakalar
             self._timer = QtCore.QTimer(self)
-            self._timer.setInterval(250)
+            self._timer.setInterval(_POLL_MS)
             self._timer.timeout.connect(self.update_all)
             self._timer.start()
-            mw.installEventFilter(self)
+            app.applicationStateChanged.connect(self._on_app_state)
+
+        def _on_app_state(self, _state):
+            self._schedule()
+
+        def _schedule(self):
+            if not self._scheduled:
+                self._scheduled = True
+                QtCore.QTimer.singleShot(0, self._flush)
+
+        def _flush(self):
+            self._scheduled = False
+            self.update_all()
 
         def eventFilter(self, obj, event):
-            if obj is mw and event.type() in (
-                QtCore.QEvent.Resize,
-                QtCore.QEvent.Show,
-                QtCore.QEvent.LayoutRequest,
-            ):
-                self._place_all()
+            t = event.type()
+            if obj is mw:
+                if t in self._MW_EVENTS:
+                    self._schedule()
+            elif t in self._OVERLAY_EVENTS:
+                if t in self._DOCK_EVENTS:
+                    self._docks_at.clear()
+                self._schedule()
             return False
 
         @staticmethod
@@ -251,37 +302,54 @@ def install():
                 return overlay.width() <= _HIDDEN_THICKNESS
             return overlay.height() <= _HIDDEN_THICKNESS
 
-        def _sync_qss(self):
+        def _overlay(self, side):
+            w = self._cache.get(side)
+            if w is not None:
+                try:
+                    w.objectName()  # silinmişse RuntimeError fırlatır
+                    return w
+                except Exception:
+                    self._cache.pop(side, None)
 
-            found = None
-            for side in _SIDES:
-                overlay = _find_overlay(mw, QtWidgets, side)
-                if overlay is None:
-                    continue
-                ss = overlay.styleSheet()
-                if ss and ("cpOverlaySide" in ss or "ColorPaletteOverlay" in ss):
-                    found = ss
-                    break
-            if found is None or found == self._last_qss:
-                return
-            self._last_qss = found
-            for b in buttons.values():
-                b.setStyleSheet(found)
-                b.style().unpolish(b)
-                b.style().polish(b)
+            now = time.monotonic()
+            if now < self._retry_at.get(side, 0.0):
+                return None
+
+            w = _find_overlay(mw, QtWidgets, side)
+            if w is None:
+                self._retry_at[side] = now + _RETRY_SECONDS
+                return None
+            self._cache[side] = w
+            self._retry_at.pop(side, None)
+            w.installEventFilter(self)
+            return w
+
+        def _has_docks(self, side, overlay):
+            now = time.monotonic()
+            cached = self._docks_at.get(side)
+            if cached is not None and now - cached[0] < _DOCK_TTL:
+                return cached[1]
+            result = overlay.findChild(QtWidgets.QDockWidget) is not None
+            self._docks_at[side] = (now, result)
+            return result
 
         def update_all(self):
             try:
-                self._sync_qss()
+                if not mw.isVisible() or mw.isMinimized():
+                    return
+                if app.applicationState() != QtCore.Qt.ApplicationActive:
+                    return
+
                 for side in _SIDES:
                     button = buttons[side]
-                    overlay = _find_overlay(mw, QtWidgets, side)  # her seferinde yeniden bul
+                    overlay = self._overlay(side)
 
-                    visible = bool(
-                        overlay is not None
-                        and overlay.findChildren(QtWidgets.QDockWidget)
-                        and self._is_hidden(overlay, side)
-                    )
+                    visible = False
+                    if overlay is not None:
+                        if self._is_hidden(overlay, side):
+                            visible = self._has_docks(side, overlay)
+                        else:
+                            self._docks_at.pop(side, None)
 
                     if button.isVisible() != visible:
                         button.setVisible(visible)
@@ -289,11 +357,6 @@ def install():
                         button.place()
             except Exception:
                 pass
-
-        def _place_all(self):
-            for b in buttons.values():
-                if b.isVisible():
-                    b.place()
 
     monitor = _OverlayMonitor()
 
