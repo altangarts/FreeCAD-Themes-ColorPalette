@@ -837,6 +837,15 @@ Gui--OverlayToolButton:pressed {
   image: url(qss:images_classic/toggle-hide-white.svg);
 }
 
+Gui--OverlayToolButton[objectName="OBTN Close"] {
+  image: url(qss:images_classic/close-black1.svg);
+}
+
+Gui--OverlayToolButton[objectName="OBTN Close"]:hover,
+Gui--OverlayToolButton[objectName="OBTN Close"]:pressed {
+  image: url(qss:images_classic/close-white1.svg);
+}
+
 Gui--OverlayToolButton[objectName="OBTN Transparent"] {
   image: url(qss:images_classic/transparent-black1.svg);
   min-width: 14px;

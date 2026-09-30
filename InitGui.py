@@ -63,6 +63,15 @@ def _cp_bootstrap():
         _P_POLISHED = "_cpTreePolished"   # Qt dinamik property: wrapper GC olsa da kaybolmaz
         _P_HOOKED = "_cpTreeHooked"
 
+        def _find_trees(root):
+            """findChildren tuple kabul etmez (PySide6 dev: qt_isinstance FIXME);
+            her tip icin ayri cagirip birlestir. QTreeView ve QListView birbirinin
+            alt sinifi olmadigi icin sonuclarda tekrar olusmaz."""
+            trees = []
+            for t in _TREE_TYPES:
+                trees.extend(root.findChildren(t))
+            return trees
+
         def _is_ephemeral(widget):
             """Menü / tooltip gibi kısa ömürlü pencereler ağaç barındırmaz; taramayı tetiklemesin."""
             try:
@@ -135,7 +144,7 @@ def _cp_bootstrap():
                 return
             try:
                 # Sadece henüz hazırlanmamış ağaçlar işlenir (diğerleri için ucuz property kontrolü)
-                for tree in mw.findChildren(_TREE_TYPES):
+                for tree in _find_trees(mw):
                     if not tree.property(_P_HOOKED):
                         _fix_tree(tree)
 
@@ -143,7 +152,7 @@ def _cp_bootstrap():
                 for top in QtWidgets.QApplication.topLevelWidgets():
                     if top is mw or not top.isVisible() or _is_ephemeral(top):
                         continue
-                    for tree in top.findChildren(_TREE_TYPES):
+                    for tree in _find_trees(top):
                         if not tree.property(_P_HOOKED):
                             _fix_tree(tree)
             except Exception:
@@ -227,6 +236,20 @@ def _cp_bootstrap():
         _load_module(_mod_dir, "color_palette_dynamic_editor", "dynamic_property_editor.py", "dynamic_property_editor")
         _load_module(_mod_dir, "colorpalette_grid", "colorpalette_grid.py", "colorpalette_grid")
         _load_module(_mod_dir, "color_palette_workbench_combobox", "workbench_combobox.py", "workbench_combobox")
+        _overlay_buttons = _load_module(
+            _mod_dir,
+            "colorpalette_overlay_panel_buttons",
+            "overlay_panel_buttons.py",
+            "overlay_panel_buttons"
+        )
+
+        if _overlay_buttons:
+            # Overlay panelleri olustuktan sonra kur.
+            try:
+                from PySide6 import QtCore as _QtCore
+            except ImportError:
+                from PySide2 import QtCore as _QtCore
+            _QtCore.QTimer.singleShot(1500, _overlay_buttons.install)
 
         try:
             def _apply_task_panel_style_fix():
