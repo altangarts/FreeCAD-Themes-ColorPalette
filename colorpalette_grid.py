@@ -38,7 +38,7 @@ def _nice_step(raw_value):
 
 
 _GRID_PARAM_PATH = "User parameter:BaseApp/Preferences/Mod/ColorPaletteGrid"
-_GRID_DEFAULT_COLOR = 0xCCCCCCFF        
+_GRID_DEFAULT_COLOR = 0xAAAAAAFF        
 _GRID_DEFAULT_AXIS_X_COLOR = 0xCC3333FF  
 _GRID_DEFAULT_AXIS_Y_COLOR = 0x66B333FF  
 _GRID_DEFAULT_AXIS_Z_COLOR = 0x3366CCFF  

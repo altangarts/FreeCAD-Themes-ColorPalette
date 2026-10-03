@@ -200,16 +200,6 @@ Gui--PropertyEditor--PropertyEditor > QWidget > QWidget QLabel {
   border-radius: 0px;
 }
 
-#PropRow0 {
-  color: #e6ee9c;
-  font-weight: bold;
-}
-
-#PropRow1 {
-  color: #80deea;
-  font-weight: bold;
-}
-
 /*==================================================================================================
 Main window
 ==================================================================================================*/
@@ -1537,8 +1527,8 @@ QToolBar QPushButton {
 QStatusBar QPushButton {
   color: #eeeeee;
   color: @ColorPaletteTextGeneralBottom;
-  padding: 0px 0px 0px 20px;
-  margin: 1px 0px 0px 0px;
+  padding: 0px 20px 0px 0px;
+  margin: 2px 0px 0px 0px;
   min-width: 60px;
   min-height: 24px;
   border-radius: 4px;
@@ -1749,8 +1739,8 @@ QStatusBar QToolButton {
   border-right-color: rgba(0,0,0,0.2);
   border-bottom-color: #181818;
   border-left-color: rgba(0,0,0,0.2);
-  margin: 1px 0px 0px 0px;
-  padding: 0px 0px 0px 1px;
+  margin: 2px 0px 0px 0px;
+  padding: -1px 0px 1px 1px;
   border-radius: 4px;
   max-height: 24px;
   min-width: 20px;
@@ -2739,7 +2729,7 @@ QMdiArea QTabBar::tab {
   color: #eeeeee;
   color: @ColorPaletteTextGeneralBottom;
   margin: 2px 0px 3px 3px;
-  padding: 2px 3px 2px 3px;
+  padding: 1px 3px 3px 3px;
   border-top-left-radius: 4px;
   border-top-right-radius: 12px;
   border-bottom-left-radius: 4px;
