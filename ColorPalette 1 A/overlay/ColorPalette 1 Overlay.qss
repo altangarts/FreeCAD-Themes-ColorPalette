@@ -98,7 +98,7 @@ QTabWidget QDialog QTreeView::item:has-children,
 QTabWidget QDialog QTreeView::item:has-children:!has-siblings:open,
 QTabWidget QDialog QTreeView::item:has-children:open {
   background-color: rgba(0,0,0,0.05);
-  margin: 1px 0px 1px 2px;
+  margin: 1px 0px 1px 1px;
   padding: 2px;
   border-radius: 4px;
 }
@@ -422,6 +422,11 @@ Gui--TreePanel QTreeView::item {
   border-radius: 4px;
   margin: 1px 0px 0px 0px;
   padding: 1px 0px 3px 0px;
+}
+
+QTabWidget QDialog QTreeView::item {
+  color: #ffff69;
+  color: @ColorPaletteTextTreeEnd;
 }
 
 #DocumentTreeItems::item:has-children:!has-siblings:open,

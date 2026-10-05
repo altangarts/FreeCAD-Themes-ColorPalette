@@ -430,6 +430,11 @@ Gui--TreePanel QTreeView::item {
   padding: 1px 0px 3px 0px;
 }
 
+QTabWidget QDialog QTreeView::item {
+  color: #ffff69;
+  color: @ColorPaletteTextTreeEnd;
+}
+
 #DocumentTreeItems::item:has-children:!has-siblings:open,
 QTabWidget QDialog QTreeView::item:has-children:!has-siblings:open {
   color: #abff7d;

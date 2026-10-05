@@ -2938,115 +2938,39 @@ QTreeView::branch:has-siblings:!adjoins-item {
     border-image: url(qss:images_classic/branch_vline_black.svg) 0;
 }
 
-QTreeView::branch:has-siblings:adjoins-item {
-    image: url(qss:images_classic/branch_more_black1.svg) 0;
-    border-image: none;
-    padding: 4px;
-}
-
-QTreeView::branch:!has-children:!has-siblings:adjoins-item {
-    image: url(qss:images_classic/branch_end_black2.svg) 0;
-    border-image: none;
-    padding: 4px;
-}
-
-QTreeView::branch:closed:has-children:has-siblings {
-    image: url(qss:images_classic/branch_more_closed_black.svg) 0;
-    padding: 0px;
-}
-
-QTreeView::branch:has-children:!has-siblings:closed {
-    image: url(qss:images_classic/branch_end_closed_black.svg) 0;
-    padding: 0px;
-}
-
-QTreeView::branch:open:has-children:has-siblings {
-    image: url(qss:images_classic/branch_more_open_black.svg) 0;
-    padding: 0px;
-}
-
-QTreeView::branch:open:has-children:!has-siblings {
-    image: url(qss:images_classic/branch_end_open_black.svg) 0;
-    border-image: none;
-    padding: 0px;
-}
-
-QDockWidget QTreeView::branch:has-siblings:adjoins-item { 
+QTreeView::branch:has-siblings:adjoins-item { 
     border-image: url(qss:images_classic/branch_more_dark.svg) 0;
     image: none;
 }
 
-QDockWidget QTreeView::branch:!has-children:!has-siblings:adjoins-item {
+QTreeView::branch:!has-children:!has-siblings:adjoins-item {
     border-image: url(qss:images_classic/branch_end_dark.svg) 0;
     image: none;
 }
 
-QDockWidget QTreeView::branch:has-children:!has-siblings:closed,
-QDockWidget QTreeView::branch:open:has-children:!has-siblings {
+QTreeView::branch:has-children:!has-siblings:closed,
+QTreeView::branch:open:has-children:!has-siblings {
     border-image: url(qss:images_classic/branch_end_dark.svg) 0;
 }
 
-QDockWidget QTreeView::branch:open:has-children:!has-siblings {
+QTreeView::branch:open:has-children:!has-siblings {
     image: url(qss:images_classic/branch_end_open_black.svg) 0;
     padding: -3px;
 }
 
-QDockWidget QTreeView::branch:open:has-children:has-siblings {
+QTreeView::branch:open:has-children:has-siblings {
     image: url(qss:images_classic/branch_more_open_black.svg) 0;
     padding: -3px;
 }
 
-QDockWidget QTreeView::branch:has-children:!has-siblings:closed {
+QTreeView::branch:has-children:!has-siblings:closed {
     image: url(qss:images_classic/branch_end_closed_black.svg) 0;
     padding: -3px;
 }
 
-QDockWidget QTreeView::branch:closed:has-children:has-siblings {
+QTreeView::branch:closed:has-children:has-siblings {
     image: url(qss:images_classic/branch_more_closed_black.svg) 0;
     padding: -3px;
-}
-
-QTabWidget QTreeView::branch:open:has-children:!has-siblings {
-    image: url(qss:images_classic/branch_end_open_black.svg) 0;
-    padding: 0px;
-}
-
-QTabWidget QTreeView::branch:open:has-children:has-siblings {
-    image: url(qss:images_classic/branch_more_open_black.svg) 0;
-    padding: 0px;
-}
-
-QTabWidget QTreeView::branch:has-children:!has-siblings:closed {
-    image: url(qss:images_classic/branch_end_closed_black.svg) 0;
-    padding: 0px;
-}
-
-QTabWidget QTreeView::branch:closed:has-children:has-siblings {
-    image: url(qss:images_classic/branch_more_closed_black.svg) 0;
-    padding: 0px;
-}
-
-QTabWidget QTreeView::branch:has-siblings:adjoins-item {
-    image: url(qss:images_classic/branch_more_black1.svg) 0;
-    border-image: none;
-    padding: 4px;
-}
-
-QTabWidget QTreeView::branch:!has-children:!has-siblings:adjoins-item {
-    image: url(qss:images_classic/branch_end_black2.svg) 0;
-    border-image: none;
-    padding: 4px;
-}
-
-QTabWidget QTreeView::branch:has-children:!has-siblings:closed,
-QTabWidget QTreeView::branch:has-children:!has-siblings:open {
-    border-image: none;
-}
-
-QTabWidget QTreeView::branch:open:has-children:!has-siblings {
-    image: url(qss:images_classic/branch_more_open_black.svg) 0;
-    border-image: none;
-    padding: 0px;
 }
 
 #DocumentTreeItems::indicator {
@@ -3693,6 +3617,26 @@ QTabWidget QDialog QTreeView::item:selected {
 QDialog QTreeView::indicator,
 QDialog QListView::indicator {
   margin-bottom: 0px;
+}
+
+QTabWidget QDialog QTreeView::item {
+  color: #ffff69;
+  color: @ColorPaletteTextTreeEnd;
+}
+
+QTabWidget QDialog QTreeView::item:has-children {
+  color: #beffff;
+  color: @ColorPaletteTextTreeClosed;
+}
+
+QTabWidget QDialog QTreeView::item:has-children:open {
+  color: #abff7d;
+  color: @ColorPaletteTextTreeOpen;
+}
+
+QTabWidget QDialog QTreeView::item:has-children:!has-siblings:open {
+  color: #abff7d;
+  color: @ColorPaletteTextTreeOpen;
 }
 
 /* QComboBox --------------------------------------------------------------
