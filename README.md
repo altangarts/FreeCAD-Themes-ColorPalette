@@ -91,7 +91,7 @@ ColorPalette Themes, makes the interface and workspaces more user-focused. It si
        - In FreeCAD, a single click selects the surface, a double-click selects the part, and a third click selects the part's assembly structure.
 
 ⤵️
-![Ekran Görüntüsü (8)](https://github.com/user-attachments/assets/0897f1e0-01c4-4c8d-a5d9-5a242b626038).
+![Ekran Görüntüsü (8)](https://github.com/user-attachments/assets/0897f1e0-01c4-4c8d-a5d9-5a242b626038)
 
 
 #### ✅ Light Colors and Settings,
