@@ -18,6 +18,10 @@ def _cp_bootstrap():
 
     _mod_dir = os.path.join(FreeCAD.getUserAppDataDir(), "Mod", "Color-Palette-Theme")
 
+    import sys
+    if _mod_dir not in sys.path:
+        sys.path.append(_mod_dir)  # colorpalette_menu / colorpalette_chrome ortak modul orneği için
+
     _load_module(_mod_dir, "colorpalette_theme_presets", "colorpalette_theme_presets.py", "colorpalette_theme_presets")
 
     def _is_colorpalette_theme_active():
@@ -234,8 +238,39 @@ def _cp_bootstrap():
         _install_global_colorpalette_filter()
         _load_module(_mod_dir, "color_palette_theme_sync", "viewport_color_sync.py", "viewport_color_sync")
         _load_module(_mod_dir, "color_palette_dynamic_editor", "dynamic_property_editor.py", "dynamic_property_editor")
+
+        # ColorPalette menubar ogesi (ayri modul; editor hook'larini kaydettikten sonra kurulur)
+        try:
+            import colorpalette_menu
+            try:
+                from PySide6 import QtCore as _QtCoreMenu
+            except ImportError:
+                from PySide2 import QtCore as _QtCoreMenu
+            _QtCoreMenu.QTimer.singleShot(1500, colorpalette_menu.install)
+        except Exception as e:
+            FreeCAD.Console.PrintError(f"ColorPalette: colorpalette_menu yuklenemedi - {str(e)}\n")
+
         _load_module(_mod_dir, "colorpalette_grid", "colorpalette_grid.py", "colorpalette_grid")
+        # Tercihler > ColorPalette > "Other Settings" (Grid sayfasindan sonra, en altta)
+        try:
+            import FreeCADGui as _GuiPrefs
+            _GuiPrefs.addPreferencePage(
+                os.path.join(_mod_dir, "preferences-colorpalettesettings.ui"), "ColorPalette"
+            )
+        except Exception as e:
+            FreeCAD.Console.PrintError(f"ColorPalette: Other Settings sayfasi eklenemedi - {str(e)}\n")
         _load_module(_mod_dir, "color_palette_workbench_combobox", "workbench_combobox.py", "workbench_combobox")
+        # Dinamik status bar + menubar -> tek toolbutton (varsayilan: aktif)
+        try:
+            import colorpalette_chrome
+            try:
+                from PySide6 import QtCore as _QtCoreChrome
+            except ImportError:
+                from PySide2 import QtCore as _QtCoreChrome
+            _QtCoreChrome.QTimer.singleShot(1500, colorpalette_chrome.install)
+        except Exception as e:
+            FreeCAD.Console.PrintError(f"ColorPalette: colorpalette_chrome yuklenemedi - {str(e)}\n")
+
         _overlay_buttons = _load_module(
             _mod_dir,
             "colorpalette_overlay_panel_buttons",
@@ -244,7 +279,6 @@ def _cp_bootstrap():
         )
 
         if _overlay_buttons:
-            # Overlay panelleri olustuktan sonra kur.
             try:
                 from PySide6 import QtCore as _QtCore
             except ImportError:

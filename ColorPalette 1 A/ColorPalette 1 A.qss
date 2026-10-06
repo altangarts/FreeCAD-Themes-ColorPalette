@@ -1100,6 +1100,9 @@ QStackedWidget {
 /* QToolBar ---------------------------------------------------------------
 
 --------------------------------------------------------------------------- */
+QToolBar#CPMenuToolBar {
+}
+
 QToolBar[orientation="1"] {
   margin: 2px 1px 0px 1px;
   padding: 0px;
@@ -1713,6 +1716,16 @@ QMessageBox[objectName="macroGuideWalkthrough"] QDialogButtonBox QPushButton {
 /* QToolButton ------------------------------------------------------------
 
 --------------------------------------------------------------------------- */
+QToolButton#CPMenuButton {
+  qproperty-icon: url(qss:images_classic/freecad_icon.svg);
+  qproperty-iconSize: 24px 24px;
+  padding: 2px 2px 8px 2px;
+}
+
+QToolButton#CPMenuButton::menu-indicator {
+ image: none; 
+}
+
 QToolBar QToolButton {
   background-color: transparent;
   border: 1px solid transparent;
@@ -2695,9 +2708,9 @@ QToolBar QTabBar::tab:left {
   border-left-color: rgba(0,0,0,0.2);
   border-radius: 4px;
   margin: 2px 2px 0px 2px;
-  padding: 0px 3px 4px 0px;
+  padding: 0px 0px 2px 0px;
   min-height: 5px;
-  min-width: 24px;
+  min-width: 10px;
 }
 
 QToolBar QTabBar::tab:right {
@@ -2712,9 +2725,9 @@ QToolBar QTabBar::tab:right {
   border-left-color: rgba(0,0,0,0.6);
   border-radius: 4px;
   margin: 2px 2px 0px 2px;
-  padding: 4px 0px 0px 3px;
+  padding: 2px 0px 0px 0px;
   min-height: 5px;
-  min-width: 24px;
+  min-width: 10px;
 }
 
 QTabWidget QTabBar::tab:bottom {

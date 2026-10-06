@@ -290,6 +290,33 @@ instead of being derived automatically from the "Grid spacing (divisions)" value
         </property>
        </widget>
       </item>
+      <item row="7" column="0">
+       <widget class="QLabel" name="label_gridVisible">
+        <property name="text">
+         <string>Grid visibility</string>
+        </property>
+       </widget>
+      </item>
+      <item row="7" column="1">
+       <widget class="Gui::PrefCheckBox" name="checkBox_gridVisible">
+        <property name="toolTip">
+         <string>Show or hide the 3D view grid.
+Same as "Grid On/Off" in the ColorPalette menu.</string>
+        </property>
+        <property name="text">
+         <string>Show 3D grid</string>
+        </property>
+        <property name="checked">
+         <bool>true</bool>
+        </property>
+        <property name="prefEntry" stdset="0">
+         <cstring>GridVisible</cstring>
+        </property>
+        <property name="prefPath" stdset="0">
+         <cstring>Mod/ColorPaletteState</cstring>
+        </property>
+       </widget>
+      </item>
      </layout>
     </widget>
    </item>

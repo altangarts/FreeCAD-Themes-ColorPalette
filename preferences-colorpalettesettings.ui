@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Gui::Dialog::DlgSettingsColorPaletteOther</class>
+ <widget class="QWidget" name="Gui::Dialog::DlgSettingsColorPaletteOther">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>420</width>
+    <height>360</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Other Settings</string>
+  </property>
+  <layout class="QVBoxLayout">
+   <item>
+    <widget class="QGroupBox" name="groupBox_propertyEditor">
+     <property name="title">
+      <string>Property Editor</string>
+     </property>
+     <layout class="QGridLayout" name="layout_groupBox_propertyEditor">
+      <item row="0" column="0">
+       <widget class="Gui::PrefCheckBox" name="checkBox_propertyEditorEnabled">
+        <property name="toolTip">
+         <string>Enable or disable the ColorPalette property editor</string>
+        </property>
+        <property name="text">
+         <string>Property Editor On</string>
+        </property>
+        <property name="checked">
+         <bool>true</bool>
+        </property>
+        <property name="prefEntry" stdset="0">
+         <cstring>PropertyEditorEnabled</cstring>
+        </property>
+        <property name="prefPath" stdset="0">
+         <cstring>Mod/ColorPaletteState</cstring>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="Gui::PrefRadioButton" name="radioButton_useDoubleClick">
+        <property name="toolTip">
+         <string>Open the property editor with a double click</string>
+        </property>
+        <property name="text">
+         <string>Use Double Click</string>
+        </property>
+        <property name="checked">
+         <bool>true</bool>
+        </property>
+        <property name="prefEntry" stdset="0">
+         <cstring>PropertyEditorDoubleClick</cstring>
+        </property>
+        <property name="prefPath" stdset="0">
+         <cstring>Mod/ColorPaletteState</cstring>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="0">
+       <widget class="QRadioButton" name="radioButton_useStandard">
+        <property name="toolTip">
+         <string>Use the standard FreeCAD property editor behaviour</string>
+        </property>
+        <property name="text">
+         <string>Use Standard</string>
+        </property>
+        <property name="checked">
+         <bool>false</bool>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <widget class="QGroupBox" name="groupBox_interface">
+     <property name="title">
+      <string>Interface</string>
+     </property>
+     <layout class="QGridLayout" name="layout_groupBox_interface">
+      <item row="0" column="0">
+       <widget class="Gui::PrefCheckBox" name="checkBox_statusBarAutoHide">
+        <property name="toolTip">
+         <string>Automatically hide the status bar when it is not in use</string>
+        </property>
+        <property name="text">
+         <string>Status bar auto-hide</string>
+        </property>
+        <property name="checked">
+         <bool>true</bool>
+        </property>
+        <property name="prefEntry" stdset="0">
+         <cstring>StatusBarAutoHide</cstring>
+        </property>
+        <property name="prefPath" stdset="0">
+         <cstring>Mod/ColorPaletteState</cstring>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="Gui::PrefCheckBox" name="checkBox_menuBarAsButton">
+        <property name="toolTip">
+         <string>Replace the menu bar with a single menu button</string>
+        </property>
+        <property name="text">
+         <string>Show menu bar as a single button</string>
+        </property>
+        <property name="checked">
+         <bool>true</bool>
+        </property>
+        <property name="prefEntry" stdset="0">
+         <cstring>MenuBarAsButton</cstring>
+        </property>
+        <property name="prefPath" stdset="0">
+         <cstring>Mod/ColorPaletteState</cstring>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <spacer name="verticalSpacer_1">
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+    </spacer>
+   </item>
+  </layout>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <customwidgets>
+  <customwidget>
+   <class>Gui::PrefCheckBox</class>
+   <extends>QCheckBox</extends>
+   <header>Gui/PrefWidgets.h</header>
+  </customwidget>
+  <customwidget>
+   <class>Gui::PrefRadioButton</class>
+   <extends>QRadioButton</extends>
+   <header>Gui/PrefWidgets.h</header>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections/>
+</ui>
