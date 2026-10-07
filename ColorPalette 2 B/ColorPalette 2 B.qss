@@ -2907,7 +2907,7 @@ QTabBar::close-button {
   padding: 2px 3px 3px 3px;
   height: 12px;
   width: 12px;
-  image: url(qss:images_classic/close-black1.svg);
+  image: url(qss:images_classic/toggle-hide.svg);
 }
 
 QTabBar::close-button:selected {
