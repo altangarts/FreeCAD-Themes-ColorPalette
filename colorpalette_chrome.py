@@ -147,6 +147,7 @@ def _drop_watcher():
 # --------------------------------------------------------------------------- #
 
 class _ClickStrip(QtWidgets.QWidget):
+    """Status bar'ın gizli olduğu alandaki görünmez tıklama şeridi."""
     clicked = QtCore.Signal()
 
     def __init__(self, parent):
@@ -157,6 +158,7 @@ class _ClickStrip(QtWidgets.QWidget):
         self.setAttribute(QtCore.Qt.WA_TranslucentBackground, True)
 
     def paintEvent(self, event):
+        # Hiçbir şey çizmiyoruz; varsayılan boyama yolunu da atla.
         pass
 
     def mousePressEvent(self, event):
@@ -168,6 +170,13 @@ class _ClickStrip(QtWidgets.QWidget):
 
 
 class _StatusBarAutoHide(QtCore.QObject):
+    """
+    Status bar gizli alana tıklanınca açılır, status bar dışında herhangi bir
+    yere tıklanınca kapanır.
+
+    CPU notu: timer / polling yok. Uygulama çapında event filter yalnızca
+    status bar AÇIKKEN kurulur, kapanınca hemen kaldırılır.
+    """
 
     def __init__(self, mw):
         super().__init__(mw)
@@ -240,22 +249,48 @@ class _StatusBarAutoHide(QtCore.QObject):
             self._strip.show()
             self._strip.raise_()
 
+    _POPUP_TYPES = (QtCore.Qt.Popup, QtCore.Qt.Dialog, QtCore.Qt.ToolTip)
+
     def _is_inside_statusbar(self, obj):
+        """Status bar içi etkileşim mi? (butonlar, menüleri, popup/dialoglar)"""
         if not isinstance(obj, QtWidgets.QWidget):
             return False
-        return obj is self._sb or self._sb.isAncestorOf(obj)
+        if obj is self._sb or self._sb.isAncestorOf(obj):
+            return True
+        # Menü / popup / dialog ayrı bir üst seviye pencere olarak açılır ve
+        # status bar'ın child'ı olmayabilir (ör. parent'ı ana pencere olan
+        # QMenu). Bunlar içindeki tıklamalar "dışarı tıklama" sayılmaz.
+        try:
+            w = obj.window()
+            if w is not None and w is not self._mw:
+                return w.windowType() in self._POPUP_TYPES
+        except RuntimeError:
+            pass
+        return False
+
+    def _close_if_still_outside(self):
+        if not self._open or self._disposed:
+            return
+        app = QtWidgets.QApplication.instance()
+        # Bu arada bir menü/popup açıldıysa (status bar etkileşimi) kapatma.
+        if app is not None and app.activePopupWidget() is not None:
+            return
+        self._close_bar()
 
     def eventFilter(self, obj, event):
         et = event.type()
 
+        # Açıkken tüm olaylar buradan geçer; ilgisizleri hemen ele.
         if et == QtCore.QEvent.MouseButtonPress:
-            if self._open and not self._disposed:
+            # Yalnızca QWidget alıcılar değerlendirilir (QWindow vb. atlanır;
+            # aynı tıklama widget'a ayrıca iletilir).
+            if (self._open and not self._disposed
+                    and isinstance(obj, QtWidgets.QWidget)):
                 app = QtWidgets.QApplication.instance()
-                # Status bar içindeki bir menü/popup açıksa dokunma.
                 if (app is not None and app.activePopupWidget() is None
                         and not self._is_inside_statusbar(obj)):
-                    # Tıklamanın kendisi normal işlensin; kapatmayı sonraya bırak.
-                    QtCore.QTimer.singleShot(0, self._close_bar)
+                    # Tıklama normal işlensin; kapatma sonraya kalsın.
+                    QtCore.QTimer.singleShot(0, self._close_if_still_outside)
             return False
 
         if et == QtCore.QEvent.Show and obj is self._sb:
