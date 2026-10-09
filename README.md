@@ -86,7 +86,7 @@ ColorPalette Themes, makes the interface and workspaces more user-focused. It si
 
        - You can use the Property Editor with the option to open it by double-clicking a surface, or with the standard single-click option. You can toggle the grid on and off and access its settings in the preferences.
 
-       - The status bar will appear automatically when you hover the mouse over the bottom 12px area and disappear when you move it away.
+       - Clicking the mouse cursor on the invisible 12-pixel area at the bottom causes the status bar to appear automatically, while clicking elsewhere makes it disappear..
 
        - In FreeCAD, a single click selects the surface, a double-click selects the part, and a third click selects the part's assembly structure.
 
