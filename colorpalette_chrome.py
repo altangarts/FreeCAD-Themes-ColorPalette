@@ -19,8 +19,6 @@ KEY_STATUSBAR_AUTOHIDE = "StatusBarAutoHide"
 KEY_MENUBAR_BUTTON = "MenuBarAsButton"
 
 STRIP_HEIGHT = 12
-OPEN_DELAY_MS = 400
-CLOSE_DELAY_MS = 300
 LAYOUT_DEBOUNCE_MS = 150
 LAYOUT_BUSY_MS = 300
 _QWIDGETSIZE_MAX = 16777215
@@ -148,29 +146,25 @@ def _drop_watcher():
 # 1) Dinamik Status Bar (Otomatik Gizleme)
 # --------------------------------------------------------------------------- #
 
-class _HoverStrip(QtWidgets.QWidget):
-    entered = QtCore.Signal()
-    left = QtCore.Signal()
+class _ClickStrip(QtWidgets.QWidget):
+    clicked = QtCore.Signal()
 
     def __init__(self, parent):
         super().__init__(parent)
-        self.setObjectName("CPStatusHoverStrip")
+        self.setObjectName("CPStatusClickStrip")
         self.setFixedHeight(STRIP_HEIGHT)
         self.setAttribute(QtCore.Qt.WA_NoSystemBackground, True)
         self.setAttribute(QtCore.Qt.WA_TranslucentBackground, True)
-        self.setMouseTracking(True)
 
     def paintEvent(self, event):
-        # Hiçbir şey çizmiyoruz; varsayılan boyama yolunu da atla.
         pass
 
-    def enterEvent(self, event):
-        self.entered.emit()
-        super().enterEvent(event)
-
-    def leaveEvent(self, event):
-        self.left.emit()
-        super().leaveEvent(event)
+    def mousePressEvent(self, event):
+        if event.button() == QtCore.Qt.LeftButton:
+            self.clicked.emit()
+            event.accept()
+        else:
+            super().mousePressEvent(event)
 
 
 class _StatusBarAutoHide(QtCore.QObject):
@@ -181,20 +175,10 @@ class _StatusBarAutoHide(QtCore.QObject):
         self._sb = mw.statusBar()
         self._open = False
         self._disposed = False
+        self._app_filter_on = False
 
-        self._strip = _HoverStrip(mw)
-        self._strip.entered.connect(self._on_strip_entered)
-        self._strip.left.connect(self._on_strip_left)
-
-        self._open_timer = QtCore.QTimer(self)
-        self._open_timer.setSingleShot(True)
-        self._open_timer.setInterval(OPEN_DELAY_MS)
-        self._open_timer.timeout.connect(self._open_bar)
-
-        self._close_timer = QtCore.QTimer(self)
-        self._close_timer.setSingleShot(True)
-        self._close_timer.setInterval(CLOSE_DELAY_MS)
-        self._close_timer.timeout.connect(self._close_if_allowed)
+        self._strip = _ClickStrip(mw)
+        self._strip.clicked.connect(self._open_bar)
 
         watcher = _get_watcher(mw)
         watcher.subscribe(QtCore.QEvent.Resize, self._on_mw_geometry)
@@ -218,52 +202,34 @@ class _StatusBarAutoHide(QtCore.QObject):
         if self._strip.geometry() != rect:
             self._strip.setGeometry(rect)
 
-    def _on_strip_entered(self):
-        if not self._open:
-            self._close_timer.stop()
-            self._open_timer.start()
-
-    def _on_strip_left(self):
-        self._open_timer.stop()
+    def _set_app_filter(self, on):
+        if on == self._app_filter_on:
+            return
+        app = QtWidgets.QApplication.instance()
+        if app is None:
+            return
+        if on:
+            app.installEventFilter(self)
+        else:
+            app.removeEventFilter(self)
+        self._app_filter_on = on
 
     def _open_bar(self):
-        if self._open:
+        if self._open or self._disposed:
             return
         self._open = True
         self._strip.hide()
         self._sb.show()
+        self._set_app_filter(True)
 
     def _close_bar(self):
-        self._open_timer.stop()
-        self._close_timer.stop()
+        self._set_app_filter(False)
         self._open = False
         if self._sb.isVisible():
             self._sb.hide()
         self._place_strip()
         self._strip.show()
         self._strip.raise_()
-
-    def _schedule_close(self):
-        if self._open:
-            self._close_timer.start()
-
-    def _close_if_allowed(self):
-        if not self._open:
-            return
-
-        app = QtWidgets.QApplication.instance()
-        if app is None or app.activePopupWidget() is not None or app.mouseButtons() != QtCore.Qt.NoButton:
-            self._close_timer.start()
-            return
-
-        rect = QtCore.QRect(
-            self._sb.mapToGlobal(QtCore.QPoint(0, 0)),
-            self._sb.size(),
-        )
-        if rect.contains(QtGui.QCursor.pos()):
-            return
-
-        self._close_bar()
 
     def _enforce_hidden(self):
         if self._disposed:
@@ -274,20 +240,32 @@ class _StatusBarAutoHide(QtCore.QObject):
             self._strip.show()
             self._strip.raise_()
 
+    def _is_inside_statusbar(self, obj):
+        if not isinstance(obj, QtWidgets.QWidget):
+            return False
+        return obj is self._sb or self._sb.isAncestorOf(obj)
+
     def eventFilter(self, obj, event):
         et = event.type()
-        if et == QtCore.QEvent.Show:
+
+        if et == QtCore.QEvent.MouseButtonPress:
+            if self._open and not self._disposed:
+                app = QtWidgets.QApplication.instance()
+                # Status bar içindeki bir menü/popup açıksa dokunma.
+                if (app is not None and app.activePopupWidget() is None
+                        and not self._is_inside_statusbar(obj)):
+                    # Tıklamanın kendisi normal işlensin; kapatmayı sonraya bırak.
+                    QtCore.QTimer.singleShot(0, self._close_bar)
+            return False
+
+        if et == QtCore.QEvent.Show and obj is self._sb:
             if not self._open:
                 QtCore.QTimer.singleShot(0, self._enforce_hidden)
-        elif et == QtCore.QEvent.Leave:
-            if self._open:
-                self._schedule_close()
         return False
 
     def dispose(self):
         self._disposed = True
-        self._open_timer.stop()
-        self._close_timer.stop()
+        self._set_app_filter(False)
 
         try:
             w = _watcher
