@@ -54,9 +54,6 @@ ColorPalette Themes, makes the interface and workspaces more user-focused. It si
 ⤵️
 ![Ekran görüntüsü 2026-01-29 190249](https://github.com/user-attachments/assets/a012d272-e9dd-4b0e-a9f7-96a6072201e8)
 
-⤵️
-![Ekran Görüntüsü (15)](https://github.com/user-attachments/assets/114437c0-2946-4b08-be7b-58adeac4387a)
-
 
  ___________________
 
@@ -96,6 +93,9 @@ ColorPalette Themes, makes the interface and workspaces more user-focused. It si
 
 ⤵️
 ![Ekran Görüntüsü (14)](https://github.com/user-attachments/assets/c8081106-5649-4e0a-bdd4-92d2fb99de56)
+
+⤵️
+![Ekran Görüntüsü (15)](https://github.com/user-attachments/assets/114437c0-2946-4b08-be7b-58adeac4387a)
 
 
 
