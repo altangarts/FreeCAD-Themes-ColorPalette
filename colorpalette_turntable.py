@@ -506,10 +506,54 @@ def _remove_frames(frames_dir):
         pass
 
 
+def _attach_grid_for_capture(view):
+    """Grid'i saveImage'in render ettigi koke (pcViewProviderRoot) da baglar.
+
+    saveImage yalnizca nesne kokunu render eder; grid ise bir ust seviyedeki sahne
+    kokune eklendigi icin resme girmez. Kayit suresince ayni grid dugumu nesne
+    kokunun altina da baglanir (ayni malzeme/renk/seffaflik ayarlariyla).
+    """
+    from pivy import coin
+    sg = view.getSceneGraph()
+
+    sa = coin.SoSearchAction()
+    sa.setName("ColorPaletteGridSwitch")
+    sa.apply(sg)
+    gp = sa.getPath()
+    if gp is None:
+        return None
+    grid = gp.getTail()
+
+    sb = coin.SoSearchAction()
+    sb.setName("ObjectGroup")      # pcViewProviderRoot'un cocugu
+    sb.apply(sg)
+    op = sb.getPath()
+    if op is None or op.getLength() < 2:
+        return None
+    parent = op.getNode(op.getLength() - 2)
+    if parent.findChild(grid) >= 0:
+        return None
+    parent.insertChild(grid, 0)
+    return parent, grid
+
+
+def _detach_grid_after_capture(handle):
+    if not handle:
+        return
+    parent, grid = handle
+    try:
+        idx = parent.findChild(grid)
+        if idx >= 0:
+            parent.removeChild(idx)
+    except Exception:
+        pass
+
+
 class _Recorder:
 
     def __init__(self, controller):
         self.ctl = controller
+        self._grid_handle = None
         self.on_state = None   # fn(active: bool, message: str, progress: float | None)
         self._timer = QtCore.QTimer()
         self._timer.setInterval(0)
@@ -588,6 +632,10 @@ class _Recorder:
         self._cam_state = _read_camera(view.getCameraNode())
         self._i = 0
         self._cancelled = False
+        try:
+            self._grid_handle = _attach_grid_for_capture(view)
+        except Exception:
+            self._grid_handle = None
         self._active = True
         self._timer.start()
         self._notify("Recording %d frames (%d x %d)..." % (self._n, self._size[0], self._size[1]), 0.0)
@@ -633,6 +681,8 @@ class _Recorder:
             self._notify("Frame %d / %d" % (self._i, self._n), self._i / float(self._n))
 
     def _restore_camera(self):
+        _detach_grid_after_capture(self._grid_handle)
+        self._grid_handle = None
         view = _find_view()
         if view is not None and self._cam_state is not None:
             try:
