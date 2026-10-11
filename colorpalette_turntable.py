@@ -443,109 +443,6 @@ def _numbered_path(path):
     return os.path.join(folder, "%s_%d%s" % (base, highest + 1, ext))
 
 
-# --- Grid'i videoya almak icin ----------------------------------------------
-# colorpalette_grid.py cizgileri %4-40 opaklikta (SoMaterial.transparency) cizer. saveImage'in
-# disari aktardigi karede bu kadar saydam ince cizgiler kayboluyor. Bu yuzden kayit suresince
-# grid'in malzemeleri opak + arka planla onceden karistirilmis renge cevrilir, cizgi kalinligi
-# cozunurluge gore buyutulur; kayit bitince (ya da iptalde) hepsi aynen geri yuklenir.
-_GRID_SWITCH_NAME = "ColorPaletteGridSwitch"
-
-
-def _find_grid_switch(view):
-    try:
-        from pivy import coin
-        search = coin.SoSearchAction()
-        search.setName(_GRID_SWITCH_NAME)
-        search.apply(view.getSceneGraph())
-        path = search.getPath()
-        return path.getTail() if path else None
-    except Exception:
-        return None
-
-
-def _background_rgb(name):
-    """Kayittaki arka plan rengi (grid cizgilerini bununla karistiriyoruz)."""
-    if name == "White":
-        return (1.0, 1.0, 1.0)
-    if name == "Black":
-        return (0.0, 0.0, 0.0)
-    try:
-        g = FreeCAD.ParamGet("User parameter:BaseApp/Preferences/View")
-
-        def col(key):
-            v = g.GetUnsigned(key, 0x80808000)
-            return (((v >> 24) & 0xFF) / 255.0, ((v >> 16) & 0xFF) / 255.0, ((v >> 8) & 0xFF) / 255.0)
-
-        if g.GetBool("Simple", False):
-            return col("BackgroundColor")
-        top, bottom = col("BackgroundColor2"), col("BackgroundColor3")   # gradyan: ortalamasi
-        return tuple((a + b) / 2.0 for a, b in zip(top, bottom))
-    except Exception:
-        return (0.5, 0.5, 0.5)
-
-
-def _find_nodes(root, coin, node_class):
-    search = coin.SoSearchAction()
-    search.setType(node_class.getClassTypeId())
-    search.setInterest(coin.SoSearchAction.ALL)
-    search.setSearchingAll(True)          # gizli (switch kapali) dallari da tara
-    search.apply(root)
-    paths = search.getPaths()
-    nodes, seen = [], set()
-    for i in range(paths.getLength()):
-        node = paths[i].getTail()
-        if id(node) not in seen:
-            seen.add(id(node))
-            nodes.append(node)
-    return nodes
-
-
-def _grid_capture_begin(view, bg_name, out_size):
-    """Grid ekranda aciksa yakalanabilir hale getirir. Geri yukleme listesi dondurur;
-    grid kapaliysa/yoksa None (hicbir sey degistirilmez)."""
-    try:
-        from pivy import coin
-        node = _find_grid_switch(view)
-        if node is None or node.whichChild.getValue() == coin.SO_SWITCH_NONE:
-            return None
-
-        bg = _background_rgb(bg_name)
-        _w, view_h = _view_size(view)
-        scale = max(1.0, min(3.0, out_size[1] / float(max(1, view_h))))
-
-        saved = []
-        for mat in _find_nodes(node, coin, coin.SoMaterial):
-            try:
-                color = tuple(mat.diffuseColor[0].getValue())
-                transp = float(mat.transparency[0])
-            except Exception:
-                continue
-            opacity = 1.0 - transp
-            blended = tuple(bg[i] * (1.0 - opacity) + color[i] * opacity for i in range(3))
-            saved.append(("mat", mat, color, transp))
-            mat.diffuseColor.setValue(*blended)
-            mat.transparency.setValue(0.0)
-        for style in _find_nodes(node, coin, coin.SoDrawStyle):
-            width = float(style.lineWidth.getValue())
-            saved.append(("style", style, width, None))
-            style.lineWidth.setValue(width * scale)
-        return saved
-    except Exception:
-        return None
-
-
-def _grid_capture_end(saved):
-    for kind, node, a, b in saved or ():
-        try:
-            if kind == "mat":
-                node.diffuseColor.setValue(*a)
-                node.transparency.setValue(b)
-            else:
-                node.lineWidth.setValue(a)
-        except Exception:
-            pass
-
-
 def _ffmpeg_exe_name():
     return "ffmpeg.exe" if os.name == "nt" else "ffmpeg"
 
@@ -621,7 +518,6 @@ class _Recorder:
         self._active = False
         self._cancelled = False
         self._cam_state = None
-        self._grid_saved = None   # grid malzemelerinin geri yukleme listesi
         self._frames_dir = ""
         self._out = ""
         self._keep = False
@@ -690,14 +586,11 @@ class _Recorder:
         self._frames_dir = frames_dir
         self._keep = s.rec_keep
         self._cam_state = _read_camera(view.getCameraNode())
-        self._grid_saved = _grid_capture_begin(view, self._bg, self._size)   # grid aciksa kayda girsin
         self._i = 0
         self._cancelled = False
         self._active = True
         self._timer.start()
-        self._notify("Recording %d frames (%d x %d)%s..."
-                     % (self._n, self._size[0], self._size[1],
-                        ", grid on" if self._grid_saved is not None else ""), 0.0)
+        self._notify("Recording %d frames (%d x %d)..." % (self._n, self._size[0], self._size[1]), 0.0)
 
     def cancel(self):
         if not self._active:
@@ -740,8 +633,6 @@ class _Recorder:
             self._notify("Frame %d / %d" % (self._i, self._n), self._i / float(self._n))
 
     def _restore_camera(self):
-        _grid_capture_end(self._grid_saved)
-        self._grid_saved = None
         view = _find_view()
         if view is not None and self._cam_state is not None:
             try:
