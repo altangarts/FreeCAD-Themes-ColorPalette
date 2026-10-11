@@ -141,7 +141,8 @@ QTabWidget QDialog QTreeView::item:has-children:open:selected {
   color: #ffffff;
 }
 
-QTabWidget QTreeView::item:focus {
+QTabWidget QTreeView::item:focus,
+QTabWidget QTreeView::item:alternate:focus {
   background-color: @ThemeAccentColor1;
   color: #ffffff;
 }

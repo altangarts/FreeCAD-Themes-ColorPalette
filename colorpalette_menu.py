@@ -567,6 +567,17 @@ def _setup_colorpalette_menu(_tries=0):
     act_menu_button.setChecked(state_grp.GetBool("MenuBarAsButton", True))
     act_menu_button.setFont(normal_font)
 
+    cp_menu.addSeparator()
+
+    # 11. Satır: Animation Başlığı (Bold)
+    anim_header = cp_menu.addAction("Animation")
+    anim_header.setEnabled(False)
+    anim_header.setFont(bold_font)
+
+    # 12. Satır: Turntable... (Görev açar)
+    act_turntable = cp_menu.addAction("Turntable Motion and Record")
+    act_turntable.setFont(normal_font)
+
     def on_mode_changed(action):
         if action == act_double_click and act_double_click.isChecked():
             _state_set("SetString", "PropertyEditorMode", "DoubleClick")
@@ -627,6 +638,15 @@ def _setup_colorpalette_menu(_tries=0):
             FreeCAD.Console.PrintError(f"ColorPalette: menu butonu ozelligi uygulanamadi - {str(e)}\n")
 
     act_menu_button.triggered.connect(on_menu_button_toggle)
+
+    def on_turntable():
+        try:
+            import colorpalette_turntable
+            colorpalette_turntable.show_dialog()
+        except Exception as e:
+            FreeCAD.Console.PrintError(f"ColorPalette: turntable dialogu acilamadi - {str(e)}\n")
+
+    act_turntable.triggered.connect(on_turntable)
 
     _cp_actions.update({
         "double_click": act_double_click,

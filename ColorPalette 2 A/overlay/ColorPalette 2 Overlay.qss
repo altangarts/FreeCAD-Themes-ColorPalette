@@ -98,6 +98,11 @@ QTabWidget QTreeView::item {
   color: @ColorPaletteTextTreeEnd;
 }
 
+QDockWidget QTabWidget QTreeView::item:alternate {
+  background-color: rgba(0,0,0,0.1);
+  background-color: @ColorPaletteOverlayContent2;
+}
+
 QTabWidget QTreeView::item:first {
   margin-right: -4px;
   border-top-left-radius: 4px;
@@ -136,14 +141,10 @@ QTabWidget QDialog QTreeView::item:has-children:open:selected {
   color: #ffffff;
 }
 
-QTabWidget QTreeView::item:focus {
+QTabWidget QTreeView::item:focus,
+QTabWidget QTreeView::item:alternate:focus {
   background-color: @ThemeAccentColor1;
   color: #ffffff;
-}
-
-QDockWidget QTabWidget QTreeView::item:alternate {
-  background-color: rgba(0,0,0,0.1);
-  background-color: @ColorPaletteOverlayContent2;
 }
 
 QTabWidget QTreeView QPushButton {
