@@ -1,5 +1,6 @@
 import math
 import os
+import re
 import shutil
 import subprocess
 import sys
@@ -227,7 +228,7 @@ class _Settings:
         self.axes = [False, False, True]   # X, Y, Z (eksen kombinasyonu modu)
         self.speed = 20.0             # derece / saniye
         self.reverse = False
-        self.aim = True               # kamerayi pivota cevir
+        self.aim = False              # kamerayi pivota cevir (varsayilan: kapali)
         # video kaydi
         self.rec_path = os.path.join(os.path.expanduser("~"), "turntable.mp4")
         self.rec_res = 0
@@ -246,7 +247,7 @@ class _Settings:
         self.axes = [g.GetBool("AxisX", False), g.GetBool("AxisY", False), g.GetBool("AxisZ", True)]
         self.speed = g.GetFloat("Speed", 20.0)
         self.reverse = g.GetBool("Reverse", False)
-        self.aim = g.GetBool("Aim", True)
+        self.aim = g.GetBool("Aim", False)
         self.rec_path = g.GetString("RecPath", self.rec_path)
         self.rec_res = max(0, min(len(_RESOLUTIONS) - 1, g.GetInt("RecRes", 0)))
         self.rec_fps = max(5, min(60, g.GetInt("RecFps", 30)))
@@ -423,6 +424,24 @@ def _normalize_video_path(path):
     return path
 
 
+def _numbered_path(path):
+    """Dosya adinin yanina siradaki numarayi ekler: video.mp4 -> video_1.mp4, video_2.mp4 ...
+    Klasordeki mevcut video_N.ext dosyalarina bakar, en buyuk N'in bir fazlasini kullanir;
+    boylece onceki kayitlarin uzerine asla yazilmaz."""
+    folder = os.path.dirname(os.path.abspath(path))
+    base, ext = os.path.splitext(os.path.basename(path))
+    pattern = re.compile(r"^%s_(\d+)%s$" % (re.escape(base), re.escape(ext)), re.IGNORECASE)
+    highest = 0
+    try:
+        for name in os.listdir(folder):
+            m = pattern.match(name)
+            if m:
+                highest = max(highest, int(m.group(1)))
+    except OSError:
+        pass
+    return os.path.join(folder, "%s_%d%s" % (base, highest + 1, ext))
+
+
 def _ffmpeg_exe_name():
     return "ffmpeg.exe" if os.name == "nt" else "ffmpeg"
 
@@ -542,6 +561,7 @@ class _Recorder:
         if not out:
             self._notify("Choose an output file.")
             return
+        out = _numbered_path(out)          # her kayit yeni numara alir, eskinin uzerine yazmaz
         out_dir = os.path.dirname(os.path.abspath(out))
         frames_dir = os.path.join(out_dir, _FRAMES_DIR_NAME)
         try:
