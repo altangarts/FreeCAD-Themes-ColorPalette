@@ -88,10 +88,11 @@ ColorPalette Themes, makes the interface and workspaces more user-focused. It si
 
        - Clicking the mouse cursor on the invisible 12-pixel area at the bottom causes the status bar to appear automatically, while clicking elsewhere makes it disappear..
 
-       - In FreeCAD, a single click selects the surface, a double-click selects the part, and a third click selects the part's assembly structure.
+       - With the ColorPalette Turntable, you can initiate circular motion along your desired axis or axes and even record videos. (To record video, you must download the "ffmpeg.exe" program; after opening the ColorPalette Turntable from the ColorPalette menu tab, you need to select the executable file from the location where you extracted it via the ffmpeg field under the "Record video" section.)
 
 ⤵️
-![Ekran Görüntüsü (8)](https://github.com/user-attachments/assets/0897f1e0-01c4-4c8d-a5d9-5a242b626038)
+![Ekran Görüntüsü (14)](https://github.com/user-attachments/assets/c8081106-5649-4e0a-bdd4-92d2fb99de56)
+
 
 
 #### ✅ Light Colors and Settings,
@@ -124,6 +125,7 @@ Sample
    - If "Accent color 3" is not applied, it is substituted with other variables (Style Sheet(Advanced), Accent color 1-2 or restart)
    - Color selection suggestion: 'Dark colors' and 'Dark and pale pastel colors'
    - When using "Overlay", darker or a gradient from dark to lighter colors from top to bottom is recommended
+   - The ".py" files were created using Claude AI, GPT AI, and Gemini AI.
 
 ### Prerequisites
 * FreeCAD ≥ v1.1.0
