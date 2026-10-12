@@ -1,3 +1,4 @@
+import bisect
 import math
 import os
 import re
@@ -14,7 +15,8 @@ except ImportError:
 
 
 _PARAM_PATH = "User parameter:BaseApp/Preferences/Mod/ColorPaletteTurntable"
-_FRAMES_DIR_NAME = "CP Turntable Video"  
+_FRAMES_DIR_NAME = "CP Turntable Video"   # PNG karelerinin yazildigi klasor (videonun yaninda)
+
 
 _RESOLUTIONS = (
     ("Current view size", None),
@@ -23,8 +25,10 @@ _RESOLUTIONS = (
     ("2560 x 1440", (2560, 1440)),
     ("3840 x 2160", (3840, 2160)),
 )
+_PATHS = ("Circle", "Sketch path")           
 _BACKGROUNDS = ("Current", "White", "Black")  
 
+# (etiket, zemin normali)
 _GROUND_PLANES = (
     ("XY plane  (Z is up)", (0.0, 0.0, 1.0)),
     ("XZ plane  (Y is up)", (0.0, 1.0, 0.0)),
@@ -32,7 +36,7 @@ _GROUND_PLANES = (
 )
 
 
-# --- Saf vektor / kuaterniyon matematigi (Coin'den bagimsiz, test edilebilir) --
+# --- Saf vektor  --
 def _dot(a, b):
     return a[0] * b[0] + a[1] * b[1] + a[2] * b[2]
 
@@ -122,6 +126,216 @@ def orbit_step(pos, right, up, back, pivot, axis, angle):
     return new_pos, r, u, b
 
 
+# --- Skec yolu (saf matematik) ---
+def _dist(a, b):
+    d = _sub(a, b)
+    return math.sqrt(_dot(d, d))
+
+
+def _plane_basis(axis):
+    alt = (1.0, 0.0, 0.0) if abs(axis[0]) < 0.9 else (0.0, 1.0, 0.0)
+    e1 = _normalize(_cross(alt, axis))
+    return e1, _cross(axis, e1)
+
+
+def chain_edges(edges, close_frac=0.02):
+    edges = [list(e) for e in edges if len(e) >= 2]
+    if not edges:
+        return None, False
+    total = sum(sum(_dist(p, q) for p, q in zip(e, e[1:])) for e in edges)
+    if total < 1e-9:
+        return None, False
+    tol = max(1e-6, 1e-4 * total)
+
+    def free_end(i, w):                      # bu uc baska bir kenarla eslesmiyor mu?
+        pt = edges[i][0 if w == 0 else -1]
+        for j, e in enumerate(edges):
+            if j != i and (_dist(pt, e[0]) <= tol or _dist(pt, e[-1]) <= tol):
+                return False
+        return True
+
+    start_i, start_w = 0, 0
+    found = False
+    for i in range(len(edges)):              # acik zincirse serbest uctan basla
+        for w in (0, 1):
+            if free_end(i, w):
+                start_i, start_w, found = i, w, True
+                break
+        if found:
+            break
+    first = edges.pop(start_i)
+    chain = first if start_w == 0 else first[::-1]
+
+    while edges:
+        end = chain[-1]
+        best = None
+        for j, e in enumerate(edges):
+            for flip in (False, True):
+                d = _dist(end, e[-1] if flip else e[0])
+                if best is None or d < best[0]:
+                    best = (d, j, flip)
+        _d, j, flip = best
+        e = edges.pop(j)
+        if flip:
+            e = e[::-1]
+        chain.extend(e[1:] if _dist(end, e[0]) <= tol else e)
+
+    gap = _dist(chain[0], chain[-1])
+    path_len = sum(_dist(p, q) for p, q in zip(chain, chain[1:]))
+    return chain, gap <= close_frac * max(path_len, 1e-9)
+
+
+def build_path(points, closed):
+    pts = [(float(p[0]), float(p[1]), float(p[2])) for p in points]
+    if closed and len(pts) > 1 and _dist(pts[0], pts[-1]) < 1e-7:
+        pts.pop()
+    if closed and pts:
+        pts.append(pts[0])
+    if len(pts) < 2:
+        return None
+    cum = [0.0]
+    for a, b in zip(pts, pts[1:]):
+        cum.append(cum[-1] + _dist(a, b))
+    if cum[-1] < 1e-9:
+        return None
+    return {"pts": pts, "cum": cum, "total": cum[-1], "closed": bool(closed)}
+
+
+def path_point(path, u):
+    cum = path["cum"]
+    target = min(max(u, 0.0), 1.0) * path["total"]
+    i = max(0, min(bisect.bisect_right(cum, target) - 1, len(cum) - 2))
+    seg = cum[i + 1] - cum[i]
+    f = 0.0 if seg < 1e-12 else (target - cum[i]) / seg
+    a, b = path["pts"][i], path["pts"][i + 1]
+    return _add(a, _scale(_sub(b, a), f))
+
+
+def path_nearest_u(path, p):
+    pts, cum, total = path["pts"], path["cum"], path["total"]
+    best_d, best_u = None, 0.0
+    for i in range(len(pts) - 1):
+        a, b = pts[i], pts[i + 1]
+        ab = _sub(b, a)
+        l2 = _dot(ab, ab)
+        f = 0.0 if l2 < 1e-18 else max(0.0, min(1.0, _dot(_sub(p, a), ab) / l2))
+        d = _dist(p, _add(a, _scale(ab, f)))
+        if best_d is None or d < best_d:
+            best_d, best_u = d, (cum[i] + f * (cum[i + 1] - cum[i])) / total
+    return best_u
+
+
+def path_u(phase, closed, u0):
+    if closed:
+        return (u0 + phase) % 1.0
+    w = (u0 + 2.0 * phase) % 2.0
+    return w if w <= 1.0 else 2.0 - w
+
+
+def azimuth_table(path, pivot, axis):
+    if not path["closed"]:
+        return None
+    e1, e2 = _plane_basis(axis)
+    a, b = [], []
+    for p in path["pts"]:
+        d = _sub(p, pivot)
+        a.append(_dot(d, e1))
+        b.append(_dot(d, e2))
+    th = [math.atan2(y, x) for x, y in zip(a, b)]
+    un = [th[0]]
+    for i in range(1, len(th)):
+        d = (th[i] - th[i - 1] + math.pi) % (2.0 * math.pi) - math.pi
+        un.append(un[-1] + d)
+    total = un[-1] - un[0]
+    if abs(abs(total) - 2.0 * math.pi) > 1e-3:        # pivot dongunun icinde degil
+        return None
+    sgn = 1.0 if total > 0 else -1.0
+    arr = [sgn * v for v in un]
+    for i in range(len(arr) - 1):
+        if arr[i + 1] < arr[i] - 1e-9:                # yol pivot etrafinda geri donuyor
+            return None
+    return {"sgn": sgn, "arr": arr, "a": a, "b": b, "e1": e1, "e2": e2, "T0": arr[0]}
+
+
+def azimuth_point(az, path, T):
+    arr = az["arr"]
+    T = arr[0] + ((T - arr[0]) % (2.0 * math.pi))
+    i = max(0, min(bisect.bisect_right(arr, T) - 1, len(arr) - 2))
+    ang = az["sgn"] * T
+    dx, dy = math.cos(ang), math.sin(ang)
+    ax_, ay_ = az["a"][i], az["b"][i]
+    ex, ey = az["a"][i + 1] - ax_, az["b"][i + 1] - ay_
+    den = dx * ey - dy * ex
+    t = 0.5 if abs(den) < 1e-12 else -(dx * ay_ - dy * ax_) / den
+    t = max(0.0, min(1.0, t))
+    p, q = path["pts"][i], path["pts"][i + 1]
+    return _add(p, _scale(_sub(q, p), t))
+
+
+def sketch_setup(path, axis, pos, up, back, pivot, angular=True):
+    n = _normalize(axis)
+    off = _sub(pos, pivot)
+    rise = _dot(off, n)                                    # kameranin pivota gore yuksekligi
+    horiz_now = math.sqrt(max(_dot(off, off) - rise * rise, 0.0))
+    e_now = max(-math.radians(85.0), min(math.radians(85.0), math.atan2(rise, horiz_now)))
+    plane_pos = _sub(pos, _scale(n, _dot(pos, n)))
+    az = azimuth_table(path, pivot, n) if angular else None
+    note = ""
+    if az is not None:
+        d = _sub(plane_pos, pivot)
+        x, y = _dot(d, az["e1"]), _dot(d, az["e2"])
+        t0 = az["arr"][0] if math.hypot(x, y) < 1e-9 else az["sgn"] * math.atan2(y, x)
+        az["T0"] = az["arr"][0] + ((t0 - az["arr"][0]) % (2.0 * math.pi))   # baslangic: kameranin acisi
+        start_pt = azimuth_point(az, path, az["T0"])
+    else:
+        if angular:
+            note = ("view-angle speed needs a closed loop around the pivot - "
+                    "using constant speed along the path")
+        start_pt = path_point(path, path_nearest_u(path, plane_pos))
+    ds = _sub(start_pt, pivot)
+    d_start = math.sqrt(max(_dot(ds, ds) - _dot(ds, n) ** 2, 0.0))   # baslangicin pivota yatay mesafesi
+    if d_start > 1e-6:
+        h_rel = d_start * math.tan(e_now)
+    else:
+        h_rel = rise
+    fwd0 = _scale(back, -1.0)
+    h0 = _normalize(_sub(fwd0, _scale(n, _dot(fwd0, n)))) or _plane_basis(n)[0]
+    return {
+        "path": path,
+        "axis": n,
+        "height": _dot(pivot, n) + h_rel,                  # mutlak dikey konum (yol boyunca sabit)
+        "h_rel": h_rel,                                    # pivota gore yukseklik
+        "u0": path_nearest_u(path, plane_pos),
+        "az": az,
+        "note": note,
+        "up_hint": n if _dot(up, n) >= 0.0 else _scale(n, -1.0),   # kamera ters donmesin
+        "back0": back,
+        "h0": h0,
+    }
+
+
+def sketch_pose(sp, pivot, phase):
+    path = sp["path"]
+    if sp["az"] is not None:
+        pt = azimuth_point(sp["az"], path, sp["az"]["T0"] + 2.0 * math.pi * phase)
+    else:
+        pt = path_point(path, path_u(phase, path["closed"], sp["u0"]))
+    n = sp["axis"]
+    pos = _add(pt, _scale(n, sp["height"]))
+    d = _sub(pivot, pos)
+    fwd = _normalize(d)
+    if fwd is None:
+        fwd = _scale(sp["back0"], -1.0)
+    up_hint = sp["up_hint"]
+    if abs(_dot(fwd, n)) > 0.99:                       # (neredeyse) tam ustten / alttan bakis
+        q = _sub(d, _scale(n, _dot(d, n)))
+        ql = math.sqrt(_dot(q, q))
+        h = _scale(q, 1.0 / ql) if ql > 1e-6 else sp["h0"]
+        up_hint = h if _dot(fwd, n) < 0 else _scale(h, -1.0)
+    right, up, back = _orthonormal_basis(up_hint, _scale(fwd, -1.0))
+    return pos, right, up, back
+
+
 # --- FreeCAD / Coin tarafi ---------------------------------------------------
 def _find_view():
     try:
@@ -172,11 +386,13 @@ def _shape_boxes_of(obj, boxes, seen):
         _shape_boxes_of(child, boxes, seen)
 
 
-def _collect_boxes(selected_only):
+def _collect_boxes(selected_only, exclude=()):
     import FreeCADGui as Gui
     boxes = []
     if selected_only:
         for sel in Gui.Selection.getSelectionEx():
+            if sel.Object.Name in exclude:      # kamera yolu skeci pivota katilmaz
+                continue
             added = False
             try:
                 for sub in sel.SubObjects:
@@ -193,6 +409,8 @@ def _collect_boxes(selected_only):
     if doc is None:
         return boxes
     for obj in doc.Objects:
+        if obj.Name in exclude:
+            continue
         vo = getattr(obj, "ViewObject", None)
         if vo is not None and hasattr(vo, "Visibility") and not vo.Visibility:
             continue
@@ -205,11 +423,11 @@ def _collect_boxes(selected_only):
     return boxes
 
 
-def compute_pivot(selected_only):
-    boxes = _collect_boxes(selected_only)
+def compute_pivot(selected_only, exclude=()):
+    boxes = _collect_boxes(selected_only, exclude)
     note = "selection" if selected_only else "all objects"
     if not boxes and selected_only:
-        boxes = _collect_boxes(False)
+        boxes = _collect_boxes(False, exclude)
         note = "all objects (nothing selected)"
     if not boxes:
         return None, "no visible geometry"
@@ -218,6 +436,43 @@ def compute_pivot(selected_only):
         bb.add(b)
     c = bb.Center
     return (c.x, c.y, c.z), note
+
+
+def sketch_path_data(obj, axis, samples=1000):
+    try:
+        shape = obj.Shape.copy()
+        gp = None
+        try:
+            gp = obj.getGlobalPlacement()          # Body / Part icindeki skecler icin
+        except Exception:
+            pass
+        if gp is None:
+            gp = obj.Placement
+        shape.Placement = gp
+        nrm = gp.Rotation.multVec(FreeCAD.Vector(0, 0, 1))
+        if abs(nrm.x * axis[0] + nrm.y * axis[1] + nrm.z * axis[2]) < 0.999:
+            return None, "the sketch is not parallel to the selected ground plane"
+        edges = list(shape.Edges)
+        total = sum(e.Length for e in edges)
+        if not edges or total < 1e-9:
+            return None, "the sketch has no geometry"
+        chains = []
+        for e in edges:
+            k = max(2, int(math.ceil(samples * e.Length / total)) + 1)
+            chains.append([(v.x, v.y, v.z) for v in e.discretize(Number=k)])
+        pts, closed = chain_edges(chains)
+        if pts is None:
+            return None, "the sketch path is empty"
+        proj = []
+        for p in pts:                              # zemine izdusum: dikey koordinati sifirla
+            h = p[0] * axis[0] + p[1] * axis[1] + p[2] * axis[2]
+            proj.append((p[0] - axis[0] * h, p[1] - axis[1] * h, p[2] - axis[2] * h))
+        path = build_path(proj, closed)
+        if path is None:
+            return None, "the sketch path is empty"
+        return path, ""
+    except Exception as e:
+        return None, "cannot read the sketch (%s)" % e
 
 
 # --- Ayarlar -----------------------------------------------------------------
@@ -229,7 +484,10 @@ class _Settings:
         self.axes = [False, False, True]   # X, Y, Z (eksen kombinasyonu modu)
         self.speed = 20.0             # derece / saniye
         self.reverse = False
-        self.aim = False              # kamerayi pivota cevir (varsayilan: kapali)
+        self.path_type = 0            # 0: daire, 1: skec yolu
+        self.sketch_name = ""         # kamera yolu skecinin ic adi (Name)
+        self.sketch_angular = True    # skec yolunda hiz: pivotun gordugu aciya gore sabit
+        self.aim = False              # kamerayi pivota cevir
         # video kaydi
         self.rec_path = os.path.join(os.path.expanduser("~"), "turntable.mp4")
         self.rec_res = 0
@@ -248,6 +506,9 @@ class _Settings:
         self.axes = [g.GetBool("AxisX", False), g.GetBool("AxisY", False), g.GetBool("AxisZ", True)]
         self.speed = g.GetFloat("Speed", 20.0)
         self.reverse = g.GetBool("Reverse", False)
+        self.path_type = max(0, min(len(_PATHS) - 1, g.GetInt("CameraPath", 0)))
+        self.sketch_name = g.GetString("SketchName", "")
+        self.sketch_angular = g.GetBool("SketchAngular", True)
         self.aim = g.GetBool("Aim", False)
         self.rec_path = g.GetString("RecPath", self.rec_path)
         self.rec_res = max(0, min(len(_RESOLUTIONS) - 1, g.GetInt("RecRes", 0)))
@@ -268,6 +529,9 @@ class _Settings:
         g.SetBool("AxisZ", self.axes[2])
         g.SetFloat("Speed", self.speed)
         g.SetBool("Reverse", self.reverse)
+        g.SetInt("CameraPath", self.path_type)
+        g.SetString("SketchName", self.sketch_name)
+        g.SetBool("SketchAngular", self.sketch_angular)
         g.SetBool("Aim", self.aim)
         g.SetString("RecPath", self.rec_path)
         g.SetInt("RecRes", self.rec_res)
@@ -279,7 +543,7 @@ class _Settings:
         g.SetString("RecFfmpeg", self.rec_ffmpeg)
 
     def axis_vector(self):
-        if self.use_ground:
+        if self.use_ground or self.path_type == 1:     # skec yolunda yalnizca zemin duzlemi
             return _GROUND_PLANES[self.ground_index][1]
         v = (
             1.0 if self.axes[0] else 0.0,
@@ -297,6 +561,9 @@ class _Controller:
         self.settings = _Settings()
         self.settings.load()
         self.pivot = None
+        self.spath = None              # skec yolu tabani (sketch_setup); None: skec yolu yok
+        self._spath_key = None
+        self._phase = 0.0              # skec yolunda tur fazi (0..1)
         self.on_state_changed = None   # fn(running: bool, message: str)
         self.recorder = None           # _Recorder (panel olusturur)
         self._clock = QtCore.QElapsedTimer()
@@ -321,17 +588,23 @@ class _Controller:
         if view is None:
             self._notify("No active 3D view.")
             return False
+        sketch_mode = (s.path_type == 1)
         if s.axis_vector() is None:
             self._notify("Select at least one axis.")
             return False
 
-        pivot, note = compute_pivot(s.pivot_selected)
+        exclude = {s.sketch_name} if (sketch_mode and s.sketch_name) else set()
+        pivot, note = compute_pivot(s.pivot_selected, exclude)
         if pivot is None:
             self._notify("Nothing to rotate around: %s." % note)
             return False
         self.pivot = pivot
 
         cam = view.getCameraNode()
+        if sketch_mode:
+            return self._prepare_sketch(cam, pivot, note)
+        self.spath = None
+        self._spath_key = None
         if s.aim:
             pos, right, up, back = _read_camera(cam)
             dist = _dot(_sub(pos, pivot), back)   # gorus ekseni boyunca mesafe
@@ -349,6 +622,44 @@ class _Controller:
 
         self._notify("Pivot: %.1f, %.1f, %.1f  (%s)" % (pivot[0], pivot[1], pivot[2], note))
         return True
+
+    def _prepare_sketch(self, cam, pivot, note):
+        s = self.settings
+        doc = FreeCAD.ActiveDocument
+        obj = doc.getObject(s.sketch_name) if (doc is not None and s.sketch_name) else None
+        if obj is None:
+            self._notify("Choose a sketch for the camera path.")
+            return False
+        axis = s.axis_vector()
+        key = (s.sketch_name, pivot, axis, s.sketch_angular)
+        if self.spath is not None and self.is_running() and key == self._spath_key:
+            return True
+        path, err = sketch_path_data(obj, axis)
+        if path is None:
+            self._notify("Sketch path: %s." % err)
+            return False
+        pos, _right, up, back = _read_camera(cam)
+        self.spath = sketch_setup(path, axis, pos, up, back, pivot, s.sketch_angular)
+        self._spath_key = key
+        self._phase = 0.0
+        self.apply_sketch_pose(cam, 0.0)
+        msg = ("Sketch path: %s  |  camera height %.1f (%.1f above the pivot)  |  "
+               "Pivot: %.1f, %.1f, %.1f (%s)"
+               % (obj.Label, self.spath["height"], self.spath["h_rel"],
+                  pivot[0], pivot[1], pivot[2], note))
+        if self.spath["note"]:
+            msg += "\n" + self.spath["note"]
+        self._notify(msg)
+        return True
+
+    def apply_sketch_pose(self, cam, phase):
+        pos, right, up, back = sketch_pose(self.spath, self.pivot, phase)
+        _write_camera(cam, pos, right, up, back)
+        try:
+            along = _dot(_sub(self.pivot, pos), _scale(back, -1.0))
+            cam.focalDistance.setValue(along if along > 1e-3 else _dist(pos, self.pivot))
+        except Exception:
+            pass
 
     def start(self):
         if self.is_running():
@@ -374,7 +685,6 @@ class _Controller:
         self.stop() if self.is_running() else self.start()
 
     def refresh(self):
-        """Calisirken ayar degisti: pivotu / ekseni yeniden hazirla."""
         if self.is_running() and not self.prepare():
             self.stop()
 
@@ -391,11 +701,17 @@ class _Controller:
         if dt <= 0.0:
             return
 
+        cam = view.getCameraNode()
+        if self.spath is not None:                       # skec yolu: hiz = derece/sn ~ tur/sn
+            step = self.settings.speed / 360.0 * dt
+            self._phase = (self._phase + (-step if self.settings.reverse else step)) % 1.0
+            self.apply_sketch_pose(cam, self._phase)
+            return
+
         angle = math.radians(self.settings.speed) * dt
         if self.settings.reverse:
             angle = -angle
 
-        cam = view.getCameraNode()
         pos, right, up, back = _read_camera(cam)
         pos, right, up, back = orbit_step(pos, right, up, back, self.pivot, axis, angle)
         _write_camera(cam, pos, right, up, back)
@@ -426,9 +742,6 @@ def _normalize_video_path(path):
 
 
 def _numbered_path(path):
-    """Dosya adinin yanina siradaki numarayi ekler: video.mp4 -> video_1.mp4, video_2.mp4 ...
-    Klasordeki mevcut video_N.ext dosyalarina bakar, en buyuk N'in bir fazlasini kullanir;
-    boylece onceki kayitlarin uzerine asla yazilmaz."""
     folder = os.path.dirname(os.path.abspath(path))
     base, ext = os.path.splitext(os.path.basename(path))
     pattern = re.compile(r"^%s_(\d+)%s$" % (re.escape(base), re.escape(ext)), re.IGNORECASE)
@@ -468,7 +781,7 @@ def _ffmpeg_candidates():
 def resolve_ffmpeg(configured=""):
     p = (configured or "").strip().strip('"')
     if p:
-        if os.path.isdir(p): 
+        if os.path.isdir(p):                       # ornegin ffmpeg/bin klasoru secilmisse
             p = os.path.join(p, _ffmpeg_exe_name())
         if os.path.isfile(p):
             return p
@@ -506,54 +819,9 @@ def _remove_frames(frames_dir):
         pass
 
 
-def _attach_grid_for_capture(view):
-    """Grid'i saveImage'in render ettigi koke (pcViewProviderRoot) da baglar.
-
-    saveImage yalnizca nesne kokunu render eder; grid ise bir ust seviyedeki sahne
-    kokune eklendigi icin resme girmez. Kayit suresince ayni grid dugumu nesne
-    kokunun altina da baglanir (ayni malzeme/renk/seffaflik ayarlariyla).
-    """
-    from pivy import coin
-    sg = view.getSceneGraph()
-
-    sa = coin.SoSearchAction()
-    sa.setName("ColorPaletteGridSwitch")
-    sa.apply(sg)
-    gp = sa.getPath()
-    if gp is None:
-        return None
-    grid = gp.getTail()
-
-    sb = coin.SoSearchAction()
-    sb.setName("ObjectGroup")      # pcViewProviderRoot'un cocugu
-    sb.apply(sg)
-    op = sb.getPath()
-    if op is None or op.getLength() < 2:
-        return None
-    parent = op.getNode(op.getLength() - 2)
-    if parent.findChild(grid) >= 0:
-        return None
-    parent.insertChild(grid, 0)
-    return parent, grid
-
-
-def _detach_grid_after_capture(handle):
-    if not handle:
-        return
-    parent, grid = handle
-    try:
-        idx = parent.findChild(grid)
-        if idx >= 0:
-            parent.removeChild(idx)
-    except Exception:
-        pass
-
-
 class _Recorder:
-
     def __init__(self, controller):
         self.ctl = controller
-        self._grid_handle = None
         self.on_state = None   # fn(active: bool, message: str, progress: float | None)
         self._timer = QtCore.QTimer()
         self._timer.setInterval(0)
@@ -590,12 +858,14 @@ class _Recorder:
             return
         s = self.ctl.settings
         self.last_saved = ""
-        if not self._find_ffmpeg():        
+        if not self._find_ffmpeg():          # ffmpeg yoksa video cikmaz -> kare uretme
             self._notify("ffmpeg not found - select it with the \"...\" button next to ffmpeg. "
                          "Nothing was recorded.")
             return
-        self.ctl.stop()                    
-        if not self.ctl.prepare():         
+        v0 = _find_view()
+        orig_cam = _read_camera(v0.getCameraNode()) if v0 is not None else None
+        self.ctl.stop()                      # canli turntable'i durdur
+        if not self.ctl.prepare():           # gorunum, eksen, pivot kontrolu (+ merkeze alma)
             return
         view = _find_view()
         if view is None:
@@ -606,12 +876,12 @@ class _Recorder:
         if not out:
             self._notify("Choose an output file.")
             return
-        out = _numbered_path(out)          # her kayit yeni numara alir, eskinin uzerine yazmaz
+        out = _numbered_path(out)            # her kayit yeni numara alir, eskinin uzerine yazmaz
         out_dir = os.path.dirname(os.path.abspath(out))
         frames_dir = os.path.join(out_dir, _FRAMES_DIR_NAME)
         try:
-            os.makedirs(frames_dir, exist_ok=True) 
-            for name in os.listdir(frames_dir):  
+            os.makedirs(frames_dir, exist_ok=True)   # out_dir de birlikte olusur
+            for name in os.listdir(frames_dir):   # eski kareleri temizle
                 if name.startswith("frame_") and name.endswith(".png"):
                     os.remove(os.path.join(frames_dir, name))
         except OSError as e:
@@ -629,13 +899,12 @@ class _Recorder:
         self._out = out
         self._frames_dir = frames_dir
         self._keep = s.rec_keep
-        self._cam_state = _read_camera(view.getCameraNode())
+        self._phase_step = (s.rec_turns / float(self._n)) * (-1.0 if s.reverse else 1.0)
+        # skec yolunda kullanicinin kendi gorunumune don; digerlerinde hazirlanmis gorunume
+        self._cam_state = (orig_cam if (self.ctl.spath is not None and orig_cam is not None)
+                           else _read_camera(view.getCameraNode()))
         self._i = 0
         self._cancelled = False
-        try:
-            self._grid_handle = _attach_grid_for_capture(view)
-        except Exception:
-            self._grid_handle = None
         self._active = True
         self._timer.start()
         self._notify("Recording %d frames (%d x %d)..." % (self._n, self._size[0], self._size[1]), 0.0)
@@ -668,9 +937,12 @@ class _Recorder:
             return
 
         cam = view.getCameraNode()
-        pos, right, up, back = _read_camera(cam)
-        pos, right, up, back = orbit_step(pos, right, up, back, self.ctl.pivot, self._axis, self._angle)
-        _write_camera(cam, pos, right, up, back)
+        if self.ctl.spath is not None:
+            self.ctl.apply_sketch_pose(cam, (self._i + 1) * self._phase_step)
+        else:
+            pos, right, up, back = _read_camera(cam)
+            pos, right, up, back = orbit_step(pos, right, up, back, self.ctl.pivot, self._axis, self._angle)
+            _write_camera(cam, pos, right, up, back)
 
         self._i += 1
         if self._i >= self._n:
@@ -681,8 +953,6 @@ class _Recorder:
             self._notify("Frame %d / %d" % (self._i, self._n), self._i / float(self._n))
 
     def _restore_camera(self):
-        _detach_grid_after_capture(self._grid_handle)
-        self._grid_handle = None
         view = _find_view()
         if view is not None and self._cam_state is not None:
             try:
@@ -837,6 +1107,34 @@ class _TurntableTaskPanel:
         self.spn_speed.setDecimals(1)
         self.spn_speed.setSuffix(" \u00b0/s")
         self.chk_reverse = QtWidgets.QCheckBox("Reverse direction")
+        self.cmb_path = QtWidgets.QComboBox()
+        for label in _PATHS:
+            self.cmb_path.addItem(label)
+        self.cmb_sketch = QtWidgets.QComboBox()
+        self.cmb_sketch.setToolTip("Sketch whose curve the camera follows")
+        self.btn_sketch_refresh = QtWidgets.QPushButton("\u21bb")
+        self.btn_sketch_refresh.setMaximumWidth(28)
+        self.btn_sketch_refresh.setToolTip("Refresh the sketch list (picks the sketch selected in the tree)")
+        sketch_row = QtWidgets.QHBoxLayout()
+        sketch_row.addWidget(self.cmb_sketch, 1)
+        sketch_row.addWidget(self.btn_sketch_refresh)
+        self.chk_angular = QtWidgets.QCheckBox("Constant view rotation speed")
+        self.chk_angular.setToolTip(
+            "On: the view turns around the pivot at the set \u00b0/s (like the circle). "
+            "Off: the camera moves at constant speed along the sketch line."
+        )
+        self.lbl_sketch_hint = QtWidgets.QLabel(
+            "Sketch path works with the ground plane only (choose XY / XZ / YZ under Rotation "
+            "axis); the sketch must lie on that plane. The camera moves right above the sketch "
+            "line at a constant height and always looks at the pivot. The height is chosen so the "
+            "first frame keeps your current view angle - use \"Center of selected object(s)\" "
+            "to focus on specific objects."
+        )
+        self.lbl_sketch_hint.setWordWrap(True)
+        form.addRow("Camera path", self.cmb_path)
+        form.addRow("Sketch", sketch_row)
+        form.addRow("", self.chk_angular)
+        form.addRow(self.lbl_sketch_hint)
         form.addRow("Speed", self.spn_speed)
         form.addRow("", self.chk_reverse)
 
@@ -915,12 +1213,15 @@ class _TurntableTaskPanel:
         # Ayarlardan arayuze
         (self.rb_sel if s.pivot_selected else self.rb_all).setChecked(True)
         self.chk_aim.setChecked(s.aim)
-        (self.rb_ground if s.use_ground else self.rb_combo).setChecked(True)
+        (self.rb_ground if (s.use_ground or s.path_type == 1) else self.rb_combo).setChecked(True)
         self.cmb_ground.setCurrentIndex(s.ground_index)
         for cb, val in zip(self.chk_axes, s.axes):
             cb.setChecked(val)
         self.spn_speed.setValue(s.speed)
         self.chk_reverse.setChecked(s.reverse)
+        self.cmb_path.setCurrentIndex(s.path_type)
+        self.chk_angular.setChecked(s.sketch_angular)
+        self._refresh_sketches(False)
         self.edt_path.setText(s.rec_path)
         self.cmb_res.setCurrentIndex(s.rec_res)
         self.spn_fps.setValue(s.rec_fps)
@@ -938,6 +1239,10 @@ class _TurntableTaskPanel:
             w.toggled.connect(self._on_changed)
         self.cmb_ground.currentIndexChanged.connect(self._on_changed)
         self.spn_speed.valueChanged.connect(self._on_changed)
+        self.cmb_path.currentIndexChanged.connect(self._on_path_changed)
+        self.cmb_sketch.currentIndexChanged.connect(self._on_changed)
+        self.btn_sketch_refresh.clicked.connect(self._on_sketch_refresh)
+        self.chk_angular.toggled.connect(self._on_changed)
         self.btn_play.clicked.connect(self.ctl.toggle)
         self.edt_path.textChanged.connect(self._on_changed)
         self.edt_ffmpeg.textChanged.connect(self._on_changed)
@@ -987,10 +1292,17 @@ class _TurntableTaskPanel:
         self.is_open = False
 
     def _update_enabled(self):
-        ground = self.rb_ground.isChecked()
+        ground = self.rb_ground.isChecked() or self.cmb_path.currentIndex() == 1
         self.cmb_ground.setEnabled(ground)
         for cb in self.chk_axes:
             cb.setEnabled(not ground)
+        sketch = (self.cmb_path.currentIndex() == 1)
+        self.cmb_sketch.setEnabled(sketch)
+        self.btn_sketch_refresh.setEnabled(sketch)
+        self.chk_angular.setEnabled(sketch)
+        self.lbl_sketch_hint.setVisible(sketch)
+        self.rb_combo.setEnabled(not sketch)    # skec yolunda yalnizca zemin duzlemi
+        self.chk_aim.setEnabled(not sketch)     # skec yolunda kamera zaten pivota bakar
 
     def _on_changed(self, *_):
         if self._building:
@@ -1003,6 +1315,9 @@ class _TurntableTaskPanel:
         s.axes = [cb.isChecked() for cb in self.chk_axes]
         s.speed = self.spn_speed.value()
         s.reverse = self.chk_reverse.isChecked()
+        s.path_type = self.cmb_path.currentIndex()
+        s.sketch_angular = self.chk_angular.isChecked()
+        s.sketch_name = self.cmb_sketch.currentData() or ""
         s.rec_path = self.edt_path.text()
         s.rec_res = self.cmb_res.currentIndex()
         s.rec_fps = self.spn_fps.value()
@@ -1013,12 +1328,56 @@ class _TurntableTaskPanel:
         s.rec_ffmpeg = self.edt_ffmpeg.text()
         self._update_enabled()
         s.save()
+        # Hiz / yon aninda etkili; pivot ve eksen degisimi icin yeniden hazirla
         self.ctl.refresh()
 
     def _on_state(self, running, message):
         self.btn_play.setText("Stop" if running else "Play")
         if message:
             self.lbl_status.setText(message)
+
+    def _sketch_items(self):
+        items = []
+        doc = FreeCAD.ActiveDocument
+        if doc is not None:
+            for o in doc.Objects:
+                try:
+                    if o.isDerivedFrom("Sketcher::SketchObject"):
+                        items.append((o.Label, o.Name))
+                except Exception:
+                    pass
+        return items
+
+    def _refresh_sketches(self, prefer_selection):
+        want = self.ctl.settings.sketch_name
+        if prefer_selection:
+            try:
+                import FreeCADGui as Gui
+                for o in Gui.Selection.getSelection():
+                    if o.isDerivedFrom("Sketcher::SketchObject"):
+                        want = o.Name
+                        break
+            except Exception:
+                pass
+        self.cmb_sketch.blockSignals(True)
+        self.cmb_sketch.clear()
+        self.cmb_sketch.addItem("(choose a sketch)", "")
+        for label, name in self._sketch_items():
+            self.cmb_sketch.addItem(label, name)
+        idx = self.cmb_sketch.findData(want) if want else 0
+        self.cmb_sketch.setCurrentIndex(idx if idx > 0 else 0)
+        self.cmb_sketch.blockSignals(False)
+        self.ctl.settings.sketch_name = self.cmb_sketch.currentData() or ""
+
+    def _on_sketch_refresh(self):
+        self._refresh_sketches(True)
+        self._on_changed()
+
+    def _on_path_changed(self, *_):
+        if not self._building and self.cmb_path.currentIndex() == 1:
+            self.rb_ground.setChecked(True)      # skec yolu: yalnizca zemin duzlemi
+            self._refresh_sketches(False)        # listeyi guncelle; skeci kullanici secer
+        self._on_changed()
 
     def _browse(self):
         start = self.edt_path.text() or os.path.expanduser("~")
