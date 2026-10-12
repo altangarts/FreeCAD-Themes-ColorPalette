@@ -90,14 +90,11 @@ ColorPalette Themes, makes the interface and workspaces more user-focused. It si
        - Clicking the mouse cursor on the invisible 12-pixel area at the bottom causes the status bar to appear automatically, while clicking elsewhere makes it disappear..
 
        - With the ColorPalette Turntable, you can initiate circular motion along your desired axis or axes and even record videos. (To record video, you must download the "ffmpeg.exe" program; after opening the ColorPalette Turntable from the ColorPalette menu tab, you need to select the executable file from the location where you extracted it via the ffmpeg field under the "Record video" section.)
+       - If you select the Sketch path for the camera path, the camera follows the path you draw on the selected ground plane.
        - ffmpeg download link: https://ffmpeg.org/download.html
 
 ⤵️
-![Ekran Görüntüsü (14)](https://github.com/user-attachments/assets/c8081106-5649-4e0a-bdd4-92d2fb99de56)
-
-⤵️
-![Ekran Görüntüsü (15)](https://github.com/user-attachments/assets/114437c0-2946-4b08-be7b-58adeac4387a)
-
+![Ekran Görüntüsü (16)](https://github.com/user-attachments/assets/b74e782e-8237-4489-8aeb-5efb9ccebd7d)
 
 
 #### ✅ Light Colors and Settings,
