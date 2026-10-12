@@ -68,7 +68,9 @@ QTabWidget QDialog QTreeView::item:last,
 QTabWidget QDialog QTreeView::item,
 QTabWidget QDialog QTreeView::item:has-children,
 QTabWidget QDialog QTreeView::item:has-children:!has-siblings:open,
-QTabWidget QDialog QTreeView::item:has-children:open {
+QTabWidget QDialog QTreeView::item:has-children:open,
+QFrame[class="panel"] QTreeView::item:has-children:!has-siblings:open,
+QFrame[class="panel"] QTreeView::item:has-children:open {
   background-color: rgba(0,0,0,0.05);
   margin: 1px 0px 1px 1px;
   padding: 2px;
@@ -164,7 +166,6 @@ QTabWidget QDialog QPushButton:hover {
   background-color: @ThemeAccentColor1;
   background-color: @ColorPaletteHover;
   border: 1px solid @ThemeAccentColor1;
-  border: 1px solid @ColorPaletteHover;
 }
 
 QTabWidget QDialog QPushButton {
@@ -579,8 +580,8 @@ QFrame[class="panel"] QPushButton {
   color: #eeeeee;
   color: @ColorPaletteTextGeneralBottom;
   border-radius: 6px;
-  padding: 3px 10px 4px 10px;
-  margin: 0px 0px 1px 0px;
+  padding: 2px 10px 4px 10px;
+  margin: 0px 0px 0px 0px;
 }
 
 QFrame[class="panel"] QPushButton:disabled {
@@ -589,15 +590,14 @@ QFrame[class="panel"] QPushButton:disabled {
   color: #bbbbbb;
   color: @ColorPaletteTextDisabled;
   border-radius: 6px;
-  padding: 3px 10px 5px 10px;
-  margin: 0px 0px 1px 0px;
+  padding: 2px 10px 4px 10px;
+  margin: 0px 0px 0px 0px;
 }
 
 QFrame[class="panel"] QPushButton:hover {
   background-color: @ThemeAccentColor1;
   background-color: @ColorPaletteHover;
   border: 1px solid @ThemeAccentColor1;
-  border: 1px solid @ColorPaletteHover;
   color: #ffffff;
 }
 
@@ -639,6 +639,7 @@ QToolButton#filterButton QListWidget::item:hover {
   color: #ffffff;
   background-color: @ThemeAccentColor1;
   background-color: @ColorPaletteHover;
+  border: 1px solid @ThemeAccentColor1;
 }
 
 Gui--OverlayToolButton {

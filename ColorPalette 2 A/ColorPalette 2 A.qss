@@ -153,7 +153,6 @@ QTabWidget QTreeView QPushButton:hover {
   background-color: @ThemeAccentColor1;
   background-color: @ColorPaletteHover;
   border: 1px solid @ThemeAccentColor1;
-  border: 1px solid @ColorPaletteHover;
 }
 
 Gui--PropertyEditor--PropertyEditor QAbstractSpinBox:up-button {
@@ -465,7 +464,7 @@ QCheckBox {
   outline: none;
   background-color: transparent;
   border: 1px solid transparent;
-  spacing: 8px;
+  spacing: 7px;
 }
 
 QCheckBox:hover,
@@ -627,8 +626,8 @@ QRadioButton QWidget {
 
 QRadioButton::indicator {
   border-image: none;
-  width: 14px;
-  height: 14px;
+  width: 16px;
+  height: 16px;
   image:url(qss:images_classic/radio-unchecked-lightgray.svg);
 }
 
@@ -638,22 +637,22 @@ QRadioButton::indicator:unchecked:hover {
 
 QRadioButton::indicator:unchecked:disabled {
   border-image: none;
-  width: 14px;
-  height: 14px;
+  width: 16px;
+  height: 16px;
   image:url(qss:images_classic/radio-unchecked-darkgray.svg);
 }
 
 QRadioButton::indicator:checked {
   border-image: none;
-  width: 14px;
-  height: 14px;
+  width: 16px;
+  height: 16px;
   image:url(qss:images_classic/radio-unchecked-white.svg);
 }
 
 QRadioButton::indicator:checked:disabled {
   border-image: none;
-  width: 14px;
-  height: 14px;
+  width: 16px;
+  height: 16px;
   image:url(qss:images_classic/radio-checked-darkgray.svg);
 }
 
@@ -711,12 +710,13 @@ QMenu::item {
   background-color: transparent;
   padding: 3px 20px 3px 6px;
   margin: 1px 0px;
-  border-radius: 4px;
+  border-radius: 0px;
 }
 
 QMenu::item:hover {
   background-color: @ThemeAccentColor1;
   background-color: @ColorPaletteHover;
+  border: 1px solid @ThemeAccentColor1;
   color: #ffffff;
 }
 
@@ -1302,7 +1302,6 @@ QAbstractSpinBox:hover {
   background-color: @ThemeAccentColor1;
   background-color: @ColorPaletteHover;
   border: 1px solid @ThemeAccentColor1;
-  border: 1px solid @ColorPaletteHover;
   color: #ffffff;
 }
 
@@ -1414,6 +1413,7 @@ QCalendarWidget {
 
 QCalendarWidget:disabled {
   background-color: rgba(0,0,0,0.1);
+  border: 1px solid rgba(0,0,0,0.1);
   color: #bbbbbb;
   color: @ColorPaletteTextDisabled;
 }
@@ -1459,6 +1459,7 @@ QProgressBar::chunk {
 
 QProgressBar::chunk:disabled {
   background-color: rgba(0,0,0,0.1);
+  border: 1px solid rgba(0,0,0,0.1);
   color: #bbbbbb;
   color: @ColorPaletteTextDisabled;
   border-radius: 4px;
@@ -1563,8 +1564,8 @@ QWidget#Dialog QPushButton {
   color: #eeeeee;
   color: @ColorPaletteTextGeneralBottom;
   border-radius: 6px;
-  margin: 0px 0px 1px 0px;
-  padding: 3px 10px 4px 10px;
+  margin: 0px 0px 0px 0px;
+  padding: 2px 10px 4px 10px;
   min-height: 15px;
 }
 
@@ -1594,7 +1595,6 @@ QWidget#Dialog QPushButton:disabled {
   border: 1px solid rgba(0,0,0,0.1);
   color: #bbbbbb;
   color: @ColorPaletteTextDisabled;
-  margin: 0px 0px 1px 0px;
 }
 
 QDialog QListView QPushButton:hover {
@@ -1625,7 +1625,6 @@ QWidget#Dialog QPushButton:hover {
   background-color: @ThemeAccentColor1;
   background-color: @ColorPaletteHover;
   border: 1px solid @ThemeAccentColor1;
-  border: 1px solid @ColorPaletteHover;
   color: #ffffff;
 }
 
@@ -1664,7 +1663,7 @@ QTabWidget QDialog QPushButton:checked:hover,
 QGroupBox QPushButton:checked:hover,
 QWidget#Dialog QPushButton:checked:hover {
   background-color: @ColorPaletteHover;
-  border: 1px solid @ColorPaletteHover;
+  border: 1px solid @ThemeAccentColor1;
   color: #ffffff;
 }
 
@@ -1958,6 +1957,7 @@ QCommandLinkButton:selected {
 
 QCommandLinkButton:disabled {
   background-color: rgba(0,0,0,0.1);
+  border: 1px solid rgba(0,0,0,0.1);
   color: #bbbbbb;
   color: @ColorPaletteTextDisabled;
 }
@@ -2024,6 +2024,7 @@ QFrame[class="header"] {
 QFrame[class="header"]:hover {
   background-color: @ThemeAccentColor1;
   background-color: @ColorPaletteHover;
+  border: 1px solid @ThemeAccentColor1;
   color: #ffffff;
 }
 
@@ -2098,7 +2099,6 @@ QFrame[class="content"] QComboBox:hover {
   background-color: @ThemeAccentColor1;
   background-color: @ColorPaletteHover;
   border: 1px solid @ThemeAccentColor1;
-  border: 1px solid @ColorPaletteHover;
   color: #ffffff;
 }
 
@@ -2284,7 +2284,6 @@ QToolButton#settingsButton:hover {
   background-color: @ThemeAccentColor1;
   background-color: @ColorPaletteHover;
   border: 1px solid @ThemeAccentColor1;
-  border: 1px solid @ColorPaletteHover;
   color: #ffffff;
 }
 
@@ -2310,13 +2309,14 @@ QToolButton#filterButton QListWidget::item {
   color: @ColorPaletteTextGeneralTop;
   padding: 1px;
   margin: 0px 0px 1px 4px;
-  border-radius: 4px;
+  border-radius: 0px;
 }
 
 QToolButton#filterButton QListWidget::item:hover {
   color: #ffffff;
   background-color: @ThemeAccentColor1;
   background-color: @ColorPaletteHover;
+  border: 1px solid @ThemeAccentColor1;
 }
 
 QFrame[class="panel"] QToolButton {
@@ -2344,6 +2344,7 @@ QFrame[class="panel"] QToolButton:disabled:checked {
   color: #bbbbbb;
   color: @ColorPaletteTextDisabled;
   background-color: rgba(0,0,0,0.1);
+  border: 1px solid rgba(0,0,0,0.1);
 }
 
 QFrame[class="panel"] QToolButton:checked,
@@ -2358,7 +2359,6 @@ QFrame[class="panel"] QToolButton:checked:hover {
   background-color: @ThemeAccentColor1;
   background-color: @ColorPaletteHover;
   border: 1px solid @ThemeAccentColor1;
-  border: 1px solid @ColorPaletteHover;
   color: #ffffff;
 }
 
@@ -2559,6 +2559,7 @@ QColorDialog QLineEdit {
 
 QLineEdit:disabled {
   background-color: rgba(0,0,0,0.1);
+  border: 1px solid rgba(0,0,0,0.1);
   color: #bbbbbb;
   color: @ColorPaletteTextDisabled;
 }
@@ -2568,6 +2569,7 @@ QDialog QLineEdit:hover,
 QFrame[class="panel"] QLineEdit:hover {
   background-color: @ThemeAccentColor1;
   background-color: @ColorPaletteHover;
+  border: 1px solid @ThemeAccentColor1;
   color: #ffffff;
 }
 
@@ -2770,6 +2772,7 @@ QFrame[class="panel"] QTabBar::tab {
 
 QFrame[class="panel"] QTabBar::tab:hover {
   background-color: @ColorPaletteHover;
+  border: 1px solid @ThemeAccentColor1;
 }
 
 QTabBar::tab:selected,
@@ -2826,11 +2829,12 @@ QMdiArea QTabBar::tab:selected:hover,
 QTabWidget QTabBar::tab:selected:hover {
   background-color: @ThemeAccentColor1;
   background-color: @ColorPaletteHover;
-  border: 1px solid @ColorPaletteHover;
+  border: 1px solid @ThemeAccentColor1;
   color: #ffffff;
 }
 
-QDialog QTabBar::tab:selected {
+QDialog QTabBar::tab:selected,
+QFrame[class="panel"] QTabBar::tab:selected {
   background-color: @ThemeAccentColor1;
   border: 1px solid @ThemeAccentColor1;
   color: #ffffff;
@@ -2839,11 +2843,13 @@ QDialog QTabBar::tab:selected {
 }
 
 QDialog QTabBar::tab:hover,
-QDialog QTabBar::tab:selected:hover {
+QDialog QTabBar::tab:selected:hover,
+QFrame[class="panel"] QTabBar::tab:hover,
+QFrame[class="panel"] QTabBar::tab:selected:hover {
   background-color: @ThemeAccentColor1;
   background-color: @ColorPaletteHover;
+  border: 1px solid @ThemeAccentColor1;
   color: #ffffff;
-  border: 1px solid transparent;
 }
 
 QTabBar QToolButton {
@@ -2863,7 +2869,6 @@ QTabBar QToolButton:hover {
   background-color: @ThemeAccentColor1;
   background-color: @ColorPaletteHover;
   border: 1px solid @ThemeAccentColor1;
-  border: 1px solid @ColorPaletteHover;
 }
 
 QTabBar QToolButton:pressed {
@@ -3584,8 +3589,8 @@ QDialog QGroupBox QListWidget::item {
 
 QListView::item:hover {
   background-color: @ThemeAccentColor1;
-  background-color: @ThemeAccentColor1;
   background-color: @ColorPaletteHover;
+  border: 1px solid @ThemeAccentColor1;
   color: #ffffff;
 }
 
@@ -3789,7 +3794,6 @@ QComboBox:hover {
   background-color: @ThemeAccentColor1;
   background-color: @ColorPaletteHover;
   border: 1px solid @ThemeAccentColor1;
-  border: 1px solid @ColorPaletteHover;
   color: #ffffff;
 }
 
@@ -3953,6 +3957,7 @@ QHeaderView::section {
 QHeaderView::section:hover {
   background-color: @ThemeAccentColor1;
   background-color: @ColorPaletteHover;
+  border: 1px solid @ThemeAccentColor1;
   color: #ffffff;
 }
 
@@ -4043,6 +4048,7 @@ QToolBox::tab {
 
 QToolBox::tab:disabled {
   background-color: rgba(0,0,0,0.1);
+  border: 1px solid rgba(0,0,0,0.1);
   color: #bbbbbb;
   color: @ColorPaletteTextDisabled;
 }
@@ -4072,11 +4078,13 @@ QToolBox::tab:!selected {
 
 QToolBox::tab:!selected:disabled {
   background-color: rgba(0,0,0,0.1);
+  border: 1px solid rgba(0,0,0,0.1);
 }
 
 QToolBox::tab:hover {
   background-color: @ThemeAccentColor1;
   background-color: @ColorPaletteHover;
+  border: 1px solid @ThemeAccentColor1;
   color: #ffffff;
 }
 
