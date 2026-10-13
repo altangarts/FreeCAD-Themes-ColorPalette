@@ -1,3 +1,4 @@
+import re
 import FreeCADGui
 import FreeCAD
 
@@ -19,8 +20,83 @@ def _register_with_global_filter(list_name, callback, retries_left=20):
         300, lambda: _register_with_global_filter(list_name, callback, retries_left - 1)
     )
 
+_flat_cache = {"stylesheet": None, "flat": True}
+
+
+def _theme_gradient_is_flat():
+    """@ThemeAccentColor2 ile @ThemeAccentColor3 ayni renkse True doner (gradyan yok).
+    QMainWindow gradyaninin stop renkleri (stop 0 = Accent2, stop 0.5 / 1 = Accent3)
+    uygulanmis stylesheet'ten okunur. Okunamazsa da True doner (sync calismasin)."""
+    try:
+        from PySide6 import QtWidgets, QtGui
+    except ImportError:
+        from PySide2 import QtWidgets, QtGui
+
+    app = QtWidgets.QApplication.instance()
+    ss = app.styleSheet() if app else ""
+    if ss and _flat_cache["stylesheet"] == ss:
+        return _flat_cache["flat"]
+
+    flat = True
+    m = re.search(r'QMainWindow\s*\{[^}]*background-color\s*:\s*([^;]+);', ss or "")
+    if m:
+        stops = re.findall(r'stop\s*:\s*([\d.]+)\s+(#[0-9a-fA-F]{3,8})', m.group(1))
+        colors = {QtGui.QColor(c).name() for _, c in stops}
+        flat = len(colors) < 2
+
+    _flat_cache["stylesheet"] = ss
+    _flat_cache["flat"] = flat
+    return flat
+
+
+def _teardown_viewport_sync(mw):
+    """Kurulu filtre / zamanlayici / baglantilari kaldirir (sync tamamen durur)."""
+    try:
+        from PySide6 import QtWidgets
+    except ImportError:
+        from PySide2 import QtWidgets
+
+    mdi = mw.findChild(QtWidgets.QMdiArea)
+    sv = mw.findChild(QtWidgets.QWidget, "StartView")
+
+    t = mw.__dict__.get("_viewport_color_debounce")
+    if t is not None:
+        try:
+            t.stop()
+            t.deleteLater()
+        except Exception:
+            pass
+        mw.__dict__["_viewport_color_debounce"] = None
+
+    ef = mw.__dict__.get("_viewport_color_filter")
+    if ef is not None:
+        for w in (mw, mdi, sv):
+            if w is not None:
+                try:
+                    w.removeEventFilter(ef)
+                except Exception:
+                    pass
+        mw.__dict__["_viewport_color_filter"] = None
+
+    conn = mw.__dict__.get("_viewport_subwindow_conn")
+    if conn is not None and mdi is not None:
+        try:
+            mdi.subWindowActivated.disconnect(conn)
+        except Exception:
+            pass
+    mw.__dict__["_viewport_subwindow_conn"] = None
+    mw.__dict__["_last_dims_track"] = None
+
 
 def apply3DViewportColor():
+    _mw = FreeCADGui.getMainWindow()
+    if _mw and _theme_gradient_is_flat():
+        # ThemeAccentColor2 == ThemeAccentColor3: gradyan yok, sync gereksiz
+        if not _mw.__dict__.get("_cp_sync_disabled"):
+            _teardown_viewport_sync(_mw)
+            _mw.__dict__["_cp_sync_disabled"] = True
+            FreeCAD.Console.PrintMessage("ColorPalette: ThemeAccentColor2 ve ThemeAccentColor3 ayni, viewport color sync kapali.\n")
+        return
     try:
         from PySide6 import QtWidgets, QtCore, QtGui
     except ImportError:
@@ -36,6 +112,7 @@ def apply3DViewportColor():
     if not mdi or not app:
         return
 
+    mw.__dict__["_cp_sync_disabled"] = False
     _style_cache = {"stylesheet": None, "stops": None}
 
     def parseMainWindowStops():
@@ -81,6 +158,9 @@ def apply3DViewportColor():
         return stops[-1][1]
 
     def syncViewportColor():
+        if mw.__dict__.get("_cp_sync_disabled"):
+            return
+
         for top_level in app.topLevelWidgets():
             if isinstance(top_level, QtWidgets.QDialog) and top_level.isVisible():
                 return
@@ -172,26 +252,11 @@ def apply3DViewportColor():
                 scheduleSyncViewportColor()
             return False
 
-    for k in ("_viewport_color_filter", "_viewport_color_debounce"):
-        if old := mw.__dict__.get(k):
-            try:
-                if k == "_viewport_color_debounce": old.stop()
-                else:
-                    mw.removeEventFilter(old)
-                    mdi.removeEventFilter(old)
-            except Exception: pass
-            mw.__dict__[k] = None
+    _teardown_viewport_sync(mw)
 
     ef = ViewportResizeFilter(mw)
     mw.installEventFilter(ef)
     mdi.installEventFilter(ef)
-
-    old_conn = mw.__dict__.get("_viewport_subwindow_conn")
-    if old_conn:
-        try:
-            mdi.subWindowActivated.disconnect(old_conn)
-        except Exception:
-            pass
 
     def _on_subwindow_activated(_):
         syncViewportColor()
@@ -220,6 +285,8 @@ def lockColorPreferences():
     widgets_to_lock = ("backgroundColorFrom", "backgroundColorTo", "backgroundColorMid", "checkMidColor", "SwitchGradientColors")
 
     def applyLock():
+        if mw.__dict__.get("_cp_sync_disabled"):
+            return
         dialog = next((w for w in app.topLevelWidgets() if isinstance(w, QtWidgets.QDialog) and w.isVisible()), None)
         if not dialog:
             return
@@ -233,11 +300,10 @@ def lockColorPreferences():
                 w.setEnabled(not gradient_active)
 
         if linear_btn and not linear_btn.property("locked_connected"):
-            sync_fn = mw.__dict__.get("_sync_viewport_color_fn")
             
             def make_toggle_handler(s, g, r):
                 def handler(checked):
-                    if not checked: return
+                    if not checked or mw.__dict__.get("_cp_sync_disabled"): return
                     try:
                         p = FreeCAD.ParamGet("User parameter:BaseApp/Preferences/View")
                         p.SetBool("Simple", s)
@@ -247,7 +313,8 @@ def lockColorPreferences():
                     for n in widgets_to_lock:
                         w = dialog.findChild(QtWidgets.QWidget, n)
                         if w: w.setEnabled(not g)
-                    if g and sync_fn: sync_fn()
+                    fn = mw.__dict__.get("_sync_viewport_color_fn")
+                    if g and fn: fn()
                 return handler
 
             rb_radial = dialog.findChild(QtWidgets.QRadioButton, "rbRadialGradient")
@@ -262,10 +329,18 @@ def lockColorPreferences():
         QtCore.QTimer.singleShot(30, applyLock)
         QtCore.QTimer.singleShot(150, applyLock)
 
+    def _recheck_after_dialog():
+        # Tercihler kapandi: accent renkleri degismis olabilir (olay bazli, surekli takip yok)
+        flat = _theme_gradient_is_flat()
+        if flat != bool(mw.__dict__.get("_cp_sync_disabled", False)):
+            apply3DViewportColor()  # durum degisti: kapat veya yeniden kur
+        elif not flat:
+            fn = mw.__dict__.get("_sync_viewport_color_fn")
+            if fn:
+                fn()
+
     def _on_any_dialog_hide(dialog):
-        sync_fn = mw.__dict__.get("_sync_viewport_color_fn")
-        if sync_fn:
-            QtCore.QTimer.singleShot(50, sync_fn)
+        QtCore.QTimer.singleShot(300, _recheck_after_dialog)
 
     if not mw.__dict__.get("_cp_pref_watcher_registered"):
         mw.__dict__["_cp_pref_watcher_registered"] = True

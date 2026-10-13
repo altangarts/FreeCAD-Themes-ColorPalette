@@ -271,6 +271,34 @@ def _cp_bootstrap():
         except Exception as e:
             FreeCAD.Console.PrintError(f"ColorPalette: colorpalette_chrome yuklenemedi - {str(e)}\n")
 
+        # Docked toolbar'lari icerik boyutuna sabitle (son toolbutonda bitsin)
+        _toolbar_fit = _load_module(
+            _mod_dir,
+            "colorpalette_toolbar_fit",
+            "colorpalette_toolbar_fit.py",
+            "colorpalette_toolbar_fit"
+        )
+        if _toolbar_fit:
+            try:
+                from PySide6 import QtCore as _QtCoreTbFit
+            except ImportError:
+                from PySide2 import QtCore as _QtCoreTbFit
+            _QtCoreTbFit.QTimer.singleShot(1500, _toolbar_fit.install)
+
+        # Toolbar yatay<->dikey gecisinde buton stillerini yenile (QToolBar:vertical kurallari icin)
+        _toolbar_orient = _load_module(
+            _mod_dir,
+            "colorpalette_toolbar_orientation",
+            "colorpalette_toolbar_orientation.py",
+            "colorpalette_toolbar_orientation"
+        )
+        if _toolbar_orient:
+            try:
+                from PySide6 import QtCore as _QtCoreTbOri
+            except ImportError:
+                from PySide2 import QtCore as _QtCoreTbOri
+            _QtCoreTbOri.QTimer.singleShot(1500, _toolbar_orient.install)
+
         _overlay_buttons = _load_module(
             _mod_dir,
             "colorpalette_overlay_panel_buttons",
