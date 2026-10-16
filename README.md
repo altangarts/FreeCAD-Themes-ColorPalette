@@ -102,6 +102,9 @@ ColorPalette Themes, makes the interface and workspaces more user-focused. It si
 ⤵️
 ![Ekran Görüntüsü (19)](https://github.com/user-attachments/assets/dfeee6d2-4ae0-4215-a7a2-31419b0327fe)
 
+⤵️
+![Ekran Görüntüsü (19)](https://github.com/user-attachments/assets/12240d35-ca57-49ee-819c-ec0862f52ef0)
+
 
 #### ✅ Light Colors and Settings,
    1. Edit ➡ Preference ➡ Display ➡ Light Sources
