@@ -125,7 +125,7 @@ ColorPalette Themes, makes the interface and workspaces more user-focused. It si
 Sample
 
 ⤵️
-![Ekran görüntüsü 2026-01-29 210830](https://github.com/user-attachments/assets/b897168d-03fa-4688-ab2a-71dae4ea0471)
+![Ekran görüntüsü 2026-01-29 210830](https://github.com/user-attachments/assets/2ef2c4f1-5a60-43eb-b924-dcf262b15c94)
 
 
   ___________________
