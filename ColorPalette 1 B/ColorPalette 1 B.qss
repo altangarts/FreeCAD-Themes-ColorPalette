@@ -2792,13 +2792,15 @@ QToolButton#cpRowDataButton:hover,
 QToolButton#cpRowViewButton:hover,
 QToolButton#cpRowDataButton:checked:hover,
 QToolButton#cpRowViewButton:checked:hover {
-  background-color: @ColorPaletteHover1;
+  background-color: @ColorPaletteHover;
   border: 1px solid rgba(0,0,0,0.6);
 }
 
 QToolButton#cpRowDataButton:checked,
 QToolButton#cpRowViewButton:checked {
   background-color: @ThemeAccentColor1;
+  background-color: @ColorPaletteHover1;
+  border: 1px solid rgba(0,0,0,0.6);
 }
 
 QToolButton#cpPropertyPopupClose {
