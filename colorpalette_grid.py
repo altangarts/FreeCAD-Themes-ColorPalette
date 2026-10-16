@@ -399,7 +399,7 @@ def _register_grid_preferences_page():
     ui_path = _grid_preferences_ui_path()
     if not os.path.isfile(ui_path):
         FreeCAD.Console.PrintWarning(
-            "ColorPaletteGrid: tercih sayfasi dosyasi bulunamadi: %s\n" % ui_path
+            "ColorPaletteGrid: preferences page file not found: %s\n" % ui_path
         )
         return
 
@@ -469,7 +469,7 @@ class _GridDocumentObserver:
 
         if doc_name and doc_name in _grid_rebuild_registry:
             _grid_rebuild_registry.pop(doc_name, None)
-            _dbg("observer: doc=%s kapandi, rebuild kaydi temizlendi (kalan keys=%s)" % (
+            _dbg("observer: doc=%s closed, rebuild registry entry removed (remaining keys=%s)" % (
                 doc_name, list(_grid_rebuild_registry.keys())))
 
         _view_switch_node_cache.clear()
@@ -814,7 +814,20 @@ def toggle_3d_grid(checked=None):
             rebuild()
 
 
+_grid_startup_state = {"scheduled": False}
+
+
 def _restore_grid_on_startup():
+    """Acilista, kayitli durum "acik" ise grid'i geri yukler.
+
+    Property motoru (FreeCAD / ColorPalette) fark etmeksizin tek giris noktasi.
+    Daha once dynamic_property_editor.py icindeki _bootstrap_grid_init ve _setup
+    blogunda yapilan is buraya tasindi; modul ne kadar kez import edilirse
+    edilsin yalnizca bir kez calisir.
+    """
+    if _grid_startup_state["scheduled"]:
+        return
+    _grid_startup_state["scheduled"] = True
 
     try:
         from PySide6 import QtCore

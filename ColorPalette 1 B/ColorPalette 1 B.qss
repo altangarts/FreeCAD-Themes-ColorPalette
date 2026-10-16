@@ -107,6 +107,13 @@ Gui--PropertyEditor--PropertyEditor {
   qproperty-groupBackground: transparent;
 }
 
+#cpPropertyNameColor {
+  qproperty-nameColor: #eeeeee;
+  qproperty-nameColor: @ColorPaletteTextDarkenList;
+  qproperty-nameSelectedColor: #ffffff;
+  qproperty-nameBold: false;
+}
+
 Gui--PropertyEditor--PropertyEditor QLineEdit:read-only,
 Gui--PropertyEditor--PropertyEditor QLineEdit:disabled,
 Gui--PropertyEditor--PropertyEditor QAbstractSpinBox:read-only,
@@ -125,13 +132,23 @@ Gui--PropertyEditor--PropertyEditor > QWidget > QLineEdit {
 Gui--PropertyEditor--PropertyEditor QSpinBox,
 Gui--PropertyEditor--PropertyEditor QDoubleSpinBox,
 Gui--PropertyEditor--PropertyEditor QAbstractSpinBox,
-Gui--PropertyEditor--PropertyEditor QLineEdit {
+Gui--PropertyEditor--PropertyEditor QLineEdit,
+Gui--PropertyEditor--PropertyEditor QLineEdit:read-only,
+Gui--PropertyEditor--PropertyEditor QLineEdit:read-only:focus {
   padding: -3px 0px -3px 0px;
-  margin: 1px 2px 0px 0px;
+  margin: 1px 2px 2px 0px;
   border-top-left-radius: 0px;
   border-top-right-radius: 4px;
   border-bottom-left-radius: 0px;
   border-bottom-right-radius: 4px;
+}
+
+Gui--PropertyEditor--VectorListWidget QLineEdit:read-only,
+Gui--PropertyEditor--VectorListWidget QLineEdit:read-only:focus {
+  border: none;
+  border-radius: 0px;
+  margin: 0px;
+  padding: 0px;
 }
 
 Gui--PropertyEditor--PropertyEditor QComboBox {
@@ -139,9 +156,9 @@ Gui--PropertyEditor--PropertyEditor QComboBox {
 
 Gui--PropertyEditor--PropertyEditor QPushButton {
   background-color: @ThemeAccentColor1;
-  border: 2px solid @ThemeAccentColor1;
-  margin: 1px 2px 2px 0px;
-  padding: -1px 0px 0px 0px;
+  border: 1px solid @ThemeAccentColor1;
+  margin: 1px 2px 1px 0px;
+  padding: 0px;
   color: #ffffff;
   border-top-left-radius: 0px;
   border-top-right-radius: 4px;
@@ -192,7 +209,7 @@ Gui--PropertyEditor--PropertyEditor > QWidget > QFrame::item:focus {
 }
 
 Gui--PropertyEditor--PropertyEditor > QWidget > QWidget QLabel {
-  background-color: #ab4700;
+  background-color: @ThemeAccentColor1;
   color: #ffffff;
   padding: -1px 0px -1px 0px;
   margin: 1px 0px 2px 0px;
@@ -1210,10 +1227,7 @@ QDialog QAbstractSpinBox {
   border: 1px solid rgba(0,0,0,0.15);
   color: #ffff69;
   color: @ColorPaletteTextSpinBox;
-  border-top-left-radius: 6px;
-  border-top-right-radius: 6px;
-  border-bottom-left-radius: 6px;
-  border-bottom-right-radius: 6px;
+  border-radius: 6px;
   min-height: 22px;
   max-height: 22px;
   padding: 0px 5px 0px 5px;
@@ -1341,7 +1355,7 @@ QTextBrowser {
   color: #eeeeee;
   color: @ColorPaletteTextGeneralTop;
   border-radius: 10px;
-  padding: 5px 5px 5px 5px;
+  padding: 5px;
 }
 
 QTextBrowser:disabled {
@@ -1361,7 +1375,7 @@ QTextBrowser:pressed {
   color: #eeeeee;
   color: @ColorPaletteTextGeneralTop;
   border-radius: 10px;
-  padding: 5px 5px 5px 5px;
+  padding: 5px;
 }
 
 /* QGraphicsView ----------------------------------------------------------
@@ -1466,7 +1480,7 @@ QPushButton {
   border-left-color: rgba(0,0,0,0.2);
   border-radius: 4px;
   padding: 3px 10px 4px 10px;  
-  margin: 0px 0px 0px 0px;
+  margin: 0px;
   min-height: 15px;
 }
 
@@ -1540,7 +1554,7 @@ QWidget#Dialog QPushButton {
   color: #eeeeee;
   color: @ColorPaletteTextGeneralBottom;
   border-radius: 6px;
-  margin: 0px 0px 0px 0px;
+  margin: 0px;
   padding: 2px 10px 4px 10px;
   min-height: 15px;
 }
@@ -1929,12 +1943,9 @@ Gui--TaskView--TaskView#Tasks {
   border-right-color: rgba(0,0,0,0.2);
   border-bottom-color: #181818;
   border-left-color: rgba(0,0,0,0.2);
-  margin: 0px 0px 0px 0px;
+  margin: 0px;
   padding: 0px 3px 10px 3px;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
-  border-bottom-left-radius: 10px;
-  border-bottom-right-radius: 10px;
+  border-radius: 10px;
 }
 
 QDockWidget#Tasks {
@@ -2492,11 +2503,6 @@ QDockWidget QTabWidget QLineEdit:focus {
   border-bottom-right-radius: 4px;
 }
 
-Gui--PropertyEditor--PropertyEditor Gui--PropertyEditor--VectorListWidget QLineEdit {
-  border-radius: 0px;
-  margin-right: 0px;
-}
-
 QLineEdit,
 QDialog QLineEdit,
 QWidget QLineEdit,
@@ -2603,6 +2609,202 @@ QTabWidget::pane:right {
   top: 0px;
   border: none;
   background-color: transparent;
+}
+
+/* ColorPalette Property --------------------------------------------------------------
+
+--------------------------------------------------------------------------- */
+#cpPropertyPopupBody {
+  background-color: @ColorPaletteOverlayContent;
+  border-radius: 6px;
+  padding: 2px 1px 2px 2px;
+  margin: 0px;
+}
+
+#cpPropertyPopupBody QTreeView,
+#cpPropertyPopupBody Gui--PropertyEditor--PropertyEditor {
+  gridline-color: @ColorPaletteOverlayContent;
+  qproperty-alternatingRowColors: true;
+  alternate-background-color: transparent;
+  selection-background-color: transparent;
+  color: #ffff69;
+  color: @ColorPaletteTextPropertyEditor;
+}
+
+#cpPropertyPopupBody QLineEdit,
+#cpPropertyPopupBody QLineEdit:focus {
+  background-color: @ThemeAccentColor1;
+  color: #ffffff;
+  padding: -3px 0px -3px 0px;
+  margin: 1px -14px 2px 0px;
+  border-top-left-radius: 0px;
+  border-top-right-radius: 4px;
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 4px;
+}
+
+#cpPropertyPopupBody QLineEdit:read-only,
+#cpPropertyPopupBody QLineEdit:read-only:focus {
+  background-color: @ThemeAccentColor1;
+  color: #ffffff;
+  padding: -3px 0px -3px 0px;
+  margin: 1px 2px 2px 0px;
+  border-top-left-radius: 0px;
+  border-top-right-radius: 4px;
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 4px;
+}
+
+#cpPropertyPopupBody Gui--PropertyEditor--VectorListWidget QLineEdit:read-only,
+#cpPropertyPopupBody Gui--PropertyEditor--VectorListWidget QLineEdit:read-only:focus {
+  border: none;
+  border-radius: 0px;
+  margin: 0px;
+  padding: 0px;
+}
+
+#cpPropertyPopup QDialog QLineEdit {
+  background-color: rgba(250,250,250,0.05);
+  border: 1px solid rgba(0,0,0,0.15);
+  color: #eeeeee;
+  color: @ColorPaletteTextDarkenList;
+  padding: 2px 4px 2px 4px;
+  margin: 0px;
+  border-radius: 6px;
+  min-height: 18px;
+}
+
+#cpPropertyPopup QDialog QLineEdit:hover,
+#cpPropertyPopup QDialog QLineEdit:focus {
+  background-color: @ThemeAccentColor1;
+  border: 1px solid @ThemeAccentColor1;
+  color: #ffffff;
+  padding: 2px 4px 2px 4px;
+  margin: 0px;
+  border-radius: 6px;
+}
+
+#cpPropertyPopup QTreeView::item:has-children:!has-siblings:open,
+#cpPropertyPopup QTreeView::item:has-children:open,
+#cpPropertyPopup QTreeView::item:has-children:open:selected,
+#cpPropertyPopup QTreeView::item:has-children:!has-siblings:open:selected {
+  background-color: rgba(0,0,0,0.15);
+  background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop: 0 @ColorPaletteOverlayHeader2, stop: 0.85 @ColorPaletteOverlayHeader2, stop: 0.9 #151515, stop: 1 #101010);
+  margin-top: 1px;
+}
+
+#cpPropertyPopup QTreeView::item:has-children:!has-siblings:open:hover,
+#cpPropertyPopup QTreeView::item:has-children:open:hover,
+#cpPropertyPopup QTreeView::item:has-children:open:selected:hover,
+#cpPropertyPopup QTreeView::item:has-children:!has-siblings:open:selected:hover {
+  background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop: 0 @ColorPaletteHover, stop: 0.85 @ColorPaletteHover, stop: 0.9 #151515, stop: 1 #101010);
+  color: #ffffff;
+}
+
+#cpPropertyPopup QTreeView::item:!alternate {
+  background-color: rgba(250,250,250,0.07);
+  background-color: @ColorPaletteOverlayHeader;
+  border-radius: 4px;
+  margin: 1px 1px 2px 0px;
+  padding: 0px;
+  color: #eeeeee;
+  color: @ColorPaletteTextTreeEnd; 
+}
+
+#cpPropertyPopup QTreeView::item:alternate  {
+  background-color: rgba(0,0,0,0.1);
+  background-color: @ColorPaletteOverlayContent2; 
+}
+
+#cpPropertyPopup QTreeView::item:first {
+  margin-right: -4px;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 0px;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 0px;
+}
+
+#cpPropertyPopup QTreeView::item:last {
+  border-top-left-radius: 0px;
+  border-top-right-radius: 4px;
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 4px;
+}
+
+#cpPropertyPopup QTreeView::item:hover,
+#cpPropertyPopup QTreeView::item:selected:hover,
+#cpPropertyPopup QTreeView::item:alternate:selected:hover,
+#cpPropertyPopup QTreeView::item:has-children:selected:hover {
+  background-color: @ThemeAccentColor1;
+  background-color: @ColorPaletteHover;
+  color: #ffffff; 
+}
+
+#cpPropertyPopup QTreeView::item:focus,
+#cpPropertyPopup QTreeView::item:alternate:focus {
+  background-color: @ThemeAccentColor1;
+  color: #ffffff;
+}
+
+#cpPropertyPopup QTreeView::item:selected,
+#cpPropertyPopup QTreeView::item:has-children:selected {
+  background-color: rgba(0,0,0,0.08);
+  background-color: @ColorPaletteOverlayHeader;
+}
+
+#cpPropertyPopup QTreeView::item:alternate:selected,
+#cpPropertyPopup QTreeView::item:alternate:has-children:selected {
+  background-color: rgba(0,0,0,0.1);
+  background-color: @ColorPaletteOverlayContent2;
+}
+
+#cpRowButtons {
+  margin: 0px 0px 0px 11px;
+}
+
+#cpPropertyPopupHeader {
+}
+
+#cpPropertyPopupTitle {
+  color: #eeeeee;
+  color: @ColorPaletteTextGeneralTop;
+}
+
+QToolButton#cpRowDataButton {
+  background-color: @ColorPaletteOverlayHeader1;
+  border: 1px solid rgba(0,0,0,0.2);
+  qproperty-iconSize: 20px 20px;
+  margin: 1px 0px 0px 0px;
+  padding: 2px 0px 3px 0px;
+  border-radius: 4px;
+}
+
+QToolButton#cpRowViewButton {
+  background-color: @ColorPaletteOverlayHeader1;
+  border: 1px solid rgba(0,0,0,0.2);
+  qproperty-iconSize: 20px 20px;
+  margin: 1px 0px 0px 0px;
+  padding: 2px 0px 3px 0px;
+  border-radius: 4px;
+}
+
+QToolButton#cpRowDataButton:hover,
+QToolButton#cpRowViewButton:hover,
+QToolButton#cpRowDataButton:checked:hover,
+QToolButton#cpRowViewButton:checked:hover {
+  background-color: @ColorPaletteHover1;
+  border: 1px solid rgba(0,0,0,0.6);
+}
+
+QToolButton#cpRowDataButton:checked,
+QToolButton#cpRowViewButton:checked {
+  background-color: @ThemeAccentColor1;
+}
+
+QToolButton#cpPropertyPopupClose {
+  qproperty-icon: none;
+  background: none;
+  border: none;
 }
 
 /* QTabBar ----------------------------------------------------------------
@@ -3129,12 +3331,9 @@ QDockWidget > QDialog {
   border-right-color: rgba(0,0,0,0.2);
   border-bottom-color: #181818;
   border-left-color: rgba(0,0,0,0.2);
-  margin: 0px 0px 0px 0px;
+  margin: 0px;
   padding: 4px 3px 10px 4px;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
-  border-bottom-left-radius: 10px;
-  border-bottom-right-radius: 10px;
+  border-radius: 10px;
   selection-background-color: transparent;
   selection-color: #ffffff;
 }
@@ -3147,9 +3346,9 @@ QDialog QTreeView,
 QTabWidget QDialog QTreeView {
   background-color: rgba(250,250,250,0.05);    
   alternate-background-color: transparent;
-  margin: 0px 0px 0px 0px;
+  margin: 0px;
   border: 1px solid rgba(0,0,0,0.1);
-  padding: 5px 5px 5px 5px;
+  padding: 5px;
   border-radius: 10px;
   selection-background-color: transparent;
   selection-color: #ffffff;
@@ -3248,6 +3447,7 @@ QDockWidget QTabWidget QTreeView::item:alternate {
 }
 
 QDockWidget QTabWidget QTreeView::item:first {
+  margin: 1px 0px 2px 0px;
   margin-right: -4px;
   border-top-left-radius: 4px;
   border-top-right-radius: 0px;
@@ -3256,6 +3456,7 @@ QDockWidget QTabWidget QTreeView::item:first {
 }
 
 QDockWidget QTabWidget QTreeView::item:last {
+  margin: 1px 2px 2px 0px;
   border-top-left-radius: 0px;
   border-top-right-radius: 4px;
   border-bottom-left-radius: 0px;
@@ -3267,21 +3468,27 @@ QTabWidget QDialog QTreeView::item:last,
 QTabWidget QDialog QTreeView::item,
 QTabWidget QDialog QTreeView::item:has-children,
 QTabWidget QDialog QTreeView::item:has-children:!has-siblings:open,
-QTabWidget QDialog QTreeView::item:has-children:open {
+QTabWidget QDialog QTreeView::item:has-children:open,
+#cpPropertyPopup QDialog QTreeView::item:first,
+#cpPropertyPopup QDialog QTreeView::item:last,
+#cpPropertyPopup QDialog QTreeView::item,
+#cpPropertyPopup QDialog QTreeView::item:has-children,
+#cpPropertyPopup QDialog QTreeView::item:has-children:!has-siblings:open,
+#cpPropertyPopup QDialog QTreeView::item:has-children:open {
   background-color: rgba(0,0,0,0.05);
   margin: 1px 0px 1px 1px;
   padding: 1px;
   border-radius: 4px;
 }
 
+#cpPropertyPopup QDialog QTreeView::item:hover,
+#cpPropertyPopup QDialog QTreeView::item:has-children:hover,
+#cpPropertyPopup QDialog QTreeView::item:has-children:open:hover,
+#cpPropertyPopup QDialog QTreeView::item:has-children:!has-siblings:open:hover,
 QDockWidget QTabWidget QTreeView::item:hover,
 QDockWidget QTabWidget QTreeView::item:has-children:hover,
 QDockWidget QTabWidget QTreeView::item:has-children:open:hover,
 QDockWidget QTabWidget QTreeView::item:has-children:!has-siblings:open:hover,
-QDockWidget QTabWidget QTreeView::item:selected:hover,
-QDockWidget QTabWidget QTreeView::item:has-children:selected:hover,
-QDockWidget QTabWidget QTreeView::item:has-children:open:selected:hover,
-QDockWidget QTabWidget QTreeView::item:has-children:!has-siblings:open:selected:hover,
 QDockWidget QTabWidget QTreeView::item:selected:hover,
 QDockWidget QTabWidget QTreeView::item:has-children:selected:hover,
 QDockWidget QTabWidget QTreeView::item:has-children:open:selected:hover,
@@ -3316,7 +3523,15 @@ QDockWidget QTabWidget QTreeView::item:has-children:!has-siblings:open:selected 
 QTabWidget QDialog QTreeView::item:selected,
 QTabWidget QDialog QTreeView::item:has-children:selected,
 QTabWidget QDialog QTreeView::item:has-children:open:selected,
-QTabWidget QDialog QTreeView::item:has-children:!has-siblings:open:selected {
+QTabWidget QDialog QTreeView::item:has-children:!has-siblings:open:selected,
+#cpPropertyPopup QDialog QTreeView::item:selected,
+#cpPropertyPopup QDialog QTreeView::item:alternate:selected,
+#cpPropertyPopup QDialog QTreeView::item:has-children:selected,
+#cpPropertyPopup QDialog QTreeView::item:alternate:has-children:selected,
+#cpPropertyPopup QDialog QTreeView::item:has-children:open:selected,
+#cpPropertyPopup QDialog QTreeView::item:alternate:has-children:open:selected,
+#cpPropertyPopup QDialog QTreeView::item:has-children:!has-siblings:open:selected, 
+#cpPropertyPopup QDialog QTreeView::item:alternate:has-children:!has-siblings:open:selected{
   background-color: @ThemeAccentColor1;
   color: #ffffff;
 }
@@ -3333,17 +3548,20 @@ QDockWidget QTabWidget QTreeView::branch {
   color: @ColorPaletteTextTreeEnd;
 }
 
-#DocumentTreeItems::item:has-children:!has-siblings:open {
+#DocumentTreeItems::item:has-children:!has-siblings:open,
+#cpPropertyPopup QDialog QTreeView::item:alternate:has-children:!has-siblings:open {
   color: #abff7d;
   color: @ColorPaletteTextTreeOpen;
 }
 
-#DocumentTreeItems::item:has-children:open {
+#DocumentTreeItems::item:has-children:open,
+#cpPropertyPopup QDialog QTreeView::item:has-children:open {
   color: #abff7d;
   color: @ColorPaletteTextTreeOpen;
 }
 
-#DocumentTreeItems::item:has-children {
+#DocumentTreeItems::item:has-children,
+#cpPropertyPopup QDialog QTreeView::item:has-children {
   color: #beffff;
   color: @ColorPaletteTextTreeClosed;
 }
@@ -3380,9 +3598,9 @@ QColumnView {
   background-color: rgba(250,250,250,0.05);
   color: #eeeeee;
   color: @ColorPaletteTextGeneralTop;
-  margin: 0px 0px 0px 0px;
+  margin: 0px;
   border: 1px solid rgba(0,0,0,0.2);
-  padding: 6px 6px 6px 6px;
+  padding: 6px;
   selection-background-color: @ThemeAccentColor1;
   selection-color: #ffffff;
   border-radius: 10px;
@@ -3409,11 +3627,11 @@ QStatusBar > QMenu QTreeView {
   background-color: transparent;
   color: #eeeeee;
   color: @ColorPaletteTextGeneralTop;
-  margin: 0px 0px 0px 0px;
-  border: 0px solid transparent;
-  padding: 0px 0px 0px 0px;
-  selection-background-color: @ThemeAccentColor1;
+  border: none;
+  selection-background-color: transparent;
   selection-color: #ffffff;
+  margin: 0px;
+  padding: 0px;
   border-radius: 0px;
 }
 
@@ -3428,19 +3646,9 @@ QStatusBar > QMenu QTreeView::item:selected {
   color: #ffffff;
 }
 
-QStatusBar > QMenu QTreeView::branch:has-siblings:adjoins-item {
-  image: none;
-  border-image: none;
-}
-
-QStatusBar > QMenu QTreeView::branch:!has-children:!has-siblings:adjoins-item {
-  image: none;
-  border-image: none;
-}
-
 Gui--NotificationLabel {
   background-color: @ThemeAccentColor2;
-  border: 1px solid rgba(0,0,0,0.15);
+  border: 1px solid #151515;
   border-radius: 0px;
 }
 
@@ -3450,7 +3658,7 @@ QListView {
   color: @ColorPaletteTextGeneralTop;
   margin: 0px;
   border: 0px solid rgba(0,0,0,0.2);
-  padding: 5px 5px 5px 5px;
+  padding: 5px;
   border-radius: 0px;
   selection-background-color: @ThemeAccentColor1;
   selection-color: #ffffff;
@@ -3465,7 +3673,7 @@ QWidget QListView {
   background-color: transparent;
   border: 1px solid transparent;
   margin: 0px;
-  padding: 5px 5px 5px 5px;
+  padding: 5px;
   border-radius: 0px;
   selection-background-color: @ThemeAccentColor1;
   selection-color: #ffffff;
@@ -3479,12 +3687,9 @@ QDockWidget QListView {
   border-right-color: rgba(0,0,0,0.2);
   border-bottom-color: #181818;
   border-left-color: rgba(0,0,0,0.2);
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
-  border-bottom-left-radius: 10px;
-  border-bottom-right-radius: 10px;
+  border-radius: 10px;
   margin: 0px;
-  padding: 5px 5px 5px 5px;
+  padding: 5px;
   selection-background-color: @ThemeAccentColor1;
   selection-color: #ffffff;
 }
@@ -3495,7 +3700,7 @@ QDialog QWidget QListView {
   color: @ColorPaletteTextGeneralTop;
   border: 1px solid rgba(0,0,0,0.1);
   border-radius: 10px;
-  padding: 5px 5px 5px 5px;
+  padding: 5px;
   selection-background-color: transparent;
   selection-color: #ffffff;
 }
@@ -3695,10 +3900,7 @@ QComboBox,
 QDialog QComboBox {
   background-color: rgba(250,250,250,0.05);
   border: 1px solid rgba(0,0,0,0.15);
-  border-top-left-radius: 6px;
-  border-top-right-radius: 6px;
-  border-bottom-left-radius: 6px;
-  border-bottom-right-radius: 6px;
+  border-radius: 6px;
   color: #beffff;
   color: @ColorPaletteTextCombobox;
   padding: 0px 8px 0px 8px;
@@ -4023,7 +4225,7 @@ QToolBox > QScrollArea > QWidget > QWidget {
   border-bottom-left-radius: 8px;
   border-bottom-right-radius: 8px;
   padding: 0px 10px 0px 10px;
-  margin: 0px 0px 0px 0px;
+  margin: 0px;
 }
 
 /* QFrame -----------------------------------------------------------------
@@ -4231,7 +4433,7 @@ QMdiSubWindow:hover {
 Settings menu #groupsTreeView:
 ==================================================================================================*/
 QTreeView#groupsTreeView {
-  margin: 0px 0px 0px 0px;
+  margin: 0px;
   padding: 0px 2px 0px 2px;
   border: none;
   border-radius: 0px;

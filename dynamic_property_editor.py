@@ -19,6 +19,33 @@ def _state_grp():
     return _state_grp_cache
 
 
+_ENGINE_DEFAULT = "ColorPalette"        # varsayilan: ColorPalette Property
+_MODE_DEFAULT = "DoubleClick"           # FreeCAD Property secilirse varsayilan: DoubleClick
+
+
+def _cp_mode():
+    """PropertyEditorMode: yalnizca acikca "Standard" ise Standard; digerleri (yok/gecersiz) DoubleClick."""
+    try:
+        value = _state_grp().GetString("PropertyEditorMode", _MODE_DEFAULT)
+    except Exception:
+        return _MODE_DEFAULT
+    return "Standard" if value == "Standard" else _MODE_DEFAULT
+
+
+def _ensure_property_defaults():
+    """Ilk calistirmada varsayilanlari kaydeder (yalnizca anahtar yoksa), boylece menu
+    (colorpalette_menu.py) ve diger moduller ayni degeri okur."""
+    try:
+        grp = _state_grp()
+        names = set(grp.GetStrings())
+        if "PropertyEngine" not in names:
+            grp.SetString("PropertyEngine", _ENGINE_DEFAULT)
+        if "PropertyEditorMode" not in names:
+            grp.SetString("PropertyEditorMode", _MODE_DEFAULT)
+    except Exception:
+        pass
+
+
 def _register_with_global_filter(list_name, callback, retries_left=20):
     app = QtWidgets.QApplication.instance()
     gfilter = getattr(app, "_cp_global_filter", None) if app else None
@@ -422,14 +449,6 @@ def _bootstrap_property_editor_anchoring():
         _schedule_layout()
         container.update()
         _cp_sync_view_callbacks()
-        
-        state_grp = _state_grp()
-        if not state_grp.GetBool("GridCollapsed", False):
-            try:
-                import colorpalette_grid
-                QtCore.QTimer.singleShot(1000, colorpalette_grid.toggle_3d_grid)
-            except ImportError:
-                pass
 
     QtCore.QTimer.singleShot(2000, _setup)
 
@@ -438,6 +457,16 @@ def _bootstrap_property_editor_anchoring():
 _cp_editor_active = False
 _cp_schedule_layout_fn = None
 _cp_clear_check_pending = False
+
+
+def cp_engine_is_freecad():
+    """Menu > Property Editor > FreeCAD Property / ColorPalette Property.
+    Yalnizca acilista okunur: "ColorPalette" ise bu modul hicbir gozlemci, filtre,
+    sinyal baglantisi veya zamanlayici kurmaz (popup motoru tree_property_buttons.py)."""
+    try:
+        return _state_grp().GetString("PropertyEngine", _ENGINE_DEFAULT) != "ColorPalette"
+    except Exception:
+        return True
 
 
 def _cp_request_layout():
@@ -472,7 +501,7 @@ class _ColorPaletteSelectionObserver:
         if not _cp_editor_active:
             return
 
-        mode = _state_grp().GetString("PropertyEditorMode", "DoubleClick")
+        mode = _cp_mode()
 
         if mode == "DoubleClick":
             if not _cp_editor_active:
@@ -501,7 +530,7 @@ class _ColorPaletteSelectionObserver:
         if not grp.GetBool("PropertyEditorEnabled", True):
             return
 
-        mode = grp.GetString("PropertyEditorMode", "DoubleClick")
+        mode = _cp_mode()
         if mode == "Standard":
             if _cp_editor_active:
                 return
@@ -550,7 +579,7 @@ def _cp_view_double_click_callback(info):
         grp = _state_grp()
         if not grp.GetBool("PropertyEditorEnabled", True):
             return
-        if grp.GetString("PropertyEditorMode", "DoubleClick") != "DoubleClick":
+        if _cp_mode() != "DoubleClick":
             return
 
         if info.get("State") != "DOWN":
@@ -644,7 +673,7 @@ def _cp_sync_view_callbacks():
         grp = _state_grp()
         enabled = (
             grp.GetBool("PropertyEditorEnabled", True)
-            and grp.GetString("PropertyEditorMode", "DoubleClick") == "DoubleClick"
+            and _cp_mode() == "DoubleClick"
         )
 
         import FreeCADGui as Gui
@@ -724,8 +753,8 @@ def _bootstrap_lock_tree_property_view_mode():
                 combo.blockSignals(False)
             combo.setEnabled(False)
             combo.setToolTip(
-                "Bu ayar yönetici tarafından kilitlenmiştir ve 'Combined' "
-                "(Birleşik) modda sabittir, değiştirilemez."
+                "This setting is locked by the administrator and fixed to "
+                "'Combined' mode; it cannot be changed."
             )
         label = dialog.findChild(QtWidgets.QLabel, "treeModeLabel")
         if label:
@@ -749,7 +778,7 @@ def _register_menu_hooks():
     try:
         import colorpalette_menu
     except Exception as e:
-        FreeCAD.Console.PrintError(f"ColorPalette: menu hook'lari kaydedilemedi - {str(e)}\n")
+        FreeCAD.Console.PrintError(f"ColorPalette: menu hooks could not be registered - {str(e)}\n")
         return
 
     def _on_mode_changed():
@@ -759,12 +788,16 @@ def _register_menu_hooks():
         _cp_sync_view_callbacks()
         _cp_request_layout()
 
+    if not cp_engine_is_freecad():
+        return      # ColorPalette motoru: mod/aktiflik degisimlerini dinlemeye gerek yok
     colorpalette_menu.register_callback("property_mode_changed", _on_mode_changed)
     colorpalette_menu.register_callback("property_enabled_changed", _on_enabled_changed)
 
 
 if __name__ == "__main__" or __name__ == "color_palette_dynamic_editor":
+    _ensure_property_defaults()
     _register_menu_hooks()
-    _bootstrap_property_editor_anchoring()
+    if cp_engine_is_freecad():
+        _bootstrap_property_editor_anchoring()
+        _bootstrap_double_click_handler()
     _bootstrap_lock_tree_property_view_mode()
-    _bootstrap_double_click_handler()

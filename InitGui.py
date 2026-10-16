@@ -313,6 +313,35 @@ def _cp_bootstrap():
                 from PySide2 import QtCore as _QtCore
             _QtCore.QTimer.singleShot(1500, _overlay_buttons.install)
 
+        # ColorPalette Property motoru: agac satiri View/Data butonlari + popup
+        # (menu: Property Editor > ColorPalette Property secilince aktif olur)
+        _tree_prop_btns = _load_module(
+            _mod_dir,
+            "colorpalette_property",
+            "colorpalette_property.py",
+            "colorpalette_property"
+        )
+        if _tree_prop_btns:
+            try:
+                from PySide6 import QtCore as _QtCoreTpb
+            except ImportError:
+                from PySide2 import QtCore as _QtCoreTpb
+            _QtCoreTpb.QTimer.singleShot(2000, _tree_prop_btns.install)
+
+        # Property Editor "Name" sutunu metin rengi (QSS: #cpPropertyNameColor { qproperty-nameColor: ... })
+        _name_color = _load_module(
+            _mod_dir,
+            "colorpalette_property_name_color",
+            "colorpalette_property_name_color.py",
+            "colorpalette_property_name_color"
+        )
+        if _name_color:
+            try:
+                from PySide6 import QtCore as _QtCoreNc
+            except ImportError:
+                from PySide2 import QtCore as _QtCoreNc
+            _QtCoreNc.QTimer.singleShot(2500, _name_color.install)
+
         try:
             def _apply_task_panel_style_fix():
                 try:

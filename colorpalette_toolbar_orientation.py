@@ -19,9 +19,14 @@ def _orient_name(tb):
 def _repolish(tb):
     style = tb.style()
     for w in [tb] + tb.findChildren(QtWidgets.QWidget):
-        style.unpolish(w)
-        style.polish(w)
-        w.update()
+        try:
+            style.unpolish(w)
+            style.polish(w)
+            # QListView/QAbstractItemView update()'i override eder (QModelIndex ister);
+            # QWidget.update'i dogrudan cagirarak override'dan kacin
+            QtWidgets.QWidget.update(w)
+        except RuntimeError:
+            pass    # widget silinmis
 
 
 class _OrientationFilter(QtCore.QObject):
