@@ -80,11 +80,14 @@ ColorPalette Themes, makes the interface and workspaces more user-focused. It si
        - You can change the texts colors by clicking on the color boxes. You can also select one of the preset theme color combinations. To use your own theme color, adjust the "Accent colors" options.
 
 ⤵️
-![Ekran görüntüsü 2026-09-18 1413532](https://github.com/user-attachments/assets/db69b25c-4030-44a2-b5d5-b5a1651718cb)
+![Ekran Görüntüsü (17)](https://github.com/user-attachments/assets/2d786188-8ded-418f-9941-ffa957d16d75)
+
 
 #### ✅ Property Editor, Grid options/settings and Turntable Motion/Video Record
    1. Menubar/Menubutton ➡ ColorPalette Tab
 
+       - While the Property Editor / ComboView in ColorPalette operates within FreeCAD’s classic panel layout, the Property Editor / PopUp functions as a menu that can be accessed via the data/view buttons on tree elements or through the right-click context menu for objects in the 3D view.
+     
        - You can use the Property Editor with the option to open it by double-clicking a surface, or with the standard single-click option. You can toggle the grid on and off and access its settings in the preferences.
 
        - Clicking the mouse cursor on the invisible 12-pixel area at the bottom causes the status bar to appear automatically, while clicking elsewhere makes it disappear..
@@ -94,7 +97,10 @@ ColorPalette Themes, makes the interface and workspaces more user-focused. It si
        - ffmpeg download link: https://ffmpeg.org/download.html
 
 ⤵️
-![Ekran Görüntüsü (16)](https://github.com/user-attachments/assets/b74e782e-8237-4489-8aeb-5efb9ccebd7d)
+![Ekran Görüntüsü (18)](https://github.com/user-attachments/assets/fd64a1fc-a2cf-4512-a4e3-666b02a3c853)
+
+⤵️
+![Ekran Görüntüsü (19)](https://github.com/user-attachments/assets/dfeee6d2-4ae0-4215-a7a2-31419b0327fe)
 
 
 #### ✅ Light Colors and Settings,
