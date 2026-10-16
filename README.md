@@ -137,6 +137,7 @@ Sample
    - If "Accent color 3" is not applied, it is substituted with other variables (Style Sheet(Advanced), Accent color 1-2 or restart)
    - Color selection suggestion: 'Dark colors' and 'Dark and pale pastel colors'
    - When using "Overlay", darker or a gradient from dark to lighter colors from top to bottom is recommended
+   - Following certain updates, it may be necessary to perform the setup process again—as if it were the initial installation—or to remove and reinstall the add-on.
    - The ".py" files were created using Claude AI, GPT AI, and Gemini AI.
 
 ### Prerequisites
