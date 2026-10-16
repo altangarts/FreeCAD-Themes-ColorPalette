@@ -1,3 +1,4 @@
+<img width="1839" height="1698" alt="Ekran görüntüsü 2026-01-29 210830" src="https://github.com/user-attachments/assets/f1a74881-45fd-4f57-8139-064e14491752" />
 # FreeCAD Themes - ColorPalette
 ColorPalette Themes, makes the interface and workspaces more user-focused. It simplifies theme color selection and allows you to apply single-color, dual-color, triple-color, and gradient-color combinations to the entire window.
 
@@ -122,8 +123,10 @@ ColorPalette Themes, makes the interface and workspaces more user-focused. It si
 ⤵️
 ![Ekran görüntüsü 2026-01-29 211941](https://github.com/user-attachments/assets/4f782058-894f-4a03-8313-099e71a2fd78)
 
-Sample
 
+Sample
+⤵️
+![Ekran görüntüsü 2026-01-29 210830](https://github.com/user-attachments/assets/c435627c-8930-47f7-a145-2ecac14631dd)
 
   ___________________
  ## ☑️ Note: 
