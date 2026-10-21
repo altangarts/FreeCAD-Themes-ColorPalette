@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="3.96875mm"
+   height="3.96875mm"
+   viewBox="0 0 3.96875 3.96875"
+   version="1.1"
+   id="svg1"
+   xml:space="preserve"
+   sodipodi:docname="overlay-disabled.svg"
+   inkscape:version="1.4.4 (dcaf3e7, 2026-05-05)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"><sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     inkscape:zoom="118.4"
+     inkscape:cx="7.504223"
+     inkscape:cy="7.5"
+     inkscape:window-width="3840"
+     inkscape:window-height="2036"
+     inkscape:window-x="-12"
+     inkscape:window-y="-12"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg1" /><defs
+     id="defs1" /><g
+     id="layer1"
+     transform="translate(-144.08028,-109.34688)"><g
+       id="overlay-white"
+       transform="matrix(0.39687499,0,0,0.396875,143.68341,108.95)"><path
+         style="color:#000000;fill:#a6a6a6;fill-opacity:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:100;-inkscape-stroke:none"
+         d="M 1.5,1 A 0.50004899,0.50004899 0 0 0 1,1.5 v 9 A 0.50004899,0.50004899 0 0 0 1.5,11 h 9 A 0.50004899,0.50004899 0 0 0 11,10.5 v -9 A 0.50004899,0.50004899 0 0 0 10.5,1 Z M 2,2 h 8 v 8 H 2 Z"
+         id="rect1-5" /><rect
+         style="fill:#a6a6a6;fill-opacity:1;stroke:none;stroke-width:0.999997;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:100;stroke-opacity:0.501961"
+         id="rect2-1"
+         width="9.1148882"
+         height="1"
+         x="1.4425559"
+         y="4"
+         ry="5.5511148e-17" /></g></g></svg>
