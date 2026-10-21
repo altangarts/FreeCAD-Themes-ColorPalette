@@ -342,6 +342,11 @@ Gui--OverlayToolButton[objectName="OBTN Overlay"]:hover {
   image: url(qss:images_classic/overlay-white.svg);
 }
 
+Gui--OverlayToolButton[objectName="OBTN Overlay"]:disabled {
+  background-color: qlineargradient(x1:0, y1:0.3, x2:0, y2:1, stop:0 rgba(250,250,250,0.1), stop:1 rgba(0,0,0,0.35));
+  image: url(qss:images_classic/overlay-disabled.svg);
+}
+
 QToolButton[cpOverlaySide] {
   background-color: qlineargradient(x1:0, y1:0.3, x2:0, y2:1, stop:0 rgba(250,250,250,0.2), stop:1 rgba(0,0,0,0.1));
   border-width: 1px 1px 2px 1px;
@@ -991,6 +996,11 @@ QScrollBar::up-arrow:vertical {
 QScrollBar::down-arrow:vertical {
 }
 
+QAbstractScrollArea::corner {
+  background: transparent;
+  border: none;
+}
+
 /* QTextEdit --------------------------------------------------------------
 
 report view
@@ -1148,11 +1158,6 @@ QStatusBar QToolBar {
 QToolBar#Workbench,
 QMenuBar QToolBar#Workbench {
   background-color: transparent;
-  border: none;
-}
-
-QToolBar#Workbench[floating="true"] {
-  background-color: @ThemeAccentColor2;
   border: none;
 }
 
@@ -1394,10 +1399,10 @@ QTextBrowser:pressed {
 
 --------------------------------------------------------------------------- */
 QGraphicsView {
-  background-color: transparent;
+  background-color: @ThemeAccentColor2;
   border-style: none;
   color: @ColorPaletteTextGeneralTop;
-  margin: -1px;
+  margin: -2px;
 }
 
 QGraphicsView:disabled {
@@ -2906,6 +2911,8 @@ QTabBar::tab {
 QTabBar::tab:bottom {
   color: #eeeeee;
   color: @ColorPaletteTextGeneralBottom;
+  margin: 2px 0px 6px 3px;
+  padding: 1px 6px 3px 6px;
 }
 
 QToolBar QTabBar::tab:top {
@@ -2968,10 +2975,10 @@ QToolBar QTabBar::tab:right:hover {
   color: #ffffff;
 }
 
-QTabWidget QTabBar::tab:bottom {
+QTabWidget QTabBar::tab {
   color: #eeeeee;
   color: @ColorPaletteTextGeneralBottom;
-  margin: 2px 2px 2px 1px;
+  margin: 3px 0px 0px 2px;
   padding: 0px 3px 4px 6px;
   min-width: 50px;
 }
@@ -2979,8 +2986,8 @@ QTabWidget QTabBar::tab:bottom {
 QMdiArea QTabBar::tab {
   color: #eeeeee;
   color: @ColorPaletteTextGeneralBottom;
-  margin: 2px 0px 3px 3px;
-  padding: 1px 3px 4px 3px;
+  margin: 2px 0px 6px 3px;
+  padding: 1px 6px 3px 6px;
   border-radius: 4px;
 }
 
@@ -3021,6 +3028,11 @@ QTabBar::tab:selected {
   padding: 0px 6px 2px 6px;
 }
 
+QTabBar::tab:bottom:selected {
+  margin: 2px 0px 8px 3px;
+  padding: 1px 6px 2px 6px;
+}
+
 QToolBar QTabBar::tab:selected {
   margin: 2px 2px 4px 0px;
   padding: 3px 5px 3px 5px;
@@ -3042,8 +3054,8 @@ QTabWidget QTabBar::tab:selected {
 }
 
 QMdiArea QTabBar::tab:selected {
-  margin: 2px 0px 5px 3px;
-  padding: 1px 3px 2px 3px;
+  margin: 2px 0px 8px 3px;
+  padding: 1px 6px 2px 6px;
 }
 
 QTabBar::tab:hover,
@@ -3160,7 +3172,7 @@ QTabBar::close-button {
   background-color: rgba(250,250,250,0.3);
   border: 1px solid rgba(0,0,0,0.3);
   border-radius: 4px;
-  margin: 0px 3px 3px 0px;
+  margin: 0px 3px 5px 0px;
   padding: 2px 3px 3px 3px;
   height: 12px;
   width: 12px;
@@ -4631,6 +4643,7 @@ QTreeView::branch#groupsTreeView:open:has-children:has-siblings:hover  {
 }
 
 QTreeView::branch#groupsTreeView:open:has-children:!has-siblings  {
+  border-image: none;
 }
 
 QTreeView::branch#groupsTreeView:open:has-children:!has-siblings:hover  {
@@ -4683,6 +4696,10 @@ QWidget#thumbnailWidget[state="hovered"] {
 QWidget#thumbnailWidget[state="pressed"] {
   background-color: @ThemeAccentColor1;
   border: 1px solid @ThemeAccentColor1;
+}
+
+#newFileButton { 
+  margin: 0px 4px 10px 4px;
 }
 
 #CreateNewRow > QPushButton {

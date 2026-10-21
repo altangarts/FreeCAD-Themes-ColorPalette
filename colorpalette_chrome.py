@@ -18,7 +18,7 @@ _STATE_GRP_PATH = "User parameter:BaseApp/Preferences/Mod/ColorPaletteState"
 KEY_STATUSBAR_AUTOHIDE = "StatusBarAutoHide"
 KEY_MENUBAR_BUTTON = "MenuBarAsButton"
 
-STRIP_HEIGHT = 12
+STRIP_HEIGHT = 10
 LAYOUT_DEBOUNCE_MS = 150
 LAYOUT_BUSY_MS = 300
 _QWIDGETSIZE_MAX = 16777215
@@ -252,14 +252,10 @@ class _StatusBarAutoHide(QtCore.QObject):
     _POPUP_TYPES = (QtCore.Qt.Popup, QtCore.Qt.Dialog, QtCore.Qt.ToolTip)
 
     def _is_inside_statusbar(self, obj):
-        """Status bar içi etkileşim mi? (butonlar, menüleri, popup/dialoglar)"""
         if not isinstance(obj, QtWidgets.QWidget):
             return False
         if obj is self._sb or self._sb.isAncestorOf(obj):
             return True
-        # Menü / popup / dialog ayrı bir üst seviye pencere olarak açılır ve
-        # status bar'ın child'ı olmayabilir (ör. parent'ı ana pencere olan
-        # QMenu). Bunlar içindeki tıklamalar "dışarı tıklama" sayılmaz.
         try:
             w = obj.window()
             if w is not None and w is not self._mw:
@@ -272,7 +268,6 @@ class _StatusBarAutoHide(QtCore.QObject):
         if not self._open or self._disposed:
             return
         app = QtWidgets.QApplication.instance()
-        # Bu arada bir menü/popup açıldıysa (status bar etkileşimi) kapatma.
         if app is not None and app.activePopupWidget() is not None:
             return
         self._close_bar()
@@ -280,10 +275,7 @@ class _StatusBarAutoHide(QtCore.QObject):
     def eventFilter(self, obj, event):
         et = event.type()
 
-        # Açıkken tüm olaylar buradan geçer; ilgisizleri hemen ele.
         if et == QtCore.QEvent.MouseButtonPress:
-            # Yalnızca QWidget alıcılar değerlendirilir (QWindow vb. atlanır;
-            # aynı tıklama widget'a ayrıca iletilir).
             if (self._open and not self._disposed
                     and isinstance(obj, QtWidgets.QWidget)):
                 app = QtWidgets.QApplication.instance()

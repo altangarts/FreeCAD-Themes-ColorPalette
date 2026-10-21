@@ -224,9 +224,103 @@ def _cp_bootstrap():
 
                 return False
 
+        # Tercihler > View: gradient modu aktifken kullanici gradient renklerini degistiremesin.
+        # Bu kural sync durumundan (_cp_sync_disabled / Accent2 == Accent3) BAGIMSIZDIR.
+        _GRADIENT_LOCK_WIDGETS = (
+            "backgroundColorFrom", "backgroundColorTo", "backgroundColorMid",
+            "checkMidColor", "SwitchGradientColors",
+        )
+        _GRADIENT_MODE_RADIOS = ("radioButtonGradient", "rbRadialGradient", "radioButtonSimple")
+        _P_LOCK_HOOKED = "_cpGradientLockHooked"
+
+        def _apply_gradient_lock(dialog):
+            try:
+                linear_btn = dialog.findChild(QtWidgets.QRadioButton, "radioButtonGradient")
+                if linear_btn is None:
+                    return
+
+                def _refresh(*_):
+                    try:
+                        active = linear_btn.isChecked()
+                        for name in _GRADIENT_LOCK_WIDGETS:
+                            w = dialog.findChild(QtWidgets.QWidget, name)
+                            if w:
+                                w.setEnabled(not active)
+                    except RuntimeError:
+                        pass
+
+                _refresh()
+                if not linear_btn.property(_P_LOCK_HOOKED):
+                    linear_btn.setProperty(_P_LOCK_HOOKED, True)
+                    for radio_name in _GRADIENT_MODE_RADIOS:
+                        rb = dialog.findChild(QtWidgets.QRadioButton, radio_name)
+                        if rb:
+                            rb.toggled.connect(_refresh)
+            except RuntimeError:
+                pass  # dialog 30/150 ms icinde kapandi
+
+        def _on_dialog_show_gradient_lock(dialog):
+            QtCore.QTimer.singleShot(30, lambda: _apply_gradient_lock(dialog))
+            QtCore.QTimer.singleShot(150, lambda: _apply_gradient_lock(dialog))
+
+        # ThemeAccentColor2 == ThemeAccentColor3 (gradyan yok) ise viewport gradient renklerine de
+        # bu renkler atanir: top = Accent2 (ilk stop), middle + bottom = Accent3 (son stop).
+        # Gradyan varsa dokunulmaz (viewport_color_sync.py yonetir).
+        def _apply_flat_theme_gradient_colors(retries=0):
+            try:
+                if not _is_colorpalette_theme_active():
+                    return
+                ss = app.styleSheet() or ""
+                if not ss:
+                    # stylesheet henuz uygulanmamis: biraz bekleyip tekrar dene
+                    if retries < 10:
+                        QtCore.QTimer.singleShot(500, lambda: _apply_flat_theme_gradient_colors(retries + 1))
+                    return
+
+                import re
+                try:
+                    from PySide6 import QtGui
+                except ImportError:
+                    from PySide2 import QtGui
+
+                m = re.search(r'QMainWindow\s*\{[^}]*background-color\s*:\s*([^;]+);', ss)
+                if not m:
+                    return
+                raw = re.findall(r'stop\s*:\s*([\d.]+)\s+(#[0-9a-fA-F]{3,8})', m.group(1))
+                if not raw:
+                    return
+                stops = sorted(((float(pos), QtGui.QColor(c)) for pos, c in raw), key=lambda x: x[0])
+                if len({c.name() for _, c in stops}) >= 2:
+                    return  # Accent2 != Accent3: gradyan var
+
+                c_top = stops[0][1]    # ThemeAccentColor2
+                c_rest = stops[-1][1]  # ThemeAccentColor3
+
+                def _fc(c):
+                    return (c.red() << 24) | (c.green() << 16) | (c.blue() << 8) | 0xFF
+
+                p = FreeCAD.ParamGet("User parameter:BaseApp/Preferences/View")
+                changed = False
+                for key, col in (("BackgroundColor2", c_top), ("BackgroundColor4", c_rest), ("BackgroundColor3", c_rest)):
+                    val = _fc(col)
+                    if p.GetUnsigned(key, 0) != val:  # gereksiz parametre bildirimi olmasin
+                        p.SetUnsigned(key, val)
+                        changed = True
+                if changed and Gui:
+                    Gui.updateGui()
+            except Exception as e:
+                FreeCAD.Console.PrintError(f"ColorPalette: flat theme gradient colors could not be applied - {str(e)}\n")
+
+        def _on_dialog_hide_flat_colors(dialog):
+            # Tercihler kapandi: accent renkleri degismis olabilir
+            QtCore.QTimer.singleShot(300, _apply_flat_theme_gradient_colors)
+
         gfilter = _ColorPaletteGlobalFilter(app)
         app.installEventFilter(gfilter)
         app._cp_global_filter = gfilter
+        gfilter.any_dialog_show_callbacks.append(_on_dialog_show_gradient_lock)
+        gfilter.any_dialog_hide_callbacks.append(_on_dialog_hide_flat_colors)
+        QtCore.QTimer.singleShot(1500, _apply_flat_theme_gradient_colors)
         app._cp_scan_timer_ref = _scan_timer  # garbage collector'a karsi referans
 
         if Gui and not hasattr(app, "_cp_focus_scan_connected"):
@@ -407,5 +501,21 @@ def _cp_bootstrap():
             FreeCAD.Console.PrintError(f"ColorPalette: baslangic tree taramasi kurulamadi - {str(e)}\n")
     else:
         FreeCAD.Console.PrintMessage("ColorPalette temasi aktif degil, sadece preset tercihler sayfasi yüklendi.\n")
+
+    # ColorPalette Shadow: tema kosulundan BAGIMSIZ yuklenir; modul kendi icinde
+    # yalnizca "ColorPalette Shadow.qss" / "ColorPalette Shadow Overlay.qss" aktifken
+    # calisir ve Tercihler'den tema anlik degisince kendini acip kapatir.
+    _shadow_mod = _load_module(
+        _mod_dir,
+        "colorpalette_shadow",
+        "colorpalette_shadow.py",
+        "colorpalette_shadow"
+    )
+    if _shadow_mod:
+        try:
+            from PySide6 import QtCore as _QtCoreShadow
+        except ImportError:
+            from PySide2 import QtCore as _QtCoreShadow
+        _QtCoreShadow.QTimer.singleShot(1500, _shadow_mod.install)
 
 _cp_bootstrap()

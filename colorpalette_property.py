@@ -1,5 +1,7 @@
 
 
+import time
+
 import FreeCAD
 import FreeCADGui as Gui
 
@@ -20,6 +22,14 @@ except ImportError:
                 return True
             except RuntimeError:
                 return False
+
+# Olay turu sabitleri: eventFilter'larda her olayda enum ozniteligi aramamak icin
+_EV_RESIZE = QtCore.QEvent.Resize
+_EV_CONTEXT = QtCore.QEvent.ContextMenu
+_EV_PRESS = QtCore.QEvent.MouseButtonPress
+_EV_SHOW = QtCore.QEvent.Show
+_EV_CLOSE = QtCore.QEvent.Close
+_RIGHT_BTN = QtCore.Qt.RightButton
 
 # ---------------------------------------------------------------- ayarlar
 POPUP_WIDTH = 380
@@ -58,11 +68,25 @@ def _log(msg):
     FreeCAD.Console.PrintError(f"ColorPalette: colorpalette_property - {msg}\n")
 
 
-def _dbg(msg):
+_dbg_cache = [0.0, False]
 
+
+def _dbg_on():
+    now = time.monotonic()
+    if now - _dbg_cache[0] > 2.0:
+        _dbg_cache[0] = now
+        try:
+            _dbg_cache[1] = bool(FreeCAD.ParamGet(_SIZE_GRP).GetBool("DebugMenu", False))
+        except Exception:
+            _dbg_cache[1] = False
+    return _dbg_cache[1]
+
+
+def _dbg(msg):
+    if not _dbg_on():
+        return
     try:
-        if FreeCAD.ParamGet(_SIZE_GRP).GetBool("DebugMenu", False):
-            FreeCAD.Console.PrintMessage(f"ColorPalette: menu - {msg}\n")
+        FreeCAD.Console.PrintMessage(f"ColorPalette: menu - {msg}\n")
     except Exception:
         pass
 
@@ -100,12 +124,6 @@ def _global_pos(ev):
         return ev.globalPosition().toPoint()
     except AttributeError:
         return ev.globalPos()
-
-
-def _same_index(a, b):
-    if a is None or b is None:
-        return a is None and b is None
-    return a == b
 
 
 # ---------------------------------------------------------------- bulucular
@@ -277,13 +295,9 @@ class _RowButtons(QtCore.QObject):
         self.on_dead = on_dead     # agac silinince (dock <-> overlay) cagrilir
         self._dead_notified = False
         self._enabled = False
-        self._hover = None         
-        self._hover_y = None        
         self._sel = None 
-        self._suppress_hover_until_move = False
 
         self.sel_box = _ButtonBox(self, True)
-        self.hover_box = _ButtonBox(self, False)
 
         self._timer = QtCore.QTimer(self)
         self._timer.setSingleShot(True)
@@ -312,7 +326,6 @@ class _RowButtons(QtCore.QObject):
             self._handle_dead()
             return
         self._enabled = True
-        self.vp.setMouseTracking(True)
         self.vp.installEventFilter(self)
         self._connect(True)
         self._timer.start()       
@@ -330,10 +343,9 @@ class _RowButtons(QtCore.QObject):
             self.vp.removeEventFilter(self)
             try:
                 self.sel_box.hide()
-                self.hover_box.hide()
             except RuntimeError:
                 pass
-        self._hover = self._hover_y = self._sel = None
+        self._sel = None
 
     def _connect(self, on):
         tree = self.tree
@@ -365,11 +377,10 @@ class _RowButtons(QtCore.QObject):
                 pass
 
     def owns(self, w):
-        return self.sel_box.owns(w) or self.hover_box.owns(w)
+        return self.sel_box.owns(w)
 
     def set_active_tab(self, tab):
         self.sel_box.set_active(tab)
-        self.hover_box.set_active(None)
 
     # -- sinyal yakalayicilari (hepsi hafif: sadece zamanlayiciyi baslatir)
     def _on_selection(self, *_):
@@ -377,10 +388,7 @@ class _RowButtons(QtCore.QObject):
             return
         try:
             if self._selected_anchor() is None:
-                self._suppress_hover_until_move = True
-                self._hover = self._hover_y = None
                 self.sel_box.hide()
-                self.hover_box.hide()
         except RuntimeError:
             pass
         self._timer.start()                   
@@ -389,20 +397,23 @@ class _RowButtons(QtCore.QObject):
         if not self._enabled:
             return
         try:
-            self._hover = self._hover_y = None
             self.sel_box.hide()
-            self.hover_box.hide()
             self._timer.start()
         except RuntimeError:
             pass                            
+
+    def _on_resized(self):
+        # Popup acilirken/kapanirken property view yerlesimi degisir ve agac yeniden boyutlanir.
+        # Kaydirmadan farkli olarak satir konumlari kaymaz: gizleme, sadece yeniden konumla.
+        if self._enabled:
+            self._timer.start()
 
     def _on_struct(self, *_):
         if not self._enabled or self._timer.isActive():
             return
         try:
-            if self.sel_box.frame.isVisible() or self.hover_box.frame.isVisible():
+            if self.sel_box.frame.isVisible():
                 self.sel_box.invalidate()
-                self.hover_box.invalidate()
                 self._timer.start()
         except RuntimeError:
             pass                             
@@ -461,58 +472,14 @@ class _RowButtons(QtCore.QObject):
             self._handle_dead()
             return
         self.sel_box.invalidate()
-        self.hover_box.invalidate()
         self._sel = self._selected_anchor()
-        if self._suppress_hover_until_move:
-            self._hover = self._hover_y = None
-        elif self.vp.underMouse():
-            pos = self.vp.mapFromGlobal(QtGui.QCursor.pos())
-            self._hover = self._object_index(self.tree.indexAt(pos))
-            self._hover_y = None
-        else:
-            self._hover = None
         self._apply_sel()
-        self._apply_hover()
 
     def _apply_sel(self):
         if self._sel is not None:
             self.sel_box.place(self._sel)
         else:
             self.sel_box.hide()
-
-    def _apply_hover(self):
-        if self._hover is not None and not _same_index(self._hover, self._sel):
-            self.hover_box.place(self._hover)
-        else:
-            self.hover_box.hide()
-
-    # -- fare
-    def _on_move(self, pos):
-        if self._suppress_hover_until_move:
-            self._suppress_hover_until_move = False
-            self._hover = self._hover_y = None
-        y = pos.y()
-        hy = self._hover_y
-        if hy is not None and hy[0] <= y < hy[1]:
-            return                              # ayni satir: ucuz cikis
-        idx = self.tree.indexAt(pos)
-        if idx.isValid():
-            r = self.tree.visualRect(idx)
-            self._hover_y = (r.top(), r.bottom() + 1)
-        else:
-            self._hover_y = None
-        hov = self._object_index(idx)
-        if _same_index(hov, self._hover):
-            return
-        self._hover = hov
-        self._apply_hover()
-
-    def _on_leave(self):
-        # fare butonlarin uzerindeyken de vp "underMouse" sayilir
-        if self.vp.underMouse():
-            return
-        self._hover = self._hover_y = None
-        self.hover_box.hide()
 
     def _context_pos(self, ev):
         try:
@@ -524,15 +491,11 @@ class _RowButtons(QtCore.QObject):
         if obj is not self.vp:
             return False
         t = ev.type()
-        if t == QtCore.QEvent.MouseMove:
-            self._on_move(_event_pos(ev))
-        elif t == QtCore.QEvent.Leave:
-            QtCore.QTimer.singleShot(0, self._on_leave)
-        elif t == QtCore.QEvent.Resize:
-            self._on_moved()
-        elif t == QtCore.QEvent.ContextMenu:
+        if t == _EV_RESIZE:
+            self._on_resized()
+        elif t == _EV_CONTEXT:
             self.on_context(self._context_pos(ev))
-        elif t == QtCore.QEvent.MouseButtonPress and ev.button() == QtCore.Qt.RightButton:
+        elif t == _EV_PRESS and ev.button() == _RIGHT_BTN:
             # ContextMenu olayi her durumda (or. butonlarin ustunde) gelmeyebilir: sag tus
             # basilirken de menuyu bekleyen kanca kurulur
             self.on_context(_event_pos(ev), True)
@@ -610,9 +573,9 @@ class _ViewRightClick:
             if state not in ("DOWN", "UP"):
                 return
             button = info.get("Button")
-            _dbg(f"3D mouse callback: state={state}, button={button!r}")
             if button not in ("BUTTON2", "BUTTON3", 2, 3):
-                return
+                return                  # tekerlek / sol tus: log ve baska is yok
+            _dbg(f"3D mouse callback: state={state}, button={button!r}")
             self.on_right_click(state)
         except Exception:
             pass
@@ -655,7 +618,7 @@ class _MenuInjector(QtCore.QObject):
                 pass
 
     def eventFilter(self, obj, ev):
-        if ev.type() == QtCore.QEvent.Show and isinstance(obj, QtWidgets.QMenu):
+        if ev.type() == _EV_SHOW and isinstance(obj, QtWidgets.QMenu):
             if _menu_qualifies(obj):
                 _dbg(f"root menu shown: parent={type(obj.parentWidget()).__name__ if obj.parentWidget() else 'None'}, actions={len(obj.actions())}")
                 self._armed_menu(obj)
@@ -667,6 +630,9 @@ class _MenuInjector(QtCore.QObject):
         try:
             for delay in (0, 40, 120, 250):
                 QtCore.QTimer.singleShot(delay, lambda m=menu: self._inject_if_alive(m))
+            # Menu yakalandi; enjeksiyon zamanlayicilarla surer, uygulama capindaki
+            # (her olayi Python'a ugratan) filtre artik gereksiz
+            QtCore.QTimer.singleShot(0, self.disarm)
         except Exception as e:
             _log(f"menu injection scheduling failed - {e}")
 
@@ -745,6 +711,8 @@ class _PropertyPopup(QtWidgets.QFrame):
         self._proxy_bound = None   
         self._proxy_lock = False
         self._fit_views = []
+        self._editor_cache = []   # PropertyEditor agaclari (findChildren her seferinde yapilmasin)
+        self._mdi = None
         self._fit_timer = QtCore.QTimer(self)
         self._fit_timer.setSingleShot(True)
         self._fit_timer.setInterval(20)
@@ -822,6 +790,22 @@ class _PropertyPopup(QtWidgets.QFrame):
         self._grips = [_Grip(self, e) for e in ("l", "r")]
         self.hide()
 
+    def _editors(self):
+        if self.pv is None:
+            return []
+        ed = [v for v in self._editor_cache if _is_valid(v)]
+        if not ed:
+            ed = _find_property_editors(self.pv)
+        self._editor_cache = ed
+        return ed
+
+    def _mdi_area(self):
+        m = self._mdi
+        if m is None or not _is_valid(m):
+            m = self.mw.findChild(QtWidgets.QMdiArea)
+            self._mdi = m
+        return m
+
     # -- boyutlandirma
     def resizeEvent(self, ev):
         super().resizeEvent(ev)
@@ -851,7 +835,9 @@ class _PropertyPopup(QtWidgets.QFrame):
         if "l" in edges:
             x = g0.right() + 1 - w      
         x = max(4, min(x, mw.width() - w - 4))
-        self.setGeometry(x, g0.y(), w, h)
+        new = QtCore.QRect(x, g0.y(), w, h)
+        if new != self.geometry():          # sinira dayaliyken bos yere yerlesim tetikleme
+            self.setGeometry(new)
 
     def save_size(self):
         self._size = QtCore.QSize(self.width(), self.height())
@@ -886,7 +872,7 @@ class _PropertyPopup(QtWidgets.QFrame):
         pv.setSizePolicy(QtWidgets.QSizePolicy.Ignored, QtWidgets.QSizePolicy.Ignored)
         self.body.insertWidget(0, pv, 1)
         pv.show()
-        self._repolish(pv)          # popup'a ozel QSS (#cpPropertyPopupBody ...) uygulansin
+        self._repolish(pv, self._editors())          # popup'a ozel QSS (#cpPropertyPopupBody ...) uygulansin
         self._hide_native_vscroll()
         self._connect_fit()
         return True
@@ -896,7 +882,7 @@ class _PropertyPopup(QtWidgets.QFrame):
         self._disconnect_fit()
         if self.pv is None:
             return
-        for view in _find_property_editors(self.pv):
+        for view in self._editors():
             self._fit_views.append(view)
             for sig in (view.expanded, view.collapsed):
                 sig.connect(self._schedule_fit)
@@ -936,14 +922,14 @@ class _PropertyPopup(QtWidgets.QFrame):
                 pass
 
     @staticmethod
-    def _repolish(pv):
+    def _repolish(pv, editors=None):
         try:
             widgets = [pv] + pv.findChildren(QtWidgets.QWidget)
             for w in widgets:
                 st = w.style()
                 st.unpolish(w)
                 st.polish(w)
-            for view in _find_property_editors(pv):
+            for view in (editors if editors is not None else _find_property_editors(pv)):
                 view.viewport().update()
         except RuntimeError:
             pass
@@ -952,7 +938,7 @@ class _PropertyPopup(QtWidgets.QFrame):
     def _hide_native_vscroll(self):
         if self.pv is None or self._vscroll_policies:
             return
-        for view in _find_property_editors(self.pv):
+        for view in self._editors():
             try:
                 self._vscroll_policies.append((view, view.verticalScrollBarPolicy()))
                 view.setVerticalScrollBarPolicy(QtCore.Qt.ScrollBarAlwaysOff)
@@ -1032,7 +1018,7 @@ class _PropertyPopup(QtWidgets.QFrame):
     def _current_editor(self):
         if self.pv is None:
             return None
-        for v in _find_property_editors(self.pv):
+        for v in self._editors():
             if v.isVisibleTo(self):
                 return v
         return None
@@ -1058,10 +1044,10 @@ class _PropertyPopup(QtWidgets.QFrame):
         if view is None:
             return
         rows = self._rows_height(view)
+        graph_h = self._graph_rect().height()      # dongu icinde degismez
         for _ in range(2):          # cerceve payi olculerek bulunur; 2. tur dogrular
             chrome = self.height() - view.viewport().height()
-            max_h = max(POPUP_MIN_H, min(self._graph_rect().height(),
-                                         self.mw.height() - self.y() - 4))
+            max_h = max(POPUP_MIN_H, min(graph_h, self.mw.height() - self.y() - 4))
             h = max(POPUP_MIN_H, min(rows + chrome, max_h))
             # Icerik kullanilabilir yukseklige sigmiyorsa proxy scrollbar gerekir
             self._update_proxy(view, rows + chrome > max_h + 1)
@@ -1101,8 +1087,9 @@ class _PropertyPopup(QtWidgets.QFrame):
                         lay.addWidget(pv)
             except Exception as e:
                 _log(f"Property view could not be restored - {e}")
-            self._repolish(pv)      # dock'taki (TabWidget) boyamasina geri don
+            self._repolish(pv, self._editors())      # dock'taki (TabWidget) boyamasina geri don
             self.pv = None
+            self._editor_cache = []
             self._origin = None
         self.setMinimumSize(POPUP_MIN_W, POPUP_MIN_H)
         self.hide()
@@ -1111,7 +1098,7 @@ class _PropertyPopup(QtWidgets.QFrame):
     # -- gosterme
     def _graph_rect(self):
         try:
-            mdi = self.mw.findChild(QtWidgets.QMdiArea)
+            mdi = self._mdi_area()
             sub = mdi.activeSubWindow() if mdi is not None else None
             if sub is not None and sub.isVisible():
                 content = sub.widget()
@@ -1178,6 +1165,7 @@ class _Controller(QtCore.QObject):
         self.buttons = _RowButtons(tree, self.open_for, self._tree_context,
                                    self._on_tree_dead, mw)
         self._rebind_tries = 0
+        self._pv_cache = None
         self.view_hook = _ViewRightClick(mw, self._view_context)
 
         self._poll = QtCore.QTimer(self)
@@ -1220,8 +1208,17 @@ class _Controller(QtCore.QObject):
         if self.enabled:
             self.buttons.enable()
 
+    def _get_pv(self):
+        pv = self.popup.pv
+        if pv is None:
+            pv = self._pv_cache
+            if pv is None or not _is_valid(pv):
+                pv = _find_property_view(self.mw)     # tum widget agacini gezer; bir kez
+                self._pv_cache = pv
+        return pv
+
     def _set_pv_visible(self, visible):
-        pv = self.popup.pv or _find_property_view(self.mw)
+        pv = self._get_pv()
         if pv is None:
             return
         parent = pv.parentWidget()
@@ -1238,7 +1235,6 @@ class _Controller(QtCore.QObject):
         if on:
             self.buttons.enable()
             self.view_hook.enable()
-            self.mw.installEventFilter(self)   
             self._set_pv_visible(False)
         else:
             self.menu_hook.disarm()             
@@ -1253,7 +1249,7 @@ class _Controller(QtCore.QObject):
 
     # -- popup acma
     def _open_popup(self, tab, global_y, center=False):
-        pv = self.popup.pv or _find_property_view(self.mw)
+        pv = self._get_pv()
         if pv is None:
             _log("Property view not found.")
             return False
@@ -1272,9 +1268,12 @@ class _Controller(QtCore.QObject):
     def _select_row(self, tree, idx):
         sm = tree.selectionModel()
         if sm.isSelected(idx):
-            targets = [i for i in sm.selectedIndexes() if i.column() == 0] or [idx]
-        else:
-            targets = [idx]
+            # Satir zaten secili (butonlar yalniz secili satirda cikar): clearSelection + yeniden
+            # secim, secim sinyalleriyle butonlari gizleyip yeniden olusturuyor ve FreeCAD
+            # secimini bosaltip tekrar dolduruyordu. Secime dokunma, yalniz current'i guncelle.
+            sm.setCurrentIndex(idx, QtCore.QItemSelectionModel.NoUpdate)
+            return
+        targets = [idx]
         tree.clearSelection()
         for i in targets:
             sm.select(i, QtCore.QItemSelectionModel.Select)
@@ -1405,9 +1404,9 @@ class _Controller(QtCore.QObject):
 
     def eventFilter(self, obj, ev):
         t = ev.type()
-        if t == QtCore.QEvent.Close and obj is self.mw:
-            self.popup.detach()
-        elif t == QtCore.QEvent.MouseButtonPress and self.popup.isVisible():
+        if t == _EV_PRESS:
+            if not self.popup.isVisible():
+                return False
             if not isinstance(obj, QtWidgets.QWidget):
                 return False
             if obj.window() is not self.mw:
@@ -1416,6 +1415,8 @@ class _Controller(QtCore.QObject):
                 return False
             if self.buttons.owns(obj):
                 return False
+            self.popup.detach()
+        elif t == _EV_CLOSE and obj is self.mw:
             self.popup.detach()
         return False
 

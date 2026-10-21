@@ -282,8 +282,6 @@ def lockColorPreferences():
     if not mw or not app:
         return
 
-    widgets_to_lock = ("backgroundColorFrom", "backgroundColorTo", "backgroundColorMid", "checkMidColor", "SwitchGradientColors")
-
     def applyLock():
         if mw.__dict__.get("_cp_sync_disabled"):
             return
@@ -292,13 +290,8 @@ def lockColorPreferences():
             return
 
         linear_btn = dialog.findChild(QtWidgets.QRadioButton, "radioButtonGradient")
-        gradient_active = linear_btn is not None and linear_btn.isChecked()
 
-        for name in widgets_to_lock:
-            w = dialog.findChild(QtWidgets.QWidget, name)
-            if w:
-                w.setEnabled(not gradient_active)
-
+        # gradient renk kilidi (widget enable/disable) InitGui'ye tasindi (_apply_gradient_lock)
         if linear_btn and not linear_btn.property("locked_connected"):
             
             def make_toggle_handler(s, g, r):
@@ -310,9 +303,6 @@ def lockColorPreferences():
                         p.SetBool("Gradient", g)
                         p.SetBool("RadialGradient", r)
                     except Exception: pass
-                    for n in widgets_to_lock:
-                        w = dialog.findChild(QtWidgets.QWidget, n)
-                        if w: w.setEnabled(not g)
                     fn = mw.__dict__.get("_sync_viewport_color_fn")
                     if g and fn: fn()
                 return handler

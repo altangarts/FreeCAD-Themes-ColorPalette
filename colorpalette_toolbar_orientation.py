@@ -1,5 +1,4 @@
 
-
 import FreeCAD
 
 try:
@@ -10,6 +9,9 @@ except ImportError:
 PROP_NAME = "cpOrient"
 _FILTER_ATTR = "_cp_toolbar_orient_filter"
 _P_HOOKED = "_cpOrientHooked"
+
+_EV_CHILD_ADDED = QtCore.QEvent.ChildAdded
+_EV_RESIZE = QtCore.QEvent.Resize
 
 
 def _orient_name(tb):
@@ -39,6 +41,12 @@ class _OrientationFilter(QtCore.QObject):
         self._timer.setInterval(0)   # yerlesim bittikten sonra, bir olay turu gecikmeli
         self._timer.timeout.connect(self._process)
 
+        # ChildAdded firtinasini tek taramaya indirir (trailing debounce)
+        self._hook_timer = QtCore.QTimer(self)
+        self._hook_timer.setSingleShot(True)
+        self._hook_timer.setInterval(200)
+        self._hook_timer.timeout.connect(self.hook_all)
+
     def _queue(self, tb):
         self._pending.add(tb)
         if not self._timer.isActive():
@@ -60,6 +68,9 @@ class _OrientationFilter(QtCore.QObject):
                     f"ColorPalette: toolbar_orientation hata - {str(e)}\n"
                 )
 
+    def schedule_hook(self):
+        self._hook_timer.start()    # zaten aktifse yeniden baslatir
+
     def hook_all(self):
         for tb in self._mw.findChildren(QtWidgets.QToolBar):
             if tb.property(_P_HOOKED):
@@ -74,12 +85,11 @@ class _OrientationFilter(QtCore.QObject):
 
     def eventFilter(self, obj, event):
         t = event.type()
-        if obj is self._mw:
-            if t == QtCore.QEvent.ChildAdded:
-                QtCore.QTimer.singleShot(200, self.hook_all)
-        elif t == QtCore.QEvent.Resize:
-            if obj.property(PROP_NAME) != _orient_name(obj):
+        if t == _EV_RESIZE:
+            if obj is not self._mw and obj.property(PROP_NAME) != _orient_name(obj):
                 self._queue(obj)
+        elif t == _EV_CHILD_ADDED and obj is self._mw:
+            self._hook_timer.start()
         return False
 
 

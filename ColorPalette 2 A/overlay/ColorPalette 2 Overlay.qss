@@ -15,8 +15,8 @@ Gui--PropertyEditor--PropertyEditor {
   qproperty-itemBackground: transparent;
   qproperty-groupTextColor: #f5c5f5;
   qproperty-groupTextColor: @ColorPaletteTextHeaderOverlay;
-  alternate-background-color: transparent;
-  gridline-color: @ThemeAccentColor3;
+  alternate-background-color: transparent;  gridline-color: @ThemeAccentColor3;
+
   gridline-color: @ColorPalettePropertyGridlineOverlay;
   color: #ffff69;
   color: @ColorPaletteTextPropertyEditor;
@@ -228,7 +228,7 @@ QTabWidget QDialog QPushButton:pressed {
   color: #ffffff;
 }
 
-QTabWidget QTabBar::tab:bottom {
+QTabWidget QTabBar::tab {
   background-color: qlineargradient(x1:0, y1:0.3, x2:0, y2:1, stop:0 rgba(250,250,250,0.2), stop:1 rgba(0,0,0,0.1));
   color: #eeeeee;
   color: @ColorPaletteTextGeneralBottom;
@@ -244,20 +244,20 @@ QTabWidget QTabBar::tab:bottom {
   margin: 0px 2px 0px 1px;
 }
 
-QTabWidget QTabBar::tab:bottom:selected {
+QTabWidget QTabBar::tab:selected {
   background-color: @ThemeAccentColor1;
   border: 1px solid transparent;
   color: #ffffff;
   font-weight: bold;
 }
 
-QTabWidget QTabBar::tab:bottom:hover {
+QTabWidget QTabBar::tab:hover {
   background-color: @ThemeAccentColor1;
   background-color: qlineargradient(x1:0, y1:0.3, x2:0, y2:1, stop:0 @ColorPaletteHover1, stop:1 @ColorPaletteHover2);
   color: #ffffff;
 }
 
-QTabWidget QTabBar::tab:bottom:selected:hover {
+QTabWidget QTabBar::tab:selected:hover {
   background-color: @ColorPaletteHover;
   border: 1px solid transparent;
   color: #ffffff;
@@ -698,6 +698,11 @@ Gui--OverlayToolButton[objectName="OBTN Transparent"] {
 
 Gui--OverlayToolButton[objectName="OBTN Transparent"]:hover {
   image: url(qss:images_classic/transparent-white.svg);
+}
+
+Gui--OverlayToolButton[objectName="OBTN Transparent"]:disabled {
+  background-color: qlineargradient(x1:0, y1:0.3, x2:0, y2:1, stop:0 rgba(250,250,250,0.1), stop:1 rgba(0,0,0,0.35));
+  image: url(qss:images_classic/transparent-disabled.svg);
 }
 
 Gui--OverlayToolButton[objectName="OBTN Overlay"] {
