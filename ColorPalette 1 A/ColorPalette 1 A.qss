@@ -1813,7 +1813,7 @@ QDialog QToolButton:disabled {
   min-width: 18px;
   min-height: 18px;
   margin: 2px;
-  padding: 4px;
+  padding: 1px 4px 0px 4px;
 }
 
 QDialog QToolButton:hover,
@@ -3719,7 +3719,8 @@ QDialog QWidget QListView {
   border-radius: 10px;
   padding: 5px;
   selection-background-color: transparent;
-  selection-color: #ffffff;
+  selection-color: #ffffff;    
+  alternate-background-color: rgba(0,0,0,0.1);
 }
 
 QDialog QWidget QListView::item:selected {

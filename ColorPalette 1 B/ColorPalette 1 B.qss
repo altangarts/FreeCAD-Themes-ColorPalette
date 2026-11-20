@@ -1227,7 +1227,9 @@ QMenuBar QToolBar::separator:horizontal {
 QAbstractSpinBox,
 QSpinBox,
 QDoubleSpinBox,
-QDialog QAbstractSpinBox {
+QDialog QAbstractSpinBox,
+QDialog QSpinBox,
+QDialog QDoubleSpinBox {
   background-color: rgba(250,250,250,0.05);
   border: 1px solid rgba(0,0,0,0.15);
   color: #ffff69;
@@ -1830,7 +1832,7 @@ QDialog QToolButton:disabled {
   min-width: 18px;
   min-height: 18px;
   margin: 2px;
-  padding: 4px;
+  padding: 1px 4px 0px 4px;
 }
 
 QDialog QToolButton:hover,
@@ -3717,6 +3719,7 @@ QDialog QWidget QListView {
   padding: 5px;
   selection-background-color: transparent;
   selection-color: #ffffff;
+  alternate-background-color: rgba(0,0,0,0.1);
 }
 
 QDialog QWidget QListView::item:selected {
